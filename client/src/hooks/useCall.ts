@@ -58,6 +58,7 @@ export function useCall(user: User | null, token: string | null) {
     pcRef,
     remoteStream,
     connectionState,
+    iceState,
     createPeerConnection,
     makeOffer,
     handleOffer,
@@ -138,7 +139,7 @@ export function useCall(user: User | null, token: string | null) {
         
         // Host initiates the offer to the newly joined peer
         createPeerConnection(cleanRoomId, activeLocalStream);
-        makeOffer(cleanRoomId);
+        makeOffer(cleanRoomId, activeLocalStream);
       },
 
       onPeerLeft: (data) => {
@@ -493,6 +494,7 @@ export function useCall(user: User | null, token: string | null) {
     localStream,
     remoteStream,
     connectionState,
+    iceState,
     isMicMuted,
     isCameraOff,
     isScreenSharing,

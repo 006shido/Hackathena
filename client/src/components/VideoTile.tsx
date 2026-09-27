@@ -34,7 +34,9 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     if (!video) return;
 
     if (stream) {
-      video.srcObject = stream;
+      if (video.srcObject !== stream) {
+        video.srcObject = stream;
+      }
 
       const attemptPlay = async () => {
         try {

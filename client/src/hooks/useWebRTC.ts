@@ -6,17 +6,12 @@ const RTC_CONFIG: RTCConfiguration = {
     { urls: 'stun:stun.l.google.com:19302' },
     { urls: 'stun:stun1.l.google.com:19302' },
     { urls: 'stun:stun2.l.google.com:19302' },
+    { urls: 'stun:stun3.l.google.com:19302' },
+    { urls: 'stun:stun4.l.google.com:19302' },
     { urls: 'stun:stun.cloudflare.com:3478' },
+    { urls: 'stun:stun.nextcloud.com:443' },
+    { urls: 'stun:stun.nextcloud.com:3478' },
     { urls: 'stun:global.stun.twilio.com:3478' },
-    {
-      urls: [
-        'turn:openrelay.metered.ca:80',
-        'turn:openrelay.metered.ca:443',
-        'turn:openrelay.metered.ca:443?transport=tcp',
-      ],
-      username: 'openrelayproject',
-      credential: 'openrelayproject',
-    },
   ],
   iceCandidatePoolSize: 10,
 };
@@ -34,6 +29,7 @@ export function useWebRTC() {
   const [remoteStream, setRemoteStream] = useState<MediaStream | null>(null);
   const remoteStreamInstanceRef = useRef<MediaStream>(new MediaStream());
   const [connectionState, setConnectionState] = useState<WebRTCConnectionState>('new');
+  const [iceState, setIceState] = useState<RTCIceConnectionState>('new');
   const queuedCandidates = useRef<RTCIceCandidateInit[]>([]);
   const isInitiator = useRef<boolean>(false);
 
@@ -48,8 +44,12 @@ export function useWebRTC() {
       if (localStream) {
         const senders = pcRef.current.getSenders();
         localStream.getTracks().forEach((track) => {
-          const hasSender = senders.some((s) => s.track?.id === track.id || s.track?.kind === track.kind);
-          if (!hasSender) {
+          const matchingSender = senders.find((s) => s.track?.kind === track.kind);
+          if (matchingSender) {
+            if (matchingSender.track !== track) {
+              matchingSender.replaceTrack(track).catch(() => {});
+            }
+          } else {
             try {
               pcRef.current?.addTrack(track, localStream);
               console.log(`[WebRTC] Attached missing local track: ${track.kind} (${track.id})`);
@@ -73,7 +73,7 @@ export function useWebRTC() {
       pcRef.current = null;
     }
 
-    console.log('[WebRTC] Initializing new RTCPeerConnection with STUN + TURN...');
+    console.log('[WebRTC] Initializing new RTCPeerConnection with high-availability STUN servers...');
     const pc = new RTCPeerConnection(RTC_CONFIG);
     pcRef.current = pc;
     queuedCandidates.current = [];
@@ -97,18 +97,15 @@ export function useWebRTC() {
     pc.ontrack = (event) => {
       console.log('[WebRTC] Received remote track:', event.track.kind, event.track.id);
       
-      if (!remoteStreamInstanceRef.current.getTrackById(event.track.id)) {
-        remoteStreamInstanceRef.current.addTrack(event.track);
+      const targetStream = (event.streams && event.streams[0])
+        ? event.streams[0]
+        : remoteStreamInstanceRef.current;
+
+      if (!targetStream.getTrackById(event.track.id)) {
+        targetStream.addTrack(event.track);
       }
 
-      event.track.onunmute = () => {
-        console.log('[WebRTC] Remote track unmuted (packets arriving):', event.track.kind);
-        setRemoteStream(new MediaStream(remoteStreamInstanceRef.current.getTracks()));
-      };
-
-      // Update state with cloned MediaStream so React always triggers re-render
-      const freshStream = new MediaStream(remoteStreamInstanceRef.current.getTracks());
-      setRemoteStream(freshStream);
+      setRemoteStream(targetStream);
     };
 
     // Handle ICE candidates generated locally
@@ -127,12 +124,13 @@ export function useWebRTC() {
 
     pc.oniceconnectionstatechange = () => {
       console.log('[WebRTC] ICE connection state change:', pc.iceConnectionState);
+      setIceState(pc.iceConnectionState);
     };
 
     return pc;
   }, []);
 
-  const makeOffer = useCallback(async (roomId: string): Promise<void> => {
+  const makeOffer = useCallback(async (roomId: string, localStream?: MediaStream | null): Promise<void> => {
     const pc = pcRef.current;
     if (!pc) {
       console.warn('[WebRTC] Cannot make offer: No RTCPeerConnection');
@@ -141,6 +139,24 @@ export function useWebRTC() {
 
     try {
       isInitiator.current = true;
+      if (localStream) {
+        const senders = pc.getSenders();
+        localStream.getTracks().forEach((track) => {
+          const matchingSender = senders.find((s) => s.track?.kind === track.kind);
+          if (matchingSender) {
+            if (matchingSender.track !== track) {
+              matchingSender.replaceTrack(track).catch(() => {});
+            }
+          } else {
+            try {
+              pc.addTrack(track, localStream);
+            } catch (err) {
+              console.warn('[WebRTC] makeOffer addTrack error:', err);
+            }
+          }
+        });
+      }
+
       console.log('[WebRTC] Creating offer...');
       const offer = await pc.createOffer({
         offerToReceiveAudio: true,
@@ -168,23 +184,40 @@ export function useWebRTC() {
       isInitiator.current = false;
       console.log('[WebRTC] Handling offer in state:', pc.signalingState);
 
-      // Handle offer collision / glare with rollback
+      // Ensure local tracks are attached before answering!
+      if (localStream) {
+        const senders = pc.getSenders();
+        localStream.getTracks().forEach((track) => {
+          const matchingSender = senders.find((s) => s.track?.kind === track.kind);
+          if (matchingSender) {
+            if (matchingSender.track !== track) {
+              matchingSender.replaceTrack(track).catch(() => {});
+            }
+          } else {
+            try {
+              pc?.addTrack(track, localStream);
+              console.log(`[WebRTC] handleOffer attached local track: ${track.kind}`);
+            } catch (err) {
+              console.warn('[WebRTC] handleOffer addTrack error:', err);
+            }
+          }
+        });
+      }
+
+      // Handle offer collision / glare with sequential rollback
       if (pc.signalingState !== 'stable') {
         console.warn('[WebRTC] Offer received while in non-stable state, rolling back local description');
-        await Promise.all([
-          pc.setLocalDescription({ type: 'rollback' }),
-          pc.setRemoteDescription(new RTCSessionDescription(sdp)),
-        ]);
-      } else {
-        await pc.setRemoteDescription(new RTCSessionDescription(sdp));
+        await pc.setLocalDescription({ type: 'rollback' });
       }
+
+      await pc.setRemoteDescription(new RTCSessionDescription(sdp));
 
       // Process any queued candidates
       while (queuedCandidates.current.length > 0) {
         const cand = queuedCandidates.current.shift();
-        if (cand) {
+        if (cand && cand.candidate) {
           try {
-            await pc.addIceCandidate(new RTCIceCandidate(cand));
+            await pc.addIceCandidate(cand);
           } catch (e) {
             console.warn('[WebRTC] Failed to add queued ICE candidate', e);
           }
@@ -216,9 +249,9 @@ export function useWebRTC() {
       // Process queued candidates
       while (queuedCandidates.current.length > 0) {
         const cand = queuedCandidates.current.shift();
-        if (cand) {
+        if (cand && cand.candidate) {
           try {
-            await pc.addIceCandidate(new RTCIceCandidate(cand));
+            await pc.addIceCandidate(cand);
           } catch (e) {
             console.warn('[WebRTC] Failed to add queued ICE candidate', e);
           }
@@ -231,11 +264,11 @@ export function useWebRTC() {
 
   const handleIceCandidate = useCallback(async (candidate: RTCIceCandidateInit): Promise<void> => {
     const pc = pcRef.current;
-    if (!pc) return;
+    if (!pc || !candidate || !candidate.candidate) return;
 
     try {
       if (pc.remoteDescription && pc.remoteDescription.type) {
-        await pc.addIceCandidate(new RTCIceCandidate(candidate));
+        await pc.addIceCandidate(candidate);
       } else {
         queuedCandidates.current.push(candidate);
       }
@@ -299,6 +332,7 @@ export function useWebRTC() {
     pcRef,
     remoteStream,
     connectionState,
+    iceState,
     createPeerConnection,
     makeOffer,
     handleOffer,

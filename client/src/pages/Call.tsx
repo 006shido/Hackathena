@@ -38,6 +38,8 @@ export const CallPage: React.FC<CallPageProps> = ({
     peerInfo,
     localStream,
     remoteStream,
+    connectionState,
+    iceState,
     isMicMuted,
     isCameraOff,
     isScreenSharing,
@@ -127,6 +129,8 @@ export const CallPage: React.FC<CallPageProps> = ({
         username={user.name}
         role={user.role}
         participantCount={participantCount}
+        connectionState={connectionState}
+        iceState={iceState}
       />
 
       {/* Main Workspace Layout */}

@@ -7,12 +7,16 @@ interface RoomHeaderProps {
   username: string;
   role: UserRole;
   participantCount: number;
+  connectionState?: string;
+  iceState?: string;
 }
 
 export const RoomHeader: React.FC<RoomHeaderProps> = ({
   roomId,
   role,
   participantCount,
+  connectionState,
+  iceState,
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -41,8 +45,8 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
         </div>
       </div>
 
-      {/* Room ID Badge, Count & Role */}
-      <div className="flex items-center gap-1.5 sm:gap-3">
+      {/* Room ID Badge, Count, WebRTC State & Role */}
+      <div className="flex items-center gap-1.5 sm:gap-2.5">
         <div className="flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl bg-slate-900/90 px-2 py-1 sm:px-3 sm:py-1.5 border border-slate-800 shadow-sm">
           <span className="text-[11px] sm:text-xs text-slate-400 font-mono hidden sm:inline">Room:</span>
           <span className="text-[11px] sm:text-xs font-mono font-bold text-cyan-300 tracking-wider">{roomId}</span>
@@ -61,6 +65,33 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
           <span>{participantCount}/2</span>
           <span className={`h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full ${participantCount === 2 ? 'bg-emerald-400' : 'bg-amber-400 animate-pulse'}`} />
         </div>
+
+        {/* WebRTC P2P ICE State Badge */}
+        {participantCount === 2 && (
+          <div className="hidden md:flex items-center gap-1.5 rounded-lg sm:rounded-xl bg-slate-900/90 px-2.5 py-1 sm:py-1.5 border border-slate-800 text-[10px] font-mono">
+            <span className={`h-1.5 w-1.5 rounded-full ${
+              iceState === 'connected' || iceState === 'completed'
+                ? 'bg-emerald-400'
+                : iceState === 'checking'
+                ? 'bg-cyan-400 animate-ping'
+                : iceState === 'failed'
+                ? 'bg-rose-500'
+                : 'bg-amber-400'
+            }`} />
+            <span className="text-slate-400">P2P:</span>
+            <span className={`${
+              iceState === 'connected' || iceState === 'completed'
+                ? 'text-emerald-300 font-bold'
+                : iceState === 'checking'
+                ? 'text-cyan-300 font-bold'
+                : iceState === 'failed'
+                ? 'text-rose-400 font-bold'
+                : 'text-amber-300'
+            }`}>
+              {iceState === 'connected' || iceState === 'completed' ? 'SECURE P2P' : iceState ? iceState.toUpperCase() : (connectionState || 'CONNECTING').toUpperCase()}
+            </span>
+          </div>
+        )}
 
         {/* Role badge */}
         {role === 'tester' ? (
