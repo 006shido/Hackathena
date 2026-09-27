@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { MicOff, VideoOff, Shield, User as UserIcon } from 'lucide-react';
+import { MicOff, VideoOff, Shield, User as UserIcon, VolumeX, Volume2 } from 'lucide-react';
 import { UserRole } from '../types/auth';
 
 interface VideoTileProps {
@@ -27,6 +27,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [, setTrackRevision] = useState<number>(0);
+  const [audioBlocked, setAudioBlocked] = useState<boolean>(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -34,15 +35,35 @@ export const VideoTile: React.FC<VideoTileProps> = ({
 
     if (stream) {
       video.srcObject = stream;
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((err: unknown) => {
-          console.log('[VideoTile] Autoplay wait or interaction required:', (err as Error)?.message);
-        });
-      }
+
+      const attemptPlay = async () => {
+        try {
+          // If local, always keep muted to prevent acoustic feedback
+          if (isLocal) {
+            video.muted = true;
+          }
+          await video.play();
+          setAudioBlocked(false);
+        } catch (err: unknown) {
+          console.warn('[VideoTile] Autoplay prevented, retrying with muted audio fallback:', (err as Error)?.message);
+          // If browser blocked unmuted video, mute it to ensure video frames display immediately!
+          if (!isLocal) {
+            video.muted = true;
+            try {
+              await video.play();
+              setAudioBlocked(true);
+            } catch (playErr) {
+              console.error('[VideoTile] Video play error after mute:', playErr);
+            }
+          }
+        }
+      };
+
+      attemptPlay();
 
       const handleTracksChange = () => {
         setTrackRevision((prev: number) => prev + 1);
+        attemptPlay();
       };
 
       stream.addEventListener('addtrack', handleTracksChange);
@@ -55,26 +76,39 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     } else {
       video.srcObject = null;
     }
-  }, [stream]);
+  }, [stream, isLocal]);
+
+  const handleUnmuteClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current && !isLocal) {
+      videoRef.current.muted = false;
+      videoRef.current.play().then(() => {
+        setAudioBlocked(false);
+      }).catch((err) => {
+        console.warn('Unmute error:', err);
+      });
+    }
+  };
 
   const hasVideoTrack = stream && stream.getVideoTracks().length > 0 && stream.getVideoTracks()[0].enabled && !isVideoOff;
 
   return (
     <div
+      onClick={audioBlocked ? handleUnmuteClick : undefined}
       className={`relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-950/90 shadow-2xl backdrop-blur-md transition-all duration-300 ${
         isFloating
           ? 'absolute bottom-3 right-3 sm:bottom-6 sm:right-6 z-20 w-28 sm:w-44 md:w-56 aspect-[3/4] sm:aspect-video ring-1 sm:ring-2 ring-cyan-500/40 shadow-cyan-950/40 hover:scale-105'
           : 'w-full h-full min-h-0'
       } ${className}`}
     >
-      {/* Video Element */}
+      {/* Video Element (Positioned absolute inset-0 to guarantee it never collapses in flex containers) */}
       {stream && (
         <video
           ref={videoRef}
           autoPlay
           playsInline
-          muted={isLocal} // Always mute local video to avoid echo
-          className={`h-full w-full object-cover transition-opacity duration-300 ${
+          muted={isLocal}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
             hasVideoTrack ? 'opacity-100' : 'opacity-0'
           } ${isLocal ? 'scale-x-[-1]' : ''}`}
         />
@@ -82,19 +116,19 @@ export const VideoTile: React.FC<VideoTileProps> = ({
 
       {/* Video Disabled / Offline State */}
       {!hasVideoTrack && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 text-slate-400">
-          <div className="relative mb-3 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800/80 border border-slate-700/60 shadow-inner">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 text-slate-400 p-4">
+          <div className="relative mb-3 flex h-14 w-14 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-slate-800/80 border border-slate-700/60 shadow-inner">
             {role === 'tester' ? (
-              <Shield className="h-10 w-10 text-amber-400/90" />
+              <Shield className="h-7 w-7 sm:h-10 sm:w-10 text-amber-400/90" />
             ) : (
-              <UserIcon className="h-10 w-10 text-cyan-400/90" />
+              <UserIcon className="h-7 w-7 sm:h-10 sm:w-10 text-cyan-400/90" />
             )}
-            <div className="absolute -bottom-1 -right-1 rounded-full bg-slate-900 p-1.5 border border-slate-700">
-              <VideoOff className="h-4 w-4 text-rose-400" />
+            <div className="absolute -bottom-1 -right-1 rounded-full bg-slate-900 p-1 sm:p-1.5 border border-slate-700">
+              <VideoOff className="h-3 w-3 sm:h-4 sm:w-4 text-rose-400" />
             </div>
           </div>
-          <span className="text-sm font-medium text-slate-300">Camera is disabled</span>
-          <span className="text-xs text-slate-500 font-mono mt-0.5">{username}</span>
+          <span className="text-xs sm:text-sm font-medium text-slate-300">Camera is off</span>
+          <span className="text-[11px] text-slate-500 font-mono mt-0.5">{username}</span>
         </div>
       )}
 
@@ -106,7 +140,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
       <div className="pointer-events-none absolute bottom-2 right-2 h-2.5 w-2.5 border-b-2 border-r-2 border-cyan-500/50" />
 
       {/* Top Left: Role & Identity Tag */}
-      <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 flex items-center gap-1.5 sm:gap-2">
+      <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 flex items-center gap-1.5 sm:gap-2 pointer-events-none">
         <div className={`flex items-center gap-1 sm:gap-1.5 rounded-md bg-slate-900/85 px-1.5 py-0.5 sm:px-2.5 sm:py-1 font-mono font-medium backdrop-blur-md border border-slate-700/50 shadow-sm ${
           isFloating ? 'text-[10px] sm:text-xs' : 'text-xs'
         }`}>
@@ -115,7 +149,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
           {isLocal && <span className="text-[9px] sm:text-[10px] text-cyan-400 font-sans hidden xs:inline">(You)</span>}
         </div>
 
-        {/* Role Badge - hidden on small floating tiles */}
+        {/* Role Badge */}
         {!isFloating && (
           role === 'tester' ? (
             <span className="flex items-center gap-1 rounded bg-amber-500/20 px-2 py-0.5 text-[10px] font-mono font-semibold text-amber-300 border border-amber-500/40 uppercase tracking-wider">
@@ -130,19 +164,30 @@ export const VideoTile: React.FC<VideoTileProps> = ({
         )}
       </div>
 
+      {/* Autoplay Audio Block Banner (Click to Unmute) */}
+      {audioBlocked && !isLocal && (
+        <button
+          onClick={handleUnmuteClick}
+          className="absolute top-3 right-3 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/90 hover:bg-amber-400 text-slate-950 font-mono text-xs font-bold tracking-wider shadow-lg animate-bounce transition-colors"
+        >
+          <VolumeX className="h-3.5 w-3.5" />
+          <span>Click to Unmute Audio</span>
+        </button>
+      )}
+
       {/* Bottom Status Overlay */}
-      <div className="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between pointer-events-none">
+      <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-3 sm:left-3 sm:right-3 z-10 flex items-center justify-between pointer-events-none">
         {subtitle ? (
-          <span className="rounded bg-slate-900/80 px-2 py-0.5 text-[11px] font-mono text-slate-400 border border-slate-800">
+          <span className="rounded bg-slate-900/85 px-2 py-0.5 text-[10px] sm:text-[11px] font-mono text-slate-400 border border-slate-800">
             {subtitle}
           </span>
         ) : <span />}
 
         {/* Audio status badge */}
         {isMuted && (
-          <div className="flex items-center gap-1 rounded-md bg-rose-500/20 px-2 py-1 text-xs text-rose-300 border border-rose-500/30 backdrop-blur-sm">
-            <MicOff className="h-3 w-3" />
-            <span className="text-[10px] font-mono uppercase tracking-wide">Muted</span>
+          <div className="flex items-center gap-1 rounded-md bg-rose-500/20 px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs text-rose-300 border border-rose-500/30 backdrop-blur-sm">
+            <MicOff className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
+            <span className="font-mono uppercase tracking-wide">Muted</span>
           </div>
         )}
       </div>

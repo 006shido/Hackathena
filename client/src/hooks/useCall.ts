@@ -55,7 +55,7 @@ export function useCall(user: User | null, token: string | null) {
   const screenStreamRef = useRef<MediaStream | null>(null);
 
   const {
-    pc,
+    pcRef,
     remoteStream,
     connectionState,
     createPeerConnection,
@@ -159,12 +159,7 @@ export function useCall(user: User | null, token: string | null) {
         console.log('[useCall] Received WebRTC offer from peer');
         setCallStatus('connected');
         const activeLocalStream = localStreamRef.current || localStream;
-        
-        // Ensure peer connection exists with local tracks
-        if (!pc) {
-          createPeerConnection(cleanRoomId, activeLocalStream);
-        }
-        await handleOffer(cleanRoomId, sdp);
+        await handleOffer(cleanRoomId, sdp, activeLocalStream);
       },
 
       onAnswer: async ({ sdp }) => {

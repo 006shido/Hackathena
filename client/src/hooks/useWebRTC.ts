@@ -6,10 +6,17 @@ const RTC_CONFIG: RTCConfiguration = {
     { urls: 'stun:stun.l.google.com:19302' },
     { urls: 'stun:stun1.l.google.com:19302' },
     { urls: 'stun:stun2.l.google.com:19302' },
-    { urls: 'stun:stun3.l.google.com:19302' },
-    { urls: 'stun:stun4.l.google.com:19302' },
     { urls: 'stun:stun.cloudflare.com:3478' },
     { urls: 'stun:global.stun.twilio.com:3478' },
+    {
+      urls: [
+        'turn:openrelay.metered.ca:80',
+        'turn:openrelay.metered.ca:443',
+        'turn:openrelay.metered.ca:443?transport=tcp',
+      ],
+      username: 'openrelayproject',
+      credential: 'openrelayproject',
+    },
   ],
   iceCandidatePoolSize: 10,
 };
@@ -33,11 +40,31 @@ export function useWebRTC() {
   const createPeerConnection = useCallback((
     roomId: string,
     localStream: MediaStream | null,
-    onRemoteStreamReceived?: (stream: MediaStream) => void
+    forceRecreate = false
   ): RTCPeerConnection => {
-    // If peer connection exists, close it first
+    // If peer connection already exists and is active, reuse it and ensure local tracks are attached
+    if (pcRef.current && !forceRecreate && pcRef.current.signalingState !== 'closed') {
+      console.log('[WebRTC] Reusing active RTCPeerConnection, signalingState:', pcRef.current.signalingState);
+      if (localStream) {
+        const senders = pcRef.current.getSenders();
+        localStream.getTracks().forEach((track) => {
+          const hasSender = senders.some((s) => s.track?.id === track.id || s.track?.kind === track.kind);
+          if (!hasSender) {
+            try {
+              pcRef.current?.addTrack(track, localStream);
+              console.log(`[WebRTC] Attached missing local track: ${track.kind} (${track.id})`);
+            } catch (err) {
+              console.warn('[WebRTC] Could not add track to existing RTCPeerConnection', err);
+            }
+          }
+        });
+      }
+      return pcRef.current;
+    }
+
+    // Clean up previous connection if closing
     if (pcRef.current) {
-      console.log('[WebRTC] Closing previous PeerConnection');
+      console.log('[WebRTC] Closing previous RTCPeerConnection');
       try {
         pcRef.current.close();
       } catch {
@@ -46,47 +73,43 @@ export function useWebRTC() {
       pcRef.current = null;
     }
 
-    console.log('[WebRTC] Creating new RTCPeerConnection for room:', roomId);
+    console.log('[WebRTC] Initializing new RTCPeerConnection with STUN + TURN...');
     const pc = new RTCPeerConnection(RTC_CONFIG);
     pcRef.current = pc;
     queuedCandidates.current = [];
     remoteStreamInstanceRef.current = new MediaStream();
 
-    // Attach local stream tracks to RTCPeerConnection
+    // Attach local tracks
     if (localStream) {
       const tracks = localStream.getTracks();
-      console.log(`[WebRTC] Attaching ${tracks.length} local tracks to connection`);
+      console.log(`[WebRTC] Attaching ${tracks.length} local tracks to new connection`);
       tracks.forEach((track) => {
         try {
           pc.addTrack(track, localStream);
           console.log(`[WebRTC] Attached track: ${track.kind} (${track.id})`);
         } catch (err) {
-          console.warn('Could not add track to RTCPeerConnection', err);
+          console.warn('[WebRTC] Could not add track to RTCPeerConnection', err);
         }
       });
-    } else {
-      console.warn('[WebRTC] createPeerConnection called with null localStream');
     }
 
-    // Handle incoming remote tracks
+    // Handle remote track arrivals
     pc.ontrack = (event) => {
       console.log('[WebRTC] Received remote track:', event.track.kind, event.track.id);
       
-      // Add track to accumulating MediaStream
       if (!remoteStreamInstanceRef.current.getTrackById(event.track.id)) {
         remoteStreamInstanceRef.current.addTrack(event.track);
       }
 
-      // Clone MediaStream with latest tracks to ensure React state update
-      const updatedStream = new MediaStream(remoteStreamInstanceRef.current.getTracks());
-      setRemoteStream(updatedStream);
-      onRemoteStreamReceived?.(updatedStream);
+      // Update state with cloned MediaStream so React always triggers re-render
+      const freshStream = new MediaStream(remoteStreamInstanceRef.current.getTracks());
+      setRemoteStream(freshStream);
     };
 
     // Handle ICE candidates generated locally
     pc.onicecandidate = (event) => {
       if (event.candidate) {
-        console.log('[WebRTC] Generated ICE candidate:', event.candidate.candidate.substring(0, 30));
+        console.log('[WebRTC] Generated ICE candidate:', event.candidate.type, event.candidate.protocol);
         signalingService.sendIceCandidate(roomId, event.candidate.toJSON());
       }
     };
@@ -99,10 +122,6 @@ export function useWebRTC() {
 
     pc.oniceconnectionstatechange = () => {
       console.log('[WebRTC] ICE connection state change:', pc.iceConnectionState);
-    };
-
-    pc.onicegatheringstatechange = () => {
-      console.log('[WebRTC] ICE gathering state change:', pc.iceGatheringState);
     };
 
     return pc;
@@ -132,20 +151,30 @@ export function useWebRTC() {
 
   const handleOffer = useCallback(async (
     roomId: string,
-    sdp: RTCSessionDescriptionInit
+    sdp: RTCSessionDescriptionInit,
+    localStream?: MediaStream | null
   ): Promise<void> => {
-    const pc = pcRef.current;
-    if (!pc) {
-      console.warn('[WebRTC] Cannot handle offer: No RTCPeerConnection');
-      return;
+    let pc = pcRef.current;
+    if (!pc || pc.signalingState === 'closed') {
+      pc = createPeerConnection(roomId, localStream || null);
     }
 
     try {
       isInitiator.current = false;
-      console.log('[WebRTC] Setting remote description from offer');
-      await pc.setRemoteDescription(new RTCSessionDescription(sdp));
+      console.log('[WebRTC] Handling offer in state:', pc.signalingState);
 
-      // Process queued candidates
+      // Handle offer collision / glare with rollback
+      if (pc.signalingState !== 'stable') {
+        console.warn('[WebRTC] Offer received while in non-stable state, rolling back local description');
+        await Promise.all([
+          pc.setLocalDescription({ type: 'rollback' }),
+          pc.setRemoteDescription(new RTCSessionDescription(sdp)),
+        ]);
+      } else {
+        await pc.setRemoteDescription(new RTCSessionDescription(sdp));
+      }
+
+      // Process any queued candidates
       while (queuedCandidates.current.length > 0) {
         const cand = queuedCandidates.current.shift();
         if (cand) {
@@ -165,7 +194,7 @@ export function useWebRTC() {
     } catch (err) {
       console.error('[WebRTC] Error handling offer and sending answer:', err);
     }
-  }, []);
+  }, [createPeerConnection]);
 
   const handleAnswer = useCallback(async (sdp: RTCSessionDescriptionInit): Promise<void> => {
     const pc = pcRef.current;
@@ -210,9 +239,6 @@ export function useWebRTC() {
     }
   }, []);
 
-  /**
-   * Replace outgoing video track on the fly (for Face Swap simulation)
-   */
   const replaceVideoTrack = useCallback(async (newTrack: MediaStreamTrack | null): Promise<boolean> => {
     const pc = pcRef.current;
     if (!pc) return false;
@@ -231,9 +257,6 @@ export function useWebRTC() {
     return false;
   }, []);
 
-  /**
-   * Replace outgoing audio track on the fly (for Voice Transformation simulation)
-   */
   const replaceAudioTrack = useCallback(async (newTrack: MediaStreamTrack | null): Promise<boolean> => {
     const pc = pcRef.current;
     if (!pc) return false;
@@ -268,7 +291,7 @@ export function useWebRTC() {
   }, []);
 
   return {
-    pc: pcRef.current,
+    pcRef,
     remoteStream,
     connectionState,
     createPeerConnection,
