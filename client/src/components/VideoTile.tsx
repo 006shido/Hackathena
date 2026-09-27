@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MicOff, VideoOff, Shield, User as UserIcon } from 'lucide-react';
 import { UserRole } from '../types/auth';
 
@@ -26,10 +26,34 @@ export const VideoTile: React.FC<VideoTileProps> = ({
   className = '',
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [, setTrackRevision] = useState<number>(0);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.srcObject = stream;
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (stream) {
+      video.srcObject = stream;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err: unknown) => {
+          console.log('[VideoTile] Autoplay wait or interaction required:', (err as Error)?.message);
+        });
+      }
+
+      const handleTracksChange = () => {
+        setTrackRevision((prev: number) => prev + 1);
+      };
+
+      stream.addEventListener('addtrack', handleTracksChange);
+      stream.addEventListener('removetrack', handleTracksChange);
+
+      return () => {
+        stream.removeEventListener('addtrack', handleTracksChange);
+        stream.removeEventListener('removetrack', handleTracksChange);
+      };
+    } else {
+      video.srcObject = null;
     }
   }, [stream]);
 

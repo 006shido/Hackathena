@@ -48,12 +48,14 @@ export function useCall(user: User | null, token: string | null) {
   const facePipelineRef = useRef<FaceSimulationPipeline | null>(null);
   const voicePipelineRef = useRef<VoiceTransformationPipeline | null>(null);
 
-  // Keep references to original tracks
+  // Keep references to original tracks & stream
+  const localStreamRef = useRef<MediaStream | null>(null);
   const originalVideoTrackRef = useRef<MediaStreamTrack | null>(null);
   const originalAudioTrackRef = useRef<MediaStreamTrack | null>(null);
   const screenStreamRef = useRef<MediaStream | null>(null);
 
   const {
+    pc,
     remoteStream,
     connectionState,
     createPeerConnection,
@@ -73,6 +75,7 @@ export function useCall(user: User | null, token: string | null) {
 
     if (result.stream) {
       setLocalStream(result.stream);
+      localStreamRef.current = result.stream;
       originalVideoTrackRef.current = result.stream.getVideoTracks()[0] || null;
       originalAudioTrackRef.current = result.stream.getAudioTracks()[0] || null;
       setIsCameraOff(!result.hasVideo);
@@ -110,27 +113,31 @@ export function useCall(user: User | null, token: string | null) {
     // Connect to signaling server with auth token
     signalingService.connect(token, {
       onRoomJoined: (data) => {
-        console.log('[useCall] Joined room:', data.roomId);
+        console.log('[useCall] Joined room:', data.roomId, 'Peers already in room:', data.peers.length);
+        const activeLocalStream = localStreamRef.current || localStream;
+        
         if (data.peers.length > 0) {
-          // A peer is already in room; establish connection as caller
+          // A peer is already in room: initialize connection and WAIT for their offer
           setPeerInfo(data.peers[0]);
           setCallStatus('connected');
-          const pc = createPeerConnection(data.roomId, localStream);
-          makeOffer(data.roomId);
+          createPeerConnection(data.roomId, activeLocalStream);
+          console.log('[useCall] Initialized receiver peer connection, awaiting offer from host...');
         } else {
-          // Waiting for someone to join
+          // First in room: waiting for someone to join
           setCallStatus('waiting');
           setPeerInfo(null);
-          createPeerConnection(data.roomId, localStream);
+          createPeerConnection(data.roomId, activeLocalStream);
         }
       },
 
       onPeerJoined: (peer) => {
-        console.log('[useCall] Peer joined:', peer);
+        console.log('[useCall] Peer joined room, initiating WebRTC offer:', peer);
+        const activeLocalStream = localStreamRef.current || localStream;
         setPeerInfo(peer);
         setCallStatus('connected');
-        // Initiate offer to newly joined peer
-        createPeerConnection(cleanRoomId, localStream);
+        
+        // Host initiates the offer to the newly joined peer
+        createPeerConnection(cleanRoomId, activeLocalStream);
         makeOffer(cleanRoomId);
       },
 
@@ -149,14 +156,19 @@ export function useCall(user: User | null, token: string | null) {
       },
 
       onOffer: async ({ sdp }) => {
-        console.log('[useCall] Received WebRTC offer');
+        console.log('[useCall] Received WebRTC offer from peer');
         setCallStatus('connected');
-        createPeerConnection(cleanRoomId, localStream);
+        const activeLocalStream = localStreamRef.current || localStream;
+        
+        // Ensure peer connection exists with local tracks
+        if (!pc) {
+          createPeerConnection(cleanRoomId, activeLocalStream);
+        }
         await handleOffer(cleanRoomId, sdp);
       },
 
       onAnswer: async ({ sdp }) => {
-        console.log('[useCall] Received WebRTC answer');
+        console.log('[useCall] Received WebRTC answer from peer');
         await handleAnswer(sdp);
       },
 
