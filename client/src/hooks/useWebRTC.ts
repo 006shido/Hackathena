@@ -101,6 +101,11 @@ export function useWebRTC() {
         remoteStreamInstanceRef.current.addTrack(event.track);
       }
 
+      event.track.onunmute = () => {
+        console.log('[WebRTC] Remote track unmuted (packets arriving):', event.track.kind);
+        setRemoteStream(new MediaStream(remoteStreamInstanceRef.current.getTracks()));
+      };
+
       // Update state with cloned MediaStream so React always triggers re-render
       const freshStream = new MediaStream(remoteStreamInstanceRef.current.getTracks());
       setRemoteStream(freshStream);

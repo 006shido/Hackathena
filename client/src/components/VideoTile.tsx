@@ -41,6 +41,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
           // If local, always keep muted to prevent acoustic feedback
           if (isLocal) {
             video.muted = true;
+            video.defaultMuted = true;
           }
           await video.play();
           setAudioBlocked(false);
@@ -49,6 +50,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
           // If browser blocked unmuted video, mute it to ensure video frames display immediately!
           if (!isLocal) {
             video.muted = true;
+            video.defaultMuted = true;
             try {
               await video.play();
               setAudioBlocked(true);
@@ -59,6 +61,11 @@ export const VideoTile: React.FC<VideoTileProps> = ({
         }
       };
 
+      const handleLoadedMetadata = () => {
+        attemptPlay();
+      };
+
+      video.addEventListener('loadedmetadata', handleLoadedMetadata);
       attemptPlay();
 
       const handleTracksChange = () => {
@@ -66,10 +73,20 @@ export const VideoTile: React.FC<VideoTileProps> = ({
         attemptPlay();
       };
 
+      // Listen for unmuting of tracks (when WebRTC receives first network media packets)
+      const tracks = stream.getTracks();
+      tracks.forEach((track) => {
+        track.addEventListener('unmute', attemptPlay);
+      });
+
       stream.addEventListener('addtrack', handleTracksChange);
       stream.addEventListener('removetrack', handleTracksChange);
 
       return () => {
+        video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+        tracks.forEach((track) => {
+          track.removeEventListener('unmute', attemptPlay);
+        });
         stream.removeEventListener('addtrack', handleTracksChange);
         stream.removeEventListener('removetrack', handleTracksChange);
       };
