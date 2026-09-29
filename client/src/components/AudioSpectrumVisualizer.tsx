@@ -97,7 +97,7 @@ export const AudioSpectrumVisualizer: React.FC<AudioSpectrumVisualizerProps> = (
   }, [frequencyData, timeDomainData, status, isVoiceActive]);
 
   return (
-    <div className={`relative overflow-hidden rounded-xl bg-slate-950/80 border border-slate-800/90 ${className}`}>
+    <div className={`relative h-[68px] shrink-0 overflow-hidden rounded-md bg-black border border-zinc-800 ${className}`}>
       <canvas
         ref={canvasRef}
         width={280}
