@@ -18,6 +18,9 @@ export class VoiceDeepfakeDetector {
   private animFrameId: number | null = null;
   private smoothedScore = 0;
 
+  // Adaptive ambient noise floor tracking (rejects fan hum, AC, and room noise)
+  private ambientNoiseFloor = 0.015;
+
   // Multi-frame pitch tracking for micro-jitter
   private pitchPeriodHistory: number[] = [];
 
@@ -61,14 +64,14 @@ export class VoiceDeepfakeDetector {
       this.sourceNode = this.audioCtx.createMediaStreamSource(remoteStream);
       this.analyser = this.audioCtx.createAnalyser();
       this.analyser.fftSize = 1024;
-      this.analyser.smoothingTimeConstant = 0.82; // Balance responsive reaction with spectral stability
+      this.analyser.smoothingTimeConstant = 0.82;
 
       // Connect source to analyser ONLY - DO NOT connect to destination
       this.sourceNode.connect(this.analyser);
 
       this.isRunning = true;
       this.runAnalysisLoop();
-      console.log('[VoiceDetector] High-accuracy multi-feature acoustic deepfake classifier started.');
+      console.log('[VoiceDetector] Precision acoustic classifier started with fan-noise immunity.');
     } catch (err) {
       console.error('[VoiceDetector] Failed to initialize AudioContext:', err);
     }
@@ -104,6 +107,7 @@ export class VoiceDeepfakeDetector {
     this.lastSpeechTimestamp = 0;
     this.isVoiceActiveHeld = false;
     this.cachedAnomalies = [];
+    this.ambientNoiseFloor = 0.015;
   }
 
   private runAnalysisLoop = () => {
@@ -121,7 +125,7 @@ export class VoiceDeepfakeDetector {
     const binWidth = sampleRate / (bufferLength * 2); // ~46.875 Hz per bin
 
     // -------------------------------------------------------------
-    // FEATURE 1: RMS Energy & VAD Hangover Filter (600ms hold)
+    // FEATURE 1: RMS Energy & Adaptive Noise Floor (Fan/Hiss Rejection)
     // -------------------------------------------------------------
     let sumSquares = 0;
     for (let i = 0; i < timeData.length; i++) {
@@ -129,19 +133,48 @@ export class VoiceDeepfakeDetector {
       sumSquares += val * val;
     }
     const rms = Math.sqrt(sumSquares / timeData.length);
-    const instantAudio = rms > 0.009;
 
-    if (instantAudio) {
+    // Adapt noise floor slowly to constant ambient room/fan sound
+    if (rms < this.ambientNoiseFloor) {
+      this.ambientNoiseFloor = this.ambientNoiseFloor * 0.9 + rms * 0.1;
+    } else if (rms < 0.035) {
+      this.ambientNoiseFloor = this.ambientNoiseFloor * 0.996 + rms * 0.004;
+    }
+
+    // -------------------------------------------------------------
+    // FEATURE 2: Spectral Flatness (Wiener Entropy in speech band)
+    // Fan/white noise has high flatness (>0.30); human vowels have low flatness (<0.15)
+    // -------------------------------------------------------------
+    const speechBins = Math.min(bufferLength, 128); // 0 to ~6 kHz
+    let sumLog = 0;
+    let sumLinear = 0;
+    for (let i = 1; i < speechBins; i++) {
+      const mag = Math.max(freqData[i] / 255, 0.0001);
+      sumLog += Math.log(mag);
+      sumLinear += mag;
+    }
+    const geometricMean = Math.exp(sumLog / (speechBins - 1));
+    const arithmeticMean = sumLinear / (speechBins - 1);
+    const spectralFlatness = arithmeticMean > 0 ? Math.min(1, geometricMean / arithmeticMean) : 0;
+
+    // Distinguish real speech from fan/ambient noise:
+    // Speech requires energy above noise floor, absolute minimum 0.024, AND not flat pink noise
+    const isAboveNoise = rms > Math.max(0.024, this.ambientNoiseFloor * 2.2);
+    const isNonFan = spectralFlatness < 0.30 || rms > 0.06;
+    const instantSpeech = isAboveNoise && isNonFan;
+
+    // VAD Hold filter (500ms hangover to bridge syllables)
+    if (instantSpeech) {
       this.lastSpeechTimestamp = now;
       this.isVoiceActiveHeld = true;
-    } else if (now - this.lastSpeechTimestamp > 600) {
+    } else if (now - this.lastSpeechTimestamp > 500) {
       this.isVoiceActiveHeld = false;
     }
 
     const hasAudio = this.isVoiceActiveHeld;
 
     // -------------------------------------------------------------
-    // FEATURE 2: Spectral Moments (Centroid & Rolloff)
+    // FEATURE 3: Spectral Moments (Centroid & Rolloff)
     // -------------------------------------------------------------
     let weightedSum = 0;
     let totalMagnitude = 0;
@@ -164,42 +197,32 @@ export class VoiceDeepfakeDetector {
     }
 
     // -------------------------------------------------------------
-    // FEATURE 3: Spectral Flatness (Wiener Entropy in speech band)
-    // -------------------------------------------------------------
-    let sumLog = 0;
-    let sumLinear = 0;
-    const speechBins = Math.min(bufferLength, 128); // 0 to ~6 kHz
-    for (let i = 1; i < speechBins; i++) {
-      const mag = Math.max(freqData[i] / 255, 0.0001);
-      sumLog += Math.log(mag);
-      sumLinear += mag;
-    }
-    const geometricMean = Math.exp(sumLog / (speechBins - 1));
-    const arithmeticMean = sumLinear / (speechBins - 1);
-    const spectralFlatness = arithmeticMean > 0 ? Math.min(1, geometricMean / arithmeticMean) : 0;
-
-    // -------------------------------------------------------------
     // FEATURE 4: Sub-Harmonic Carrier Oscillation Detection
-    // Checks for mechanical saw/sub oscillator spikes (bins 1-2: ~47-94Hz)
+    // 50Hz/60Hz mains hum is low volume (<40) and steady.
+    // Ring modulator carrier is loud (>80) and active during speech.
     // -------------------------------------------------------------
-    const carrierBin1 = freqData[1] || 0;
-    const carrierBin2 = freqData[2] || 0;
+    const carrierBin1 = freqData[1] || 0; // ~47 Hz
+    const carrierBin2 = freqData[2] || 0; // ~94 Hz
     const neighborAverage =
       ((freqData[4] || 0) + (freqData[5] || 0) + (freqData[6] || 0) + (freqData[7] || 0)) / 4;
 
-    const carrierSpikeRatio = neighborAverage > 0 ? Math.max(carrierBin1, carrierBin2) / neighborAverage : 1;
+    const maxCarrierBin = Math.max(carrierBin1, carrierBin2);
+    const carrierSpikeRatio = neighborAverage > 0 ? maxCarrierBin / neighborAverage : 1;
+
+    // Must be speech-active, loud carrier (>75), and sharp spike over neighbors
     const carrierHarmonicDetected =
-      instantAudio &&
-      (carrierBin1 > 48 || carrierBin2 > 58) &&
-      carrierSpikeRatio > 1.6;
+      instantSpeech &&
+      maxCarrierBin > 75 &&
+      carrierSpikeRatio > 2.2 &&
+      (maxCarrierBin - neighborAverage) > 35;
 
     let carrierScore = 0;
     if (carrierHarmonicDetected) {
-      carrierScore = Math.min(100, Math.round(40 + (carrierSpikeRatio - 1.6) * 35));
+      carrierScore = Math.min(100, Math.round(45 + (carrierSpikeRatio - 2.2) * 30));
     }
 
     // -------------------------------------------------------------
-    // FEATURE 5: Resonant Formant Peaking / Bandpass Kurtosis
+    // FEATURE 5: Resonant Formant Peaking / High-Q Bandpass Dome
     // Checks for unnatural Q=3 to Q=5 filter domes at 1200Hz or 2400Hz
     // -------------------------------------------------------------
     // 1200Hz bandpass peak (~bin 26)
@@ -229,51 +252,47 @@ export class VoiceDeepfakeDetector {
     const resonance2400Ratio = avgSurround2400 > 0 ? peak2400 / avgSurround2400 : 1;
 
     const maxResonanceRatio = Math.max(resonance1200Ratio, resonance2400Ratio);
-    const bandpassResonanceDetected = instantAudio && maxResonanceRatio > 2.2;
+    const bandpassResonanceDetected =
+      instantSpeech &&
+      maxResonanceRatio > 2.4 &&
+      Math.max(peak1200, peak2400) > 85;
 
     let resonanceScore = 0;
     if (bandpassResonanceDetected) {
-      resonanceScore = Math.min(100, Math.round(35 + (maxResonanceRatio - 2.2) * 35));
+      resonanceScore = Math.min(100, Math.round(40 + (maxResonanceRatio - 2.4) * 35));
     }
 
     // -------------------------------------------------------------
-    // FEATURE 6: Spectral Autocorrelation (Comb Filter Regularity)
-    // Ring modulation creates periodic comb lines in frequency domain
+    // FEATURE 6: True Comb Filter Regularity (Sharp Alternating Peaks)
+    // Fan noise is a smooth curve (0 peaks). Ring-mod vocoder has 6-15 sharp peaks!
     // -------------------------------------------------------------
-    let maxCombCorrelation = 0;
-    if (instantAudio) {
-      const startBin = 4;
-      const endBin = 64;
-      let meanMag = 0;
-      for (let i = startBin; i <= endBin; i++) meanMag += freqData[i];
-      meanMag /= (endBin - startBin + 1);
+    let sharpCombPeaks = 0;
+    let totalPeakDepth = 0;
 
-      let variance = 0;
-      for (let i = startBin; i <= endBin; i++) {
-        const diff = freqData[i] - meanMag;
-        variance += diff * diff;
-      }
-
-      if (variance > 100) {
-        for (let lag = 1; lag <= 6; lag++) {
-          let covar = 0;
-          for (let i = startBin; i <= endBin - lag; i++) {
-            covar += (freqData[i] - meanMag) * (freqData[i + lag] - meanMag);
-          }
-          const normCorr = covar / variance;
-          if (normCorr > maxCombCorrelation) maxCombCorrelation = normCorr;
+    if (instantSpeech) {
+      // Inspect speech band from bin 4 to 55 (200Hz to 2.5kHz)
+      for (let i = 4; i < 55; i++) {
+        const cur = freqData[i] || 0;
+        const left = freqData[i - 1] || 0;
+        const right = freqData[i + 1] || 0;
+        // Peak must rise sharply above both immediate neighbors and have solid volume
+        if (cur > left + 14 && cur > right + 14 && cur > 60) {
+          sharpCombPeaks++;
+          totalPeakDepth += (cur - left) + (cur - right);
         }
       }
     }
 
-    const combDetected = instantAudio && maxCombCorrelation > 0.45;
+    const avgPeakDepth = sharpCombPeaks > 0 ? totalPeakDepth / sharpCombPeaks : 0;
+    const combDetected = instantSpeech && sharpCombPeaks >= 5 && avgPeakDepth > 32;
+
     let combScore = 0;
     if (combDetected) {
-      combScore = Math.min(100, Math.round(30 + (maxCombCorrelation - 0.45) * 120));
+      combScore = Math.min(100, Math.round(45 + (sharpCombPeaks - 5) * 9));
     }
 
     // -------------------------------------------------------------
-    // FEATURE 7: Brickwall Lowpass Cutoff & High-to-Low Spectral Cliff
+    // FEATURE 7: Brickwall Lowpass Cutoff (< 2.2 kHz)
     // Deep-pitch neural filters cut off steeply at 1800Hz with zero HF energy
     // -------------------------------------------------------------
     let lowBandEnergy = 0;
@@ -286,11 +305,15 @@ export class VoiceDeepfakeDetector {
     }
     const hfToLfRatio = lowBandEnergy > 0 ? highBandEnergy / lowBandEnergy : 0.5;
 
-    // Severe cutoff detected when low frequencies are strong but HF is < 3% of LF
-    const cutoffDetected = instantAudio && lowBandEnergy > 600 && hfToLfRatio < 0.03 && rolloffHz < 2200;
+    const cutoffDetected =
+      instantSpeech &&
+      lowBandEnergy > 800 &&
+      hfToLfRatio < 0.025 &&
+      rolloffHz < 2200;
+
     let cutoffScore = 0;
     if (cutoffDetected) {
-      cutoffScore = Math.min(100, Math.round(50 + (0.03 - hfToLfRatio) * 1500));
+      cutoffScore = Math.min(100, Math.round(50 + (0.025 - hfToLfRatio) * 1600));
     }
 
     // -------------------------------------------------------------
@@ -301,7 +324,7 @@ export class VoiceDeepfakeDetector {
     const minLag = Math.floor(sampleRate / 400); // 400 Hz
     const maxLag = Math.floor(sampleRate / 60);  // 60 Hz
 
-    if (instantAudio) {
+    if (instantSpeech) {
       for (let lag = minLag; lag < maxLag; lag += 2) {
         let corr = 0;
         for (let i = 0; i < 256; i++) {
@@ -330,8 +353,11 @@ export class VoiceDeepfakeDetector {
       }
     }
 
-    // Rigid carrier pitch (zero jitter)
-    const zeroJitterDetected = instantAudio && jitterVariance < 0.0025 && bestCorrelation > 140000;
+    const zeroJitterDetected =
+      instantSpeech &&
+      jitterVariance < 0.0025 &&
+      bestCorrelation > 150000;
+
     let jitterScore = 0;
     if (zeroJitterDetected) {
       jitterScore = Math.min(100, Math.round(45 + (0.0025 - jitterVariance) * 15000));
@@ -348,7 +374,7 @@ export class VoiceDeepfakeDetector {
     if (zeroJitterDetected) frameAnomalies.push('Mechanical Pitch Lock (Zero Jitter)');
 
     // Push to 10-frame rolling window for temporal stability
-    if (instantAudio) {
+    if (instantSpeech) {
       this.frameHistory.push({
         carrierScore,
         resonanceScore,
@@ -366,7 +392,9 @@ export class VoiceDeepfakeDetector {
 
     // -------------------------------------------------------------
     // MULTI-FRAME TEMPORAL ENSEMBLE CLASSIFIER
-    // Reduces false-positive noise spikes and rewards sustained anomalies
+    // Requires CO-OCCURRENCE of at least 2 distinct acoustic anomalies
+    // or 1 extremely strong sustained anomaly (>75) during speech.
+    // Fan/ambient noise produces 0.
     // -------------------------------------------------------------
     let aggregatedAnomalyScore = 0;
 
@@ -391,43 +419,46 @@ export class VoiceDeepfakeDetector {
       avgCutoff /= count;
       avgJitter /= count;
 
-      // Weighted multi-feature decision vector
-      // Human speech will have near-zero for all averages
-      // Synthetic vocoders will have 2 or more high averages (>40)
       const primaryIndicators = [avgCarrier, avgResonance, avgComb, avgCutoff, avgJitter];
-      const activeIndicators = primaryIndicators.filter((s) => s > 25);
+      // Only indicators >= 35 count as substantial
+      const strongIndicators = primaryIndicators.filter((s) => s >= 35);
 
-      if (activeIndicators.length === 0) {
-        // Human speech: zero synthetic anomalies across window
-        aggregatedAnomalyScore = Math.min(18, Math.round(rms * 40));
+      if (strongIndicators.length >= 2) {
+        // Confirmed deepfake: multiple distinct acoustic physical anomalies confirmed co-occurring!
+        const sorted = [...strongIndicators].sort((a, b) => b - a);
+        aggregatedAnomalyScore = Math.min(98, Math.round(sorted[0] * 0.7 + sorted[1] * 0.3));
+      } else if (strongIndicators.length === 1 && strongIndicators[0] > 70) {
+        // Single isolated anomaly: cautious score only, does not trigger critical threat
+        aggregatedAnomalyScore = Math.min(48, Math.round(strongIndicators[0] * 0.55));
       } else {
-        // Synthetic voice detected: combine strongest indicators
-        const maxScore = Math.max(...primaryIndicators);
-        const secondarySum = activeIndicators.reduce((a, b) => a + b, 0) - maxScore;
-        aggregatedAnomalyScore = Math.min(98, Math.round(maxScore * 0.75 + secondarySum * 0.25));
+        // Genuine human speech: natural vocal timbre, normal baseline
+        aggregatedAnomalyScore = Math.min(15, Math.round(rms * 25));
       }
 
-      // Collect all consistent anomalies from the rolling window
+      // Collect all confirmed anomalies
       const anomalySet = new Set<string>();
       for (const f of this.frameHistory) {
         for (const a of f.anomalies) anomalySet.add(a);
       }
-      if (anomalySet.size > 0) {
+      if (anomalySet.size > 0 && strongIndicators.length >= 1) {
         this.cachedAnomalies = Array.from(anomalySet);
+      } else {
+        this.cachedAnomalies = [];
       }
     } else {
       aggregatedAnomalyScore = 0;
       this.cachedAnomalies = [];
     }
 
-    // Smooth the display score with asymmetric alpha (fast attack on deepfake, smooth decay)
+    // Smooth the display score with asymmetric alpha (fast attack on confirmed deepfake, smooth decay)
     const targetScore = aggregatedAnomalyScore;
     const isIncreasing = targetScore > this.smoothedScore;
     const smoothAlpha = isIncreasing ? 0.28 : 0.08;
     this.smoothedScore = this.smoothedScore * (1 - smoothAlpha) + targetScore * smoothAlpha;
     const finalScore = Math.round(this.smoothedScore);
 
-    // Classification Status based on high-accuracy thresholds
+    // Classification Status:
+    // Requires confirmed speech (hasAudio) and high thresholds to eliminate false positives
     let status: DetectionStatus = 'idle';
     if (!hasAudio) {
       status = 'listening';
@@ -439,12 +470,10 @@ export class VoiceDeepfakeDetector {
       status = 'human';
     }
 
-    // Calculate statistical confidence
     const confidence = hasAudio
       ? Math.min(99, Math.max(78, 70 + Math.round(rms * 80) + (this.cachedAnomalies.length > 0 ? 12 : 0)))
       : 0;
 
-    // Harmonic peak ratio for forensic telemetry display
     let maxPeak = 0;
     for (let i = 0; i < speechBins; i++) {
       if (freqData[i] > maxPeak) maxPeak = freqData[i];
