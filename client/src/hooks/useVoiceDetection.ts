@@ -25,20 +25,18 @@ const INITIAL_STATE: VoiceDetectionState = {
   timestamp: Date.now(),
 };
 
+/**
+ * Autonomous real-time Voice Deepfake Detection hook.
+ * Analyzes the incoming WebRTC MediaStream purely via digital signal processing
+ * and acoustic machine learning feature classification.
+ * Completely independent of any sender signals or telemetry.
+ */
 export function useVoiceDetection(
   remoteStream: MediaStream | null,
-  isPeerVoiceAttacking: boolean = false,
   enabled: boolean = true
 ) {
   const [detectionState, setDetectionState] = useState<VoiceDetectionState>(INITIAL_STATE);
   const detectorRef = useRef<VoiceDeepfakeDetector | null>(null);
-
-  // Sync peer attack telemetry whenever it changes
-  useEffect(() => {
-    if (detectorRef.current) {
-      detectorRef.current.setPeerAttackTelemetry(isPeerVoiceAttacking);
-    }
-  }, [isPeerVoiceAttacking]);
 
   useEffect(() => {
     if (!enabled || !remoteStream) {
@@ -54,7 +52,6 @@ export function useVoiceDetection(
       setDetectionState(newState);
     });
 
-    detector.setPeerAttackTelemetry(isPeerVoiceAttacking);
     detector.start(remoteStream);
     detectorRef.current = detector;
 
@@ -62,7 +59,7 @@ export function useVoiceDetection(
       detector.stop();
       detectorRef.current = null;
     };
-  }, [remoteStream, enabled, isPeerVoiceAttacking]);
+  }, [remoteStream, enabled]);
 
   return detectionState;
 }

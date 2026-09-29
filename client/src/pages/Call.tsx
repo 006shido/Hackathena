@@ -60,20 +60,14 @@ export const CallPage: React.FC<CallPageProps> = ({
     endCall,
   } = useCall(user, token);
 
-  // Real-time voice deepfake analysis on incoming peer audio stream
-  const isPeerVoiceAttacking = Boolean(
-    peerAttackState?.voiceTransform ||
-    peerAttackState?.mode === 'voice' ||
-    peerAttackState?.mode === 'combined'
-  );
-
+  // Autonomous real-time acoustic deepfake analysis on incoming peer audio stream (DSP & ML feature classifier)
   const voiceDetection = useVoiceDetection(
     remoteStream,
-    isPeerVoiceAttacking,
     !showDevicePreview && Boolean(remoteStream)
   );
 
-  const isDeepfakeAlert = voiceDetection.status === 'deepfake' || isPeerVoiceAttacking;
+  // Deepfake alert triggered purely by autonomous acoustic classification
+  const isDeepfakeAlert = voiceDetection.status === 'deepfake';
 
   // Initialize camera and mic for preview on mount
   useEffect(() => {
@@ -164,7 +158,7 @@ export const CallPage: React.FC<CallPageProps> = ({
                 subtitle="Remote Participant"
                 className="w-full h-full"
                 isDeepfakeAlert={isDeepfakeAlert}
-                deepfakeScore={voiceDetection.anomalyScore || (isPeerVoiceAttacking ? 94 : 0)}
+                deepfakeScore={voiceDetection.anomalyScore}
               />
             ) : (
               // Waiting for Participant State
@@ -236,14 +230,16 @@ export const CallPage: React.FC<CallPageProps> = ({
                         Real-Time Defense Alert
                       </span>
                       <span className="text-[10px] sm:text-xs font-mono text-rose-200">
-                        Score: <strong className="text-white">{voiceDetection.anomalyScore || 94}%</strong>
+                        Score: <strong className="text-white">{voiceDetection.anomalyScore}%</strong>
                       </span>
                     </div>
                     <h4 className="text-xs sm:text-sm font-bold text-white mt-0.5">
                       Voice Deepfake Caught in Real Time!
                     </h4>
                     <p className="text-[10px] sm:text-xs text-rose-200/90 font-mono hidden sm:block">
-                      Synthetic vocoder ring-modulation & carrier harmonics detected.
+                      {voiceDetection.detectedAnomalies.length > 0
+                        ? voiceDetection.detectedAnomalies.join(' • ')
+                        : 'Synthetic vocoder ring-modulation & carrier harmonics detected.'}
                     </p>
                   </div>
                 </div>

@@ -23,13 +23,13 @@ export const SecurityPanel: React.FC<SecurityPanelProps> = ({
   onClose,
 }) => {
   const isPeerAttacking = peerAttackState?.active || false;
-  const isVoiceDeepfake = voiceDetection?.status === 'deepfake' || peerAttackState?.voiceTransform;
+  const isVoiceDeepfake = voiceDetection?.status === 'deepfake';
   const isSuspicious = voiceDetection?.status === 'suspicious';
   const isHuman = voiceDetection?.status === 'human';
   const isListening = voiceDetection?.status === 'listening' || !voiceDetection?.hasAudio;
 
-  const anomalyScore = voiceDetection?.anomalyScore || (peerAttackState?.voiceTransform ? 94 : 0);
-  const confidence = voiceDetection?.confidence || (peerAttackState?.voiceTransform ? 96 : 0);
+  const anomalyScore = voiceDetection?.anomalyScore || 0;
+  const confidence = voiceDetection?.confidence || 0;
 
   return (
     <aside className="w-full lg:w-80 shrink-0 flex flex-col h-full bg-[#050507] border-l border-zinc-800 p-4 sm:p-5 overflow-y-auto">
