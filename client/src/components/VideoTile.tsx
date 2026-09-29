@@ -44,7 +44,19 @@ export const VideoTile: React.FC<VideoTileProps> = ({
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [sizePreset, setSizePreset] = useState<SizePreset>('md');
-  const [dragOffset, setDragOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const dragStateRef = useRef<{
+    startX: number;
+    startY: number;
+    startLeft: number;
+    startTop: number;
+    isDragging: boolean;
+  }>({
+    startX: 0,
+    startY: 0,
+    startLeft: 0,
+    startTop: 0,
+    isDragging: false,
+  });
 
   useEffect(() => {
     const video = videoRef.current;
@@ -121,39 +133,51 @@ export const VideoTile: React.FC<VideoTileProps> = ({
       const parent = currentParent || tile?.parentElement;
       if (!tile || !parent) return { x, y };
 
-      const parentRect = parent.getBoundingClientRect();
+      const parentWidth = parent.clientWidth || parent.getBoundingClientRect().width;
+      const parentHeight = parent.clientHeight || parent.getBoundingClientRect().height;
       const tileWidth = tile.offsetWidth || 280;
       const tileHeight = tile.offsetHeight || 160;
 
-      const padding = 12;
-      const maxX = Math.max(padding, parentRect.width - tileWidth - padding);
-      const maxY = Math.max(padding, parentRect.height - tileHeight - padding);
+      const padding = 16;
+      const maxX = Math.max(padding, parentWidth - tileWidth - padding);
+      const maxY = Math.max(padding, parentHeight - tileHeight - padding);
 
       return {
-        x: Math.max(padding, Math.min(x, maxX)),
-        y: Math.max(padding, Math.min(y, maxY)),
+        x: Math.min(Math.max(padding, x), maxX),
+        y: Math.min(Math.max(padding, y), maxY),
       };
     },
     []
   );
 
   // --- Movable / Dragging via pointer down ---
-  const handlePointerDown = (e: React.PointerEvent) => {
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!isFloating || !tileRef.current) return;
     const parent = tileRef.current.parentElement;
     if (!parent) return;
 
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch (_) {}
+
     const parentRect = parent.getBoundingClientRect();
     const tileRect = tileRef.current.getBoundingClientRect();
 
-    const currentX = tileRect.left - parentRect.left;
-    const currentY = tileRect.top - parentRect.top;
+    // Compute exact position relative to parent inner bounds (inside border)
+    const currentLeft = tileRect.left - parentRect.left - (parent.clientLeft || 0);
+    const currentTop = tileRect.top - parentRect.top - (parent.clientTop || 0);
 
-    setDragOffset({
-      x: e.clientX - tileRect.left,
-      y: e.clientY - tileRect.top,
-    });
-    setPosition({ x: currentX, y: currentY });
+    const clamped = clampToBounds(currentLeft, currentTop, tileRef.current, parent);
+
+    dragStateRef.current = {
+      startX: e.clientX,
+      startY: e.clientY,
+      startLeft: clamped.x,
+      startTop: clamped.y,
+      isDragging: true,
+    };
+
+    setPosition(clamped);
     setIsDragging(true);
   };
 
@@ -162,23 +186,26 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     if (!isDragging) return;
 
     const handlePointerMove = (e: PointerEvent) => {
-      if (!tileRef.current) return;
+      if (!dragStateRef.current.isDragging || !tileRef.current) return;
       const parent = tileRef.current.parentElement;
       if (!parent) return;
 
-      const parentRect = parent.getBoundingClientRect();
-      const rawX = e.clientX - parentRect.left - dragOffset.x;
-      const rawY = e.clientY - parentRect.top - dragOffset.y;
+      const deltaX = e.clientX - dragStateRef.current.startX;
+      const deltaY = e.clientY - dragStateRef.current.startY;
+
+      const rawX = dragStateRef.current.startLeft + deltaX;
+      const rawY = dragStateRef.current.startTop + deltaY;
 
       const clamped = clampToBounds(rawX, rawY, tileRef.current, parent);
       setPosition(clamped);
     };
 
     const handlePointerUp = () => {
+      dragStateRef.current.isDragging = false;
       setIsDragging(false);
     };
 
-    window.addEventListener('pointermove', handlePointerMove);
+    window.addEventListener('pointermove', handlePointerMove, { passive: true });
     window.addEventListener('pointerup', handlePointerUp);
     window.addEventListener('pointercancel', handlePointerUp);
 
@@ -187,7 +214,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
       window.removeEventListener('pointerup', handlePointerUp);
       window.removeEventListener('pointercancel', handlePointerUp);
     };
-  }, [isDragging, dragOffset, clampToBounds]);
+  }, [isDragging, clampToBounds]);
 
   // --- Auto-reclamp on sizePreset change or window resize (keeps it 100% visible inside the window) ---
   useEffect(() => {
@@ -224,9 +251,9 @@ export const VideoTile: React.FC<VideoTileProps> = ({
   // Responsive size styling with max constraints so it never overflows parent bounds
   const sizeClasses: Record<SizePreset, string> = {
     sm: 'w-44 sm:w-52',
-    md: 'w-60 sm:w-72',
-    lg: 'w-72 sm:w-96',
-    xl: 'w-84 sm:w-[440px]',
+    md: 'w-56 sm:w-68 md:w-72',
+    lg: 'w-68 sm:w-80 md:w-88',
+    xl: 'w-76 sm:w-92 md:w-[380px]',
   };
 
   return (
@@ -243,11 +270,11 @@ export const VideoTile: React.FC<VideoTileProps> = ({
             }
           : undefined
       }
-      className={`relative overflow-hidden rounded-md border border-zinc-800 bg-[#070709] shadow-2xl transition-[width,height,border-color] duration-150 select-none ${
+      className={`${
         isFloating
-          ? `absolute ${position ? '' : 'bottom-4 right-4 sm:bottom-6 sm:right-6'} z-30 ${sizeClasses[sizePreset]} max-w-[calc(100%-24px)] max-h-[calc(100%-24px)] aspect-video border-orange-500/40 shadow-black/80 hover:border-orange-500/70`
-          : 'w-full h-full min-h-0'
-      } ${className}`}
+          ? `absolute ${position ? '' : 'bottom-4 right-4 sm:bottom-6 sm:right-6'} z-30 ${sizeClasses[sizePreset]} max-w-[calc(100%-32px)] max-h-[calc(100%-32px)] aspect-video border-orange-500/40 shadow-black/80 hover:border-orange-500/70`
+          : 'relative w-full h-full min-h-0'
+      } overflow-hidden rounded-md border border-zinc-800 bg-[#070709] shadow-2xl transition-[width,height,border-color] duration-150 select-none ${className}`}
     >
       {/* Video Element */}
       {stream && (
