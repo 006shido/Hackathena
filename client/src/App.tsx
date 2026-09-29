@@ -37,11 +37,11 @@ export function App() {
   // Loading Splash Screen
   if (loading) {
     return (
-      <div className="min-h-screen w-full bg-[#08090d] flex flex-col items-center justify-center cyber-grid">
-        <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-2xl shadow-cyan-950/60 mb-4 animate-pulse">
-          <Shield className="h-8 w-8 text-white" />
+      <div className="min-h-screen w-full bg-black flex flex-col items-center justify-center amoled-grid">
+        <div className="h-14 w-14 rounded-lg bg-orange-500/10 border border-orange-500/40 flex items-center justify-center shadow-lg shadow-orange-950/40 mb-4 animate-pulse">
+          <Shield className="h-7 w-7 text-orange-400" />
         </div>
-        <span className="text-sm font-mono tracking-widest text-cyan-400 uppercase">
+        <span className="text-xs font-mono tracking-widest text-zinc-400 uppercase">
           Initializing DeepTrace Security Core...
         </span>
       </div>

@@ -1,5 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { MicOff, VideoOff, Shield, User as UserIcon, VolumeX, Volume2 } from 'lucide-react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
+import {
+  Mic,
+  MicOff,
+  Video,
+  VideoOff,
+  Shield,
+  User as UserIcon,
+  VolumeX,
+  Move,
+  Maximize2,
+  Minimize2,
+  ZoomIn,
+  ZoomOut,
+  GripHorizontal,
+  Compass,
+} from 'lucide-react';
 import { UserRole } from '../types/auth';
 
 interface VideoTileProps {
@@ -14,6 +29,8 @@ interface VideoTileProps {
   className?: string;
 }
 
+type SizePreset = 'sm' | 'md' | 'lg' | 'xl';
+
 export const VideoTile: React.FC<VideoTileProps> = ({
   stream,
   username,
@@ -26,8 +43,15 @@ export const VideoTile: React.FC<VideoTileProps> = ({
   className = '',
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const tileRef = useRef<HTMLDivElement>(null);
   const [, setTrackRevision] = useState<number>(0);
   const [audioBlocked, setAudioBlocked] = useState<boolean>(false);
+
+  // Floating movable & resizable state
+  const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
+  const [isDragging, setIsDragging] = useState<boolean>(false);
+  const [sizePreset, setSizePreset] = useState<SizePreset>('md');
+  const [dragOffset, setDragOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
   useEffect(() => {
     const video = videoRef.current;
@@ -40,7 +64,6 @@ export const VideoTile: React.FC<VideoTileProps> = ({
 
       const attemptPlay = async () => {
         try {
-          // If local, always keep muted to prevent acoustic feedback
           if (isLocal) {
             video.muted = true;
             video.defaultMuted = true;
@@ -48,8 +71,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
           await video.play();
           setAudioBlocked(false);
         } catch (err: unknown) {
-          console.warn('[VideoTile] Autoplay prevented, retrying with muted audio fallback:', (err as Error)?.message);
-          // If browser blocked unmuted video, mute it to ensure video frames display immediately!
+          console.warn('[VideoTile] Autoplay prevented, fallback to muted:', (err as Error)?.message);
           if (!isLocal) {
             video.muted = true;
             video.defaultMuted = true;
@@ -63,10 +85,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
         }
       };
 
-      const handleLoadedMetadata = () => {
-        attemptPlay();
-      };
-
+      const handleLoadedMetadata = () => attemptPlay();
       video.addEventListener('loadedmetadata', handleLoadedMetadata);
       attemptPlay();
 
@@ -75,20 +94,14 @@ export const VideoTile: React.FC<VideoTileProps> = ({
         attemptPlay();
       };
 
-      // Listen for unmuting of tracks (when WebRTC receives first network media packets)
       const tracks = stream.getTracks();
-      tracks.forEach((track) => {
-        track.addEventListener('unmute', attemptPlay);
-      });
-
+      tracks.forEach((track) => track.addEventListener('unmute', attemptPlay));
       stream.addEventListener('addtrack', handleTracksChange);
       stream.addEventListener('removetrack', handleTracksChange);
 
       return () => {
         video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-        tracks.forEach((track) => {
-          track.removeEventListener('unmute', attemptPlay);
-        });
+        tracks.forEach((track) => track.removeEventListener('unmute', attemptPlay));
         stream.removeEventListener('addtrack', handleTracksChange);
         stream.removeEventListener('removetrack', handleTracksChange);
       };
@@ -101,114 +114,264 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     e.stopPropagation();
     if (videoRef.current && !isLocal) {
       videoRef.current.muted = false;
-      videoRef.current.play().then(() => {
-        setAudioBlocked(false);
-      }).catch((err) => {
-        console.warn('Unmute error:', err);
+      videoRef.current
+        .play()
+        .then(() => setAudioBlocked(false))
+        .catch((err) => console.warn('Unmute error:', err));
+    }
+  };
+
+  // --- Movable / Dragging Logic ---
+  const handlePointerDown = (e: React.PointerEvent) => {
+    if (!isFloating || !tileRef.current) return;
+    const parent = tileRef.current.parentElement;
+    if (!parent) return;
+
+    const parentRect = parent.getBoundingClientRect();
+    const tileRect = tileRef.current.getBoundingClientRect();
+
+    // Current position within parent
+    const currentX = tileRect.left - parentRect.left;
+    const currentY = tileRect.top - parentRect.top;
+
+    setDragOffset({
+      x: e.clientX - tileRect.left,
+      y: e.clientY - tileRect.top,
+    });
+    setPosition({ x: currentX, y: currentY });
+    setIsDragging(true);
+
+    (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
+  };
+
+  const handlePointerMove = useCallback((e: React.PointerEvent) => {
+    if (!isDragging || !tileRef.current) return;
+    const parent = tileRef.current.parentElement;
+    if (!parent) return;
+
+    const parentRect = parent.getBoundingClientRect();
+    const tileWidth = tileRef.current.offsetWidth;
+    const tileHeight = tileRef.current.offsetHeight;
+
+    let newX = e.clientX - parentRect.left - dragOffset.x;
+    let newY = e.clientY - parentRect.top - dragOffset.y;
+
+    // Boundary constraints: keep inside parent container with 12px margin
+    const minX = 12;
+    const minY = 12;
+    const maxX = Math.max(12, parentRect.width - tileWidth - 12);
+    const maxY = Math.max(12, parentRect.height - tileHeight - 12);
+
+    newX = Math.max(minX, Math.min(newX, maxX));
+    newY = Math.max(minY, Math.min(newY, maxY));
+
+    setPosition({ x: newX, y: newY });
+  }, [isDragging, dragOffset]);
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    (e.target as HTMLElement).releasePointerCapture?.(e.pointerId);
+  };
+
+  // --- Snap Presets ---
+  const handleSnap = (corner: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right') => {
+    if (!tileRef.current) return;
+    const parent = tileRef.current.parentElement;
+    if (!parent) return;
+
+    const parentRect = parent.getBoundingClientRect();
+    const tileWidth = tileRef.current.offsetWidth;
+    const tileHeight = tileRef.current.offsetHeight;
+
+    const margin = 16;
+    if (corner === 'top-left') {
+      setPosition({ x: margin, y: margin });
+    } else if (corner === 'top-right') {
+      setPosition({ x: Math.max(margin, parentRect.width - tileWidth - margin), y: margin });
+    } else if (corner === 'bottom-left') {
+      setPosition({ x: margin, y: Math.max(margin, parentRect.height - tileHeight - margin) });
+    } else {
+      setPosition({
+        x: Math.max(margin, parentRect.width - tileWidth - margin),
+        y: Math.max(margin, parentRect.height - tileHeight - margin),
       });
     }
   };
 
+  // --- Size Cycle / Toggle ---
+  const cycleSize = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const order: SizePreset[] = ['sm', 'md', 'lg', 'xl'];
+    const nextIndex = (order.indexOf(sizePreset) + 1) % order.length;
+    setSizePreset(order[nextIndex]);
+  };
+
   const hasVideoTrack = stream && stream.getVideoTracks().length > 0 && stream.getVideoTracks()[0].enabled && !isVideoOff;
+
+  // Size styling classes for floating view
+  const sizeClasses: Record<SizePreset, string> = {
+    sm: 'w-48 sm:w-56',
+    md: 'w-64 sm:w-72 md:w-80',
+    lg: 'w-80 sm:w-96 md:w-[400px]',
+    xl: 'w-96 sm:w-[460px] md:w-[520px]',
+  };
 
   return (
     <div
+      ref={tileRef}
       onClick={audioBlocked ? handleUnmuteClick : undefined}
-      className={`relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-950/90 shadow-2xl backdrop-blur-md transition-all duration-300 ${
+      onPointerMove={isFloating ? handlePointerMove : undefined}
+      onPointerUp={isFloating ? handlePointerUp : undefined}
+      style={
+        isFloating && position
+          ? {
+              left: `${position.x}px`,
+              top: `${position.y}px`,
+              bottom: 'auto',
+              right: 'auto',
+            }
+          : undefined
+      }
+      className={`relative overflow-hidden rounded-md border border-zinc-800 bg-[#070709] shadow-2xl transition-shadow select-none ${
         isFloating
-          ? 'absolute bottom-3 right-3 sm:bottom-6 sm:right-6 z-20 w-28 sm:w-44 md:w-56 aspect-[3/4] sm:aspect-video ring-1 sm:ring-2 ring-cyan-500/40 shadow-cyan-950/40 hover:scale-105'
+          ? `absolute ${position ? '' : 'bottom-4 right-4 sm:bottom-6 sm:right-6'} z-30 ${sizeClasses[sizePreset]} aspect-video border-orange-500/40 shadow-black/80 hover:border-orange-500/70`
           : 'w-full h-full min-h-0'
       } ${className}`}
     >
-      {/* Video Element (Positioned absolute inset-0 to guarantee it never collapses in flex containers) */}
+      {/* Video Element */}
       {stream && (
         <video
           ref={videoRef}
           autoPlay
           playsInline
           muted={isLocal}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-200 pointer-events-none ${
             hasVideoTrack ? 'opacity-100' : 'opacity-0'
           } ${isLocal ? 'scale-x-[-1]' : ''}`}
         />
       )}
 
-      {/* Video Disabled / Offline State */}
+      {/* Camera Disabled / Offline State */}
       {!hasVideoTrack && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 text-slate-400 p-4">
-          <div className="relative mb-3 flex h-14 w-14 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-slate-800/80 border border-slate-700/60 shadow-inner">
-            {role === 'tester' ? (
-              <Shield className="h-7 w-7 sm:h-10 sm:w-10 text-amber-400/90" />
-            ) : (
-              <UserIcon className="h-7 w-7 sm:h-10 sm:w-10 text-cyan-400/90" />
-            )}
-            <div className="absolute -bottom-1 -right-1 rounded-full bg-slate-900 p-1 sm:p-1.5 border border-slate-700">
-              <VideoOff className="h-3 w-3 sm:h-4 sm:w-4 text-rose-400" />
-            </div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/90 text-zinc-400 p-3 pointer-events-none">
+          <div className="flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 rounded-md bg-zinc-900 border border-zinc-800 mb-2">
+            <VideoOff className="h-5 w-5 sm:h-6 sm:w-6 text-rose-400" />
           </div>
-          <span className="text-xs sm:text-sm font-medium text-slate-300">Camera is off</span>
-          <span className="text-[11px] text-slate-500 font-mono mt-0.5">{username}</span>
+          <span className="text-[11px] sm:text-xs font-mono font-medium text-zinc-300">Camera is off</span>
+          <span className="text-[10px] sm:text-[11px] text-zinc-500 font-mono mt-0.5">{username}</span>
         </div>
       )}
 
-      {/* Biometric / Cyber Framing Lines */}
-      <div className="pointer-events-none absolute inset-0 rounded-2xl border border-white/5" />
-      <div className="pointer-events-none absolute top-2 left-2 h-2.5 w-2.5 border-t-2 border-l-2 border-cyan-500/50" />
-      <div className="pointer-events-none absolute top-2 right-2 h-2.5 w-2.5 border-t-2 border-r-2 border-cyan-500/50" />
-      <div className="pointer-events-none absolute bottom-2 left-2 h-2.5 w-2.5 border-b-2 border-l-2 border-cyan-500/50" />
-      <div className="pointer-events-none absolute bottom-2 right-2 h-2.5 w-2.5 border-b-2 border-r-2 border-cyan-500/50" />
+      {/* Crisp Framing Markers */}
+      <div className="pointer-events-none absolute top-1.5 left-1.5 h-2 w-2 border-t border-l border-zinc-600" />
+      <div className="pointer-events-none absolute top-1.5 right-1.5 h-2 w-2 border-t border-r border-zinc-600" />
+      <div className="pointer-events-none absolute bottom-1.5 left-1.5 h-2 w-2 border-b border-l border-zinc-600" />
+      <div className="pointer-events-none absolute bottom-1.5 right-1.5 h-2 w-2 border-b border-r border-zinc-600" />
 
-      {/* Top Left: Role & Identity Tag */}
-      <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 flex items-center gap-1.5 sm:gap-2 pointer-events-none">
-        <div className={`flex items-center gap-1 sm:gap-1.5 rounded-md bg-slate-900/85 px-1.5 py-0.5 sm:px-2.5 sm:py-1 font-mono font-medium backdrop-blur-md border border-slate-700/50 shadow-sm ${
-          isFloating ? 'text-[10px] sm:text-xs' : 'text-xs'
-        }`}>
-          <span className={`h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full ${isLocal ? 'bg-cyan-400 animate-pulse' : 'bg-emerald-400'}`} />
-          <span className="text-slate-200 truncate max-w-[70px] sm:max-w-none">{username}</span>
-          {isLocal && <span className="text-[9px] sm:text-[10px] text-cyan-400 font-sans hidden xs:inline">(You)</span>}
+      {/* Top Bar: Floating Drag Grip & Size Controls (NO OVERLAPS) */}
+      {isFloating ? (
+        <div
+          onPointerDown={handlePointerDown}
+          className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-2.5 py-1.5 bg-gradient-to-b from-black/90 via-black/60 to-transparent cursor-grab active:cursor-grabbing border-b border-zinc-800/40"
+          title="Drag to move this window around"
+        >
+          {/* Identity & Drag indicator */}
+          <div className="flex items-center gap-1.5 pointer-events-none">
+            <GripHorizontal className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+            <span className="h-1.5 w-1.5 rounded-full bg-orange-400 animate-pulse" />
+            <span className="text-[10px] sm:text-[11px] font-mono font-semibold text-zinc-200 truncate max-w-[80px] sm:max-w-[120px]">
+              {username} (You)
+            </span>
+          </div>
+
+          {/* Interactive Controls: Snap & Resize */}
+          <div
+            className="flex items-center gap-1"
+            onPointerDown={(e) => e.stopPropagation()} // Prevent drag when clicking buttons
+          >
+            {/* Snap button cycling corners */}
+            <button
+              onClick={() => {
+                if (!position || (position.x > 50 && position.y > 50)) {
+                  handleSnap('top-left');
+                } else if (position.x <= 50 && position.y <= 50) {
+                  handleSnap('top-right');
+                } else if (position.x > 50 && position.y <= 50) {
+                  handleSnap('bottom-left');
+                } else {
+                  handleSnap('bottom-right');
+                }
+              }}
+              title="Snap to corner (TL -> TR -> BL -> BR)"
+              className="p-1 rounded bg-zinc-900/90 hover:bg-zinc-800 text-zinc-400 hover:text-white border border-zinc-800 text-[10px] font-mono transition-colors cursor-pointer"
+            >
+              <Compass className="h-3 w-3" />
+            </button>
+
+            {/* Size Preset Toggle */}
+            <button
+              onClick={cycleSize}
+              title={`Current size: ${sizePreset.toUpperCase()} (Click to enlarge)`}
+              className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-zinc-900/90 hover:bg-orange-600/20 text-orange-300 hover:text-orange-200 border border-zinc-800 hover:border-orange-500/50 text-[10px] font-mono font-bold transition-colors cursor-pointer"
+            >
+              <Maximize2 className="h-2.5 w-2.5" />
+              <span>{sizePreset.toUpperCase()}</span>
+            </button>
+          </div>
         </div>
+      ) : (
+        /* Non-floating Top Bar */
+        <div className="absolute top-3 left-3 z-10 flex items-center gap-2 pointer-events-none">
+          <div className="flex items-center gap-1.5 rounded bg-black/80 px-2.5 py-1 font-mono text-xs font-medium backdrop-blur-md border border-zinc-800">
+            <span className={`h-2 w-2 rounded-full ${isLocal ? 'bg-orange-400' : 'bg-emerald-400'}`} />
+            <span className="text-zinc-200">{username}</span>
+          </div>
 
-        {/* Role Badge */}
-        {!isFloating && (
-          role === 'tester' ? (
-            <span className="flex items-center gap-1 rounded bg-amber-500/20 px-2 py-0.5 text-[10px] font-mono font-semibold text-amber-300 border border-amber-500/40 uppercase tracking-wider">
-              <Shield className="h-2.5 w-2.5" />
-              Tester
+          {role === 'tester' ? (
+            <span className="flex items-center gap-1 rounded bg-orange-500/15 px-2 py-0.5 text-[10px] font-mono font-semibold text-orange-400 border border-orange-500/40 uppercase">
+              <Shield className="h-2.5 w-2.5" /> Tester
             </span>
           ) : (
-            <span className="rounded bg-slate-800/80 px-2 py-0.5 text-[10px] font-mono text-slate-300 border border-slate-700 uppercase tracking-wider">
+            <span className="rounded bg-zinc-900/80 px-2 py-0.5 text-[10px] font-mono text-zinc-400 border border-zinc-800 uppercase">
               User
             </span>
-          )
-        )}
-      </div>
+          )}
+        </div>
+      )}
 
-      {/* Autoplay Audio Block Banner (Click to Unmute) */}
+      {/* Autoplay Audio Block Banner */}
       {audioBlocked && !isLocal && (
         <button
           onClick={handleUnmuteClick}
-          className="absolute top-3 right-3 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/90 hover:bg-amber-400 text-slate-950 font-mono text-xs font-bold tracking-wider shadow-lg animate-bounce transition-colors"
+          className="absolute top-3 right-3 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded bg-orange-600 hover:bg-orange-500 text-white font-mono text-xs font-bold tracking-wider shadow-lg transition-colors cursor-pointer"
         >
           <VolumeX className="h-3.5 w-3.5" />
           <span>Click to Unmute Audio</span>
         </button>
       )}
 
-      {/* Bottom Status Overlay */}
-      <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-3 sm:left-3 sm:right-3 z-10 flex items-center justify-between pointer-events-none">
+      {/* Bottom Status Row (Cleanly separated, zero collisions) */}
+      <div className="absolute bottom-2 left-2.5 right-2.5 z-10 flex items-center justify-between pointer-events-none">
         {subtitle ? (
-          <span className="rounded bg-slate-900/85 px-2 py-0.5 text-[10px] sm:text-[11px] font-mono text-slate-400 border border-slate-800">
+          <span className="rounded bg-black/85 px-1.5 py-0.5 text-[10px] font-mono text-zinc-400 border border-zinc-800/90 truncate max-w-[120px]">
             {subtitle}
           </span>
-        ) : <span />}
-
-        {/* Audio status badge */}
-        {isMuted && (
-          <div className="flex items-center gap-1 rounded-md bg-rose-500/20 px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs text-rose-300 border border-rose-500/30 backdrop-blur-sm">
-            <MicOff className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
-            <span className="font-mono uppercase tracking-wide">Muted</span>
-          </div>
+        ) : (
+          <span />
         )}
+
+        {/* Audio status indicator */}
+        <div
+          className={`flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-mono border backdrop-blur-sm ${
+            isMuted
+              ? 'bg-rose-500/15 text-rose-400 border-rose-500/40'
+              : 'bg-black/80 text-emerald-400 border-emerald-800/50'
+          }`}
+        >
+          {isMuted ? <MicOff className="h-2.5 w-2.5 text-rose-400" /> : <Mic className="h-2.5 w-2.5 text-emerald-400" />}
+          <span className="uppercase tracking-wider">{isMuted ? 'Muted' : 'Live'}</span>
+        </div>
       </div>
     </div>
   );

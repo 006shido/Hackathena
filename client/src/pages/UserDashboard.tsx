@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, Video, Plus, LogOut, ArrowRight, User } from 'lucide-react';
+import { Shield, Video, Plus, LogOut, ArrowRight, User, Lock, Activity, Users, Radio, Sparkles } from 'lucide-react';
 import { User as UserType } from '../types/auth';
 
 interface UserDashboardProps {
@@ -14,7 +14,6 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({
   onStartCall,
 }) => {
   const [inputRoomId, setInputRoomId] = useState('');
-  const [showJoinModal, setShowJoinModal] = useState(false);
 
   // Generate short readable room ID like ABC-123 or SEC-789
   const generateRoomId = () => {
@@ -38,30 +37,37 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#08090d] text-slate-100 flex flex-col relative cyber-grid">
+    <div className="min-h-screen w-full bg-black text-zinc-100 flex flex-col relative amoled-grid">
       {/* Top Navbar */}
-      <nav className="w-full flex items-center justify-between px-3.5 sm:px-6 py-2.5 sm:py-4 border-b border-slate-800/80 bg-slate-950/70 backdrop-blur-md">
-        <div className="flex items-center gap-2 sm:gap-3">
-          <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-md shadow-cyan-900/40 shrink-0">
-            <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+      <nav className="w-full flex items-center justify-between px-4 sm:px-8 py-3.5 border-b border-zinc-800/90 bg-[#050507] shrink-0">
+        <div className="flex items-center gap-3">
+          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-orange-500/10 border border-orange-500/30 text-orange-400 shrink-0">
+            <Shield className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-sm sm:text-base font-bold tracking-tight text-white leading-tight">DeepTrace</h1>
-            <span className="text-[10px] sm:text-[11px] text-cyan-400 font-mono hidden xs:inline">Secure Video Communication</span>
+            <div className="flex items-center gap-2">
+              <h1 className="text-base font-bold tracking-tight text-white leading-tight">DeepTrace</h1>
+              <span className="flex items-center gap-1 rounded bg-emerald-500/10 px-1.5 py-0.5 text-[9px] font-mono text-emerald-400 border border-emerald-500/30 uppercase tracking-wider">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Operational
+              </span>
+            </div>
+            <span className="text-[10px] text-zinc-500 font-mono hidden xs:inline">1-to-1 WebRTC Video Security</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-4">
-          <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-[11px] sm:text-xs font-mono">
-            <User className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-cyan-400" />
-            <span className="text-slate-300 font-medium truncate max-w-[80px] sm:max-w-none">{user.name}</span>
-            <span className="text-[9px] sm:text-[10px] text-slate-500 uppercase bg-slate-800 px-1 sm:px-1.5 py-0.5 rounded hidden xs:inline">User</span>
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-zinc-950 border border-zinc-800 text-xs font-mono">
+            <User className="h-3.5 w-3.5 text-zinc-400" />
+            <span className="text-zinc-200 font-medium truncate max-w-[120px]">{user.name}</span>
+            <span className="text-[9px] text-emerald-400 font-mono uppercase bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-800/40 hidden xs:inline">
+              User
+            </span>
           </div>
 
           <button
             onClick={onLogout}
             title="Log out"
-            className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400 hover:text-rose-400 hover:border-rose-500/40 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-zinc-950 border border-zinc-800 text-xs font-mono text-zinc-400 hover:text-rose-400 hover:border-rose-500/40 transition-colors cursor-pointer"
           >
             <LogOut className="h-3.5 w-3.5" />
             <span className="hidden sm:inline">Logout</span>
@@ -69,52 +75,75 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({
         </div>
       </nav>
 
-      {/* Main Content */}
-      <main className="flex-1 max-w-4xl w-full mx-auto p-4 sm:p-12 flex flex-col justify-center">
-        <div className="text-center mb-10">
-          <div className="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-3">
-            VERIFIED SESSION
+      {/* Main Content - Well proportioned & expansive */}
+      <main className="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-8 md:p-10 flex flex-col justify-center">
+        {/* Welcome Banner */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-3">
+            <Lock className="h-3 w-3" />
+            <span>AUTHENTICATED CLIENT SESSION</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-2">
             Welcome, {user.name}
           </h2>
-          <p className="text-sm text-slate-400 max-w-md mx-auto">
-            Connect securely with peer-to-peer WebRTC video calling protected by DeepTrace architecture.
+          <p className="text-sm text-zinc-400 max-w-xl mx-auto">
+            Direct peer-to-peer WebRTC video calling. Isolated 2-party rooms with DTLS-SRTP encryption and DeepTrace biometric security verification.
           </p>
         </div>
 
-        {/* Action Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto w-full">
-          {/* Create Call */}
-          <button
-            onClick={handleCreateCall}
-            className="group flex flex-col items-start p-7 rounded-3xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/60 shadow-xl hover:shadow-cyan-950/40 transition-all text-left relative overflow-hidden active:scale-[0.98]"
-          >
-            <div className="h-12 w-12 rounded-2xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <Plus className="h-6 w-6" />
+        {/* Action Cards - Proportional, Handcrafted & Wide */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
+          {/* Card 1: Create Call */}
+          <div className="flex flex-col justify-between p-6 sm:p-8 rounded-lg bg-[#070709] border border-zinc-800 hover:border-orange-500/50 transition-all text-left relative overflow-hidden group">
+            {/* Top edge subtle highlight */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-orange-500/40 to-transparent" />
+
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="h-11 w-11 rounded-md bg-orange-500/10 text-orange-400 border border-orange-500/30 flex items-center justify-center">
+                  <Plus className="h-5 w-5" />
+                </div>
+                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-zinc-900 px-2 py-0.5 rounded border border-zinc-800">
+                  Instant Host
+                </span>
+              </div>
+
+              <h3 className="text-xl font-bold text-white mb-1.5 group-hover:text-orange-400 transition-colors">
+                Create New Call
+              </h3>
+              <p className="text-xs text-zinc-400 leading-relaxed mb-6 font-mono">
+                Generate an encrypted 1-to-1 video room and share the room code with your participant.
+              </p>
             </div>
-            <h3 className="text-lg font-bold text-white mb-1 group-hover:text-cyan-300 transition-colors">
-              Create New Call
-            </h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Generate a secure 1-to-1 video room and invite a participant.
-            </p>
-            <div className="mt-6 flex items-center gap-1.5 text-xs font-mono font-semibold text-cyan-400">
+
+            <button
+              onClick={handleCreateCall}
+              className="w-full py-3 px-4 rounded-md bg-orange-600 hover:bg-orange-500 text-white text-xs font-mono font-bold uppercase tracking-wider shadow-lg shadow-orange-950/40 border border-orange-500 flex items-center justify-center gap-2 transition-all active:scale-[0.99] cursor-pointer"
+            >
               <span>Start Instant Meeting</span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </button>
+            </button>
+          </div>
 
-          {/* Join Call */}
-          <div className="flex flex-col justify-between p-7 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-xl">
+          {/* Card 2: Join Call */}
+          <div className="flex flex-col justify-between p-6 sm:p-8 rounded-lg bg-[#070709] border border-zinc-800 hover:border-zinc-700 transition-all text-left relative overflow-hidden">
+            {/* Top edge subtle highlight */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-zinc-700/60 to-transparent" />
+
             <div>
-              <div className="h-12 w-12 rounded-2xl bg-blue-500/20 text-blue-400 border border-blue-500/40 flex items-center justify-center mb-4">
-                <Video className="h-6 w-6" />
+              <div className="flex items-center justify-between mb-4">
+                <div className="h-11 w-11 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800 flex items-center justify-center">
+                  <Video className="h-5 w-5" />
+                </div>
+                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-zinc-900 px-2 py-0.5 rounded border border-zinc-800">
+                  Join Peer
+                </span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">
+
+              <h3 className="text-xl font-bold text-white mb-1.5">
                 Join Call
               </h3>
-              <p className="text-xs text-slate-400 leading-relaxed mb-4">
+              <p className="text-xs text-zinc-400 leading-relaxed mb-4 font-mono">
                 Enter an existing Room ID provided by the host.
               </p>
             </div>
@@ -125,23 +154,38 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({
                 value={inputRoomId}
                 onChange={(e) => setInputRoomId(e.target.value)}
                 placeholder="e.g. ABC-123"
-                className="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono uppercase text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500"
+                className="w-full px-3.5 py-2.5 rounded-md bg-black border border-zinc-800 text-xs font-mono uppercase tracking-wider text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/80 focus:ring-1 focus:ring-orange-500/80 transition-colors"
               />
               <button
                 type="submit"
                 disabled={!inputRoomId.trim()}
-                className="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-mono font-semibold uppercase tracking-wider disabled:opacity-40 transition-colors flex items-center justify-center gap-2"
+                className="w-full py-2.5 px-4 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-100 text-xs font-mono font-semibold uppercase tracking-wider border border-zinc-700 disabled:opacity-40 transition-colors flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Join Room</span>
+                <span>Enter Room</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </form>
           </div>
         </div>
 
-        {/* Security architecture footer note */}
-        <div className="mt-12 text-center text-xs font-mono text-slate-500">
-          Peer-to-Peer Encryption • Direct WebRTC Connection • 2 Participants Max
+        {/* Security & System Telemetry Bar */}
+        <div className="mt-8 p-3.5 rounded-lg bg-[#070709] border border-zinc-800/90 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-mono">
+          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
+            <span className="text-[10px] text-zinc-500 uppercase">Architecture</span>
+            <span className="text-zinc-200 font-semibold mt-0.5">Direct WebRTC</span>
+          </div>
+          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
+            <span className="text-[10px] text-zinc-500 uppercase">Room Limit</span>
+            <span className="text-emerald-400 font-semibold mt-0.5">Strict 2 Peers</span>
+          </div>
+          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
+            <span className="text-[10px] text-zinc-500 uppercase">Encryption</span>
+            <span className="text-zinc-200 font-semibold mt-0.5">DTLS-SRTP P2P</span>
+          </div>
+          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
+            <span className="text-[10px] text-zinc-500 uppercase">DeepTrace</span>
+            <span className="text-orange-400 font-semibold mt-0.5">Active Defense</span>
+          </div>
         </div>
       </main>
     </div>

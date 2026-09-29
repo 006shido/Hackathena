@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, ShieldAlert, Video, Plus, LogOut, ArrowRight, AlertTriangle } from 'lucide-react';
+import { Shield, ShieldAlert, Video, Plus, LogOut, ArrowRight, AlertTriangle, Cpu, Terminal, Flame } from 'lucide-react';
 import { User as UserType } from '../types/auth';
 
 interface TesterDashboardProps {
@@ -37,24 +37,29 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#08090d] text-slate-100 flex flex-col relative cyber-grid">
+    <div className="min-h-screen w-full bg-black text-zinc-100 flex flex-col relative amoled-grid">
       {/* Top Navbar */}
-      <nav className="w-full flex items-center justify-between px-3.5 sm:px-6 py-2.5 sm:py-4 border-b border-amber-500/30 bg-slate-950/80 backdrop-blur-md">
-        <div className="flex items-center gap-2 sm:gap-3">
-          <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-rose-600 shadow-md shadow-amber-950/40 shrink-0">
-            <ShieldAlert className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+      <nav className="w-full flex items-center justify-between px-4 sm:px-8 py-3.5 border-b border-orange-500/25 bg-[#050507] shrink-0">
+        <div className="flex items-center gap-3">
+          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-orange-500/15 border border-orange-500/40 text-orange-400 shrink-0">
+            <ShieldAlert className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-sm sm:text-base font-bold tracking-tight text-white leading-tight">DeepTrace</h1>
-            <span className="text-[10px] sm:text-[11px] text-amber-400 font-mono hidden xs:inline">Testing Environment</span>
+            <div className="flex items-center gap-2">
+              <h1 className="text-base font-bold tracking-tight text-white leading-tight">DeepTrace</h1>
+              <span className="flex items-center gap-1 rounded bg-orange-500/10 px-1.5 py-0.5 text-[9px] font-mono text-orange-400 border border-orange-500/30 uppercase tracking-wider">
+                <span className="h-1.5 w-1.5 rounded-full bg-orange-400 animate-pulse" /> Security Tester
+              </span>
+            </div>
+            <span className="text-[10px] text-zinc-500 font-mono hidden xs:inline">Adversarial Simulation Environment</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-4">
-          <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-[11px] sm:text-xs font-mono">
-            <Shield className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-amber-400" />
-            <span className="text-amber-200 font-medium truncate max-w-[80px] sm:max-w-none">{user.name}</span>
-            <span className="text-[9px] sm:text-[10px] text-amber-400 font-bold uppercase bg-amber-950/80 px-1 sm:px-1.5 py-0.5 rounded border border-amber-800/60 hidden xs:inline">
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-zinc-950 border border-orange-500/30 text-xs font-mono">
+            <Shield className="h-3.5 w-3.5 text-orange-400" />
+            <span className="text-zinc-200 font-medium truncate max-w-[120px]">{user.name}</span>
+            <span className="text-[9px] text-orange-400 font-bold uppercase bg-orange-950/60 px-1.5 py-0.5 rounded border border-orange-800/60 hidden xs:inline">
               Tester
             </span>
           </div>
@@ -62,7 +67,7 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
           <button
             onClick={onLogout}
             title="Log out"
-            className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400 hover:text-rose-400 hover:border-rose-500/40 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-zinc-950 border border-zinc-800 text-xs font-mono text-zinc-400 hover:text-rose-400 hover:border-rose-500/40 transition-colors cursor-pointer"
           >
             <LogOut className="h-3.5 w-3.5" />
             <span className="hidden sm:inline">Logout</span>
@@ -71,67 +76,92 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
       </nav>
 
       {/* Main Content */}
-      <main className="flex-1 max-w-4xl w-full mx-auto p-4 sm:p-12 flex flex-col justify-center">
+      <main className="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-8 md:p-10 flex flex-col justify-center">
         {/* Header Intro */}
-        <div className="text-center mb-8">
-          <div className="inline-block px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-mono mb-3">
-            CONTROLLED AUDIT CONSOLE
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-mono mb-3">
+            <Terminal className="h-3 w-3" />
+            <span>ADVERSARIAL EVALUATION ENVIRONMENT</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-2">
             Welcome, {user.name}
           </h2>
-          <p className="text-sm text-slate-400 max-w-lg mx-auto">
-            Authorized security account configured for adversarial video & audio injection simulations.
+          <p className="text-sm text-zinc-400 max-w-xl mx-auto">
+            Authorized testing account with integrated real-time video face overlay & synthetic vocoder injection capabilities.
           </p>
         </div>
 
-        {/* Tester Information Card */}
-        <div className="max-w-2xl mx-auto w-full mb-8 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200 flex items-start gap-3.5">
-          <div className="h-8 w-8 rounded-xl bg-amber-500/20 flex items-center justify-center shrink-0 mt-0.5 border border-amber-500/40">
-            <AlertTriangle className="h-4.5 w-4.5 text-amber-400" />
+        {/* Tester Information Card - Sharp & Technical */}
+        <div className="w-full mb-6 p-4 rounded-lg bg-[#070709] border border-orange-500/30 text-zinc-300 flex items-start gap-3.5">
+          <div className="h-8 w-8 rounded-md bg-orange-500/15 flex items-center justify-center shrink-0 mt-0.5 border border-orange-500/30 text-orange-400">
+            <AlertTriangle className="h-4.5 w-4.5" />
           </div>
-          <div>
-            <span className="text-xs font-mono font-bold tracking-wider uppercase block text-amber-300">
-              TESTER MODE
-            </span>
-            <p className="text-xs text-amber-200/90 leading-relaxed mt-0.5">
-              You have access to controlled attack simulation tools for security testing. In-call attack simulator allows injecting simulated face swaps and voice transformations into live WebRTC streams.
+          <div className="flex-1">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-mono font-bold tracking-wider uppercase block text-orange-400">
+                ACTIVE TESTER PRIVILEGES
+              </span>
+              <span className="text-[10px] font-mono text-zinc-500">POLICY ENFORCED</span>
+            </div>
+            <p className="text-xs text-zinc-400 leading-relaxed mt-1 font-mono">
+              You have access to the in-call Attack Simulator panel. Injected streams use HTML5 Canvas & Web Audio API graphs via <span className="text-orange-300">replaceTrack()</span> without dropping peer connection.
             </p>
           </div>
         </div>
 
         {/* Action Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
           {/* Create Test Call */}
-          <button
-            onClick={handleCreateTestCall}
-            className="group flex flex-col items-start p-7 rounded-3xl bg-slate-900/90 border border-amber-500/30 hover:border-amber-500/80 shadow-xl hover:shadow-amber-950/40 transition-all text-left relative overflow-hidden active:scale-[0.98]"
-          >
-            <div className="h-12 w-12 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <Plus className="h-6 w-6" />
+          <div className="flex flex-col justify-between p-6 sm:p-8 rounded-lg bg-[#070709] border border-orange-500/30 hover:border-orange-500/70 transition-all text-left relative overflow-hidden group">
+            {/* Top edge subtle highlight */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-orange-500 to-transparent" />
+
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="h-11 w-11 rounded-md bg-orange-500/10 text-orange-400 border border-orange-500/30 flex items-center justify-center">
+                  <Flame className="h-5 w-5" />
+                </div>
+                <span className="text-[10px] font-mono text-orange-400 uppercase tracking-widest bg-orange-950/40 px-2 py-0.5 rounded border border-orange-800/40">
+                  Simulator Ready
+                </span>
+              </div>
+
+              <h3 className="text-xl font-bold text-white mb-1.5 group-hover:text-orange-400 transition-colors">
+                Create Test Call
+              </h3>
+              <p className="text-xs text-zinc-400 leading-relaxed mb-6 font-mono">
+                Launch an isolated 1-to-1 WebRTC testing room equipped with live Attack Simulator controls.
+              </p>
             </div>
-            <h3 className="text-lg font-bold text-white mb-1 group-hover:text-amber-300 transition-colors">
-              Create Test Call
-            </h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Launch a testing room equipped with attack simulation telemetry.
-            </p>
-            <div className="mt-6 flex items-center gap-1.5 text-xs font-mono font-semibold text-amber-400">
-              <span>Start Security Session</span>
+
+            <button
+              onClick={handleCreateTestCall}
+              className="w-full py-3 px-4 rounded-md bg-orange-600 hover:bg-orange-500 text-white text-xs font-mono font-bold uppercase tracking-wider shadow-lg shadow-orange-950/40 border border-orange-500 flex items-center justify-center gap-2 transition-all active:scale-[0.99] cursor-pointer"
+            >
+              <span>Launch Test Room</span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </button>
+            </button>
+          </div>
 
           {/* Join Call */}
-          <div className="flex flex-col justify-between p-7 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-xl">
+          <div className="flex flex-col justify-between p-6 sm:p-8 rounded-lg bg-[#070709] border border-zinc-800 hover:border-zinc-700 transition-all text-left relative overflow-hidden">
+            {/* Top edge subtle highlight */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-zinc-700/60 to-transparent" />
+
             <div>
-              <div className="h-12 w-12 rounded-2xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 flex items-center justify-center mb-4">
-                <Video className="h-6 w-6" />
+              <div className="flex items-center justify-between mb-4">
+                <div className="h-11 w-11 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800 flex items-center justify-center">
+                  <Video className="h-5 w-5" />
+                </div>
+                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-zinc-900 px-2 py-0.5 rounded border border-zinc-800">
+                  Adversary Target
+                </span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">
-                Join Call
+
+              <h3 className="text-xl font-bold text-white mb-1.5">
+                Join Target Call
               </h3>
-              <p className="text-xs text-slate-400 leading-relaxed mb-4">
+              <p className="text-xs text-zinc-400 leading-relaxed mb-4 font-mono">
                 Enter an existing Room ID to test against a remote participant.
               </p>
             </div>
@@ -142,17 +172,37 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
                 value={inputRoomId}
                 onChange={(e) => setInputRoomId(e.target.value)}
                 placeholder="e.g. ABC-123"
-                className="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono uppercase text-white placeholder-slate-600 focus:outline-none focus:border-amber-500"
+                className="w-full px-3.5 py-2.5 rounded-md bg-black border border-zinc-800 text-xs font-mono uppercase tracking-wider text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/80 focus:ring-1 focus:ring-orange-500/80 transition-colors"
               />
               <button
                 type="submit"
                 disabled={!inputRoomId.trim()}
-                className="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-mono font-semibold uppercase tracking-wider disabled:opacity-40 transition-colors flex items-center justify-center gap-2"
+                className="w-full py-2.5 px-4 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-100 text-xs font-mono font-semibold uppercase tracking-wider border border-zinc-700 disabled:opacity-40 transition-colors flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Join Target Room</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </form>
+          </div>
+        </div>
+
+        {/* Telemetry Bar */}
+        <div className="mt-8 p-3.5 rounded-lg bg-[#070709] border border-zinc-800/90 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-mono">
+          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
+            <span className="text-[10px] text-zinc-500 uppercase">Face Synthesis</span>
+            <span className="text-orange-400 font-semibold mt-0.5">Canvas 30FPS</span>
+          </div>
+          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
+            <span className="text-[10px] text-zinc-500 uppercase">Voice Vocoder</span>
+            <span className="text-orange-400 font-semibold mt-0.5">WebAudio Graph</span>
+          </div>
+          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
+            <span className="text-[10px] text-zinc-500 uppercase">Stream Swap</span>
+            <span className="text-zinc-200 font-semibold mt-0.5">replaceTrack()</span>
+          </div>
+          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
+            <span className="text-[10px] text-zinc-500 uppercase">Role Guard</span>
+            <span className="text-emerald-400 font-semibold mt-0.5">Server Verified</span>
           </div>
         </div>
       </main>
