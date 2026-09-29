@@ -7,6 +7,7 @@ import {
   VolumeX,
   Maximize2,
   GripHorizontal,
+  AlertTriangle,
 } from 'lucide-react';
 import { UserRole } from '../types/auth';
 
@@ -20,6 +21,8 @@ interface VideoTileProps {
   subtitle?: string;
   isFloating?: boolean;
   className?: string;
+  isDeepfakeAlert?: boolean;
+  deepfakeScore?: number;
 }
 
 type SizePreset = 'sm' | 'md' | 'lg' | 'xl';
@@ -34,6 +37,8 @@ export const VideoTile: React.FC<VideoTileProps> = ({
   subtitle,
   isFloating = false,
   className = '',
+  isDeepfakeAlert = false,
+  deepfakeScore = 0,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const tileRef = useRef<HTMLDivElement>(null);
@@ -274,7 +279,11 @@ export const VideoTile: React.FC<VideoTileProps> = ({
         isFloating
           ? `absolute ${position ? '' : 'bottom-4 right-4 sm:bottom-6 sm:right-6'} z-30 ${sizeClasses[sizePreset]} max-w-[calc(100%-32px)] max-h-[calc(100%-32px)] aspect-video border-orange-500/40 shadow-black/80 hover:border-orange-500/70`
           : 'relative w-full h-full min-h-0'
-      } overflow-hidden rounded-md border border-zinc-800 bg-[#070709] shadow-2xl transition-[width,height,border-color] duration-150 select-none ${className}`}
+      } ${
+        isDeepfakeAlert && !isLocal
+          ? 'border-rose-500 ring-2 ring-rose-500/50 shadow-rose-950/60'
+          : 'border-zinc-800'
+      } overflow-hidden rounded-md border bg-[#070709] shadow-2xl transition-[width,height,border-color] duration-150 select-none ${className}`}
     >
       {/* Video Element */}
       {stream && (
@@ -352,6 +361,14 @@ export const VideoTile: React.FC<VideoTileProps> = ({
               User
             </span>
           )}
+        </div>
+      )}
+
+      {/* Real-Time Voice Deepfake Alert Badge on Remote Participant */}
+      {isDeepfakeAlert && !isLocal && (
+        <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-30 flex items-center gap-1.5 px-2.5 py-1 rounded bg-rose-600/95 border border-rose-400 text-white font-mono text-[10px] sm:text-xs font-bold tracking-wider shadow-xl shadow-rose-950/70 animate-pulse backdrop-blur-md">
+          <AlertTriangle className="h-3.5 w-3.5 text-white animate-bounce" />
+          <span>VOICE DEEPFAKE DETECTED ({deepfakeScore}%)</span>
         </div>
       )}
 

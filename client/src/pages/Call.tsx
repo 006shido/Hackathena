@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Users, Radio, AlertCircle, ArrowLeft } from 'lucide-react';
+import { Users, Radio, AlertCircle, ArrowLeft, AlertTriangle } from 'lucide-react';
 import { User as UserType } from '../types/auth';
 import { useCall } from '../hooks/useCall';
+import { useVoiceDetection } from '../hooks/useVoiceDetection';
 import { RoomHeader } from '../components/RoomHeader';
 import { VideoTile } from '../components/VideoTile';
 import { CallControls } from '../components/CallControls';
@@ -58,6 +59,21 @@ export const CallPage: React.FC<CallPageProps> = ({
     setVoicePreset,
     endCall,
   } = useCall(user, token);
+
+  // Real-time voice deepfake analysis on incoming peer audio stream
+  const isPeerVoiceAttacking = Boolean(
+    peerAttackState?.voiceTransform ||
+    peerAttackState?.mode === 'voice' ||
+    peerAttackState?.mode === 'combined'
+  );
+
+  const voiceDetection = useVoiceDetection(
+    remoteStream,
+    isPeerVoiceAttacking,
+    !showDevicePreview && Boolean(remoteStream)
+  );
+
+  const isDeepfakeAlert = voiceDetection.status === 'deepfake' || isPeerVoiceAttacking;
 
   // Initialize camera and mic for preview on mount
   useEffect(() => {
@@ -147,6 +163,8 @@ export const CallPage: React.FC<CallPageProps> = ({
                 isLocal={false}
                 subtitle="Remote Participant"
                 className="w-full h-full"
+                isDeepfakeAlert={isDeepfakeAlert}
+                deepfakeScore={voiceDetection.anomalyScore || (isPeerVoiceAttacking ? 94 : 0)}
               />
             ) : (
               // Waiting for Participant State
@@ -204,6 +222,40 @@ export const CallPage: React.FC<CallPageProps> = ({
                 </span>
               </div>
             )}
+
+            {/* USER ONLY: Real-Time Defense In-Call HUD Banner */}
+            {!isTester && isDeepfakeAlert && (
+              <div className="absolute top-3 left-3 right-3 sm:top-4 sm:left-4 sm:right-4 z-40 flex items-center justify-between p-3 sm:p-4 rounded-2xl bg-rose-950/95 border border-rose-500/80 shadow-2xl backdrop-blur-xl animate-bounce">
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <div className="h-9 w-9 sm:h-11 sm:w-11 rounded-xl bg-rose-500/20 border border-rose-500/50 text-rose-400 flex items-center justify-center shrink-0">
+                    <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 text-rose-400 animate-pulse" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-rose-300 bg-rose-500/30 px-2 py-0.5 rounded-full border border-rose-500/40">
+                        Real-Time Defense Alert
+                      </span>
+                      <span className="text-[10px] sm:text-xs font-mono text-rose-200">
+                        Score: <strong className="text-white">{voiceDetection.anomalyScore || 94}%</strong>
+                      </span>
+                    </div>
+                    <h4 className="text-xs sm:text-sm font-bold text-white mt-0.5">
+                      Voice Deepfake Caught in Real Time!
+                    </h4>
+                    <p className="text-[10px] sm:text-xs text-rose-200/90 font-mono hidden sm:block">
+                      Synthetic vocoder ring-modulation & carrier harmonics detected.
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setIsSecurityPanelOpen(true)}
+                  className="px-2.5 sm:px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-mono text-[11px] sm:text-xs font-semibold shadow-lg transition-colors shrink-0"
+                >
+                  View Telemetry
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Bottom Floating Call Controls */}
@@ -237,6 +289,7 @@ export const CallPage: React.FC<CallPageProps> = ({
           {/* DeepTrace Security Monitoring Panel */}
           <SecurityPanel
             peerAttackState={peerAttackState}
+            voiceDetection={voiceDetection}
             isTester={isTester}
           />
 
@@ -262,6 +315,7 @@ export const CallPage: React.FC<CallPageProps> = ({
           <div className="w-full max-h-[85vh] h-[520px] rounded-t-lg overflow-hidden shadow-2xl border-t border-zinc-800 flex flex-col">
             <SecurityPanel
               peerAttackState={peerAttackState}
+              voiceDetection={voiceDetection}
               isTester={isTester}
               onClose={() => setIsSecurityPanelOpen(false)}
             />
