@@ -2,18 +2,11 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import {
   Mic,
   MicOff,
-  Video,
   VideoOff,
   Shield,
-  User as UserIcon,
   VolumeX,
-  Move,
   Maximize2,
-  Minimize2,
-  ZoomIn,
-  ZoomOut,
   GripHorizontal,
-  Compass,
 } from 'lucide-react';
 import { UserRole } from '../types/auth';
 
@@ -121,7 +114,30 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     }
   };
 
-  // --- Movable / Dragging Logic ---
+  // --- Boundary clamping helper ---
+  const clampToBounds = useCallback(
+    (x: number, y: number, currentTile?: HTMLElement | null, currentParent?: HTMLElement | null) => {
+      const tile = currentTile || tileRef.current;
+      const parent = currentParent || tile?.parentElement;
+      if (!tile || !parent) return { x, y };
+
+      const parentRect = parent.getBoundingClientRect();
+      const tileWidth = tile.offsetWidth || 280;
+      const tileHeight = tile.offsetHeight || 160;
+
+      const padding = 12;
+      const maxX = Math.max(padding, parentRect.width - tileWidth - padding);
+      const maxY = Math.max(padding, parentRect.height - tileHeight - padding);
+
+      return {
+        x: Math.max(padding, Math.min(x, maxX)),
+        y: Math.max(padding, Math.min(y, maxY)),
+      };
+    },
+    []
+  );
+
+  // --- Movable / Dragging via pointer down ---
   const handlePointerDown = (e: React.PointerEvent) => {
     if (!isFloating || !tileRef.current) return;
     const parent = tileRef.current.parentElement;
@@ -130,7 +146,6 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     const parentRect = parent.getBoundingClientRect();
     const tileRect = tileRef.current.getBoundingClientRect();
 
-    // Current position within parent
     const currentX = tileRect.left - parentRect.left;
     const currentY = tileRect.top - parentRect.top;
 
@@ -140,64 +155,61 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     });
     setPosition({ x: currentX, y: currentY });
     setIsDragging(true);
-
-    (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
   };
 
-  const handlePointerMove = useCallback((e: React.PointerEvent) => {
-    if (!isDragging || !tileRef.current) return;
-    const parent = tileRef.current.parentElement;
-    if (!parent) return;
-
-    const parentRect = parent.getBoundingClientRect();
-    const tileWidth = tileRef.current.offsetWidth;
-    const tileHeight = tileRef.current.offsetHeight;
-
-    let newX = e.clientX - parentRect.left - dragOffset.x;
-    let newY = e.clientY - parentRect.top - dragOffset.y;
-
-    // Boundary constraints: keep inside parent container with 12px margin
-    const minX = 12;
-    const minY = 12;
-    const maxX = Math.max(12, parentRect.width - tileWidth - 12);
-    const maxY = Math.max(12, parentRect.height - tileHeight - 12);
-
-    newX = Math.max(minX, Math.min(newX, maxX));
-    newY = Math.max(minY, Math.min(newY, maxY));
-
-    setPosition({ x: newX, y: newY });
-  }, [isDragging, dragOffset]);
-
-  const handlePointerUp = (e: React.PointerEvent) => {
+  // --- Window-level pointer listeners to guarantee smooth, un-escapable dragging ---
+  useEffect(() => {
     if (!isDragging) return;
-    setIsDragging(false);
-    (e.target as HTMLElement).releasePointerCapture?.(e.pointerId);
-  };
 
-  // --- Snap Presets ---
-  const handleSnap = (corner: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right') => {
-    if (!tileRef.current) return;
-    const parent = tileRef.current.parentElement;
-    if (!parent) return;
+    const handlePointerMove = (e: PointerEvent) => {
+      if (!tileRef.current) return;
+      const parent = tileRef.current.parentElement;
+      if (!parent) return;
 
-    const parentRect = parent.getBoundingClientRect();
-    const tileWidth = tileRef.current.offsetWidth;
-    const tileHeight = tileRef.current.offsetHeight;
+      const parentRect = parent.getBoundingClientRect();
+      const rawX = e.clientX - parentRect.left - dragOffset.x;
+      const rawY = e.clientY - parentRect.top - dragOffset.y;
 
-    const margin = 16;
-    if (corner === 'top-left') {
-      setPosition({ x: margin, y: margin });
-    } else if (corner === 'top-right') {
-      setPosition({ x: Math.max(margin, parentRect.width - tileWidth - margin), y: margin });
-    } else if (corner === 'bottom-left') {
-      setPosition({ x: margin, y: Math.max(margin, parentRect.height - tileHeight - margin) });
-    } else {
-      setPosition({
-        x: Math.max(margin, parentRect.width - tileWidth - margin),
-        y: Math.max(margin, parentRect.height - tileHeight - margin),
+      const clamped = clampToBounds(rawX, rawY, tileRef.current, parent);
+      setPosition(clamped);
+    };
+
+    const handlePointerUp = () => {
+      setIsDragging(false);
+    };
+
+    window.addEventListener('pointermove', handlePointerMove);
+    window.addEventListener('pointerup', handlePointerUp);
+    window.addEventListener('pointercancel', handlePointerUp);
+
+    return () => {
+      window.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('pointerup', handlePointerUp);
+      window.removeEventListener('pointercancel', handlePointerUp);
+    };
+  }, [isDragging, dragOffset, clampToBounds]);
+
+  // --- Auto-reclamp on sizePreset change or window resize (keeps it 100% visible inside the window) ---
+  useEffect(() => {
+    if (!isFloating) return;
+
+    const handleReclamp = () => {
+      requestAnimationFrame(() => {
+        if (!tileRef.current) return;
+        const parent = tileRef.current.parentElement;
+        if (!parent) return;
+
+        setPosition((prev) => {
+          if (!prev) return null;
+          return clampToBounds(prev.x, prev.y, tileRef.current, parent);
+        });
       });
-    }
-  };
+    };
+
+    handleReclamp();
+    window.addEventListener('resize', handleReclamp);
+    return () => window.removeEventListener('resize', handleReclamp);
+  }, [sizePreset, isFloating, clampToBounds]);
 
   // --- Size Cycle / Toggle ---
   const cycleSize = (e: React.MouseEvent) => {
@@ -209,20 +221,18 @@ export const VideoTile: React.FC<VideoTileProps> = ({
 
   const hasVideoTrack = stream && stream.getVideoTracks().length > 0 && stream.getVideoTracks()[0].enabled && !isVideoOff;
 
-  // Size styling classes for floating view
+  // Responsive size styling with max constraints so it never overflows parent bounds
   const sizeClasses: Record<SizePreset, string> = {
-    sm: 'w-48 sm:w-56',
-    md: 'w-64 sm:w-72 md:w-80',
-    lg: 'w-80 sm:w-96 md:w-[400px]',
-    xl: 'w-96 sm:w-[460px] md:w-[520px]',
+    sm: 'w-44 sm:w-52',
+    md: 'w-60 sm:w-72',
+    lg: 'w-72 sm:w-96',
+    xl: 'w-84 sm:w-[440px]',
   };
 
   return (
     <div
       ref={tileRef}
       onClick={audioBlocked ? handleUnmuteClick : undefined}
-      onPointerMove={isFloating ? handlePointerMove : undefined}
-      onPointerUp={isFloating ? handlePointerUp : undefined}
       style={
         isFloating && position
           ? {
@@ -233,9 +243,9 @@ export const VideoTile: React.FC<VideoTileProps> = ({
             }
           : undefined
       }
-      className={`relative overflow-hidden rounded-md border border-zinc-800 bg-[#070709] shadow-2xl transition-shadow select-none ${
+      className={`relative overflow-hidden rounded-md border border-zinc-800 bg-[#070709] shadow-2xl transition-[width,height,border-color] duration-150 select-none ${
         isFloating
-          ? `absolute ${position ? '' : 'bottom-4 right-4 sm:bottom-6 sm:right-6'} z-30 ${sizeClasses[sizePreset]} aspect-video border-orange-500/40 shadow-black/80 hover:border-orange-500/70`
+          ? `absolute ${position ? '' : 'bottom-4 right-4 sm:bottom-6 sm:right-6'} z-30 ${sizeClasses[sizePreset]} max-w-[calc(100%-24px)] max-h-[calc(100%-24px)] aspect-video border-orange-500/40 shadow-black/80 hover:border-orange-500/70`
           : 'w-full h-full min-h-0'
       } ${className}`}
     >
@@ -263,62 +273,40 @@ export const VideoTile: React.FC<VideoTileProps> = ({
         </div>
       )}
 
-      {/* Crisp Framing Markers */}
+      {/* Framing Markers */}
       <div className="pointer-events-none absolute top-1.5 left-1.5 h-2 w-2 border-t border-l border-zinc-600" />
       <div className="pointer-events-none absolute top-1.5 right-1.5 h-2 w-2 border-t border-r border-zinc-600" />
       <div className="pointer-events-none absolute bottom-1.5 left-1.5 h-2 w-2 border-b border-l border-zinc-600" />
       <div className="pointer-events-none absolute bottom-1.5 right-1.5 h-2 w-2 border-b border-r border-zinc-600" />
 
-      {/* Top Bar: Floating Drag Grip & Size Controls (NO OVERLAPS) */}
+      {/* Top Bar: Floating Drag Bar & Size Toggle */}
       {isFloating ? (
         <div
           onPointerDown={handlePointerDown}
-          className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-2.5 py-1.5 bg-gradient-to-b from-black/90 via-black/60 to-transparent cursor-grab active:cursor-grabbing border-b border-zinc-800/40"
-          title="Drag to move this window around"
+          className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-2.5 py-1.5 bg-gradient-to-b from-black/95 via-black/80 to-transparent cursor-move select-none border-b border-zinc-800/40"
+          style={{ touchAction: 'none' }}
+          title="Drag to reposition window"
         >
-          {/* Identity & Drag indicator */}
+          {/* Identity & Drag Grip */}
           <div className="flex items-center gap-1.5 pointer-events-none">
             <GripHorizontal className="h-3.5 w-3.5 text-orange-400 shrink-0" />
-            <span className="h-1.5 w-1.5 rounded-full bg-orange-400 animate-pulse" />
-            <span className="text-[10px] sm:text-[11px] font-mono font-semibold text-zinc-200 truncate max-w-[80px] sm:max-w-[120px]">
+            <span className="h-1.5 w-1.5 rounded-full bg-orange-400 animate-pulse shrink-0" />
+            <span className="text-[10px] sm:text-[11px] font-mono font-semibold text-zinc-200 truncate max-w-[80px] sm:max-w-[130px]">
               {username} (You)
             </span>
           </div>
 
-          {/* Interactive Controls: Snap & Resize */}
-          <div
-            className="flex items-center gap-1"
-            onPointerDown={(e) => e.stopPropagation()} // Prevent drag when clicking buttons
+          {/* Size Preset Toggle */}
+          <button
+            type="button"
+            onPointerDown={(e) => e.stopPropagation()}
+            onClick={cycleSize}
+            title={`Size: ${sizePreset.toUpperCase()} (Click to toggle S/M/L/XL)`}
+            className="flex items-center gap-1 px-2 py-0.5 rounded bg-zinc-900/90 hover:bg-orange-600/20 text-orange-300 hover:text-orange-200 border border-zinc-700/80 hover:border-orange-500/60 text-[10px] font-mono font-bold transition-colors cursor-pointer"
           >
-            {/* Snap button cycling corners */}
-            <button
-              onClick={() => {
-                if (!position || (position.x > 50 && position.y > 50)) {
-                  handleSnap('top-left');
-                } else if (position.x <= 50 && position.y <= 50) {
-                  handleSnap('top-right');
-                } else if (position.x > 50 && position.y <= 50) {
-                  handleSnap('bottom-left');
-                } else {
-                  handleSnap('bottom-right');
-                }
-              }}
-              title="Snap to corner (TL -> TR -> BL -> BR)"
-              className="p-1 rounded bg-zinc-900/90 hover:bg-zinc-800 text-zinc-400 hover:text-white border border-zinc-800 text-[10px] font-mono transition-colors cursor-pointer"
-            >
-              <Compass className="h-3 w-3" />
-            </button>
-
-            {/* Size Preset Toggle */}
-            <button
-              onClick={cycleSize}
-              title={`Current size: ${sizePreset.toUpperCase()} (Click to enlarge)`}
-              className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-zinc-900/90 hover:bg-orange-600/20 text-orange-300 hover:text-orange-200 border border-zinc-800 hover:border-orange-500/50 text-[10px] font-mono font-bold transition-colors cursor-pointer"
-            >
-              <Maximize2 className="h-2.5 w-2.5" />
-              <span>{sizePreset.toUpperCase()}</span>
-            </button>
-          </div>
+            <Maximize2 className="h-2.5 w-2.5" />
+            <span>{sizePreset.toUpperCase()}</span>
+          </button>
         </div>
       ) : (
         /* Non-floating Top Bar */
@@ -351,7 +339,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
         </button>
       )}
 
-      {/* Bottom Status Row (Cleanly separated, zero collisions) */}
+      {/* Bottom Status Row */}
       <div className="absolute bottom-2 left-2.5 right-2.5 z-10 flex items-center justify-between pointer-events-none">
         {subtitle ? (
           <span className="rounded bg-black/85 px-1.5 py-0.5 text-[10px] font-mono text-zinc-400 border border-zinc-800/90 truncate max-w-[120px]">
