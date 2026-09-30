@@ -38,34 +38,33 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
   return (
     <div className="min-h-screen w-full bg-[#202124] text-[#e8eaed] flex flex-col">
       {/* Navbar */}
-      <nav className="w-full flex items-center justify-between px-4 sm:px-8 py-3.5 border-b border-[#3c4043] bg-[#202124] shrink-0">
-        <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#1a73e8]/15 text-[#8ab4f8]">
-            <ShieldAlert className="h-5 w-5" />
+      <nav className="w-full flex items-center justify-between gap-3 px-3.5 sm:px-6 md:px-8 py-3 border-b border-[#3c4043] bg-[#202124] shrink-0 select-none">
+        <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+          <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full bg-[#1a73e8]/15 text-[#8ab4f8]">
+            <ShieldAlert className="h-4 w-4 sm:h-5 sm:w-5" />
           </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-base font-medium text-[#e8eaed]">DeepTrace</h1>
-              <span className="text-[11px] text-[#8ab4f8] bg-[#1a73e8]/20 px-2 py-0.5 rounded-full font-medium">
-                Tester
-              </span>
-            </div>
-            <span className="text-xs text-[#9aa0a6] hidden xs:inline">Security Testing Environment</span>
+          <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+            <h1 className="text-sm sm:text-base font-medium text-[#e8eaed] tracking-tight">DeepTrace</h1>
+            <span className="text-[10px] sm:text-[11px] text-[#8ab4f8] bg-[#1a73e8]/20 px-1.5 sm:px-2 py-0.5 rounded-full font-medium shrink-0">
+              Tester
+            </span>
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#303134] border border-[#3c4043] text-sm">
-            <Shield className="h-3.5 w-3.5 text-[#8ab4f8]" />
-            <span className="text-[#e8eaed] truncate max-w-[120px]">{user.name}</span>
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-[#303134] border border-[#3c4043] text-xs sm:text-sm">
+            <Shield className="h-3.5 w-3.5 text-[#8ab4f8] shrink-0" />
+            <span className="text-[#e8eaed] font-medium truncate max-w-[85px] sm:max-w-[140px] md:max-w-[180px]">
+              {user.name}
+            </span>
           </div>
 
           <button
             onClick={onLogout}
             title="Log out"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#303134] border border-[#3c4043] text-sm text-[#9aa0a6] hover:text-[#ea4335] transition-colors cursor-pointer"
+            className="flex items-center justify-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-[#303134] hover:bg-[#3c4043] border border-[#3c4043] text-xs sm:text-sm text-[#9aa0a6] hover:text-[#ea4335] transition-colors shrink-0 cursor-pointer"
           >
-            <LogOut className="h-3.5 w-3.5" />
+            <LogOut className="h-3.5 w-3.5 shrink-0" />
             <span className="hidden sm:inline">Logout</span>
           </button>
         </div>

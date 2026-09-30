@@ -89,7 +89,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
         {role === 'tester' && (
           <span className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#3c4043] text-xs font-medium text-[#8ab4f8]">
             <Shield className="h-3 w-3" />
-            <span className="hidden xs:inline">Tester</span>
+            <span className="hidden sm:inline">Tester</span>
           </span>
         )}
       </div>
