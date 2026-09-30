@@ -4,7 +4,7 @@ export interface AttackState {
   faceSwap: boolean;
   voiceTransform: boolean;
   mode: AttackMode;
-  facePreset: 'neural-clone' | 'biometric-mask' | 'synthetic-executive';
+  facePreset: 'neural-clone' | 'biometric-mask' | 'synthetic-executive' | 'cyber-filter';
   voicePreset: 'robotic-vocoder' | 'deep-pitch-neural' | 'synthetic-clone';
 }
 

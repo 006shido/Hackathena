@@ -104,8 +104,13 @@ export function useWebRTC() {
       if (!targetStream.getTrackById(event.track.id)) {
         targetStream.addTrack(event.track);
       }
+      if (!remoteStreamInstanceRef.current.getTrackById(event.track.id)) {
+        remoteStreamInstanceRef.current.addTrack(event.track);
+      }
 
-      setRemoteStream(targetStream);
+      // Create a fresh MediaStream instance so React state change triggers component re-render
+      const freshStream = new MediaStream(targetStream.getTracks());
+      setRemoteStream(freshStream);
     };
 
     // Handle ICE candidates generated locally

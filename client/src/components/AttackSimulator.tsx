@@ -7,7 +7,6 @@ import {
   Mic,
   Eye,
   Sliders,
-  AlertTriangle,
   X,
 } from 'lucide-react';
 import { AttackState } from '../types/attack';
@@ -18,7 +17,7 @@ interface AttackSimulatorProps {
   onToggleVoiceTransform: () => void;
   onActivateCombined: () => void;
   onReset: () => void;
-  onSelectFacePreset: (preset: 'neural-clone' | 'biometric-mask' | 'synthetic-executive') => void;
+  onSelectFacePreset: (preset: 'neural-clone' | 'biometric-mask' | 'synthetic-executive' | 'cyber-filter') => void;
   onSelectVoicePreset: (preset: 'robotic-vocoder' | 'deep-pitch-neural' | 'synthetic-clone') => void;
   onClose?: () => void;
 }
@@ -35,31 +34,27 @@ export const AttackSimulator: React.FC<AttackSimulatorProps> = ({
 }) => {
   const { faceSwap, voiceTransform, mode, facePreset, voicePreset } = attackState;
 
-  let statusText = 'Standby';
-  let statusStyle = 'bg-[#303134] text-[#9aa0a6] border-[#3c4043]';
-
-  if (mode === 'combined') {
-    statusText = 'Full Attack Active';
-    statusStyle = 'bg-[#ea4335]/10 text-[#ea4335] border-[#ea4335]/40';
-  } else if (mode === 'face') {
-    statusText = 'Face Swap Active';
-    statusStyle = 'bg-[#8ab4f8]/10 text-[#8ab4f8] border-[#8ab4f8]/40';
-  } else if (mode === 'voice') {
-    statusText = 'Voice Transform Active';
-    statusStyle = 'bg-[#8ab4f8]/10 text-[#8ab4f8] border-[#8ab4f8]/40';
-  }
-
   return (
-    <div className="w-full lg:w-88 shrink-0 flex flex-col h-full bg-[#28292c] border-l border-[#3c4043] p-4 overflow-y-auto shadow-2xl">
-      {/* Header */}
-      <div className="flex items-center justify-between pb-3 border-b border-[#3c4043]">
+    <div className="w-full lg:w-88 shrink-0 flex flex-col h-full bg-[#242528] border-l border-[#3c4043] p-4 overflow-y-auto shadow-2xl">
+      {/* Header with Integrated Status */}
+      <div className="flex items-center justify-between pb-3.5 border-b border-[#3c4043]">
         <div className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#8ab4f8]/15 text-[#8ab4f8]">
+          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#8ab4f8]/10 text-[#8ab4f8] border border-[#8ab4f8]/20">
             <ShieldAlert className="h-4 w-4" />
           </div>
           <div>
-            <h2 className="text-sm font-medium text-[#e8eaed]">Attack Simulator</h2>
-            <p className="text-[11px] text-[#9aa0a6]">Tester tools</p>
+            <div className="flex items-center gap-2">
+              <h2 className="text-sm font-semibold text-[#e8eaed] tracking-tight">Attack Simulator</h2>
+              <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium border ${
+                mode !== 'none'
+                  ? 'bg-[#ea4335]/15 text-[#ea4335] border-[#ea4335]/40'
+                  : 'bg-[#303134] text-[#9aa0a6] border-[#3c4043]'
+              }`}>
+                <span className={`h-1.5 w-1.5 rounded-full ${mode !== 'none' ? 'bg-[#ea4335] animate-ping' : 'bg-[#9aa0a6]'}`} />
+                {mode !== 'none' ? (mode === 'combined' ? 'Full Active' : `${mode} Active`) : 'Standby'}
+              </span>
+            </div>
+            <p className="text-[11px] text-[#9aa0a6] mt-0.5">Tester Security Tools</p>
           </div>
         </div>
 
@@ -67,22 +62,17 @@ export const AttackSimulator: React.FC<AttackSimulatorProps> = ({
           <button
             onClick={onClose}
             className="p-1.5 rounded-full text-[#9aa0a6] hover:text-[#e8eaed] hover:bg-[#3c4043] transition-colors cursor-pointer"
+            title="Close"
           >
             <X className="h-4 w-4" />
           </button>
         )}
       </div>
 
-      {/* Status */}
-      <div className={`mt-3 p-2.5 rounded-xl border text-center text-sm font-medium transition-all ${statusStyle}`}>
-        {mode !== 'none' && <Flame className="h-4 w-4 inline mr-1.5" />}
-        {statusText}
-      </div>
-
-      {/* Notice */}
-      <div className="mt-3 flex items-center gap-2 p-2.5 rounded-xl bg-[#fbbc04]/10 border border-[#fbbc04]/20 text-xs text-[#fbbc04]">
-        <AlertTriangle className="h-3.5 w-3.5 shrink-0" />
-        <span>Injected streams replace outgoing tracks in real time.</span>
+      {/* Info Notice (Clean charcoal & soft blue, replaces ugly mustard box) */}
+      <div className="mt-3 flex items-start gap-2.5 px-3 py-2.5 rounded-xl bg-[#2a2b2e] border border-[#3c4043] text-[11px] text-[#9aa0a6] leading-snug">
+        <Sparkles className="h-3.5 w-3.5 text-[#8ab4f8] shrink-0 mt-0.5" />
+        <span>Injected media streams replace outgoing WebRTC tracks in real time for penetration testing.</span>
       </div>
 
       {/* Face Simulation */}
@@ -112,11 +102,12 @@ export const AttackSimulator: React.FC<AttackSimulatorProps> = ({
         </button>
 
         <div className="mt-3 space-y-1">
-          <label className="text-[11px] text-[#9aa0a6] block mb-1.5">Face Model:</label>
+          <label className="text-[11px] text-[#9aa0a6] block mb-1.5">Face Model & Filter:</label>
           {[
-            { id: 'neural-clone', label: 'Synthetic Persona' },
-            { id: 'synthetic-executive', label: 'Corporate Executive' },
-            { id: 'biometric-mask', label: 'Biometric Mesh' },
+            { id: 'neural-clone', label: 'Synthetic Persona (Delaunay Warp)' },
+            { id: 'synthetic-executive', label: 'Corporate Executive (Affine Morph)' },
+            { id: 'biometric-mask', label: 'Biometric Mesh (468-pt Delaunay)' },
+            { id: 'cyber-filter', label: 'Cyber Augmented Filter' },
           ].map((p) => (
             <button
               key={p.id}

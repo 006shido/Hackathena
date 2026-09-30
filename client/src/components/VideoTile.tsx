@@ -244,7 +244,11 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     setSizePreset(order[nextIndex]);
   };
 
-  const hasVideoTrack = stream && stream.getVideoTracks().length > 0 && stream.getVideoTracks()[0].enabled && !isVideoOff;
+  const hasVideoTrack = Boolean(
+    stream &&
+    stream.getVideoTracks().length > 0 &&
+    (isLocal ? (stream.getVideoTracks()[0].enabled && !isVideoOff) : true)
+  );
 
   const initials = username.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || 'U';
 
@@ -281,10 +285,30 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     >
       {/* Video */}
       <video
-        ref={videoRef}
+        ref={(el) => {
+          videoRef.current = el;
+          if (el && stream) {
+            if (isLocal) {
+              el.muted = true;
+              el.defaultMuted = true;
+            }
+            if (el.srcObject !== stream) {
+              el.srcObject = stream;
+            }
+            el.play().catch(() => {});
+          }
+        }}
         autoPlay
         playsInline
         muted={isLocal}
+        onLoadedMetadata={(e) => {
+          const el = e.currentTarget;
+          if (isLocal) {
+            el.muted = true;
+            el.defaultMuted = true;
+          }
+          el.play().catch(() => {});
+        }}
         className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-200 pointer-events-none ${
           hasVideoTrack ? 'opacity-100' : 'opacity-0'
         } ${isLocal ? 'scale-x-[-1]' : ''}`}

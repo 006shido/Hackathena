@@ -234,6 +234,9 @@ export function useCall(user: User | null, token: string | null) {
             if (stream) {
               stream.addTrack(newAudioTrack);
               originalAudioTrackRef.current = newAudioTrack;
+              const refreshed = new MediaStream(stream.getTracks());
+              localStreamRef.current = refreshed;
+              setLocalStream(refreshed);
               setIsMicMuted(false);
               await replaceAudioTrack(newAudioTrack);
             } else {
@@ -256,6 +259,9 @@ export function useCall(user: User | null, token: string | null) {
       const nextEnabled = !audioTrack.enabled;
       audioTrack.enabled = nextEnabled;
       setIsMicMuted(!nextEnabled);
+      const refreshed = new MediaStream(stream.getTracks());
+      localStreamRef.current = refreshed;
+      setLocalStream(refreshed);
     }
   }, [localStream, isCameraOff, replaceAudioTrack]);
 
@@ -271,6 +277,9 @@ export function useCall(user: User | null, token: string | null) {
             if (stream) {
               stream.addTrack(newVideoTrack);
               originalVideoTrackRef.current = newVideoTrack;
+              const refreshed = new MediaStream(stream.getTracks());
+              localStreamRef.current = refreshed;
+              setLocalStream(refreshed);
               setIsCameraOff(false);
               await replaceVideoTrack(newVideoTrack);
             } else {
@@ -293,6 +302,9 @@ export function useCall(user: User | null, token: string | null) {
       const nextEnabled = !videoTrack.enabled;
       videoTrack.enabled = nextEnabled;
       setIsCameraOff(!nextEnabled);
+      const refreshed = new MediaStream(stream.getTracks());
+      localStreamRef.current = refreshed;
+      setLocalStream(refreshed);
     }
   }, [localStream, isMicMuted, replaceVideoTrack]);
 
@@ -359,6 +371,13 @@ export function useCall(user: User | null, token: string | null) {
       const syntheticTrack = facePipelineRef.current.start(currentVideoTrack, attackState.facePreset as FacePreset);
       await replaceVideoTrack(syntheticTrack);
 
+      if (localStreamRef.current) {
+        const audioTracks = localStreamRef.current.getAudioTracks();
+        const updatedStream = new MediaStream([...audioTracks, syntheticTrack]);
+        localStreamRef.current = updatedStream;
+        setLocalStream(updatedStream);
+      }
+
       const newMode = attackState.voiceTransform ? 'combined' : 'face';
       setAttackState((prev) => ({
         ...prev,
@@ -375,6 +394,12 @@ export function useCall(user: User | null, token: string | null) {
 
       if (currentVideoTrack) {
         await replaceVideoTrack(currentVideoTrack);
+        if (localStreamRef.current) {
+          const audioTracks = localStreamRef.current.getAudioTracks();
+          const restoredStream = new MediaStream([...audioTracks, currentVideoTrack]);
+          localStreamRef.current = restoredStream;
+          setLocalStream(restoredStream);
+        }
       }
 
       const newMode = attackState.voiceTransform ? 'voice' : 'none';
@@ -456,6 +481,12 @@ export function useCall(user: User | null, token: string | null) {
       }
       const syntheticTrack = facePipelineRef.current.start(currentVideoTrack, attackState.facePreset as FacePreset);
       await replaceVideoTrack(syntheticTrack);
+      if (localStreamRef.current) {
+        const audioTracks = localStreamRef.current.getAudioTracks();
+        const updatedStream = new MediaStream([...audioTracks, syntheticTrack]);
+        localStreamRef.current = updatedStream;
+        setLocalStream(updatedStream);
+      }
     }
 
     if (currentAudioTrack) {
@@ -488,6 +519,12 @@ export function useCall(user: User | null, token: string | null) {
 
     if (originalVideoTrackRef.current) {
       await replaceVideoTrack(originalVideoTrackRef.current);
+      if (localStreamRef.current) {
+        const audioTracks = localStreamRef.current.getAudioTracks();
+        const restoredStream = new MediaStream([...audioTracks, originalVideoTrackRef.current]);
+        localStreamRef.current = restoredStream;
+        setLocalStream(restoredStream);
+      }
     }
     if (originalAudioTrackRef.current) {
       await replaceAudioTrack(originalAudioTrackRef.current);
@@ -503,7 +540,7 @@ export function useCall(user: User | null, token: string | null) {
     signalingService.sendAttackUpdate(roomId, false, false, 'none');
   }, [isTester, roomId, replaceVideoTrack, replaceAudioTrack]);
 
-  const setFacePreset = useCallback((preset: 'neural-clone' | 'biometric-mask' | 'synthetic-executive') => {
+  const setFacePreset = useCallback((preset: FacePreset) => {
     setAttackState((prev) => ({ ...prev, facePreset: preset }));
     if (facePipelineRef.current && attackState.faceSwap) {
       facePipelineRef.current.setPreset(preset);

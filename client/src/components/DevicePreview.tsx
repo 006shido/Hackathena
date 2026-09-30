@@ -36,6 +36,8 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
     if (!video) return;
 
     if (stream) {
+      video.muted = true;
+      video.defaultMuted = true;
       if (video.srcObject !== stream) {
         video.srcObject = stream;
       }
@@ -47,7 +49,7 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
     }
   }, [stream, isCameraOff]);
 
-  const hasVideoTrack = stream && stream.getVideoTracks().length > 0 && !isCameraOff;
+  const hasVideoTrack = Boolean(stream && stream.getVideoTracks().length > 0 && !isCameraOff);
   const initials = username.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || 'U';
 
   return (
@@ -80,10 +82,25 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
       {/* Camera Preview */}
       <div className="relative w-full aspect-video max-h-[400px] rounded-2xl overflow-hidden bg-[#202124] border border-[#3c4043] flex items-center justify-center">
         <video
-          ref={videoRef}
+          ref={(el) => {
+            videoRef.current = el;
+            if (el && stream) {
+              el.muted = true;
+              el.defaultMuted = true;
+              if (el.srcObject !== stream) {
+                el.srcObject = stream;
+              }
+              el.play().catch(() => {});
+            }
+          }}
           autoPlay
           playsInline
           muted
+          onLoadedMetadata={(e) => {
+            const el = e.currentTarget;
+            el.muted = true;
+            el.play().catch(() => {});
+          }}
           className={`w-full h-full object-cover scale-x-[-1] transition-opacity duration-200 ${
             hasVideoTrack ? 'opacity-100' : 'opacity-0 absolute pointer-events-none'
           }`}

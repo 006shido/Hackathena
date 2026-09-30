@@ -170,7 +170,7 @@ export const CallPage: React.FC<CallPageProps> = ({
       <div className="flex-1 flex overflow-hidden relative">
         {/* Call Stage */}
         <div className="flex-1 flex flex-col p-2 sm:p-4 overflow-hidden relative">
-          {/* Remote Video Container */}
+          {/* Main Video Stage */}
           <div className="flex-1 w-full h-full relative rounded-2xl overflow-hidden bg-[#3c4043] shadow-md flex items-center justify-center">
             {peerInfo && remoteStream ? (
               <VideoTile
@@ -184,35 +184,50 @@ export const CallPage: React.FC<CallPageProps> = ({
                 deepfakeScore={voiceDetection.anomalyScore}
               />
             ) : (
-              <div className="flex flex-col items-center justify-center text-center p-4 sm:p-8 max-w-sm">
-                <div className="h-16 w-16 rounded-full bg-[#202124] flex items-center justify-center mb-4">
-                  <Users className="h-8 w-8 text-[#8ab4f8]" />
-                </div>
+              <div className="relative w-full h-full flex items-center justify-center">
+                <VideoTile
+                  stream={localStream}
+                  username={user.name}
+                  role={user.role}
+                  isLocal={true}
+                  isMuted={isMicMuted}
+                  isVideoOff={isCameraOff}
+                  isFloating={false}
+                  className="w-full h-full"
+                  subtitle={
+                    isTester && attackState.mode !== 'none'
+                      ? `[${attackState.mode.toUpperCase()}]`
+                      : 'You'
+                  }
+                />
 
-                <h3 className="text-lg font-medium text-[#e8eaed] mb-1">
-                  Waiting for others to join
-                </h3>
-                <p className="text-sm text-[#9aa0a6]">
-                  Share meeting code <span className="text-[#8ab4f8] font-medium">{roomId}</span> with your peer.
-                </p>
+                {/* Status chip informing user they are alone */}
+                <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#202124]/85 backdrop-blur-md border border-[#3c4043] text-xs text-[#e8eaed] shadow-lg">
+                  <span className="h-2 w-2 rounded-full bg-[#8ab4f8] animate-pulse" />
+                  <span>Waiting for others to join</span>
+                  <span className="text-[#9aa0a6]">•</span>
+                  <span className="text-[#8ab4f8] font-mono font-medium">{roomId}</span>
+                </div>
               </div>
             )}
 
-            {/* Floating Self-Video */}
-            <VideoTile
-              stream={localStream}
-              username={user.name}
-              role={user.role}
-              isLocal={true}
-              isMuted={isMicMuted}
-              isVideoOff={isCameraOff}
-              isFloating={true}
-              subtitle={
-                isTester && attackState.mode !== 'none'
-                  ? `[${attackState.mode.toUpperCase()}]`
-                  : 'You'
-              }
-            />
+            {/* When a peer IS present, show the local user video in the floating picture-in-picture tile */}
+            {peerInfo && (
+              <VideoTile
+                stream={localStream}
+                username={user.name}
+                role={user.role}
+                isLocal={true}
+                isMuted={isMicMuted}
+                isVideoOff={isCameraOff}
+                isFloating={true}
+                subtitle={
+                  isTester && attackState.mode !== 'none'
+                    ? `[${attackState.mode.toUpperCase()}]`
+                    : 'You'
+                }
+              />
+            )}
 
             {/* Attack Active */}
             {isTester && attackState.mode !== 'none' && (
