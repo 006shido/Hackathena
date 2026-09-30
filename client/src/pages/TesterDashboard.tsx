@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, ShieldAlert, Video, Plus, LogOut, ArrowRight, AlertTriangle, Cpu, Terminal, Flame } from 'lucide-react';
+import { Shield, ShieldAlert, Video, Plus, LogOut, ArrowRight, AlertTriangle, Flame } from 'lucide-react';
 import { User as UserType } from '../types/auth';
 
 interface TesterDashboardProps {
@@ -15,7 +15,6 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
 }) => {
   const [inputRoomId, setInputRoomId] = useState('');
 
-  // Generate short readable room ID
   const generateRoomId = () => {
     const letters = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
     const l1 = letters[Math.floor(Math.random() * letters.length)];
@@ -37,37 +36,34 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
   };
 
   return (
-    <div className="min-h-screen w-full bg-black text-zinc-100 flex flex-col relative amoled-grid">
-      {/* Top Navbar */}
-      <nav className="w-full flex items-center justify-between px-4 sm:px-8 py-3.5 border-b border-orange-500/25 bg-[#050507] shrink-0">
+    <div className="min-h-screen w-full bg-[#202124] text-[#e8eaed] flex flex-col">
+      {/* Navbar */}
+      <nav className="w-full flex items-center justify-between px-4 sm:px-8 py-3.5 border-b border-[#3c4043] bg-[#202124] shrink-0">
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-orange-500/15 border border-orange-500/40 text-orange-400 shrink-0">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#1a73e8]/15 text-[#8ab4f8]">
             <ShieldAlert className="h-5 w-5" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-base font-bold tracking-tight text-white leading-tight">DeepTrace</h1>
-              <span className="flex items-center gap-1 rounded bg-orange-500/10 px-1.5 py-0.5 text-[9px] font-mono text-orange-400 border border-orange-500/30 uppercase tracking-wider">
-                <span className="h-1.5 w-1.5 rounded-full bg-orange-400 animate-pulse" /> Security Tester
+              <h1 className="text-base font-medium text-[#e8eaed]">DeepTrace</h1>
+              <span className="text-[11px] text-[#8ab4f8] bg-[#1a73e8]/20 px-2 py-0.5 rounded-full font-medium">
+                Tester
               </span>
             </div>
-            <span className="text-[10px] text-zinc-500 font-mono hidden xs:inline">Adversarial Simulation Environment</span>
+            <span className="text-xs text-[#9aa0a6] hidden xs:inline">Security Testing Environment</span>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-zinc-950 border border-orange-500/30 text-xs font-mono">
-            <Shield className="h-3.5 w-3.5 text-orange-400" />
-            <span className="text-zinc-200 font-medium truncate max-w-[120px]">{user.name}</span>
-            <span className="text-[9px] text-orange-400 font-bold uppercase bg-orange-950/60 px-1.5 py-0.5 rounded border border-orange-800/60 hidden xs:inline">
-              Tester
-            </span>
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#303134] border border-[#3c4043] text-sm">
+            <Shield className="h-3.5 w-3.5 text-[#8ab4f8]" />
+            <span className="text-[#e8eaed] truncate max-w-[120px]">{user.name}</span>
           </div>
 
           <button
             onClick={onLogout}
             title="Log out"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-zinc-950 border border-zinc-800 text-xs font-mono text-zinc-400 hover:text-rose-400 hover:border-rose-500/40 transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#303134] border border-[#3c4043] text-sm text-[#9aa0a6] hover:text-[#ea4335] transition-colors cursor-pointer"
           >
             <LogOut className="h-3.5 w-3.5" />
             <span className="hidden sm:inline">Logout</span>
@@ -75,94 +71,58 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
         </div>
       </nav>
 
-      {/* Main Content */}
-      <main className="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-8 md:p-10 flex flex-col justify-center">
-        {/* Header Intro */}
+      {/* Main */}
+      <main className="flex-1 max-w-3xl w-full mx-auto p-4 sm:p-8 flex flex-col justify-center">
         <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-mono mb-3">
-            <Terminal className="h-3 w-3" />
-            <span>ADVERSARIAL EVALUATION ENVIRONMENT</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-2">
+          <h2 className="text-2xl sm:text-3xl font-medium text-[#e8eaed] mb-2">
             Welcome, {user.name}
           </h2>
-          <p className="text-sm text-zinc-400 max-w-xl mx-auto">
-            Authorized testing account with integrated real-time video face overlay & synthetic vocoder injection capabilities.
+          <p className="text-sm text-[#9aa0a6] max-w-md mx-auto">
+            Test deepfake attacks with real-time face overlay & voice synthesis tools.
           </p>
         </div>
 
-        {/* Tester Information Card - Sharp & Technical */}
-        <div className="w-full mb-6 p-4 rounded-lg bg-[#070709] border border-orange-500/30 text-zinc-300 flex items-start gap-3.5">
-          <div className="h-8 w-8 rounded-md bg-orange-500/15 flex items-center justify-center shrink-0 mt-0.5 border border-orange-500/30 text-orange-400">
-            <AlertTriangle className="h-4.5 w-4.5" />
+        <div className="w-full mb-5 p-3.5 rounded-2xl bg-[#28292c] border border-[#3c4043] flex items-center gap-3">
+          <div className="h-8 w-8 rounded-full bg-[#8ab4f8]/15 flex items-center justify-center shrink-0 text-[#8ab4f8]">
+            <AlertTriangle className="h-4 w-4" />
           </div>
           <div className="flex-1">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-mono font-bold tracking-wider uppercase block text-orange-400">
-                ACTIVE TESTER PRIVILEGES
-              </span>
-              <span className="text-[10px] font-mono text-zinc-500">POLICY ENFORCED</span>
-            </div>
-            <p className="text-xs text-zinc-400 leading-relaxed mt-1 font-mono">
-              You have access to the in-call Attack Simulator panel. Injected streams use HTML5 Canvas & Web Audio API graphs via <span className="text-orange-300">replaceTrack()</span> without dropping peer connection.
+            <span className="text-xs font-medium text-[#8ab4f8] block">Tester Access</span>
+            <p className="text-xs text-[#9aa0a6] mt-0.5">
+              You have access to the in-call Attack Simulator panel for security testing.
             </p>
           </div>
         </div>
 
-        {/* Action Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
-          {/* Create Test Call */}
-          <div className="flex flex-col justify-between p-6 sm:p-8 rounded-lg bg-[#070709] border border-orange-500/30 hover:border-orange-500/70 transition-all text-left relative overflow-hidden group">
-            {/* Top edge subtle highlight */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-orange-500 to-transparent" />
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+          <div className="flex flex-col justify-between p-6 rounded-2xl bg-[#28292c] border border-[#3c4043] hover:border-[#5f6368] transition-colors">
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="h-11 w-11 rounded-md bg-orange-500/10 text-orange-400 border border-orange-500/30 flex items-center justify-center">
-                  <Flame className="h-5 w-5" />
-                </div>
-                <span className="text-[10px] font-mono text-orange-400 uppercase tracking-widest bg-orange-950/40 px-2 py-0.5 rounded border border-orange-800/40">
-                  Simulator Ready
-                </span>
+              <div className="h-11 w-11 rounded-full bg-[#ea4335]/15 text-[#ea4335] flex items-center justify-center mb-4">
+                <Flame className="h-5 w-5" />
               </div>
-
-              <h3 className="text-xl font-bold text-white mb-1.5 group-hover:text-orange-400 transition-colors">
-                Create Test Call
-              </h3>
-              <p className="text-xs text-zinc-400 leading-relaxed mb-6 font-mono">
-                Launch an isolated 1-to-1 WebRTC testing room equipped with live Attack Simulator controls.
+              <h3 className="text-lg font-medium text-[#e8eaed] mb-1">Test Room</h3>
+              <p className="text-sm text-[#9aa0a6] mb-6">
+                Launch a testing room with attack simulator controls.
               </p>
             </div>
 
             <button
               onClick={handleCreateTestCall}
-              className="w-full py-3 px-4 rounded-md bg-orange-600 hover:bg-orange-500 text-white text-xs font-mono font-bold uppercase tracking-wider shadow-lg shadow-orange-950/40 border border-orange-500 flex items-center justify-center gap-2 transition-all active:scale-[0.99] cursor-pointer"
+              className="w-full py-3 px-4 rounded-full bg-[#1a73e8] hover:bg-[#1557b0] text-white text-sm font-medium flex items-center justify-center gap-2 transition-colors active:scale-[0.99] cursor-pointer"
             >
-              <span>Launch Test Room</span>
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              Launch Test Room
+              <ArrowRight className="h-4 w-4" />
             </button>
           </div>
 
-          {/* Join Call */}
-          <div className="flex flex-col justify-between p-6 sm:p-8 rounded-lg bg-[#070709] border border-zinc-800 hover:border-zinc-700 transition-all text-left relative overflow-hidden">
-            {/* Top edge subtle highlight */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-zinc-700/60 to-transparent" />
-
+          <div className="flex flex-col justify-between p-6 rounded-2xl bg-[#28292c] border border-[#3c4043] transition-colors">
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="h-11 w-11 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800 flex items-center justify-center">
-                  <Video className="h-5 w-5" />
-                </div>
-                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-zinc-900 px-2 py-0.5 rounded border border-zinc-800">
-                  Adversary Target
-                </span>
+              <div className="h-11 w-11 rounded-full bg-[#303134] text-[#9aa0a6] flex items-center justify-center mb-4">
+                <Video className="h-5 w-5" />
               </div>
-
-              <h3 className="text-xl font-bold text-white mb-1.5">
-                Join Target Call
-              </h3>
-              <p className="text-xs text-zinc-400 leading-relaxed mb-4 font-mono">
-                Enter an existing Room ID to test against a remote participant.
+              <h3 className="text-lg font-medium text-[#e8eaed] mb-1">Join Meeting</h3>
+              <p className="text-sm text-[#9aa0a6] mb-4">
+                Enter a meeting code to test against a participant.
               </p>
             </div>
 
@@ -172,37 +132,36 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
                 value={inputRoomId}
                 onChange={(e) => setInputRoomId(e.target.value)}
                 placeholder="e.g. ABC-123"
-                className="w-full px-3.5 py-2.5 rounded-md bg-black border border-zinc-800 text-xs font-mono uppercase tracking-wider text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/80 focus:ring-1 focus:ring-orange-500/80 transition-colors"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#202124] border border-[#3c4043] text-sm uppercase tracking-wider text-[#e8eaed] placeholder-[#80868b] focus:outline-none focus:border-[#8ab4f8] transition-colors"
               />
               <button
                 type="submit"
                 disabled={!inputRoomId.trim()}
-                className="w-full py-2.5 px-4 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-100 text-xs font-mono font-semibold uppercase tracking-wider border border-zinc-700 disabled:opacity-40 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-2.5 px-4 rounded-full bg-[#3c4043] hover:bg-[#4a4d51] text-[#e8eaed] text-sm font-medium disabled:opacity-40 transition-colors flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Join Target Room</span>
+                Join Room
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </form>
           </div>
         </div>
 
-        {/* Telemetry Bar */}
-        <div className="mt-8 p-3.5 rounded-lg bg-[#070709] border border-zinc-800/90 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-mono">
-          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
-            <span className="text-[10px] text-zinc-500 uppercase">Face Synthesis</span>
-            <span className="text-orange-400 font-semibold mt-0.5">Canvas 30FPS</span>
+        <div className="mt-6 p-3 rounded-2xl bg-[#28292c] border border-[#3c4043] grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
+          <div className="p-2 rounded-xl bg-[#202124]">
+            <span className="text-[#9aa0a6] block text-[10px]">Face Swap</span>
+            <span className="text-[#8ab4f8] font-medium">Canvas 30FPS</span>
           </div>
-          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
-            <span className="text-[10px] text-zinc-500 uppercase">Voice Vocoder</span>
-            <span className="text-orange-400 font-semibold mt-0.5">WebAudio Graph</span>
+          <div className="p-2 rounded-xl bg-[#202124]">
+            <span className="text-[#9aa0a6] block text-[10px]">Voice</span>
+            <span className="text-[#8ab4f8] font-medium">WebAudio</span>
           </div>
-          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
-            <span className="text-[10px] text-zinc-500 uppercase">Stream Swap</span>
-            <span className="text-zinc-200 font-semibold mt-0.5">replaceTrack()</span>
+          <div className="p-2 rounded-xl bg-[#202124]">
+            <span className="text-[#9aa0a6] block text-[10px]">Stream</span>
+            <span className="text-[#e8eaed] font-medium">replaceTrack()</span>
           </div>
-          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
-            <span className="text-[10px] text-zinc-500 uppercase">Role Guard</span>
-            <span className="text-emerald-400 font-semibold mt-0.5">Server Verified</span>
+          <div className="p-2 rounded-xl bg-[#202124]">
+            <span className="text-[#9aa0a6] block text-[10px]">Auth</span>
+            <span className="text-[#34a853] font-medium">Verified</span>
           </div>
         </div>
       </main>

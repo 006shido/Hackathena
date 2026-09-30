@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Mic, MicOff, Video, VideoOff, AlertCircle, Shield, ArrowRight, User } from 'lucide-react';
+import { Mic, MicOff, Video, VideoOff, AlertCircle, ArrowRight, User } from 'lucide-react';
 import { UserRole } from '../types/auth';
 
 interface DevicePreviewProps {
@@ -32,137 +32,131 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (videoRef.current && stream) {
-      videoRef.current.srcObject = stream;
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (stream) {
+      if (video.srcObject !== stream) {
+        video.srcObject = stream;
+      }
+      video.play().catch((err) => {
+        console.warn('[DevicePreview] Video play error:', err);
+      });
+    } else {
+      video.srcObject = null;
     }
-  }, [stream]);
+  }, [stream, isCameraOff]);
 
   const hasVideoTrack = stream && stream.getVideoTracks().length > 0 && !isCameraOff;
+  const initials = username.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || 'U';
 
   return (
-    <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto p-5 sm:p-7 bg-[#070709] border border-zinc-800 rounded-lg shadow-2xl relative overflow-hidden">
-      {/* Subtle top edge highlight */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-orange-500/40 to-transparent" />
-
+    <div className="flex flex-col items-center justify-center w-full max-w-2xl mx-auto p-6 sm:p-8 bg-[#28292c] border border-[#3c4043] rounded-2xl shadow-2xl">
       {/* Header */}
-      <div className="w-full flex items-center justify-between pb-4 border-b border-zinc-800/80 mb-5">
+      <div className="w-full flex items-center justify-between pb-4 border-b border-[#3c4043] mb-5">
         <div>
-          <h2 className="text-lg font-bold text-white flex items-center gap-2">
-            <span>Audio & Video Check</span>
-            {role === 'tester' && (
-              <span className="flex items-center gap-1 rounded bg-orange-500/15 px-2 py-0.5 text-[10px] font-mono font-semibold text-orange-400 border border-orange-500/40 uppercase">
-                <Shield className="h-3 w-3" /> Tester
-              </span>
-            )}
-          </h2>
-          <p className="text-xs text-zinc-400 font-mono mt-0.5">
-            Target Room: <span className="text-orange-400 font-bold">{roomId}</span>
+          <h2 className="text-lg font-medium text-[#e8eaed]">Ready to join?</h2>
+          <p className="text-sm text-[#9aa0a6] mt-0.5">
+            Room: <span className="text-[#e8eaed] font-medium">{roomId}</span>
           </p>
         </div>
-        <div className="flex items-center gap-2 text-xs font-mono text-zinc-300 bg-zinc-900/90 px-3 py-1.5 rounded-md border border-zinc-800">
-          <User className="h-3.5 w-3.5 text-orange-400" />
+        <div className="flex items-center gap-2 text-sm text-[#e8eaed] bg-[#3c4043] px-3 py-1.5 rounded-full">
+          <User className="h-3.5 w-3.5 text-[#9aa0a6]" />
           <span>{username}</span>
+          {role === 'tester' && (
+            <span className="text-[11px] text-[#8ab4f8] bg-[#1a73e8]/20 px-2 py-0.5 rounded-full font-medium">Tester</span>
+          )}
         </div>
       </div>
 
-      {/* Permission / Device Warning Message */}
+      {/* Permission Warning */}
       {mediaError && (
-        <div className="w-full mb-4 flex items-start gap-3 p-3.5 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono">
-          <AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-amber-400" />
-          <div className="flex-1">
-            <span className="font-semibold block mb-0.5">Device Notice</span>
-            <span>{mediaError}</span>
-          </div>
+        <div className="w-full mb-4 flex items-center gap-2 p-3 rounded-xl bg-[#ea4335]/15 border border-[#ea4335]/30 text-[#ea4335] text-sm">
+          <AlertCircle className="h-4 w-4 shrink-0" />
+          <span>{mediaError}</span>
         </div>
       )}
 
-      {/* Camera Preview Tile - Expansive 16:9 view */}
-      <div className="relative w-full aspect-video max-h-[460px] rounded-md overflow-hidden bg-black border border-zinc-800 shadow-inner flex items-center justify-center">
-        {hasVideoTrack ? (
-          <video
-            ref={videoRef}
-            autoPlay
-            playsInline
-            muted
-            className="w-full h-full object-cover scale-x-[-1]"
-          />
-        ) : (
-          <div className="flex flex-col items-center justify-center text-zinc-500 gap-2">
-            <div className="h-16 w-16 rounded-md bg-zinc-900 border border-zinc-800 flex items-center justify-center">
-              <VideoOff className="h-8 w-8 text-zinc-400" />
+      {/* Camera Preview */}
+      <div className="relative w-full aspect-video max-h-[400px] rounded-2xl overflow-hidden bg-[#202124] border border-[#3c4043] flex items-center justify-center">
+        <video
+          ref={videoRef}
+          autoPlay
+          playsInline
+          muted
+          className={`w-full h-full object-cover scale-x-[-1] transition-opacity duration-200 ${
+            hasVideoTrack ? 'opacity-100' : 'opacity-0 absolute pointer-events-none'
+          }`}
+        />
+
+        {!hasVideoTrack && (
+          <div className="flex flex-col items-center justify-center gap-3">
+            <div className="h-20 w-20 rounded-full bg-[#1a73e8] flex items-center justify-center text-white text-2xl font-medium">
+              {initials}
             </div>
-            <span className="text-xs sm:text-sm font-medium text-zinc-300 font-mono">Camera is currently disabled</span>
-            <span className="text-[11px] text-zinc-600 font-mono">Click 'Enable Camera' below to turn on video</span>
+            <span className="text-sm text-[#9aa0a6]">Camera is off</span>
           </div>
         )}
 
-        {/* Framing edge markers */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t border-l border-zinc-600" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t border-r border-zinc-600" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b border-l border-zinc-600" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b border-r border-zinc-600" />
-
-        {/* Status badges - clean & distinct */}
+        {/* Status badges */}
         <div className="absolute bottom-3 left-3 flex items-center gap-2">
-          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono backdrop-blur-md border ${
-            isMicMuted ? 'bg-rose-500/15 text-rose-300 border-rose-500/40' : 'bg-black/80 text-emerald-400 border-emerald-800/60'
+          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs backdrop-blur-md ${
+            isMicMuted ? 'bg-[#ea4335] text-white' : 'bg-black/50 text-white'
           }`}>
-            {isMicMuted ? <MicOff className="h-3 w-3" /> : <Mic className="h-3 w-3 text-emerald-400" />}
-            <span>{isMicMuted ? 'Mic Muted' : 'Mic Active'}</span>
+            {isMicMuted ? <MicOff className="h-3 w-3" /> : <Mic className="h-3 w-3" />}
+            <span>{isMicMuted ? 'Microphone off' : 'Microphone on'}</span>
           </div>
 
-          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono backdrop-blur-md border ${
-            isCameraOff ? 'bg-rose-500/15 text-rose-300 border-rose-500/40' : 'bg-black/80 text-zinc-200 border-zinc-700'
+          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs backdrop-blur-md ${
+            isCameraOff ? 'bg-[#ea4335] text-white' : 'bg-black/50 text-white'
           }`}>
-            {isCameraOff ? <VideoOff className="h-3 w-3" /> : <Video className="h-3 w-3 text-emerald-400" />}
-            <span>{isCameraOff ? 'Camera Off' : 'Camera On'}</span>
+            {isCameraOff ? <VideoOff className="h-3 w-3" /> : <Video className="h-3 w-3" />}
+            <span>{isCameraOff ? 'Camera off' : 'Camera on'}</span>
           </div>
         </div>
       </div>
 
-      {/* Control Buttons & Join Call */}
-      <div className="w-full mt-5 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
-        {/* Hardware toggles */}
-        <div className="grid grid-cols-2 sm:flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
+      {/* Controls & Join */}
+      <div className="w-full mt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="flex items-center gap-2 w-full sm:w-auto">
           <button
             onClick={onToggleMic}
-            className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-md border text-xs font-medium font-mono transition-all cursor-pointer ${
+            className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-colors cursor-pointer ${
               isMicMuted
-                ? 'bg-rose-500/10 text-rose-300 border-rose-500/40 hover:bg-rose-500/20'
-                : 'bg-zinc-900 text-zinc-200 border-zinc-700 hover:border-emerald-500/60 hover:text-white'
+                ? 'bg-[#ea4335] text-white hover:bg-[#d93025]'
+                : 'bg-[#3c4043] text-[#e8eaed] hover:bg-[#4a4d51]'
             }`}
           >
-            {isMicMuted ? <MicOff className="h-4 w-4 shrink-0 text-rose-400" /> : <Mic className="h-4 w-4 shrink-0 text-emerald-400" />}
-            <span>{isMicMuted ? 'Unmute Mic' : 'Mute Mic'}</span>
+            {isMicMuted ? <MicOff className="h-4 w-4 shrink-0" /> : <Mic className="h-4 w-4 shrink-0" />}
+            <span>{isMicMuted ? 'Unmute' : 'Mute'}</span>
           </button>
 
           <button
             onClick={onToggleCamera}
-            className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-md border text-xs font-medium font-mono transition-all cursor-pointer ${
+            className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-colors cursor-pointer ${
               isCameraOff
-                ? 'bg-rose-500/10 text-rose-300 border-rose-500/40 hover:bg-rose-500/20'
-                : 'bg-zinc-900 text-zinc-200 border-zinc-700 hover:border-emerald-500/60 hover:text-white'
+                ? 'bg-[#ea4335] text-white hover:bg-[#d93025]'
+                : 'bg-[#3c4043] text-[#e8eaed] hover:bg-[#4a4d51]'
             }`}
           >
-            {isCameraOff ? <VideoOff className="h-4 w-4 shrink-0 text-rose-400" /> : <Video className="h-4 w-4 shrink-0 text-emerald-400" />}
-            <span>{isCameraOff ? 'Turn Camera On' : 'Turn Camera Off'}</span>
+            {isCameraOff ? <VideoOff className="h-4 w-4 shrink-0" /> : <Video className="h-4 w-4 shrink-0" />}
+            <span>{isCameraOff ? 'Start Video' : 'Stop Video'}</span>
           </button>
         </div>
 
-        {/* Action buttons */}
         <div className="flex items-center gap-2.5 w-full sm:w-auto">
           <button
             onClick={onCancel}
-            className="flex-1 sm:flex-none px-4 py-2.5 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono font-medium hover:bg-zinc-800 hover:text-white transition-colors text-center cursor-pointer"
+            className="flex-1 sm:flex-none px-5 py-2.5 rounded-full bg-[#3c4043] text-[#e8eaed] text-sm font-medium hover:bg-[#4a4d51] transition-colors cursor-pointer"
           >
             Cancel
           </button>
 
           <button
             onClick={onJoin}
-            className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-md bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold font-mono tracking-wider uppercase shadow-lg shadow-orange-950/50 border border-orange-500 transition-all active:scale-95 text-center cursor-pointer"
+            className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#1a73e8] hover:bg-[#1557b0] text-white text-sm font-medium shadow-md transition-colors active:scale-95 cursor-pointer"
           >
-            <span>Enter Call</span>
+            <span>Join now</span>
             <ArrowRight className="h-4 w-4 shrink-0" />
           </button>
         </div>

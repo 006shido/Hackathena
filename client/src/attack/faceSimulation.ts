@@ -90,7 +90,7 @@ export class FaceSimulationPipeline {
     if (this.videoEl.readyState >= 2) {
       this.ctx.drawImage(this.videoEl, 0, 0, width, height);
     } else {
-      this.ctx.fillStyle = '#0f172a';
+      this.ctx.fillStyle = '#202124';
       this.ctx.fillRect(0, 0, width, height);
     }
 
@@ -132,7 +132,7 @@ export class FaceSimulationPipeline {
 
       // Subtle neural synthetic noise / artifact simulation
       if (this.frameCount % 12 === 0) {
-        this.ctx.fillStyle = 'rgba(6, 182, 212, 0.06)';
+        this.ctx.fillStyle = 'rgba(138, 180, 248, 0.05)';
         this.ctx.fillRect(faceX, faceY, faceW, faceH);
       }
 
@@ -144,7 +144,7 @@ export class FaceSimulationPipeline {
         centerX, centerY, faceW * 0.52
       );
       featherGrad.addColorStop(0, 'rgba(0,0,0,0)');
-      featherGrad.addColorStop(1, 'rgba(15, 23, 42, 0.2)');
+      featherGrad.addColorStop(1, 'rgba(32, 33, 36, 0.2)');
       this.ctx.fillStyle = featherGrad;
       this.ctx.beginPath();
       this.ctx.ellipse(centerX, centerY, faceW * 0.52, faceH * 0.58, 0, 0, Math.PI * 2);
@@ -155,11 +155,11 @@ export class FaceSimulationPipeline {
       this.ctx.save();
       this.ctx.beginPath();
       this.ctx.ellipse(centerX, centerY, faceW * 0.44, faceH * 0.52, 0, 0, Math.PI * 2);
-      this.ctx.fillStyle = 'rgba(30, 41, 59, 0.85)';
+      this.ctx.fillStyle = 'rgba(40, 41, 44, 0.85)';
       this.ctx.fill();
 
       // Simulated facial wireframe mesh
-      this.ctx.strokeStyle = 'rgba(6, 182, 212, 0.6)';
+      this.ctx.strokeStyle = 'rgba(138, 180, 248, 0.6)';
       this.ctx.lineWidth = 1.5;
       this.ctx.stroke();
       this.ctx.restore();
@@ -178,7 +178,7 @@ export class FaceSimulationPipeline {
 
   private drawBiometricMesh(cx: number, cy: number, fw: number, fh: number) {
     this.ctx.save();
-    this.ctx.strokeStyle = 'rgba(16, 185, 129, 0.45)';
+    this.ctx.strokeStyle = 'rgba(52, 168, 83, 0.45)';
     this.ctx.lineWidth = 1;
     this.ctx.setLineDash([2, 3]);
 
@@ -195,7 +195,7 @@ export class FaceSimulationPipeline {
     landmarks.forEach((pt) => {
       this.ctx.beginPath();
       this.ctx.arc(pt.x, pt.y, 3, 0, Math.PI * 2);
-      this.ctx.fillStyle = '#10b981';
+      this.ctx.fillStyle = '#34a853';
       this.ctx.fill();
     });
 
@@ -217,40 +217,40 @@ export class FaceSimulationPipeline {
     this.ctx.save();
     
     // Top badge: Face Swap Active
-    const badgeW = 240;
-    const badgeH = 26;
+    const badgeW = 200;
+    const badgeH = 24;
     const badgeX = cx - badgeW / 2;
     const badgeY = cy - fh * 0.58 - badgeH;
 
-    this.ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
-    this.ctx.strokeStyle = '#ef4444';
+    this.ctx.fillStyle = 'rgba(32, 33, 36, 0.85)';
+    this.ctx.strokeStyle = '#ea4335';
     this.ctx.lineWidth = 1.5;
     this.ctx.beginPath();
-    this.ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 4);
+    this.ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 6);
     this.ctx.fill();
     this.ctx.stroke();
 
     // Pulse red dot
     const pulseAlpha = 0.6 + Math.sin(this.frameCount * 0.1) * 0.4;
-    this.ctx.fillStyle = `rgba(239, 68, 68, ${pulseAlpha})`;
+    this.ctx.fillStyle = `rgba(234, 67, 53, ${pulseAlpha})`;
     this.ctx.beginPath();
-    this.ctx.arc(badgeX + 14, badgeY + 13, 5, 0, Math.PI * 2);
+    this.ctx.arc(badgeX + 14, badgeY + 12, 4, 0, Math.PI * 2);
     this.ctx.fill();
 
-    this.ctx.font = '600 11px "JetBrains Mono", monospace';
-    this.ctx.fillStyle = '#f87171';
+    this.ctx.font = '500 11px Roboto, sans-serif';
+    this.ctx.fillStyle = '#f28b82';
     this.ctx.textAlign = 'left';
-    this.ctx.fillText('FACE SIMULATION: ACTIVE', badgeX + 26, badgeY + 17);
+    this.ctx.fillText('Face Simulation Active', badgeX + 24, badgeY + 16);
 
     // Subtle corner brackets around face region
-    const bSize = 16;
+    const bSize = 14;
     const left = cx - fw * 0.48;
     const right = cx + fw * 0.48;
     const top = cy - fh * 0.52;
     const bottom = cy + fh * 0.56;
 
-    this.ctx.strokeStyle = 'rgba(239, 68, 68, 0.6)';
-    this.ctx.lineWidth = 2;
+    this.ctx.strokeStyle = 'rgba(234, 67, 53, 0.5)';
+    this.ctx.lineWidth = 1.5;
     this.ctx.setLineDash([]);
 
     // Top-left
@@ -291,11 +291,19 @@ export class FaceSimulationPipeline {
       this.animFrameId = null;
     }
     if (this.outputStream) {
-      this.outputStream.getTracks().forEach((track) => track.stop());
+      this.outputStream.getTracks().forEach((track) => {
+        try {
+          track.enabled = false;
+          track.stop();
+        } catch (e) {}
+      });
       this.outputStream = null;
     }
-    if (this.videoEl.srcObject) {
-      this.videoEl.srcObject = null;
+    if (this.videoEl) {
+      try {
+        this.videoEl.pause();
+        this.videoEl.srcObject = null;
+      } catch (e) {}
     }
     this.originalTrack = null;
   }

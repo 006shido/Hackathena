@@ -192,7 +192,12 @@ export class VoiceTransformationPipeline {
     }
 
     if (this.outputStream) {
-      this.outputStream.getTracks().forEach((track) => track.stop());
+      this.outputStream.getTracks().forEach((track) => {
+        try {
+          track.enabled = false;
+          track.stop();
+        } catch (e) {}
+      });
       this.outputStream = null;
     }
 

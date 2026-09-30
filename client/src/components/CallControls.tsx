@@ -35,96 +35,88 @@ export const CallControls: React.FC<CallControlsProps> = ({
   const isAttackActive = attackMode !== 'none';
 
   return (
-    <div className="flex items-center justify-center gap-2 sm:gap-3 py-2 sm:py-2.5 px-3 sm:px-4 rounded-md bg-[#070709] border border-zinc-800 shadow-2xl backdrop-blur-xl max-w-full">
-      {/* Microphone toggle */}
+    <div className="flex items-center justify-center gap-3 py-2 px-4 rounded-full bg-[#202124] max-w-full">
+      {/* Microphone */}
       <button
         onClick={onToggleMic}
-        title={isMicMuted ? 'Unmute Microphone' : 'Mute Microphone'}
-        className={`group relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-md transition-all duration-150 shrink-0 cursor-pointer ${
+        title={isMicMuted ? 'Turn on microphone' : 'Turn off microphone'}
+        className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors shrink-0 cursor-pointer ${
           isMicMuted
-            ? 'bg-rose-500/15 text-rose-400 border border-rose-500/40 hover:bg-rose-500/25'
-            : 'bg-zinc-900 text-emerald-400 border border-zinc-700/80 hover:border-emerald-500/60 hover:text-emerald-300'
+            ? 'bg-[#ea4335] text-white hover:bg-[#d93025]'
+            : 'bg-[#3c4043] text-white hover:bg-[#4a4d51]'
         }`}
       >
-        {isMicMuted ? <MicOff className="h-4 w-4 sm:h-5 sm:w-5" /> : <Mic className="h-4 w-4 sm:h-5 sm:w-5" />}
-        <span className="sr-only">Toggle Microphone</span>
+        {isMicMuted ? <MicOff className="h-5 w-5" /> : <Mic className="h-5 w-5" />}
       </button>
 
-      {/* Camera toggle */}
+      {/* Camera */}
       <button
         onClick={onToggleCamera}
-        title={isCameraOff ? 'Turn Camera On' : 'Turn Camera Off'}
-        className={`group relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-md transition-all duration-150 shrink-0 cursor-pointer ${
+        title={isCameraOff ? 'Turn on camera' : 'Turn off camera'}
+        className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors shrink-0 cursor-pointer ${
           isCameraOff
-            ? 'bg-rose-500/15 text-rose-400 border border-rose-500/40 hover:bg-rose-500/25'
-            : 'bg-zinc-900 text-zinc-200 border border-zinc-700/80 hover:border-zinc-500 hover:text-white'
+            ? 'bg-[#ea4335] text-white hover:bg-[#d93025]'
+            : 'bg-[#3c4043] text-white hover:bg-[#4a4d51]'
         }`}
       >
-        {isCameraOff ? <VideoOff className="h-4 w-4 sm:h-5 sm:w-5" /> : <Video className="h-4 w-4 sm:h-5 sm:w-5" />}
-        <span className="sr-only">Toggle Camera</span>
+        {isCameraOff ? <VideoOff className="h-5 w-5" /> : <Video className="h-5 w-5" />}
       </button>
 
       {/* Screen Share */}
       <button
         onClick={onToggleScreenShare}
-        title={isScreenSharing ? 'Stop Screen Share' : 'Share Screen'}
-        className={`group relative hidden xs:flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-md transition-all duration-150 shrink-0 cursor-pointer ${
+        title={isScreenSharing ? 'Stop presenting' : 'Present now'}
+        className={`hidden xs:flex h-11 w-11 items-center justify-center rounded-full transition-colors shrink-0 cursor-pointer ${
           isScreenSharing
-            ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/50 hover:bg-emerald-500/30'
-            : 'bg-zinc-900 text-zinc-200 border border-zinc-700/80 hover:border-zinc-500 hover:text-white'
+            ? 'bg-[#8ab4f8] text-[#202124] hover:bg-[#aecbfa]'
+            : 'bg-[#3c4043] text-white hover:bg-[#4a4d51]'
         }`}
       >
-        <ScreenShare className="h-4 w-4 sm:h-5 sm:w-5" />
-        <span className="sr-only">Share Screen</span>
+        <ScreenShare className="h-5 w-5" />
       </button>
 
-      {/* Security Monitor toggle button for mobile / smaller screens */}
+      {/* Security Monitor - mobile */}
       {onToggleSecurityPanel && (
         <button
           onClick={onToggleSecurityPanel}
-          title="DeepTrace Monitoring"
-          className={`flex lg:hidden items-center gap-1.5 px-3 h-10 sm:h-11 rounded-md font-mono text-[11px] sm:text-xs font-semibold tracking-wider uppercase transition-all duration-150 border shrink-0 cursor-pointer ${
+          title="Security Monitor"
+          className={`flex lg:hidden h-11 w-11 items-center justify-center rounded-full transition-colors shrink-0 cursor-pointer ${
             isSecurityPanelOpen
-              ? 'bg-orange-500/20 text-orange-300 border-orange-500/50'
-              : 'bg-zinc-900 text-zinc-300 border-zinc-700 hover:bg-zinc-800'
+              ? 'bg-[#8ab4f8] text-[#202124]'
+              : 'bg-[#3c4043] text-white hover:bg-[#4a4d51]'
           }`}
         >
-          <Activity className="h-3.5 w-3.5 text-orange-400" />
-          <span className="hidden xs:inline">Monitor</span>
+          <Activity className="h-5 w-5" />
         </button>
       )}
 
-      {/* TESTER ONLY: Attack Simulator Button */}
+      {/* Tester: Attack Simulator */}
       {isTester && onToggleAttackDrawer && (
         <button
           onClick={onToggleAttackDrawer}
-          title="Open Attack Simulator (Tester Security Testing)"
-          className={`flex items-center gap-1.5 px-3 h-10 sm:h-11 rounded-md font-mono text-[11px] sm:text-xs font-semibold tracking-wider uppercase transition-all duration-150 shadow-md shrink-0 cursor-pointer ${
+          title="Attack Simulator"
+          className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors shrink-0 cursor-pointer relative ${
             isAttackActive
-              ? 'bg-rose-600/30 text-rose-300 border border-rose-500/60 animate-pulse hover:bg-rose-600/40'
+              ? 'bg-[#ea4335] text-white hover:bg-[#d93025]'
               : isAttackDrawerOpen
-              ? 'bg-orange-500/25 text-orange-300 border border-orange-500/60'
-              : 'bg-orange-500/15 text-orange-400 border border-orange-500/35 hover:bg-orange-500/25 hover:border-orange-500/60'
+              ? 'bg-[#8ab4f8] text-[#202124]'
+              : 'bg-[#3c4043] text-white hover:bg-[#4a4d51]'
           }`}
         >
-          <ShieldAlert className={`h-4 w-4 ${isAttackActive ? 'text-rose-400' : 'text-orange-400'}`} />
-          <span className="hidden sm:inline">Attack</span>
+          <ShieldAlert className="h-5 w-5" />
           {isAttackActive && (
-            <span className="flex h-1.5 w-1.5 rounded-full bg-rose-500 animate-ping" />
+            <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-white animate-ping" />
           )}
         </button>
       )}
 
-      <div className="h-5 w-[1px] bg-zinc-800 mx-1 shrink-0" />
-
-      {/* End Call */}
+      {/* End Call - Google Meet style pill */}
       <button
         onClick={onEndCall}
-        title="End Call"
-        className="flex h-10 sm:h-11 items-center justify-center gap-1.5 rounded-md bg-rose-600 px-3.5 sm:px-5 text-xs font-mono font-bold uppercase tracking-wider text-white shadow-lg shadow-rose-950/60 border border-rose-500 transition-all duration-150 hover:bg-rose-500 active:scale-95 shrink-0 cursor-pointer"
+        title="Leave call"
+        className="flex h-11 px-5 items-center justify-center rounded-full bg-[#ea4335] hover:bg-[#d93025] text-white transition-colors active:scale-95 shrink-0 cursor-pointer"
       >
-        <PhoneOff className="h-4 w-4" />
-        <span className="hidden xs:inline">End Call</span>
+        <PhoneOff className="h-5 w-5" />
       </button>
     </div>
   );

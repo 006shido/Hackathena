@@ -316,13 +316,39 @@ export function useWebRTC() {
   const cleanupPeerConnection = useCallback(() => {
     if (pcRef.current) {
       try {
+        const senders = pcRef.current.getSenders();
+        senders.forEach((sender) => {
+          if (sender.track) {
+            try {
+              sender.track.enabled = false;
+              sender.track.stop();
+            } catch (err) {
+              console.error('Error stopping sender track', err);
+            }
+          }
+        });
+      } catch (err) {
+        // Ignored
+      }
+
+      try {
         pcRef.current.close();
       } catch {
         // Ignored
       }
       pcRef.current = null;
     }
-    remoteStreamInstanceRef.current = new MediaStream();
+
+    if (remoteStreamInstanceRef.current) {
+      remoteStreamInstanceRef.current.getTracks().forEach((track) => {
+        try {
+          track.enabled = false;
+          track.stop();
+        } catch (e) {}
+      });
+      remoteStreamInstanceRef.current = new MediaStream();
+    }
+
     setRemoteStream(null);
     setConnectionState('closed');
     queuedCandidates.current = [];

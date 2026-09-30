@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, Video, Plus, LogOut, ArrowRight, User, Lock, Activity, Users, Radio, Sparkles } from 'lucide-react';
+import { Shield, Video, Plus, LogOut, ArrowRight, User } from 'lucide-react';
 import { User as UserType } from '../types/auth';
 
 interface UserDashboardProps {
@@ -15,7 +15,6 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({
 }) => {
   const [inputRoomId, setInputRoomId] = useState('');
 
-  // Generate short readable room ID like ABC-123 or SEC-789
   const generateRoomId = () => {
     const letters = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
     const l1 = letters[Math.floor(Math.random() * letters.length)];
@@ -37,37 +36,29 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({
   };
 
   return (
-    <div className="min-h-screen w-full bg-black text-zinc-100 flex flex-col relative amoled-grid">
-      {/* Top Navbar */}
-      <nav className="w-full flex items-center justify-between px-4 sm:px-8 py-3.5 border-b border-zinc-800/90 bg-[#050507] shrink-0">
+    <div className="min-h-screen w-full bg-[#202124] text-[#e8eaed] flex flex-col">
+      {/* Navbar */}
+      <nav className="w-full flex items-center justify-between px-4 sm:px-8 py-3.5 border-b border-[#3c4043] bg-[#202124] shrink-0">
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-orange-500/10 border border-orange-500/30 text-orange-400 shrink-0">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#1a73e8]/15 text-[#8ab4f8]">
             <Shield className="h-5 w-5" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-base font-bold tracking-tight text-white leading-tight">DeepTrace</h1>
-              <span className="flex items-center gap-1 rounded bg-emerald-500/10 px-1.5 py-0.5 text-[9px] font-mono text-emerald-400 border border-emerald-500/30 uppercase tracking-wider">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Operational
-              </span>
-            </div>
-            <span className="text-[10px] text-zinc-500 font-mono hidden xs:inline">1-to-1 WebRTC Video Security</span>
+            <h1 className="text-base font-medium text-[#e8eaed]">DeepTrace</h1>
+            <span className="text-xs text-[#9aa0a6] hidden xs:inline">Secure Video Calls</span>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-zinc-950 border border-zinc-800 text-xs font-mono">
-            <User className="h-3.5 w-3.5 text-zinc-400" />
-            <span className="text-zinc-200 font-medium truncate max-w-[120px]">{user.name}</span>
-            <span className="text-[9px] text-emerald-400 font-mono uppercase bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-800/40 hidden xs:inline">
-              User
-            </span>
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#303134] border border-[#3c4043] text-sm">
+            <User className="h-3.5 w-3.5 text-[#9aa0a6]" />
+            <span className="text-[#e8eaed] truncate max-w-[120px]">{user.name}</span>
           </div>
 
           <button
             onClick={onLogout}
             title="Log out"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-zinc-950 border border-zinc-800 text-xs font-mono text-zinc-400 hover:text-rose-400 hover:border-rose-500/40 transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#303134] border border-[#3c4043] text-sm text-[#9aa0a6] hover:text-[#ea4335] transition-colors cursor-pointer"
           >
             <LogOut className="h-3.5 w-3.5" />
             <span className="hidden sm:inline">Logout</span>
@@ -75,76 +66,48 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({
         </div>
       </nav>
 
-      {/* Main Content - Well proportioned & expansive */}
-      <main className="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-8 md:p-10 flex flex-col justify-center">
-        {/* Welcome Banner */}
+      {/* Main */}
+      <main className="flex-1 max-w-3xl w-full mx-auto p-4 sm:p-8 flex flex-col justify-center">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-3">
-            <Lock className="h-3 w-3" />
-            <span>AUTHENTICATED CLIENT SESSION</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-2">
+          <h2 className="text-2xl sm:text-3xl font-medium text-[#e8eaed] mb-2">
             Welcome, {user.name}
           </h2>
-          <p className="text-sm text-zinc-400 max-w-xl mx-auto">
-            Direct peer-to-peer WebRTC video calling. Isolated 2-party rooms with DTLS-SRTP encryption and DeepTrace biometric security verification.
+          <p className="text-sm text-[#9aa0a6] max-w-md mx-auto">
+            Start a new video call or join an existing meeting.
           </p>
         </div>
 
-        {/* Action Cards - Proportional, Handcrafted & Wide */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
-          {/* Card 1: Create Call */}
-          <div className="flex flex-col justify-between p-6 sm:p-8 rounded-lg bg-[#070709] border border-zinc-800 hover:border-orange-500/50 transition-all text-left relative overflow-hidden group">
-            {/* Top edge subtle highlight */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-orange-500/40 to-transparent" />
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+          {/* Create Call */}
+          <div className="flex flex-col justify-between p-6 rounded-2xl bg-[#28292c] border border-[#3c4043] hover:border-[#5f6368] transition-colors">
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="h-11 w-11 rounded-md bg-orange-500/10 text-orange-400 border border-orange-500/30 flex items-center justify-center">
-                  <Plus className="h-5 w-5" />
-                </div>
-                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-zinc-900 px-2 py-0.5 rounded border border-zinc-800">
-                  Instant Host
-                </span>
+              <div className="h-11 w-11 rounded-full bg-[#1a73e8]/15 text-[#8ab4f8] flex items-center justify-center mb-4">
+                <Plus className="h-5 w-5" />
               </div>
-
-              <h3 className="text-xl font-bold text-white mb-1.5 group-hover:text-orange-400 transition-colors">
-                Create New Call
-              </h3>
-              <p className="text-xs text-zinc-400 leading-relaxed mb-6 font-mono">
-                Generate an encrypted 1-to-1 video room and share the room code with your participant.
+              <h3 className="text-lg font-medium text-[#e8eaed] mb-1">New Meeting</h3>
+              <p className="text-sm text-[#9aa0a6] mb-6">
+                Create an encrypted 1-to-1 video room.
               </p>
             </div>
 
             <button
               onClick={handleCreateCall}
-              className="w-full py-3 px-4 rounded-md bg-orange-600 hover:bg-orange-500 text-white text-xs font-mono font-bold uppercase tracking-wider shadow-lg shadow-orange-950/40 border border-orange-500 flex items-center justify-center gap-2 transition-all active:scale-[0.99] cursor-pointer"
+              className="w-full py-3 px-4 rounded-full bg-[#1a73e8] hover:bg-[#1557b0] text-white text-sm font-medium flex items-center justify-center gap-2 transition-colors active:scale-[0.99] cursor-pointer"
             >
-              <span>Start Instant Meeting</span>
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              Start Meeting
+              <ArrowRight className="h-4 w-4" />
             </button>
           </div>
 
-          {/* Card 2: Join Call */}
-          <div className="flex flex-col justify-between p-6 sm:p-8 rounded-lg bg-[#070709] border border-zinc-800 hover:border-zinc-700 transition-all text-left relative overflow-hidden">
-            {/* Top edge subtle highlight */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-zinc-700/60 to-transparent" />
-
+          {/* Join Call */}
+          <div className="flex flex-col justify-between p-6 rounded-2xl bg-[#28292c] border border-[#3c4043] transition-colors">
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="h-11 w-11 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800 flex items-center justify-center">
-                  <Video className="h-5 w-5" />
-                </div>
-                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-zinc-900 px-2 py-0.5 rounded border border-zinc-800">
-                  Join Peer
-                </span>
+              <div className="h-11 w-11 rounded-full bg-[#303134] text-[#9aa0a6] flex items-center justify-center mb-4">
+                <Video className="h-5 w-5" />
               </div>
-
-              <h3 className="text-xl font-bold text-white mb-1.5">
-                Join Call
-              </h3>
-              <p className="text-xs text-zinc-400 leading-relaxed mb-4 font-mono">
-                Enter an existing Room ID provided by the host.
+              <h3 className="text-lg font-medium text-[#e8eaed] mb-1">Join Meeting</h3>
+              <p className="text-sm text-[#9aa0a6] mb-4">
+                Enter a meeting code to connect with your peer.
               </p>
             </div>
 
@@ -154,37 +117,37 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({
                 value={inputRoomId}
                 onChange={(e) => setInputRoomId(e.target.value)}
                 placeholder="e.g. ABC-123"
-                className="w-full px-3.5 py-2.5 rounded-md bg-black border border-zinc-800 text-xs font-mono uppercase tracking-wider text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/80 focus:ring-1 focus:ring-orange-500/80 transition-colors"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#202124] border border-[#3c4043] text-sm uppercase tracking-wider text-[#e8eaed] placeholder-[#80868b] focus:outline-none focus:border-[#8ab4f8] transition-colors"
               />
               <button
                 type="submit"
                 disabled={!inputRoomId.trim()}
-                className="w-full py-2.5 px-4 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-100 text-xs font-mono font-semibold uppercase tracking-wider border border-zinc-700 disabled:opacity-40 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-2.5 px-4 rounded-full bg-[#3c4043] hover:bg-[#4a4d51] text-[#e8eaed] text-sm font-medium disabled:opacity-40 transition-colors flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Enter Room</span>
+                Join
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </form>
           </div>
         </div>
 
-        {/* Security & System Telemetry Bar */}
-        <div className="mt-8 p-3.5 rounded-lg bg-[#070709] border border-zinc-800/90 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-mono">
-          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
-            <span className="text-[10px] text-zinc-500 uppercase">Architecture</span>
-            <span className="text-zinc-200 font-semibold mt-0.5">Direct WebRTC</span>
+        {/* Info */}
+        <div className="mt-6 p-3 rounded-2xl bg-[#28292c] border border-[#3c4043] grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
+          <div className="p-2 rounded-xl bg-[#202124]">
+            <span className="text-[#9aa0a6] block text-[10px]">Type</span>
+            <span className="text-[#e8eaed] font-medium">Peer-to-Peer</span>
           </div>
-          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
-            <span className="text-[10px] text-zinc-500 uppercase">Room Limit</span>
-            <span className="text-emerald-400 font-semibold mt-0.5">Strict 2 Peers</span>
+          <div className="p-2 rounded-xl bg-[#202124]">
+            <span className="text-[#9aa0a6] block text-[10px]">Max Peers</span>
+            <span className="text-[#34a853] font-medium">2</span>
           </div>
-          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
-            <span className="text-[10px] text-zinc-500 uppercase">Encryption</span>
-            <span className="text-zinc-200 font-semibold mt-0.5">DTLS-SRTP P2P</span>
+          <div className="p-2 rounded-xl bg-[#202124]">
+            <span className="text-[#9aa0a6] block text-[10px]">Encryption</span>
+            <span className="text-[#e8eaed] font-medium">DTLS-SRTP</span>
           </div>
-          <div className="flex flex-col items-center justify-center p-2 rounded bg-black/50 border border-zinc-900">
-            <span className="text-[10px] text-zinc-500 uppercase">DeepTrace</span>
-            <span className="text-orange-400 font-semibold mt-0.5">Active Defense</span>
+          <div className="p-2 rounded-xl bg-[#202124]">
+            <span className="text-[#9aa0a6] block text-[10px]">DeepTrace</span>
+            <span className="text-[#8ab4f8] font-medium">Active</span>
           </div>
         </div>
       </main>

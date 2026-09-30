@@ -71,6 +71,26 @@ export function useCall(user: User | null, token: string | null) {
 
   // Initialize media devices for preview or call
   const initLocalMedia = useCallback(async (video = true, audio = true): Promise<MediaAccessResult> => {
+    // If existing media tracks are open, stop them first to prevent hardware leak
+    if (localStreamRef.current) {
+      mediaService.stopStream(localStreamRef.current);
+      localStreamRef.current = null;
+    }
+    if (originalVideoTrackRef.current) {
+      try {
+        originalVideoTrackRef.current.enabled = false;
+        originalVideoTrackRef.current.stop();
+      } catch (e) {}
+      originalVideoTrackRef.current = null;
+    }
+    if (originalAudioTrackRef.current) {
+      try {
+        originalAudioTrackRef.current.enabled = false;
+        originalAudioTrackRef.current.stop();
+      } catch (e) {}
+      originalAudioTrackRef.current = null;
+    }
+
     setCallStatus('checking-devices');
     const result = await mediaService.getUserMedia(video, audio);
 
@@ -203,24 +223,78 @@ export function useCall(user: User | null, token: string | null) {
   }, [token, localStream, createPeerConnection, makeOffer, handleOffer, handleAnswer, handleIceCandidate, cleanupPeerConnection, callStatus]);
 
   // Controls: Toggle Microphone
-  const toggleMic = useCallback(() => {
-    if (!localStream) return;
-    const audioTrack = localStream.getAudioTracks()[0];
-    if (audioTrack) {
-      audioTrack.enabled = !audioTrack.enabled;
-      setIsMicMuted(!audioTrack.enabled);
+  const toggleMic = useCallback(async () => {
+    const stream = localStreamRef.current || localStream;
+    if (!stream || stream.getAudioTracks().length === 0) {
+      try {
+        const result = await mediaService.getUserMedia(!isCameraOff, true);
+        if (result.stream) {
+          const newAudioTrack = result.stream.getAudioTracks()[0];
+          if (newAudioTrack) {
+            if (stream) {
+              stream.addTrack(newAudioTrack);
+              originalAudioTrackRef.current = newAudioTrack;
+              setIsMicMuted(false);
+              await replaceAudioTrack(newAudioTrack);
+            } else {
+              setLocalStream(result.stream);
+              localStreamRef.current = result.stream;
+              originalAudioTrackRef.current = newAudioTrack;
+              originalVideoTrackRef.current = result.stream.getVideoTracks()[0] || null;
+              setIsMicMuted(false);
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('Could not acquire microphone:', err);
+      }
+      return;
     }
-  }, [localStream]);
+
+    const audioTrack = stream.getAudioTracks()[0];
+    if (audioTrack) {
+      const nextEnabled = !audioTrack.enabled;
+      audioTrack.enabled = nextEnabled;
+      setIsMicMuted(!nextEnabled);
+    }
+  }, [localStream, isCameraOff, replaceAudioTrack]);
 
   // Controls: Toggle Camera
-  const toggleCamera = useCallback(() => {
-    if (!localStream) return;
-    const videoTrack = localStream.getVideoTracks()[0];
-    if (videoTrack) {
-      videoTrack.enabled = !videoTrack.enabled;
-      setIsCameraOff(!videoTrack.enabled);
+  const toggleCamera = useCallback(async () => {
+    const stream = localStreamRef.current || localStream;
+    if (!stream || stream.getVideoTracks().length === 0) {
+      try {
+        const result = await mediaService.getUserMedia(true, !isMicMuted);
+        if (result.stream) {
+          const newVideoTrack = result.stream.getVideoTracks()[0];
+          if (newVideoTrack) {
+            if (stream) {
+              stream.addTrack(newVideoTrack);
+              originalVideoTrackRef.current = newVideoTrack;
+              setIsCameraOff(false);
+              await replaceVideoTrack(newVideoTrack);
+            } else {
+              setLocalStream(result.stream);
+              localStreamRef.current = result.stream;
+              originalVideoTrackRef.current = newVideoTrack;
+              originalAudioTrackRef.current = result.stream.getAudioTracks()[0] || null;
+              setIsCameraOff(false);
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('Could not acquire camera on toggle:', err);
+      }
+      return;
     }
-  }, [localStream]);
+
+    const videoTrack = stream.getVideoTracks()[0];
+    if (videoTrack) {
+      const nextEnabled = !videoTrack.enabled;
+      videoTrack.enabled = nextEnabled;
+      setIsCameraOff(!nextEnabled);
+    }
+  }, [localStream, isMicMuted, replaceVideoTrack]);
 
   // Controls: Screen Share
   const toggleScreenShare = useCallback(async () => {
@@ -443,47 +517,128 @@ export function useCall(user: User | null, token: string | null) {
     }
   }, [attackState.voiceTransform]);
 
+  // Stop all media tracks helper
+  const stopAllMedia = useCallback(() => {
+    // 1. Screen sharing stream
+    if (screenStreamRef.current) {
+      mediaService.stopStream(screenStreamRef.current);
+      screenStreamRef.current = null;
+    }
+
+    // 2. Original individual tracks
+    if (originalVideoTrackRef.current) {
+      try {
+        originalVideoTrackRef.current.enabled = false;
+        originalVideoTrackRef.current.stop();
+      } catch (e) {}
+      originalVideoTrackRef.current = null;
+    }
+    if (originalAudioTrackRef.current) {
+      try {
+        originalAudioTrackRef.current.enabled = false;
+        originalAudioTrackRef.current.stop();
+      } catch (e) {}
+      originalAudioTrackRef.current = null;
+    }
+
+    // 3. Local stream ref & state
+    if (localStreamRef.current) {
+      mediaService.stopStream(localStreamRef.current);
+      localStreamRef.current = null;
+    }
+    setLocalStream(null);
+
+    // 4. Attack simulation pipelines
+    if (facePipelineRef.current) {
+      facePipelineRef.current.stop();
+      facePipelineRef.current = null;
+    }
+    if (voicePipelineRef.current) {
+      voicePipelineRef.current.stop();
+      voicePipelineRef.current = null;
+    }
+  }, []);
+
   // End Call & Cleanup
   const endCall = useCallback(() => {
     if (roomId) {
       signalingService.leaveRoom(roomId);
     }
-    resetAttack();
+
+    // Stop attack simulation pipelines
+    if (facePipelineRef.current) {
+      facePipelineRef.current.stop();
+      facePipelineRef.current = null;
+    }
+    if (voicePipelineRef.current) {
+      voicePipelineRef.current.stop();
+      voicePipelineRef.current = null;
+    }
+
+    setAttackState({
+      faceSwap: false,
+      voiceTransform: false,
+      mode: 'none',
+      facePreset: 'neural-clone',
+      voicePreset: 'robotic-vocoder',
+    });
+
+    // Cleanup WebRTC connection and sender tracks
     cleanupPeerConnection();
 
-    if (screenStreamRef.current) {
-      mediaService.stopStream(screenStreamRef.current);
-      screenStreamRef.current = null;
-    }
-    if (localStream) {
-      mediaService.stopStream(localStream);
-      setLocalStream(null);
-    }
+    // Release all camera, screen, and audio hardware tracks
+    stopAllMedia();
 
     signalingService.disconnect();
     setCallStatus('ended');
     setPeerInfo(null);
-  }, [roomId, resetAttack, cleanupPeerConnection, localStream]);
+  }, [roomId, cleanupPeerConnection, stopAllMedia]);
 
   // Clean up on component unmount
   useEffect(() => {
     return () => {
+      // 1. Screen sharing stream
+      if (screenStreamRef.current) {
+        mediaService.stopStream(screenStreamRef.current);
+        screenStreamRef.current = null;
+      }
+
+      // 2. Original individual tracks
+      if (originalVideoTrackRef.current) {
+        try {
+          originalVideoTrackRef.current.enabled = false;
+          originalVideoTrackRef.current.stop();
+        } catch (e) {}
+        originalVideoTrackRef.current = null;
+      }
+      if (originalAudioTrackRef.current) {
+        try {
+          originalAudioTrackRef.current.enabled = false;
+          originalAudioTrackRef.current.stop();
+        } catch (e) {}
+        originalAudioTrackRef.current = null;
+      }
+
+      // 3. Local stream ref
+      if (localStreamRef.current) {
+        mediaService.stopStream(localStreamRef.current);
+        localStreamRef.current = null;
+      }
+
+      // 4. Attack simulation pipelines
       if (facePipelineRef.current) {
         facePipelineRef.current.stop();
+        facePipelineRef.current = null;
       }
       if (voicePipelineRef.current) {
         voicePipelineRef.current.stop();
+        voicePipelineRef.current = null;
       }
-      if (screenStreamRef.current) {
-        mediaService.stopStream(screenStreamRef.current);
-      }
-      if (localStream) {
-        mediaService.stopStream(localStream);
-      }
+
       cleanupPeerConnection();
       signalingService.disconnect();
     };
-  }, [cleanupPeerConnection, localStream]);
+  }, [cleanupPeerConnection]);
 
   return {
     roomId,

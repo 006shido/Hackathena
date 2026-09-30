@@ -52,13 +52,13 @@ export const AudioSpectrumVisualizer: React.FC<AudioSpectrumVisualizerProps> = (
 
       let barColor: string;
       if (isDeepfake) {
-        barColor = i < 4 || (i >= 12 && i <= 24) ? '#f43f5e' : '#fb7185';
+        barColor = '#ea4335';
       } else if (isSuspicious) {
-        barColor = '#f59e0b';
+        barColor = '#fbbc04';
       } else if (isVoiceActive) {
-        barColor = '#06b6d4';
+        barColor = '#34a853';
       } else {
-        barColor = '#334155';
+        barColor = '#3c4043';
       }
 
       ctx.fillStyle = barColor;
@@ -72,10 +72,10 @@ export const AudioSpectrumVisualizer: React.FC<AudioSpectrumVisualizerProps> = (
     if (timeDomainData && isVoiceActive) {
       ctx.lineWidth = 1.5;
       ctx.strokeStyle = isDeepfake
-        ? 'rgba(244, 63, 94, 0.9)'
+        ? 'rgba(234, 67, 53, 0.9)'
         : isSuspicious
-        ? 'rgba(245, 158, 11, 0.8)'
-        : 'rgba(34, 211, 238, 0.8)';
+        ? 'rgba(251, 188, 4, 0.8)'
+        : 'rgba(52, 168, 83, 0.8)';
       ctx.beginPath();
 
       const sliceWidth = width / timeDomainData.length;
@@ -97,7 +97,7 @@ export const AudioSpectrumVisualizer: React.FC<AudioSpectrumVisualizerProps> = (
   }, [frequencyData, timeDomainData, status, isVoiceActive]);
 
   return (
-    <div className={`relative h-[68px] shrink-0 overflow-hidden rounded-md bg-black border border-zinc-800 ${className}`}>
+    <div className={`relative h-[68px] shrink-0 overflow-hidden rounded-xl bg-[#202124] border border-[#3c4043] ${className}`}>
       <canvas
         ref={canvasRef}
         width={280}
@@ -109,19 +109,19 @@ export const AudioSpectrumVisualizer: React.FC<AudioSpectrumVisualizerProps> = (
         <span
           className={`h-1.5 w-1.5 rounded-full ${
             status === 'deepfake'
-              ? 'bg-rose-500 animate-ping'
+              ? 'bg-[#ea4335] animate-ping'
               : status === 'suspicious'
-              ? 'bg-amber-400'
+              ? 'bg-[#fbbc04]'
               : isVoiceActive
-              ? 'bg-cyan-400 animate-pulse'
-              : 'bg-slate-600'
+              ? 'bg-[#34a853] animate-pulse'
+              : 'bg-[#5f6368]'
           }`}
         />
-        <span className="text-[9px] font-mono uppercase tracking-wider text-slate-400">
+        <span className="text-[10px] text-[#9aa0a6] font-medium">
           {status === 'deepfake'
-            ? 'Spectral Comb Anomaly'
+            ? 'Voice Anomaly Detected'
             : isVoiceActive
-            ? 'Incoming Audio FFT'
+            ? 'Incoming Audio Spectrum'
             : 'Listening for Audio'}
         </span>
       </div>

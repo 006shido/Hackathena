@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Users, Radio, AlertCircle, ArrowLeft, AlertTriangle } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Users, AlertCircle, ArrowLeft, AlertTriangle } from 'lucide-react';
 import { User as UserType } from '../types/auth';
 import { useCall } from '../hooks/useCall';
 import { useVoiceDetection } from '../hooks/useVoiceDetection';
@@ -74,6 +74,24 @@ export const CallPage: React.FC<CallPageProps> = ({
     initLocalMedia(true, true);
   }, [initLocalMedia]);
 
+  // Keep a stable ref to endCall so beforeunload / unmount handlers don't re-trigger cleanup during re-renders
+  const endCallRef = useRef(endCall);
+  useEffect(() => {
+    endCallRef.current = endCall;
+  }, [endCall]);
+
+  // Clean up all media and connections on unmount and beforeunload
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      endCallRef.current();
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      endCallRef.current();
+    };
+  }, []);
+
   const handleConfirmJoin = () => {
     setShowDevicePreview(false);
     joinRoom(roomId);
@@ -84,10 +102,15 @@ export const CallPage: React.FC<CallPageProps> = ({
     onExit();
   };
 
-  // If in device preview stage before entering the call
+  const handleCancelPreview = () => {
+    endCall();
+    onExit();
+  };
+
+  // Device preview
   if (showDevicePreview) {
     return (
-      <div className="min-h-screen w-full bg-black flex items-center justify-center p-3 sm:p-4 amoled-grid overflow-y-auto">
+      <div className="min-h-screen w-full bg-[#202124] flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
         <DevicePreview
           stream={localStream}
           isMicMuted={isMicMuted}
@@ -99,27 +122,27 @@ export const CallPage: React.FC<CallPageProps> = ({
           onToggleMic={toggleMic}
           onToggleCamera={toggleCamera}
           onJoin={handleConfirmJoin}
-          onCancel={onExit}
+          onCancel={handleCancelPreview}
         />
       </div>
     );
   }
 
-  // Room error / Room full handling
+  // Error
   if (callStatus === 'failed' || errorMessage) {
     return (
-      <div className="min-h-screen w-full bg-black flex items-center justify-center p-4 amoled-grid">
-        <div className="w-full max-w-md p-6 rounded-md bg-[#070709] border border-rose-500/40 text-center shadow-2xl">
-          <div className="h-12 w-12 rounded-md bg-rose-500/15 text-rose-400 border border-rose-500/30 flex items-center justify-center mx-auto mb-4">
+      <div className="min-h-screen w-full bg-[#202124] flex items-center justify-center p-4">
+        <div className="w-full max-w-md p-6 rounded-2xl bg-[#28292c] border border-[#ea4335]/30 text-center shadow-xl">
+          <div className="h-12 w-12 rounded-full bg-[#ea4335]/15 text-[#ea4335] flex items-center justify-center mx-auto mb-4">
             <AlertCircle className="h-6 w-6" />
           </div>
-          <h2 className="text-xl font-bold text-white mb-2">Connection Notice</h2>
-          <p className="text-xs text-rose-300 font-mono mb-6 bg-rose-500/10 p-3 rounded-md border border-rose-500/20">
+          <h2 className="text-xl font-medium text-[#e8eaed] mb-2">Connection Error</h2>
+          <p className="text-sm text-[#ea4335] mb-6 bg-[#ea4335]/10 p-3 rounded-xl">
             {errorMessage || 'Failed to join room. Please check room details and try again.'}
           </p>
           <button
             onClick={onExit}
-            className="w-full py-2.5 px-4 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-mono font-semibold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-colors"
+            className="w-full py-2.5 px-4 rounded-full bg-[#3c4043] hover:bg-[#4a4d51] text-[#e8eaed] text-sm font-medium flex items-center justify-center gap-2 cursor-pointer transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             <span>Return to Dashboard</span>
@@ -132,7 +155,7 @@ export const CallPage: React.FC<CallPageProps> = ({
   const participantCount = peerInfo ? 2 : 1;
 
   return (
-    <div className="h-screen w-screen flex flex-col bg-black text-zinc-100 overflow-hidden">
+    <div className="h-screen w-screen flex flex-col bg-[#202124] text-[#e8eaed] overflow-hidden">
       {/* Header */}
       <RoomHeader
         roomId={roomId}
@@ -143,12 +166,12 @@ export const CallPage: React.FC<CallPageProps> = ({
         iceState={iceState}
       />
 
-      {/* Main Workspace Layout */}
+      {/* Main Layout */}
       <div className="flex-1 flex overflow-hidden relative">
-        {/* Call Stage Area - Expansive, minimal outer padding */}
-        <div className="flex-1 flex flex-col p-1.5 sm:p-2.5 md:p-3 overflow-hidden relative">
-          {/* Main Remote Video Container */}
-          <div className="flex-1 w-full h-full relative rounded-md overflow-hidden bg-black border border-zinc-800/90 shadow-2xl flex items-center justify-center">
+        {/* Call Stage */}
+        <div className="flex-1 flex flex-col p-2 sm:p-4 overflow-hidden relative">
+          {/* Remote Video Container */}
+          <div className="flex-1 w-full h-full relative rounded-2xl overflow-hidden bg-[#3c4043] shadow-md flex items-center justify-center">
             {peerInfo && remoteStream ? (
               <VideoTile
                 stream={remoteStream}
@@ -161,33 +184,21 @@ export const CallPage: React.FC<CallPageProps> = ({
                 deepfakeScore={voiceDetection.anomalyScore}
               />
             ) : (
-              // Waiting for Participant State
-              <div className="flex flex-col items-center justify-center text-center p-4 sm:p-8 z-10 max-w-sm">
-                <div className="relative mb-4 sm:mb-6">
-                  {/* Tactical radar pulse */}
-                  <div className="h-20 w-20 sm:h-24 sm:w-24 rounded-full border border-orange-500/30 flex items-center justify-center">
-                    <div className="h-14 w-14 sm:h-16 sm:w-16 rounded-full border border-orange-500/50 flex items-center justify-center animate-pulse">
-                      <Users className="h-6 w-6 text-orange-400" />
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 rounded-full border-t-2 border-orange-400 animate-spin" />
+              <div className="flex flex-col items-center justify-center text-center p-4 sm:p-8 max-w-sm">
+                <div className="h-16 w-16 rounded-full bg-[#202124] flex items-center justify-center mb-4">
+                  <Users className="h-8 w-8 text-[#8ab4f8]" />
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[11px] sm:text-xs font-mono text-orange-400 mb-2.5">
-                  <Radio className="h-2.5 w-2.5 animate-ping text-orange-400" />
-                  <span>Awaiting Connection</span>
-                </div>
-
-                <h3 className="text-base sm:text-lg font-bold text-white mb-1">
-                  Waiting for peer to connect...
+                <h3 className="text-lg font-medium text-[#e8eaed] mb-1">
+                  Waiting for others to join
                 </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed font-mono">
-                  Share Room ID <span className="text-orange-400 font-bold">{roomId}</span> with your peer to establish WebRTC call.
+                <p className="text-sm text-[#9aa0a6]">
+                  Share meeting code <span className="text-[#8ab4f8] font-medium">{roomId}</span> with your peer.
                 </p>
               </div>
             )}
 
-            {/* Movable & Resizable Floating Self-Video (You) */}
+            {/* Floating Self-Video */}
             <VideoTile
               stream={localStream}
               username={user.name}
@@ -199,62 +210,50 @@ export const CallPage: React.FC<CallPageProps> = ({
               subtitle={
                 isTester && attackState.mode !== 'none'
                   ? `[${attackState.mode.toUpperCase()}]`
-                  : 'Local Feed'
+                  : 'You'
               }
             />
 
-            {/* Tester Watermark Indicator if Attack is active */}
+            {/* Attack Active */}
             {isTester && attackState.mode !== 'none' && (
-              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-rose-950/80 border border-rose-500 text-rose-300 font-mono text-[10px] sm:text-xs font-bold tracking-wider backdrop-blur-md animate-pulse">
-                <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-rose-500 animate-ping" />
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#ea4335] text-white text-xs font-medium shadow-md">
+                <span className="h-2 w-2 rounded-full bg-white animate-ping" />
                 <span>
                   {attackState.mode === 'combined'
-                    ? 'DEEPFAKE ATTACK ACTIVE'
+                    ? 'Full Attack Active'
                     : attackState.mode === 'face'
-                    ? 'FACE SIMULATION ACTIVE'
-                    : 'VOICE SIMULATION ACTIVE'}
+                    ? 'Face Swap Active'
+                    : 'Voice Transform Active'}
                 </span>
               </div>
             )}
 
-            {/* USER ONLY: Real-Time Defense In-Call HUD Banner */}
+            {/* Deepfake Alert */}
             {!isTester && isDeepfakeAlert && (
-              <div className="absolute top-3 left-3 right-3 sm:top-4 sm:left-4 sm:right-4 z-40 flex items-center justify-between p-3 sm:p-4 rounded-2xl bg-rose-950/95 border border-rose-500/80 shadow-2xl backdrop-blur-xl animate-bounce">
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <div className="h-9 w-9 sm:h-11 sm:w-11 rounded-xl bg-rose-500/20 border border-rose-500/50 text-rose-400 flex items-center justify-center shrink-0">
-                    <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 text-rose-400 animate-pulse" />
+              <div className="absolute top-3 left-3 right-3 sm:top-4 sm:left-4 sm:right-4 z-40 flex items-center justify-between p-3.5 rounded-2xl bg-[#ea4335] text-white shadow-xl backdrop-blur-md">
+                <div className="flex items-center gap-2.5">
+                  <div className="h-9 w-9 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                    <AlertTriangle className="h-5 w-5" />
                   </div>
                   <div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-rose-300 bg-rose-500/30 px-2 py-0.5 rounded-full border border-rose-500/40">
-                        Real-Time Defense Alert
-                      </span>
-                      <span className="text-[10px] sm:text-xs font-mono text-rose-200">
-                        Score: <strong className="text-white">{voiceDetection.anomalyScore}%</strong>
-                      </span>
-                    </div>
-                    <h4 className="text-xs sm:text-sm font-bold text-white mt-0.5">
-                      Voice Deepfake Caught in Real Time!
-                    </h4>
-                    <p className="text-[10px] sm:text-xs text-rose-200/90 font-mono hidden sm:block">
-                      {voiceDetection.detectedAnomalies.length > 0
-                        ? voiceDetection.detectedAnomalies.join(' • ')
-                        : 'Synthetic vocoder ring-modulation & carrier harmonics detected.'}
+                    <h4 className="text-sm font-semibold">Deepfake Detected!</h4>
+                    <p className="text-xs text-white/90">
+                      Score: {voiceDetection.anomalyScore}% — Voice anomalies found
                     </p>
                   </div>
                 </div>
 
                 <button
                   onClick={() => setIsSecurityPanelOpen(true)}
-                  className="px-2.5 sm:px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-mono text-[11px] sm:text-xs font-semibold shadow-lg transition-colors shrink-0"
+                  className="px-3.5 py-1.5 rounded-full bg-white/20 hover:bg-white/30 text-white text-xs font-medium transition-colors shrink-0 cursor-pointer"
                 >
-                  View Telemetry
+                  Details
                 </button>
               </div>
             )}
           </div>
 
-          {/* Bottom Floating Call Controls */}
+          {/* Bottom Controls */}
           <div className="pt-2 sm:pt-3 flex justify-center z-20">
             <CallControls
               isMicMuted={isMicMuted}
@@ -280,16 +279,14 @@ export const CallPage: React.FC<CallPageProps> = ({
           </div>
         </div>
 
-        {/* Desktop Side Panels Area (Docked on large screens) */}
+        {/* Desktop Side Panels */}
         <div className="hidden lg:flex h-full shrink-0">
-          {/* DeepTrace Security Monitoring Panel */}
           <SecurityPanel
             peerAttackState={peerAttackState}
             voiceDetection={voiceDetection}
             isTester={isTester}
           />
 
-          {/* STRICTLY TESTER ONLY: Attack Simulator Panel */}
           {isTester && isAttackDrawerOpen && (
             <AttackSimulator
               attackState={attackState}
@@ -305,10 +302,10 @@ export const CallPage: React.FC<CallPageProps> = ({
         </div>
       </div>
 
-      {/* Mobile Drawer 1: Security Monitoring Panel */}
+      {/* Mobile: Security Panel */}
       {isSecurityPanelOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end bg-black/80 backdrop-blur-sm">
-          <div className="w-full max-h-[85vh] h-[520px] rounded-t-lg overflow-hidden shadow-2xl border-t border-zinc-800 flex flex-col">
+        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end bg-black/60 backdrop-blur-sm">
+          <div className="w-full max-h-[85vh] h-[520px] rounded-t-2xl overflow-hidden shadow-2xl border-t border-[#3c4043] flex flex-col">
             <SecurityPanel
               peerAttackState={peerAttackState}
               voiceDetection={voiceDetection}
@@ -319,10 +316,10 @@ export const CallPage: React.FC<CallPageProps> = ({
         </div>
       )}
 
-      {/* Mobile Drawer 2: Tester Attack Simulator */}
+      {/* Mobile: Attack Simulator */}
       {isTester && isAttackDrawerOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end bg-black/80 backdrop-blur-sm">
-          <div className="w-full max-h-[85vh] h-[560px] rounded-t-lg overflow-hidden shadow-2xl border-t border-orange-500/40 flex flex-col">
+        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end bg-black/60 backdrop-blur-sm">
+          <div className="w-full max-h-[85vh] h-[560px] rounded-t-2xl overflow-hidden shadow-2xl border-t border-[#3c4043] flex flex-col">
             <AttackSimulator
               attackState={attackState}
               onToggleFaceSwap={activateFaceSwap}

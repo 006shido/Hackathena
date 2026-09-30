@@ -2,68 +2,43 @@
 
 @layer base {
   :root {
-    --bg-amoled: #000000;
-    --card-amoled: #09090b;
-    --card-surface: #111114;
-    --border-subtle: #1c1c21;
-    --border-highlight: #2a2a32;
-    --accent-orange: #f97316;
-    --accent-amber: #f59e0b;
-    --accent-emerald: #10b981;
-    --accent-rose: #ef4444;
+    --bg-primary: #202124;
+    --bg-surface: #28292c;
+    --bg-card: #2d2e30;
+    --bg-elevated: #3c4043;
+    --border-default: #3c4043;
+    --border-light: #5f6368;
+    --text-primary: #e8eaed;
+    --text-secondary: #9aa0a6;
+    --text-muted: #80868b;
+    --accent-blue: #1a73e8;
+    --accent-blue-light: #8ab4f8;
+    --accent-green: #34a853;
+    --accent-red: #ea4335;
   }
 
   body {
-    background-color: #000000;
-    color: #f4f4f5;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Google Sans', 'Segoe UI', Roboto, 'Inter', Oxygen, Ubuntu, Cantarell, sans-serif;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
   }
 
-  /* Custom precision scrollbar */
+  /* Clean scrollbar */
   ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #000000;
+    background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: #27272a;
-    border-radius: 2px;
+    background: var(--border-default);
+    border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #3f3f46;
+    background: var(--border-light);
   }
-}
-
-/* Technical grid for AMOLED background */
-.amoled-grid {
-  background-color: #000000;
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-}
-
-.tactical-border {
-  border: 1px solid #222227;
-}
-
-.tactical-border:hover {
-  border-color: #33333d;
-}
-
-.tactical-glow-orange {
-  box-shadow: 0 0 20px -5px rgba(249, 115, 22, 0.25);
-}
-
-.tactical-glow-emerald {
-  box-shadow: 0 0 20px -5px rgba(16, 185, 129, 0.2);
-}
-
-.tactical-glow-rose {
-  box-shadow: 0 0 20px -5px rgba(239, 68, 68, 0.25);
 }

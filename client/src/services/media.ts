@@ -100,6 +100,7 @@ export const mediaService = {
     if (!stream) return;
     stream.getTracks().forEach((track) => {
       try {
+        track.enabled = false;
         track.stop();
       } catch (err) {
         console.error('Error stopping track', err);

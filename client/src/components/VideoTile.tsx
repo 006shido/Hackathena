@@ -3,7 +3,6 @@ import {
   Mic,
   MicOff,
   VideoOff,
-  Shield,
   VolumeX,
   Maximize2,
   GripHorizontal,
@@ -118,7 +117,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     } else {
       video.srcObject = null;
     }
-  }, [stream, isLocal]);
+  }, [stream, isLocal, isVideoOff]);
 
   const handleUnmuteClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -131,7 +130,6 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     }
   };
 
-  // --- Boundary clamping helper ---
   const clampToBounds = useCallback(
     (x: number, y: number, currentTile?: HTMLElement | null, currentParent?: HTMLElement | null) => {
       const tile = currentTile || tileRef.current;
@@ -155,7 +153,6 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     []
   );
 
-  // --- Movable / Dragging via pointer down ---
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!isFloating || !tileRef.current) return;
     const parent = tileRef.current.parentElement;
@@ -168,7 +165,6 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     const parentRect = parent.getBoundingClientRect();
     const tileRect = tileRef.current.getBoundingClientRect();
 
-    // Compute exact position relative to parent inner bounds (inside border)
     const currentLeft = tileRect.left - parentRect.left - (parent.clientLeft || 0);
     const currentTop = tileRect.top - parentRect.top - (parent.clientTop || 0);
 
@@ -186,7 +182,6 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     setIsDragging(true);
   };
 
-  // --- Window-level pointer listeners to guarantee smooth, un-escapable dragging ---
   useEffect(() => {
     if (!isDragging) return;
 
@@ -221,7 +216,6 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     };
   }, [isDragging, clampToBounds]);
 
-  // --- Auto-reclamp on sizePreset change or window resize (keeps it 100% visible inside the window) ---
   useEffect(() => {
     if (!isFloating) return;
 
@@ -243,7 +237,6 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     return () => window.removeEventListener('resize', handleReclamp);
   }, [sizePreset, isFloating, clampToBounds]);
 
-  // --- Size Cycle / Toggle ---
   const cycleSize = (e: React.MouseEvent) => {
     e.stopPropagation();
     const order: SizePreset[] = ['sm', 'md', 'lg', 'xl'];
@@ -253,7 +246,8 @@ export const VideoTile: React.FC<VideoTileProps> = ({
 
   const hasVideoTrack = stream && stream.getVideoTracks().length > 0 && stream.getVideoTracks()[0].enabled && !isVideoOff;
 
-  // Responsive size styling with max constraints so it never overflows parent bounds
+  const initials = username.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || 'U';
+
   const sizeClasses: Record<SizePreset, string> = {
     sm: 'w-44 sm:w-52',
     md: 'w-56 sm:w-68 md:w-72',
@@ -277,132 +271,98 @@ export const VideoTile: React.FC<VideoTileProps> = ({
       }
       className={`${
         isFloating
-          ? `absolute ${position ? '' : 'bottom-4 right-4 sm:bottom-6 sm:right-6'} z-30 ${sizeClasses[sizePreset]} max-w-[calc(100%-32px)] max-h-[calc(100%-32px)] aspect-video border-orange-500/40 shadow-black/80 hover:border-orange-500/70`
+          ? `absolute ${position ? '' : 'bottom-4 right-4 sm:bottom-6 sm:right-6'} z-30 ${sizeClasses[sizePreset]} max-w-[calc(100%-32px)] max-h-[calc(100%-32px)] aspect-video border-[#5f6368] shadow-2xl hover:border-[#8ab4f8]`
           : 'relative w-full h-full min-h-0'
       } ${
         isDeepfakeAlert && !isLocal
-          ? 'border-rose-500 ring-2 ring-rose-500/50 shadow-rose-950/60'
-          : 'border-zinc-800'
-      } overflow-hidden rounded-md border bg-[#070709] shadow-2xl transition-[width,height,border-color] duration-150 select-none ${className}`}
+          ? 'border-[#ea4335] ring-2 ring-[#ea4335]/40'
+          : 'border-transparent'
+      } overflow-hidden rounded-2xl bg-[#3c4043] shadow-lg transition-[width,height,border-color] duration-150 select-none ${className}`}
     >
-      {/* Video Element */}
-      {stream && (
-        <video
-          ref={videoRef}
-          autoPlay
-          playsInline
-          muted={isLocal}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-200 pointer-events-none ${
-            hasVideoTrack ? 'opacity-100' : 'opacity-0'
-          } ${isLocal ? 'scale-x-[-1]' : ''}`}
-        />
-      )}
+      {/* Video */}
+      <video
+        ref={videoRef}
+        autoPlay
+        playsInline
+        muted={isLocal}
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-200 pointer-events-none ${
+          hasVideoTrack ? 'opacity-100' : 'opacity-0'
+        } ${isLocal ? 'scale-x-[-1]' : ''}`}
+      />
 
-      {/* Camera Disabled / Offline State */}
+      {/* Camera Off Avatar */}
       {!hasVideoTrack && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/90 text-zinc-400 p-3 pointer-events-none">
-          <div className="flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 rounded-md bg-zinc-900 border border-zinc-800 mb-2">
-            <VideoOff className="h-5 w-5 sm:h-6 sm:w-6 text-rose-400" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#28292c] p-3 pointer-events-none">
+          <div className="flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full mb-2 text-white text-xl sm:text-2xl font-semibold bg-[#1a73e8]">
+            {initials}
           </div>
-          <span className="text-[11px] sm:text-xs font-mono font-medium text-zinc-300">Camera is off</span>
-          <span className="text-[10px] sm:text-[11px] text-zinc-500 font-mono mt-0.5">{username}</span>
+          <span className="text-xs text-[#9aa0a6]">{username}</span>
         </div>
       )}
 
-      {/* Framing Markers */}
-      <div className="pointer-events-none absolute top-1.5 left-1.5 h-2 w-2 border-t border-l border-zinc-600" />
-      <div className="pointer-events-none absolute top-1.5 right-1.5 h-2 w-2 border-t border-r border-zinc-600" />
-      <div className="pointer-events-none absolute bottom-1.5 left-1.5 h-2 w-2 border-b border-l border-zinc-600" />
-      <div className="pointer-events-none absolute bottom-1.5 right-1.5 h-2 w-2 border-b border-r border-zinc-600" />
-
-      {/* Top Bar: Floating Drag Bar & Size Toggle */}
+      {/* Floating Drag Bar */}
       {isFloating ? (
         <div
           onPointerDown={handlePointerDown}
-          className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-2.5 py-1.5 bg-gradient-to-b from-black/95 via-black/80 to-transparent cursor-move select-none border-b border-zinc-800/40"
+          className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-2.5 py-1.5 bg-gradient-to-b from-black/80 to-transparent cursor-move select-none"
           style={{ touchAction: 'none' }}
-          title="Drag to reposition window"
+          title="Drag to reposition"
         >
-          {/* Identity & Drag Grip */}
           <div className="flex items-center gap-1.5 pointer-events-none">
-            <GripHorizontal className="h-3.5 w-3.5 text-orange-400 shrink-0" />
-            <span className="h-1.5 w-1.5 rounded-full bg-orange-400 animate-pulse shrink-0" />
-            <span className="text-[10px] sm:text-[11px] font-mono font-semibold text-zinc-200 truncate max-w-[80px] sm:max-w-[130px]">
+            <GripHorizontal className="h-3.5 w-3.5 text-white/70 shrink-0" />
+            <span className="text-[11px] font-medium text-white/90 truncate max-w-[100px] sm:max-w-[130px]">
               {username} (You)
             </span>
           </div>
 
-          {/* Size Preset Toggle */}
           <button
             type="button"
             onPointerDown={(e) => e.stopPropagation()}
             onClick={cycleSize}
-            title={`Size: ${sizePreset.toUpperCase()} (Click to toggle S/M/L/XL)`}
-            className="flex items-center gap-1 px-2 py-0.5 rounded bg-zinc-900/90 hover:bg-orange-600/20 text-orange-300 hover:text-orange-200 border border-zinc-700/80 hover:border-orange-500/60 text-[10px] font-mono font-bold transition-colors cursor-pointer"
+            title={`Size: ${sizePreset.toUpperCase()}`}
+            className="flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-white/10 hover:bg-white/20 text-white/80 hover:text-white text-[10px] font-medium transition-colors cursor-pointer"
           >
             <Maximize2 className="h-2.5 w-2.5" />
             <span>{sizePreset.toUpperCase()}</span>
           </button>
         </div>
-      ) : (
-        /* Non-floating Top Bar */
-        <div className="absolute top-3 left-3 z-10 flex items-center gap-2 pointer-events-none">
-          <div className="flex items-center gap-1.5 rounded bg-black/80 px-2.5 py-1 font-mono text-xs font-medium backdrop-blur-md border border-zinc-800">
-            <span className={`h-2 w-2 rounded-full ${isLocal ? 'bg-orange-400' : 'bg-emerald-400'}`} />
-            <span className="text-zinc-200">{username}</span>
-          </div>
+      ) : null}
 
-          {role === 'tester' ? (
-            <span className="flex items-center gap-1 rounded bg-orange-500/15 px-2 py-0.5 text-[10px] font-mono font-semibold text-orange-400 border border-orange-500/40 uppercase">
-              <Shield className="h-2.5 w-2.5" /> Tester
-            </span>
-          ) : (
-            <span className="rounded bg-zinc-900/80 px-2 py-0.5 text-[10px] font-mono text-zinc-400 border border-zinc-800 uppercase">
-              User
-            </span>
-          )}
-        </div>
-      )}
-
-      {/* Real-Time Voice Deepfake Alert Badge on Remote Participant */}
+      {/* Deepfake Alert */}
       {isDeepfakeAlert && !isLocal && (
-        <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-30 flex items-center gap-1.5 px-2.5 py-1 rounded bg-rose-600/95 border border-rose-400 text-white font-mono text-[10px] sm:text-xs font-bold tracking-wider shadow-xl shadow-rose-950/70 animate-pulse backdrop-blur-md">
-          <AlertTriangle className="h-3.5 w-3.5 text-white animate-bounce" />
-          <span>VOICE DEEPFAKE DETECTED ({deepfakeScore}%)</span>
+        <div className="absolute top-3 right-3 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#ea4335] text-white text-xs font-medium shadow-lg animate-pulse">
+          <AlertTriangle className="h-3.5 w-3.5" />
+          <span>Deepfake Alert ({deepfakeScore}%)</span>
         </div>
       )}
 
-      {/* Autoplay Audio Block Banner */}
+      {/* Unmute Banner */}
       {audioBlocked && !isLocal && (
         <button
           onClick={handleUnmuteClick}
-          className="absolute top-3 right-3 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded bg-orange-600 hover:bg-orange-500 text-white font-mono text-xs font-bold tracking-wider shadow-lg transition-colors cursor-pointer"
+          className="absolute top-3 right-3 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1a73e8] hover:bg-[#1557b0] text-white text-xs font-medium shadow-lg transition-colors cursor-pointer"
         >
           <VolumeX className="h-3.5 w-3.5" />
-          <span>Click to Unmute Audio</span>
+          <span>Click to Unmute</span>
         </button>
       )}
 
-      {/* Bottom Status Row */}
-      <div className="absolute bottom-2 left-2.5 right-2.5 z-10 flex items-center justify-between pointer-events-none">
-        {subtitle ? (
-          <span className="rounded bg-black/85 px-1.5 py-0.5 text-[10px] font-mono text-zinc-400 border border-zinc-800/90 truncate max-w-[120px]">
-            {subtitle}
+      {/* Bottom Name + Mic - like Google Meet screenshot */}
+      <div className="absolute bottom-3 left-3 z-10 flex items-center gap-2 pointer-events-none">
+        <div className="flex items-center gap-1.5 bg-black/50 backdrop-blur-sm rounded-md px-2 py-1">
+          {isMuted ? (
+            <MicOff className="h-3.5 w-3.5 text-[#ea4335]" />
+          ) : (
+            <div className="flex items-end gap-[2px] h-3">
+              <div className="w-[2px] h-[40%] bg-[#34a853] rounded-full animate-pulse" />
+              <div className="w-[2px] h-[75%] bg-[#34a853] rounded-full animate-pulse" style={{ animationDelay: '0.1s' }} />
+              <div className="w-[2px] h-[100%] bg-[#34a853] rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
+              <div className="w-[2px] h-[60%] bg-[#34a853] rounded-full animate-pulse" style={{ animationDelay: '0.15s' }} />
+            </div>
+          )}
+          <span className="text-xs text-white font-medium drop-shadow-sm">
+            {username}{isLocal ? ' (You)' : ''}
           </span>
-        ) : (
-          <span />
-        )}
-
-        {/* Audio status indicator */}
-        <div
-          className={`flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-mono border backdrop-blur-sm ${
-            isMuted
-              ? 'bg-rose-500/15 text-rose-400 border-rose-500/40'
-              : 'bg-black/80 text-emerald-400 border-emerald-800/50'
-          }`}
-        >
-          {isMuted ? <MicOff className="h-2.5 w-2.5 text-rose-400" /> : <Mic className="h-2.5 w-2.5 text-emerald-400" />}
-          <span className="uppercase tracking-wider">{isMuted ? 'Muted' : 'Live'}</span>
         </div>
       </div>
     </div>
