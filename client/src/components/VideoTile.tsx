@@ -43,6 +43,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
   const tileRef = useRef<HTMLDivElement>(null);
   const [, setTrackRevision] = useState<number>(0);
   const [audioBlocked, setAudioBlocked] = useState<boolean>(false);
+  const [isHardwareBuffering, setIsHardwareBuffering] = useState<boolean>(false);
 
   // Floating movable & resizable state
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
@@ -94,6 +95,53 @@ export const VideoTile: React.FC<VideoTileProps> = ({
         }
       };
 
+      const videoTrack = stream.getVideoTracks()[0];
+      let watchdogTimer: any = null;
+
+      const checkFrameArrival = () => {
+        if (!isLocal || isVideoOff || !videoTrack) return;
+        if (videoTrack.muted) {
+          setIsHardwareBuffering(true);
+          return;
+        }
+        if (video && (video.videoWidth === 0 || video.readyState < 2)) {
+          setIsHardwareBuffering(true);
+        } else {
+          setIsHardwareBuffering(false);
+        }
+      };
+
+      const handlePlaying = () => {
+        setIsHardwareBuffering(false);
+        if (watchdogTimer) clearTimeout(watchdogTimer);
+      };
+
+      const handleTrackMute = () => {
+        if (isLocal) setIsHardwareBuffering(true);
+      };
+
+      const handleTrackUnmute = () => {
+        if (isLocal) {
+          setIsHardwareBuffering(false);
+          attemptPlay();
+        }
+      };
+
+      if (isLocal && videoTrack && !isVideoOff) {
+        if (videoTrack.muted) {
+          setIsHardwareBuffering(true);
+        } else {
+          watchdogTimer = setTimeout(checkFrameArrival, 2000);
+        }
+        videoTrack.addEventListener('mute', handleTrackMute);
+        videoTrack.addEventListener('unmute', handleTrackUnmute);
+      } else {
+        setIsHardwareBuffering(false);
+      }
+
+      video.addEventListener('playing', handlePlaying);
+      video.addEventListener('loadeddata', handlePlaying);
+
       const handleLoadedMetadata = () => attemptPlay();
       video.addEventListener('loadedmetadata', handleLoadedMetadata);
       attemptPlay();
@@ -109,13 +157,21 @@ export const VideoTile: React.FC<VideoTileProps> = ({
       stream.addEventListener('removetrack', handleTracksChange);
 
       return () => {
+        if (watchdogTimer) clearTimeout(watchdogTimer);
+        video.removeEventListener('playing', handlePlaying);
+        video.removeEventListener('loadeddata', handlePlaying);
         video.removeEventListener('loadedmetadata', handleLoadedMetadata);
         tracks.forEach((track) => track.removeEventListener('unmute', attemptPlay));
+        if (videoTrack) {
+          videoTrack.removeEventListener('mute', handleTrackMute);
+          videoTrack.removeEventListener('unmute', handleTrackUnmute);
+        }
         stream.removeEventListener('addtrack', handleTracksChange);
         stream.removeEventListener('removetrack', handleTracksChange);
       };
     } else {
       video.srcObject = null;
+      setIsHardwareBuffering(false);
     }
   }, [stream, isLocal, isVideoOff]);
 
@@ -310,12 +366,27 @@ export const VideoTile: React.FC<VideoTileProps> = ({
           el.play().catch(() => {});
         }}
         className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-200 pointer-events-none ${
-          hasVideoTrack ? 'opacity-100' : 'opacity-0'
+          hasVideoTrack && !isHardwareBuffering ? 'opacity-100' : 'opacity-0'
         } ${isLocal ? 'scale-x-[-1]' : ''}`}
       />
 
+      {/* Hardware Muted / Privacy Shutter Notification */}
+      {isLocal && isHardwareBuffering && !isVideoOff && (
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#202124]/90 backdrop-blur-sm p-4 text-center select-none animate-in fade-in duration-200">
+          <div className="h-12 w-12 rounded-full bg-[#fbbc04]/15 border border-[#fbbc04]/30 flex items-center justify-center mb-2.5 text-[#fbbc04]">
+            <VideoOff className="h-5 w-5" />
+          </div>
+          <h4 className="text-sm font-medium text-[#e8eaed] mb-1">
+            Webcam Sensor Muted / In Use
+          </h4>
+          <p className="text-xs text-[#9aa0a6] max-w-xs leading-relaxed">
+            Check your physical camera shutter slider, keyboard hotkey (<span className="text-[#8ab4f8] font-mono">Fn + F10</span> / <span className="text-[#8ab4f8] font-mono">F9</span>), or close other apps using the camera.
+          </p>
+        </div>
+      )}
+
       {/* Camera Off Avatar */}
-      {!hasVideoTrack && (
+      {(!hasVideoTrack || isVideoOff) && !isHardwareBuffering && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#28292c] p-3 pointer-events-none">
           <div className="flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full mb-2 text-white text-xl sm:text-2xl font-semibold bg-[#1a73e8]">
             {initials}
