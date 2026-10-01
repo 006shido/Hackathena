@@ -38,8 +38,8 @@ export function App() {
   if (loading) {
     return (
       <div className="min-h-screen w-full bg-[#202124] flex flex-col items-center justify-center">
-        <div className="h-14 w-14 rounded-full bg-[#1a73e8]/15 flex items-center justify-center mb-4 animate-pulse">
-          <Shield className="h-7 w-7 text-[#8ab4f8]" />
+        <div className="h-16 w-16 rounded-2xl bg-black/20 p-1 flex items-center justify-center mb-4 animate-pulse overflow-hidden shadow-lg">
+          <img src="/logo.svg" alt="DeepTrace Logo" className="h-full w-full object-contain" />
         </div>
         <span className="text-sm text-[#9aa0a6]">
           Loading...
