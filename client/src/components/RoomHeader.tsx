@@ -46,7 +46,9 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
     <header className="flex items-center justify-between gap-3 px-4 sm:px-6 py-3 bg-[#202124] text-[#e8eaed] shrink-0 select-none">
       {/* Top Left: Logo & Time | Room ID (i) */}
       <div className="flex items-center gap-2.5">
-        <img src="/logo.svg" alt="DeepTrace Logo" className="h-6 w-6 rounded-md object-contain shrink-0" />
+        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white p-1 shadow-sm border border-white/20">
+          <img src="/logo.svg" alt="DeepTrace Logo" className="h-full w-full object-contain" />
+        </div>
         <span className="text-sm font-normal text-[#e8eaed] tracking-wide">
           {timeStr || '8:30 PM'}
         </span>
