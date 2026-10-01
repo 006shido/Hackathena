@@ -40,7 +40,7 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
       {/* Navbar */}
       <nav className="w-full flex items-center justify-between gap-3 px-3.5 sm:px-6 md:px-8 py-3 border-b border-[#3c4043] bg-[#202124] shrink-0 select-none">
         <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-          <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-white p-1 shadow-sm border border-white/20">
+          <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-[#1a73e8] p-1 shadow-sm border border-[#8ab4f8]/30">
             <img src="/logo.svg" alt="DeepTrace Logo" className="h-full w-full object-contain" />
           </div>
           <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">

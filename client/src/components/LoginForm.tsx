@@ -44,7 +44,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
     <div className="w-full max-w-md mx-auto p-6 sm:p-8 rounded-2xl bg-[#28292c] border border-[#3c4043] shadow-2xl">
       {/* Brand Header */}
       <div className="text-center mb-6">
-        <div className="inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-white p-2.5 mb-3 shadow-xl shadow-black/40 border border-white/20">
+        <div className="inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-[#1a73e8] p-2.5 mb-3 shadow-xl shadow-[#1a73e8]/30 border border-[#8ab4f8]/30">
           <img src="/logo.svg" alt="DeepTrace Logo" className="h-full w-full object-contain" />
         </div>
         <h1 className="text-xl font-medium text-[#e8eaed] mb-1">DeepTrace</h1>
