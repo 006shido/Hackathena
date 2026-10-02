@@ -9,6 +9,7 @@ import { CallControls } from '../components/CallControls';
 import { SecurityPanel } from '../components/SecurityPanel';
 import { AttackSimulator } from '../components/AttackSimulator';
 import { DevicePreview } from '../components/DevicePreview';
+import { CallFeedbackModal } from '../components/CallFeedbackModal';
 import { mediaService } from '../services/media';
 
 interface CallPageProps {
@@ -26,6 +27,7 @@ export const CallPage: React.FC<CallPageProps> = ({
 }) => {
   const isTester = user.role === 'tester';
   const [showDevicePreview, setShowDevicePreview] = useState(true);
+  const [showFeedbackModal, setShowFeedbackModal] = useState(false);
 
   // Desktop default: Attack drawer closed so video takes full screen like Screenshot 1
   const [isAttackDrawerOpen, setIsAttackDrawerOpen] = useState(false);
@@ -98,7 +100,7 @@ export const CallPage: React.FC<CallPageProps> = ({
   const handleEndCall = () => {
     endCall();
     mediaService.stopAllMedia();
-    onExit();
+    setShowFeedbackModal(true);
   };
 
   const handleCancelPreview = () => {
@@ -106,6 +108,31 @@ export const CallPage: React.FC<CallPageProps> = ({
     mediaService.stopAllMedia();
     onExit();
   };
+
+  const handleFeedbackSubmit = (feedback: { rating: number }) => {
+    console.log('[Feedback] User rated experience:', feedback);
+    setShowFeedbackModal(false);
+    onExit();
+  };
+
+  const handleFeedbackSkip = () => {
+    setShowFeedbackModal(false);
+    onExit();
+  };
+
+  // Feedback Rating Screen (After call is cut / ended)
+  if (showFeedbackModal) {
+    return (
+      <div className="h-screen w-screen flex items-center justify-center bg-[#f8fafc] p-4">
+        <CallFeedbackModal
+          isOpen={true}
+          roomId={roomId}
+          onSubmit={handleFeedbackSubmit}
+          onSkip={handleFeedbackSkip}
+        />
+      </div>
+    );
+  }
 
   // Device Preview Screen
   if (showDevicePreview) {
