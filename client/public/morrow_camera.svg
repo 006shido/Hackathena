@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 170" width="220" height="150" fill="none">
+  <!-- Group with opacity multiply for the iconic darker overlap -->
+  <g fill="#bfdbfe" fill-opacity="0.85" style="mix-blend-mode: multiply;">
+    <!-- Main rounded camera body -->
+    <rect x="25" y="20" width="135" height="115" rx="32" />
+    
+    <!-- Camera lens cone with rounded left peak and rounded right corners -->
+    <path d="M 142 58 C 132 68, 132 87, 142 97 L 198 124 C 206 128, 214 122, 214 113 L 214 42 C 214 33, 206 27, 198 31 Z" />
+  </g>
+</svg>

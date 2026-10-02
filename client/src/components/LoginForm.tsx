@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, Lock, User as UserIcon, ArrowRight, AlertCircle, KeyRound } from 'lucide-react';
+import { User as UserIcon, Lock, Eye, EyeOff, ArrowRight, AlertCircle, Users } from 'lucide-react';
 
 interface LoginFormProps {
   onLogin: (username: string, password: string) => Promise<void>;
@@ -14,6 +14,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
 }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [localError, setLocalError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -21,7 +22,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
     setLocalError(null);
 
     if (!username.trim() || !password.trim()) {
-      setLocalError('Please enter both username and password.');
+      setLocalError('Please enter both email/username and password.');
       return;
     }
 
@@ -32,29 +33,35 @@ export const LoginForm: React.FC<LoginFormProps> = ({
     }
   };
 
-  const handleFillDemo = (u: string, p: string) => {
+  const handleQuickDemo = async (u: string, p: string) => {
     setUsername(u);
     setPassword(p);
     setLocalError(null);
+    try {
+      await onLogin(u, p);
+    } catch {
+      // Handled by parent
+    }
   };
 
   const displayError = localError || externalError;
 
   return (
-    <div className="w-full max-w-md mx-auto p-6 sm:p-8 rounded-2xl bg-[#28292c] border border-[#3c4043] shadow-2xl">
-      {/* Brand Header */}
-      <div className="text-center mb-6">
-        <div className="inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-[#1a73e8] p-2.5 mb-3 shadow-xl shadow-[#1a73e8]/30 border border-[#8ab4f8]/30">
-          <img src="/logo.svg" alt="DeepTrace Logo" className="h-full w-full object-contain" />
-        </div>
-        <h1 className="text-xl font-medium text-[#e8eaed] mb-1">DeepTrace</h1>
-        <p className="text-sm text-[#9aa0a6]">Secure Video Call Platform</p>
+    <div className="w-full max-w-[400px] mx-auto">
+      {/* Welcome Title */}
+      <div className="mb-8">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-2">
+          Welcome back
+        </h1>
+        <p className="text-sm sm:text-base text-slate-500">
+          Sign in to continue to DeepTrace
+        </p>
       </div>
 
-      {/* Error Message */}
+      {/* Error Alert */}
       {displayError && (
-        <div className="mb-4 flex items-center gap-2 p-3 rounded-xl bg-[#ea4335]/15 border border-[#ea4335]/30 text-[#ea4335] text-sm">
-          <AlertCircle className="h-4 w-4 shrink-0" />
+        <div className="mb-5 flex items-center gap-2.5 p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs">
+          <AlertCircle className="h-4 w-4 shrink-0 text-red-600" />
           <span>{displayError}</span>
         </div>
       )}
@@ -62,91 +69,101 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm text-[#9aa0a6] mb-1.5 font-medium">
-            Username
-          </label>
           <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#9aa0a6]">
+            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
               <UserIcon className="h-4 w-4" />
             </div>
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="Enter username"
+              placeholder="Email address"
               required
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#202124] border border-[#3c4043] text-sm text-[#e8eaed] placeholder-[#80868b] focus:outline-none focus:border-[#8ab4f8] focus:ring-1 focus:ring-[#8ab4f8] transition-colors"
+              className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-50 transition-all"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-sm text-[#9aa0a6] mb-1.5 font-medium">
-            Password
-          </label>
           <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#9aa0a6]">
+            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
               <Lock className="h-4 w-4" />
             </div>
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
+              placeholder="Password"
               required
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#202124] border border-[#3c4043] text-sm text-[#e8eaed] placeholder-[#80868b] focus:outline-none focus:border-[#8ab4f8] focus:ring-1 focus:ring-[#8ab4f8] transition-colors"
+              className="w-full pl-10 pr-11 py-3 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-50 transition-all"
             />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+            >
+              {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+            </button>
           </div>
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full mt-3 py-2.5 px-4 rounded-full bg-[#1a73e8] hover:bg-[#1557b0] text-white font-medium text-sm flex items-center justify-center gap-2 transition-colors disabled:opacity-50 cursor-pointer"
+          className="w-full mt-2 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white font-medium text-sm flex items-center justify-center gap-2 shadow-xs transition-all disabled:opacity-50 cursor-pointer"
         >
           {loading ? (
             <span>Signing in...</span>
           ) : (
             <>
-              <span>Sign In</span>
+              <span>Sign in</span>
               <ArrowRight className="h-4 w-4" />
             </>
           )}
         </button>
       </form>
 
-      {/* Demo Accounts */}
-      <div className="mt-6 pt-5 border-t border-[#3c4043]">
-        <div className="flex items-center gap-2 mb-3">
-          <KeyRound className="h-3.5 w-3.5 text-[#9aa0a6]" />
-          <span className="text-xs text-[#9aa0a6] font-medium">Quick Demo Access</span>
+      {/* Divider */}
+      <div className="relative my-7">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t border-slate-200" />
         </div>
-
-        <div className="grid grid-cols-2 gap-3">
-          <button
-            type="button"
-            onClick={() => handleFillDemo('user', 'user123')}
-            className="p-3 rounded-xl bg-[#202124] border border-[#3c4043] hover:border-[#34a853] transition-colors text-left cursor-pointer"
-          >
-            <div className="flex items-center gap-2 mb-1">
-              <div className="h-6 w-6 rounded-full bg-[#34a853] flex items-center justify-center text-[10px] font-bold text-white">U</div>
-              <span className="text-xs font-medium text-[#e8eaed]">User</span>
-            </div>
-            <div className="text-[11px] text-[#9aa0a6]">user / user123</div>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => handleFillDemo('tester', 'tester123')}
-            className="p-3 rounded-xl bg-[#202124] border border-[#3c4043] hover:border-[#8ab4f8] transition-colors text-left cursor-pointer"
-          >
-            <div className="flex items-center gap-2 mb-1">
-              <div className="h-6 w-6 rounded-full bg-[#1a73e8] flex items-center justify-center text-[10px] font-bold text-white">T</div>
-              <span className="text-xs font-medium text-[#e8eaed]">Tester</span>
-            </div>
-            <div className="text-[11px] text-[#9aa0a6]">tester / tester123</div>
-          </button>
+        <div className="relative flex justify-center text-xs">
+          <span className="bg-white px-3 text-slate-400 font-medium">or</span>
         </div>
+      </div>
+
+      {/* Two Demo Buttons Matching Screenshot */}
+      <div className="grid grid-cols-2 gap-3.5">
+        <button
+          type="button"
+          onClick={() => handleQuickDemo('user', 'user123')}
+          className="py-3 px-3 rounded-xl border border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700 text-xs sm:text-sm font-medium transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
+        >
+          <UserIcon className="h-4 w-4 text-slate-500" />
+          <span>User Demo</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => handleQuickDemo('tester', 'tester123')}
+          className="py-3 px-3 rounded-xl border border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700 text-xs sm:text-sm font-medium transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
+        >
+          <Users className="h-4 w-4 text-slate-500" />
+          <span>Tester Demo</span>
+        </button>
+      </div>
+
+      {/* Footer link matching screenshot */}
+      <div className="mt-10 text-left text-xs sm:text-sm text-slate-500">
+        <span>Don't have an account? </span>
+        <button
+          type="button"
+          onClick={() => handleQuickDemo('user', 'user123')}
+          className="font-medium text-blue-600 hover:text-blue-700 transition-colors cursor-pointer"
+        >
+          Sign up
+        </button>
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import {
-  Mic,
   MicOff,
   VideoOff,
   VolumeX,
@@ -29,7 +28,7 @@ type SizePreset = 'sm' | 'md' | 'lg' | 'xl';
 export const VideoTile: React.FC<VideoTileProps> = ({
   stream,
   username,
-  role = 'user',
+  role: _role = 'user',
   isLocal = false,
   isMuted = false,
   isVideoOff = false,
@@ -194,8 +193,8 @@ export const VideoTile: React.FC<VideoTileProps> = ({
 
       const parentWidth = parent.clientWidth || parent.getBoundingClientRect().width;
       const parentHeight = parent.clientHeight || parent.getBoundingClientRect().height;
-      const tileWidth = tile.offsetWidth || 280;
-      const tileHeight = tile.offsetHeight || 160;
+      const tileWidth = tile.offsetWidth || 260;
+      const tileHeight = tile.offsetHeight || 150;
 
       const padding = 16;
       const maxX = Math.max(padding, parentWidth - tileWidth - padding);
@@ -306,13 +305,13 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     (isLocal ? (stream.getVideoTracks()[0].enabled && !isVideoOff) : true)
   );
 
-  const initials = username.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || 'U';
+  const initials = username.split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2) || 'U';
 
   const sizeClasses: Record<SizePreset, string> = {
-    sm: 'w-44 sm:w-52',
-    md: 'w-56 sm:w-68 md:w-72',
-    lg: 'w-68 sm:w-80 md:w-88',
-    xl: 'w-76 sm:w-92 md:w-[380px]',
+    sm: 'w-36 sm:w-48',
+    md: 'w-48 sm:w-60 md:w-68',
+    lg: 'w-56 sm:w-72 md:w-80',
+    xl: 'w-64 sm:w-84 md:w-96',
   };
 
   return (
@@ -331,15 +330,15 @@ export const VideoTile: React.FC<VideoTileProps> = ({
       }
       className={`${
         isFloating
-          ? `absolute ${position ? '' : 'bottom-4 right-4 sm:bottom-6 sm:right-6'} z-30 ${sizeClasses[sizePreset]} max-w-[calc(100%-32px)] max-h-[calc(100%-32px)] aspect-video border-[#5f6368] shadow-2xl hover:border-[#8ab4f8]`
+          ? `absolute ${position ? '' : 'bottom-4 right-4 sm:bottom-6 sm:right-6'} z-30 ${sizeClasses[sizePreset]} max-w-[calc(100%-32px)] max-h-[calc(100%-32px)] aspect-video border border-white/15 shadow-2xl hover:border-blue-500/50`
           : 'relative w-full h-full min-h-0'
       } ${
         isDeepfakeAlert && !isLocal
-          ? 'border-[#ea4335] ring-2 ring-[#ea4335]/40'
-          : 'border-transparent'
-      } overflow-hidden rounded-2xl bg-[#3c4043] shadow-lg transition-[width,height,border-color] duration-150 select-none ${className}`}
+          ? 'ring-2 ring-red-500 shadow-red-500/20 shadow-lg'
+          : ''
+      } overflow-hidden rounded-2xl sm:rounded-3xl bg-[#16181d] shadow-xl transition-[width,height,border-color] duration-150 select-none ${className}`}
     >
-      {/* Video */}
+      {/* Video Element */}
       <video
         ref={(el) => {
           videoRef.current = el;
@@ -370,33 +369,33 @@ export const VideoTile: React.FC<VideoTileProps> = ({
         } ${isLocal ? 'scale-x-[-1]' : ''}`}
       />
 
-      {/* Hardware Muted / Privacy Shutter Notification */}
+      {/* Hardware Muted Shutter Notification */}
       {isLocal && isHardwareBuffering && !isVideoOff && (
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#202124]/90 backdrop-blur-sm p-4 text-center select-none animate-in fade-in duration-200">
-          <div className="h-12 w-12 rounded-full bg-[#fbbc04]/15 border border-[#fbbc04]/30 flex items-center justify-center mb-2.5 text-[#fbbc04]">
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/85 backdrop-blur-md p-4 text-center select-none animate-in fade-in duration-200">
+          <div className="h-11 w-11 rounded-full bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mb-2 text-amber-400">
             <VideoOff className="h-5 w-5" />
           </div>
-          <h4 className="text-sm font-medium text-[#e8eaed] mb-1">
-            Webcam Sensor Muted / In Use
+          <h4 className="text-xs sm:text-sm font-semibold text-white mb-1">
+            Webcam Sensor Muted
           </h4>
-          <p className="text-xs text-[#9aa0a6] max-w-xs leading-relaxed">
-            Check your physical camera shutter slider, keyboard hotkey (<span className="text-[#8ab4f8] font-mono">Fn + F10</span> / <span className="text-[#8ab4f8] font-mono">F9</span>), or close other apps using the camera.
+          <p className="text-[11px] text-slate-400 max-w-xs leading-relaxed">
+            Check your physical camera shutter slider or keyboard hotkey.
           </p>
         </div>
       )}
 
-      {/* Camera Off Avatar */}
+      {/* Camera Off Avatar Placeholder */}
       {(!hasVideoTrack || isVideoOff) && !isHardwareBuffering && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#28292c] p-3 pointer-events-none">
-          <div className="flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full mb-2 text-white text-xl sm:text-2xl font-semibold bg-[#1a73e8]">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-[#1c1f26] to-[#14161c] p-3 pointer-events-none">
+          <div className="flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full mb-2 text-white text-xl sm:text-2xl font-bold bg-blue-600 shadow-lg shadow-blue-600/30">
             {initials}
           </div>
-          <span className="text-xs text-[#9aa0a6]">{username}</span>
+          <span className="text-xs font-medium text-slate-400">{username}</span>
         </div>
       )}
 
-      {/* Floating Drag Bar */}
-      {isFloating ? (
+      {/* Floating Drag Bar (for PiP view) */}
+      {isFloating && (
         <div
           onPointerDown={handlePointerDown}
           className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-2.5 py-1.5 bg-gradient-to-b from-black/80 to-transparent cursor-move select-none"
@@ -405,8 +404,8 @@ export const VideoTile: React.FC<VideoTileProps> = ({
         >
           <div className="flex items-center gap-1.5 pointer-events-none">
             <GripHorizontal className="h-3.5 w-3.5 text-white/70 shrink-0" />
-            <span className="text-[11px] font-medium text-white/90 truncate max-w-[100px] sm:max-w-[130px]">
-              {username} (You)
+            <span className="text-[10px] font-medium text-white/90 truncate max-w-[100px]">
+              You
             </span>
           </div>
 
@@ -415,49 +414,53 @@ export const VideoTile: React.FC<VideoTileProps> = ({
             onPointerDown={(e) => e.stopPropagation()}
             onClick={cycleSize}
             title={`Size: ${sizePreset.toUpperCase()}`}
-            className="flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-white/10 hover:bg-white/20 text-white/80 hover:text-white text-[10px] font-medium transition-colors cursor-pointer"
+            className="flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-white/10 hover:bg-white/20 text-white/90 text-[10px] font-medium transition-colors cursor-pointer"
           >
             <Maximize2 className="h-2.5 w-2.5" />
             <span>{sizePreset.toUpperCase()}</span>
           </button>
         </div>
-      ) : null}
+      )}
 
-      {/* Deepfake Alert */}
+      {/* Autonomous Deepfake Alert Floating Pill */}
       {isDeepfakeAlert && !isLocal && (
-        <div className="absolute top-3 right-3 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#ea4335] text-white text-xs font-medium shadow-lg animate-pulse">
+        <div className="absolute top-3 right-3 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-600 text-white text-xs font-semibold shadow-lg shadow-red-600/40 animate-pulse">
           <AlertTriangle className="h-3.5 w-3.5" />
           <span>Deepfake Alert ({deepfakeScore}%)</span>
         </div>
       )}
 
-      {/* Unmute Banner */}
+      {/* Unmute Fallback Banner */}
       {audioBlocked && !isLocal && (
         <button
           onClick={handleUnmuteClick}
-          className="absolute top-3 right-3 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1a73e8] hover:bg-[#1557b0] text-white text-xs font-medium shadow-lg transition-colors cursor-pointer"
+          className="absolute top-3 right-3 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium shadow-lg transition-colors cursor-pointer"
         >
           <VolumeX className="h-3.5 w-3.5" />
           <span>Click to Unmute</span>
         </button>
       )}
 
-      {/* Bottom Name + Mic - like Google Meet screenshot */}
+      {/* Bottom Name Badge / Subtitle (Matching Screenshot 1 Right "You" pill) */}
       <div className="absolute bottom-3 left-3 z-10 flex items-center gap-2 pointer-events-none">
-        <div className="flex items-center gap-1.5 bg-black/50 backdrop-blur-sm rounded-md px-2 py-1">
+        <div className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-md px-2 py-1">
           {isMuted ? (
-            <MicOff className="h-3.5 w-3.5 text-[#ea4335]" />
+            <MicOff className="h-3 w-3 text-red-400" />
           ) : (
             <div className="flex items-end gap-[2px] h-3">
-              <div className="w-[2px] h-[40%] bg-[#34a853] rounded-full animate-pulse" />
-              <div className="w-[2px] h-[75%] bg-[#34a853] rounded-full animate-pulse" style={{ animationDelay: '0.1s' }} />
-              <div className="w-[2px] h-[100%] bg-[#34a853] rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
-              <div className="w-[2px] h-[60%] bg-[#34a853] rounded-full animate-pulse" style={{ animationDelay: '0.15s' }} />
+              <div className="w-[2px] h-[40%] bg-emerald-400 rounded-full animate-pulse" />
+              <div className="w-[2px] h-[80%] bg-emerald-400 rounded-full animate-pulse" style={{ animationDelay: '0.1s' }} />
+              <div className="w-[2px] h-[100%] bg-emerald-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
             </div>
           )}
-          <span className="text-xs text-white font-medium drop-shadow-sm">
-            {username}{isLocal ? ' (You)' : ''}
+          <span className="text-[11px] sm:text-xs text-white font-medium drop-shadow-sm">
+            {isLocal ? 'You' : username}
           </span>
+          {subtitle && subtitle !== 'You' && (
+            <span className="text-[10px] text-blue-400 font-mono">
+              {subtitle}
+            </span>
+          )}
         </div>
       </div>
     </div>

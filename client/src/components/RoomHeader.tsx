@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Copy, Check, Users, Info, Circle } from 'lucide-react';
+import { ArrowLeft, Users, Copy, Check, Shield, Circle, Activity } from 'lucide-react';
 import { UserRole } from '../types/auth';
 
 interface RoomHeaderProps {
@@ -9,6 +9,9 @@ interface RoomHeaderProps {
   participantCount: number;
   connectionState?: string;
   iceState?: string;
+  onExit?: () => void;
+  onToggleSecurityPanel?: () => void;
+  isSecurityPanelOpen?: boolean;
 }
 
 export const RoomHeader: React.FC<RoomHeaderProps> = ({
@@ -17,21 +20,26 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
   participantCount,
   connectionState,
   iceState,
+  onExit,
+  onToggleSecurityPanel,
+  isSecurityPanelOpen,
 }) => {
   const [copied, setCopied] = useState(false);
-  const [timeStr, setTimeStr] = useState<string>('');
+  const [elapsedSeconds, setElapsedSeconds] = useState(0);
 
+  // Live elapsed call timer (like the 12:34 in Screenshot 1 right)
   useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setTimeStr(
-        now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
-      );
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
+    const timer = setInterval(() => {
+      setElapsedSeconds((prev) => prev + 1);
+    }, 1000);
+    return () => clearInterval(timer);
   }, []);
+
+  const formatTimer = (totalSec: number) => {
+    const mins = Math.floor(totalSec / 60);
+    const secs = totalSec % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
 
   const handleCopy = () => {
     if (!roomId) return;
@@ -43,57 +51,89 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
   const isConnected = iceState === 'connected' || iceState === 'completed';
 
   return (
-    <header className="flex items-center justify-between gap-3 px-4 sm:px-6 py-3 bg-[#202124] text-[#e8eaed] shrink-0 select-none">
-      {/* Top Left: Logo & Time | Room ID (i) */}
-      <div className="flex items-center gap-2.5">
-        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#1a73e8] p-1 shadow-sm border border-[#8ab4f8]/30">
-          <img src="/logo.svg" alt="DeepTrace Logo" className="h-full w-full object-contain" />
-        </div>
-        <span className="text-sm font-normal text-[#e8eaed] tracking-wide">
-          {timeStr || '8:30 PM'}
-        </span>
-        <span className="text-[#5f6368] font-light">|</span>
-        <div className="flex items-center gap-1.5 text-sm text-[#e8eaed] font-medium">
-          <span>{roomId}</span>
+    <header className="flex items-center justify-between gap-3 px-3 sm:px-6 py-3 bg-[#0f1115] text-slate-100 shrink-0 select-none border-b border-white/5">
+      {/* Left: Back Arrow + Logo + Meeting Title + Elapsed Timer */}
+      <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+        {onExit && (
           <button
-            onClick={handleCopy}
-            title={copied ? 'Copied!' : 'Copy meeting code'}
-            className="flex items-center justify-center p-1 rounded-full text-[#9aa0a6] hover:text-[#e8eaed] hover:bg-[#3c4043] transition-colors cursor-pointer"
+            onClick={onExit}
+            title="Leave room"
+            className="p-2 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer shrink-0"
           >
-            {copied ? (
-              <Check className="h-3.5 w-3.5 text-[#34a853]" />
-            ) : (
-              <Info className="h-3.5 w-3.5" />
-            )}
+            <ArrowLeft className="h-4 w-4" />
           </button>
+        )}
+
+        <div className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 shadow-xs hidden xs:block">
+          <img src="/logo.svg" alt="DeepTrace Logo" className="h-full w-full" />
+        </div>
+
+        <div className="flex flex-col min-w-0">
+          <div className="flex items-center gap-2">
+            <h1 className="text-sm font-semibold text-white tracking-tight truncate max-w-[130px] sm:max-w-[220px]">
+              Room {roomId}
+            </h1>
+            <button
+              onClick={handleCopy}
+              title={copied ? 'Copied!' : 'Copy room code'}
+              className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer shrink-0"
+            >
+              {copied ? (
+                <Check className="h-3.5 w-3.5 text-emerald-400" />
+              ) : (
+                <Copy className="h-3 w-3" />
+              )}
+            </button>
+          </div>
+          <span className="text-[11px] font-mono text-slate-400 tracking-wider">
+            {formatTimer(elapsedSeconds)}
+          </span>
         </div>
       </div>
 
-      {/* Top Right: Status & Participants */}
-      <div className="flex items-center gap-2">
+      {/* Right: Participant Count + Status + Role */}
+      <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        {/* Connection status dot */}
         {participantCount === 2 && (
-          <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#303134] text-xs text-[#9aa0a6]">
+          <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs">
             <Circle
               className={`h-2 w-2 fill-current ${
-                isConnected ? 'text-[#34a853]' : 'text-[#fbbc04] animate-pulse'
+                isConnected ? 'text-emerald-400' : 'text-amber-400 animate-pulse'
               }`}
             />
-            <span className={isConnected ? 'text-[#34a853]' : 'text-[#9aa0a6]'}>
-              {isConnected ? 'Connected' : 'Connecting...'}
+            <span className={isConnected ? 'text-emerald-400' : 'text-slate-400'}>
+              {isConnected ? 'P2P Encrypted' : 'Connecting...'}
             </span>
           </div>
         )}
 
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#303134] text-xs text-[#9aa0a6]">
-          <Users className="h-3.5 w-3.5 text-[#e8eaed]" />
-          <span className="text-[#e8eaed] font-medium">{participantCount}</span>
+        {/* Participant Count (Matching icon in Screenshot 1 Right) */}
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300">
+          <Users className="h-3.5 w-3.5 text-slate-300" />
+          <span className="font-semibold text-white">{participantCount}</span>
         </div>
 
+        {/* Tester Badge */}
         {role === 'tester' && (
-          <span className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#3c4043] text-xs font-medium text-[#8ab4f8]">
+          <span className="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-xs font-semibold text-blue-400">
             <Shield className="h-3 w-3" />
-            <span className="hidden sm:inline">Tester</span>
+            <span>Tester</span>
           </span>
+        )}
+
+        {/* Security Monitor Quick Toggle */}
+        {onToggleSecurityPanel && (
+          <button
+            onClick={onToggleSecurityPanel}
+            title="Toggle Security Monitor"
+            className={`p-2 rounded-full transition-colors cursor-pointer ${
+              isSecurityPanelOpen
+                ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
+                : 'text-slate-400 hover:text-white hover:bg-white/10'
+            }`}
+          >
+            <Activity className="h-4 w-4" />
+          </button>
         )}
       </div>
     </header>

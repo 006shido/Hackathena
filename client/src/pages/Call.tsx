@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Users, AlertCircle, ArrowLeft, AlertTriangle } from 'lucide-react';
+import { AlertCircle, ArrowLeft, AlertTriangle, Shield, Activity, X } from 'lucide-react';
 import { User as UserType } from '../types/auth';
 import { useCall } from '../hooks/useCall';
 import { useVoiceDetection } from '../hooks/useVoiceDetection';
@@ -25,11 +25,9 @@ export const CallPage: React.FC<CallPageProps> = ({
 }) => {
   const isTester = user.role === 'tester';
   const [showDevicePreview, setShowDevicePreview] = useState(true);
-  
-  // On desktop open by default for tester, on mobile keep closed so video takes full screen
-  const [isAttackDrawerOpen, setIsAttackDrawerOpen] = useState(
-    () => isTester && typeof window !== 'undefined' && window.innerWidth >= 1024
-  );
+
+  // Desktop default: Attack drawer closed so video takes full screen like Screenshot 1
+  const [isAttackDrawerOpen, setIsAttackDrawerOpen] = useState(false);
   const [isSecurityPanelOpen, setIsSecurityPanelOpen] = useState(false);
 
   const {
@@ -60,27 +58,24 @@ export const CallPage: React.FC<CallPageProps> = ({
     endCall,
   } = useCall(user, token);
 
-  // Autonomous real-time acoustic deepfake analysis on incoming peer audio stream (DSP & ML feature classifier)
+  // Autonomous real-time acoustic deepfake analysis on incoming peer audio stream
   const voiceDetection = useVoiceDetection(
     remoteStream,
     !showDevicePreview && Boolean(remoteStream)
   );
 
-  // Deepfake alert triggered purely by autonomous acoustic classification
+  // Deepfake alert triggered by autonomous classifier
   const isDeepfakeAlert = voiceDetection.status === 'deepfake';
 
-  // Initialize camera and mic for preview on mount
   useEffect(() => {
     initLocalMedia(true, true);
   }, [initLocalMedia]);
 
-  // Keep a stable ref to endCall so beforeunload / unmount handlers don't re-trigger cleanup during re-renders
   const endCallRef = useRef(endCall);
   useEffect(() => {
     endCallRef.current = endCall;
   }, [endCall]);
 
-  // Clean up all media and connections on unmount and beforeunload
   useEffect(() => {
     const handleBeforeUnload = () => {
       endCallRef.current();
@@ -107,10 +102,10 @@ export const CallPage: React.FC<CallPageProps> = ({
     onExit();
   };
 
-  // Device preview
+  // Device Preview Screen
   if (showDevicePreview) {
     return (
-      <div className="min-h-screen w-full bg-[#202124] flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      <div className="min-h-screen w-full bg-[#0f1115] flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
         <DevicePreview
           stream={localStream}
           isMicMuted={isMicMuted}
@@ -128,21 +123,21 @@ export const CallPage: React.FC<CallPageProps> = ({
     );
   }
 
-  // Error
+  // Error Screen
   if (callStatus === 'failed' || errorMessage) {
     return (
-      <div className="min-h-screen w-full bg-[#202124] flex items-center justify-center p-4">
-        <div className="w-full max-w-md p-6 rounded-2xl bg-[#28292c] border border-[#ea4335]/30 text-center shadow-xl">
-          <div className="h-12 w-12 rounded-full bg-[#ea4335]/15 text-[#ea4335] flex items-center justify-center mx-auto mb-4">
+      <div className="min-h-screen w-full bg-[#0f1115] flex items-center justify-center p-4">
+        <div className="w-full max-w-md p-6 rounded-3xl bg-[#16181f] border border-red-500/30 text-center shadow-2xl">
+          <div className="h-12 w-12 rounded-full bg-red-500/15 text-red-500 flex items-center justify-center mx-auto mb-4">
             <AlertCircle className="h-6 w-6" />
           </div>
-          <h2 className="text-xl font-medium text-[#e8eaed] mb-2">Connection Error</h2>
-          <p className="text-sm text-[#ea4335] mb-6 bg-[#ea4335]/10 p-3 rounded-xl">
+          <h2 className="text-xl font-bold text-white mb-2">Connection Error</h2>
+          <p className="text-xs sm:text-sm text-red-400 mb-6 bg-red-500/10 p-3 rounded-2xl border border-red-500/20">
             {errorMessage || 'Failed to join room. Please check room details and try again.'}
           </p>
           <button
             onClick={onExit}
-            className="w-full py-2.5 px-4 rounded-full bg-[#3c4043] hover:bg-[#4a4d51] text-[#e8eaed] text-sm font-medium flex items-center justify-center gap-2 cursor-pointer transition-colors"
+            className="w-full py-3 px-4 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-medium flex items-center justify-center gap-2 cursor-pointer transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             <span>Return to Dashboard</span>
@@ -155,8 +150,8 @@ export const CallPage: React.FC<CallPageProps> = ({
   const participantCount = peerInfo ? 2 : 1;
 
   return (
-    <div className="h-screen w-screen flex flex-col bg-[#202124] text-[#e8eaed] overflow-hidden">
-      {/* Header */}
+    <div className="h-screen w-screen flex flex-col bg-[#0f1115] text-slate-100 overflow-hidden font-sans">
+      {/* Top Header (Matching Screenshot 1 Right) */}
       <RoomHeader
         roomId={roomId}
         username={user.name}
@@ -164,21 +159,24 @@ export const CallPage: React.FC<CallPageProps> = ({
         participantCount={participantCount}
         connectionState={connectionState}
         iceState={iceState}
+        onExit={handleEndCall}
+        onToggleSecurityPanel={() => setIsSecurityPanelOpen(!isSecurityPanelOpen)}
+        isSecurityPanelOpen={isSecurityPanelOpen}
       />
 
-      {/* Main Layout */}
+      {/* Main Layout Area */}
       <div className="flex-1 flex overflow-hidden relative">
         {/* Call Stage */}
         <div className="flex-1 flex flex-col p-2 sm:p-4 overflow-hidden relative">
-          {/* Main Video Stage */}
-          <div className="flex-1 w-full h-full relative rounded-2xl overflow-hidden bg-[#3c4043] shadow-md flex items-center justify-center">
+          {/* Video Container (Framed with smooth rounded corners) */}
+          <div className="flex-1 w-full h-full relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#16181d] border border-white/5 shadow-2xl flex items-center justify-center">
             {peerInfo && remoteStream ? (
               <VideoTile
                 stream={remoteStream}
                 username={peerInfo.username}
                 role={peerInfo.role}
                 isLocal={false}
-                subtitle="Remote Participant"
+                subtitle="Peer"
                 className="w-full h-full"
                 isDeepfakeAlert={isDeepfakeAlert}
                 deepfakeScore={voiceDetection.anomalyScore}
@@ -201,17 +199,17 @@ export const CallPage: React.FC<CallPageProps> = ({
                   }
                 />
 
-                {/* Status chip informing user they are alone */}
-                <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#202124]/85 backdrop-blur-md border border-[#3c4043] text-xs text-[#e8eaed] shadow-lg">
-                  <span className="h-2 w-2 rounded-full bg-[#8ab4f8] animate-pulse" />
-                  <span>Waiting for others to join</span>
-                  <span className="text-[#9aa0a6]">•</span>
-                  <span className="text-[#8ab4f8] font-mono font-medium">{roomId}</span>
+                {/* Waiting Chip */}
+                <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-xs text-white shadow-xl">
+                  <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
+                  <span>Waiting for peer to join</span>
+                  <span className="text-slate-400">•</span>
+                  <span className="text-blue-400 font-mono font-medium">{roomId}</span>
                 </div>
               </div>
             )}
 
-            {/* When a peer IS present, show the local user video in the floating picture-in-picture tile */}
+            {/* When Peer is present: Floating PiP Local User Video (Matching Screenshot 1 Right) */}
             {peerInfo && (
               <VideoTile
                 stream={localStream}
@@ -229,9 +227,9 @@ export const CallPage: React.FC<CallPageProps> = ({
               />
             )}
 
-            {/* Attack Active */}
+            {/* Tester Attack Mode Active Badge */}
             {isTester && attackState.mode !== 'none' && (
-              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#ea4335] text-white text-xs font-medium shadow-md">
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-30 flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-semibold shadow-lg shadow-red-600/30">
                 <span className="h-2 w-2 rounded-full bg-white animate-ping" />
                 <span>
                   {attackState.mode === 'combined'
@@ -243,33 +241,33 @@ export const CallPage: React.FC<CallPageProps> = ({
               </div>
             )}
 
-            {/* Deepfake Alert */}
+            {/* Autonomous Deepfake Alert Floating Banner */}
             {!isTester && isDeepfakeAlert && (
-              <div className="absolute top-3 left-3 right-3 sm:top-4 sm:left-4 sm:right-4 z-40 flex items-center justify-between p-3.5 rounded-2xl bg-[#ea4335] text-white shadow-xl backdrop-blur-md">
+              <div className="absolute top-3 inset-x-3 sm:top-4 sm:inset-x-6 z-40 flex items-center justify-between p-3.5 rounded-2xl bg-red-600/90 text-white shadow-2xl backdrop-blur-md border border-red-500">
                 <div className="flex items-center gap-2.5">
                   <div className="h-9 w-9 rounded-full bg-white/20 flex items-center justify-center shrink-0">
                     <AlertTriangle className="h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold">Deepfake Detected!</h4>
-                    <p className="text-xs text-white/90">
-                      Score: {voiceDetection.anomalyScore}% — Voice anomalies found
+                    <h4 className="text-xs sm:text-sm font-bold">Deepfake Detected</h4>
+                    <p className="text-[11px] text-white/90">
+                      Anomaly Score: {voiceDetection.anomalyScore}% — Synthetic audio harmonics detected
                     </p>
                   </div>
                 </div>
 
                 <button
                   onClick={() => setIsSecurityPanelOpen(true)}
-                  className="px-3.5 py-1.5 rounded-full bg-white/20 hover:bg-white/30 text-white text-xs font-medium transition-colors shrink-0 cursor-pointer"
+                  className="px-3.5 py-1.5 rounded-full bg-white text-red-700 text-xs font-semibold hover:bg-white/90 transition-all shrink-0 cursor-pointer shadow-sm"
                 >
-                  Details
+                  View Details
                 </button>
               </div>
             )}
           </div>
 
-          {/* Bottom Controls */}
-          <div className="pt-2 sm:pt-3 flex justify-center z-20">
+          {/* Floating Bottom Controls (Matching Screenshot 1 Right) */}
+          <div className="pt-3 sm:pt-4 flex justify-center z-20">
             <CallControls
               isMicMuted={isMicMuted}
               isCameraOff={isCameraOff}
@@ -294,13 +292,16 @@ export const CallPage: React.FC<CallPageProps> = ({
           </div>
         </div>
 
-        {/* Desktop Side Panels */}
+        {/* Desktop Side Panels (Slide in seamlessly) */}
         <div className="hidden lg:flex h-full shrink-0">
-          <SecurityPanel
-            peerAttackState={peerAttackState}
-            voiceDetection={voiceDetection}
-            isTester={isTester}
-          />
+          {isSecurityPanelOpen && (
+            <SecurityPanel
+              peerAttackState={peerAttackState}
+              voiceDetection={voiceDetection}
+              isTester={isTester}
+              onClose={() => setIsSecurityPanelOpen(false)}
+            />
+          )}
 
           {isTester && isAttackDrawerOpen && (
             <AttackSimulator
@@ -317,10 +318,12 @@ export const CallPage: React.FC<CallPageProps> = ({
         </div>
       </div>
 
-      {/* Mobile: Security Panel */}
+      {/* Mobile Bottom Sheets: Security Panel */}
       {isSecurityPanelOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end bg-black/60 backdrop-blur-sm">
-          <div className="w-full max-h-[85vh] h-[520px] rounded-t-2xl overflow-hidden shadow-2xl border-t border-[#3c4043] flex flex-col">
+        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end bg-black/60 backdrop-blur-xs">
+          <div className="w-full max-h-[85vh] h-[520px] rounded-t-3xl overflow-hidden shadow-2xl border-t border-white/10 flex flex-col bg-[#16181f]">
+            {/* Grab handle */}
+            <div className="w-12 h-1 bg-white/20 rounded-full mx-auto my-2.5 shrink-0" />
             <SecurityPanel
               peerAttackState={peerAttackState}
               voiceDetection={voiceDetection}
@@ -331,10 +334,12 @@ export const CallPage: React.FC<CallPageProps> = ({
         </div>
       )}
 
-      {/* Mobile: Attack Simulator */}
+      {/* Mobile Bottom Sheets: Attack Simulator */}
       {isTester && isAttackDrawerOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end bg-black/60 backdrop-blur-sm">
-          <div className="w-full max-h-[85vh] h-[560px] rounded-t-2xl overflow-hidden shadow-2xl border-t border-[#3c4043] flex flex-col">
+        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end bg-black/60 backdrop-blur-xs">
+          <div className="w-full max-h-[85vh] h-[560px] rounded-t-3xl overflow-hidden shadow-2xl border-t border-white/10 flex flex-col bg-[#16181f]">
+            {/* Grab handle */}
+            <div className="w-12 h-1 bg-white/20 rounded-full mx-auto my-2.5 shrink-0" />
             <AttackSimulator
               attackState={attackState}
               onToggleFaceSwap={activateFaceSwap}
