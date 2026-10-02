@@ -9,6 +9,7 @@ import { CallControls } from '../components/CallControls';
 import { SecurityPanel } from '../components/SecurityPanel';
 import { AttackSimulator } from '../components/AttackSimulator';
 import { DevicePreview } from '../components/DevicePreview';
+import { mediaService } from '../services/media';
 
 interface CallPageProps {
   roomId: string;
@@ -79,11 +80,13 @@ export const CallPage: React.FC<CallPageProps> = ({
   useEffect(() => {
     const handleBeforeUnload = () => {
       endCallRef.current();
+      mediaService.stopAllMedia();
     };
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
       endCallRef.current();
+      mediaService.stopAllMedia();
     };
   }, []);
 
@@ -94,11 +97,13 @@ export const CallPage: React.FC<CallPageProps> = ({
 
   const handleEndCall = () => {
     endCall();
+    mediaService.stopAllMedia();
     onExit();
   };
 
   const handleCancelPreview = () => {
     endCall();
+    mediaService.stopAllMedia();
     onExit();
   };
 

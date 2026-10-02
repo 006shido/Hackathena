@@ -169,10 +169,27 @@ export const VideoTile: React.FC<VideoTileProps> = ({
         stream.removeEventListener('removetrack', handleTracksChange);
       };
     } else {
-      video.srcObject = null;
+      try {
+        video.pause();
+        video.srcObject = null;
+      } catch (e) {}
       setIsHardwareBuffering(false);
     }
   }, [stream, isLocal, isVideoOff]);
+
+  useEffect(() => {
+    return () => {
+      const video = videoRef.current;
+      if (video) {
+        try {
+          video.pause();
+          video.srcObject = null;
+          video.load();
+        } catch (e) {}
+      }
+    };
+  }, []);
+
 
   const handleUnmuteClick = (e: React.MouseEvent) => {
     e.stopPropagation();

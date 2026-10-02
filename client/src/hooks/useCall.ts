@@ -53,6 +53,8 @@ export function useCall(user: User | null, token: string | null) {
   const originalVideoTrackRef = useRef<MediaStreamTrack | null>(null);
   const originalAudioTrackRef = useRef<MediaStreamTrack | null>(null);
   const screenStreamRef = useRef<MediaStream | null>(null);
+  const isMountedRef = useRef<boolean>(true);
+  const isCallEndedRef = useRef<boolean>(false);
 
   const {
     pcRef,
@@ -71,6 +73,8 @@ export function useCall(user: User | null, token: string | null) {
 
   // Initialize media devices for preview or call
   const initLocalMedia = useCallback(async (video = true, audio = true): Promise<MediaAccessResult> => {
+    isCallEndedRef.current = false;
+
     // If existing media tracks are open, stop them first to prevent hardware leak
     if (localStreamRef.current) {
       mediaService.stopStream(localStreamRef.current);
@@ -93,6 +97,14 @@ export function useCall(user: User | null, token: string | null) {
 
     setCallStatus('checking-devices');
     const result = await mediaService.getUserMedia(video, audio);
+
+    // If call was ended or component unmounted while waiting for camera, immediately kill the acquired stream
+    if (!isMountedRef.current || isCallEndedRef.current) {
+      if (result.stream) {
+        mediaService.stopStream(result.stream);
+      }
+      return { stream: null, hasVideo: false, hasAudio: false };
+    }
 
     if (result.stream) {
       setLocalStream(result.stream);
@@ -556,6 +568,9 @@ export function useCall(user: User | null, token: string | null) {
 
   // Stop all media tracks helper
   const stopAllMedia = useCallback(() => {
+    isCallEndedRef.current = true;
+    mediaService.invalidateMediaSession();
+
     // 1. Screen sharing stream
     if (screenStreamRef.current) {
       mediaService.stopStream(screenStreamRef.current);
@@ -583,6 +598,9 @@ export function useCall(user: User | null, token: string | null) {
       mediaService.stopStream(localStreamRef.current);
       localStreamRef.current = null;
     }
+    if (localStream) {
+      mediaService.stopStream(localStream);
+    }
     setLocalStream(null);
 
     // 4. Attack simulation pipelines
@@ -594,10 +612,14 @@ export function useCall(user: User | null, token: string | null) {
       voicePipelineRef.current.stop();
       voicePipelineRef.current = null;
     }
+
+    // 5. Global kill-switch: guarantees all tracks and video elements are detached
+    mediaService.stopAllMedia();
   }, []);
 
   // End Call & Cleanup
   const endCall = useCallback(() => {
+    isCallEndedRef.current = true;
     if (roomId) {
       signalingService.leaveRoom(roomId);
     }
@@ -631,16 +653,16 @@ export function useCall(user: User | null, token: string | null) {
     setPeerInfo(null);
   }, [roomId, cleanupPeerConnection, stopAllMedia]);
 
-  // Clean up on component unmount
+  // Clean up on component unmount (ONLY runs once when component unmounts)
   useEffect(() => {
+    isMountedRef.current = true;
     return () => {
-      // 1. Screen sharing stream
+      isMountedRef.current = false;
+      isCallEndedRef.current = true;
       if (screenStreamRef.current) {
         mediaService.stopStream(screenStreamRef.current);
         screenStreamRef.current = null;
       }
-
-      // 2. Original individual tracks
       if (originalVideoTrackRef.current) {
         try {
           originalVideoTrackRef.current.enabled = false;
@@ -655,14 +677,10 @@ export function useCall(user: User | null, token: string | null) {
         } catch (e) {}
         originalAudioTrackRef.current = null;
       }
-
-      // 3. Local stream ref
       if (localStreamRef.current) {
         mediaService.stopStream(localStreamRef.current);
         localStreamRef.current = null;
       }
-
-      // 4. Attack simulation pipelines
       if (facePipelineRef.current) {
         facePipelineRef.current.stop();
         facePipelineRef.current = null;
@@ -671,11 +689,12 @@ export function useCall(user: User | null, token: string | null) {
         voicePipelineRef.current.stop();
         voicePipelineRef.current = null;
       }
-
       cleanupPeerConnection();
       signalingService.disconnect();
+      mediaService.stopAllMedia();
     };
-  }, [cleanupPeerConnection]);
+  }, []);
+
 
   return {
     roomId,

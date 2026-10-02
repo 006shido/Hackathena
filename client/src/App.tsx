@@ -5,6 +5,7 @@ import { LoginPage } from './pages/Login';
 import { UserDashboard } from './pages/UserDashboard';
 import { TesterDashboard } from './pages/TesterDashboard';
 import { CallPage } from './pages/Call';
+import { mediaService } from './services/media';
 import { Shield } from 'lucide-react';
 
 import { LoadingScreen } from './components/LoadingScreen';
@@ -46,12 +47,18 @@ export function App() {
   };
 
   const handleExitCall = () => {
+    mediaService.stopAllMedia();
     transitionView(() => {
       setActiveRoomId(null);
       const url = new URL(window.location.href);
       url.searchParams.delete('room');
       window.history.pushState({}, '', url.toString());
     });
+  };
+
+  const handleLogout = () => {
+    mediaService.stopAllMedia();
+    logout();
   };
 
   // Loading Screen
@@ -81,7 +88,7 @@ export function App() {
     return (
       <TesterDashboard
         user={user}
-        onLogout={logout}
+        onLogout={handleLogout}
         onStartCall={handleStartCall}
       />
     );
@@ -90,10 +97,11 @@ export function App() {
   return (
     <UserDashboard
       user={user}
-      onLogout={logout}
+      onLogout={handleLogout}
       onStartCall={handleStartCall}
     />
   );
 }
+
 
 export default App;

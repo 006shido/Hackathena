@@ -7,13 +7,56 @@ export interface MediaAccessResult {
   micDenied?: boolean;
 }
 
+// Global registry of all active media tracks and streams to guarantee zero hardware camera/mic leaks
+const activeTracks = new Set<MediaStreamTrack>();
+const activeStreams = new Set<MediaStream>();
+let mediaSessionToken = 0;
+
+function registerStream(stream: MediaStream | null): void {
+  if (!stream) return;
+  activeStreams.add(stream);
+  stream.getTracks().forEach((track) => {
+    activeTracks.add(track);
+    const onEnded = () => {
+      activeTracks.delete(track);
+      track.removeEventListener('ended', onEnded);
+    };
+    track.addEventListener('ended', onEnded);
+  });
+}
+
 export const mediaService = {
   /**
-   * Request user media with graceful fallback:
-   * 1. Try audio + video
-   * 2. If video fails (e.g. permission or no webcam), try audio-only
+   * Invalidate the current media acquisition session. Any in-flight getUserMedia
+   * calls will immediately terminate their tracks upon resolving, and all existing
+   * tracks will be stopped.
+   */
+  invalidateMediaSession(): void {
+    mediaSessionToken++;
+    this.stopAllMedia();
+  },
+
+  /**
+   * Request user media with graceful fallback and strict session lifecycle checks.
    */
   async getUserMedia(video = true, audio = true): Promise<MediaAccessResult> {
+    const currentToken = mediaSessionToken;
+
+    const checkCancelled = (stream: MediaStream | null): boolean => {
+      if (mediaSessionToken !== currentToken) {
+        if (stream) {
+          stream.getTracks().forEach((track) => {
+            try {
+              track.enabled = false;
+              track.stop();
+            } catch (e) {}
+          });
+        }
+        return true;
+      }
+      return false;
+    };
+
     // 1. Try high-definition video if video requested
     if (video) {
       try {
@@ -30,6 +73,11 @@ export const mediaService = {
           } : false,
         });
 
+        if (checkCancelled(stream)) {
+          return { stream: null, hasVideo: false, hasAudio: false };
+        }
+
+        registerStream(stream);
         return {
           stream,
           hasVideo: stream.getVideoTracks().length > 0,
@@ -49,6 +97,11 @@ export const mediaService = {
           } : false,
         });
 
+        if (checkCancelled(stream)) {
+          return { stream: null, hasVideo: false, hasAudio: false };
+        }
+
+        registerStream(stream);
         return {
           stream,
           hasVideo: stream.getVideoTracks().length > 0,
@@ -64,6 +117,10 @@ export const mediaService = {
         if (audio) {
           try {
             const videoOnlyStream = await navigator.mediaDevices.getUserMedia({ video: true });
+            if (checkCancelled(videoOnlyStream)) {
+              return { stream: null, hasVideo: false, hasAudio: false };
+            }
+            registerStream(videoOnlyStream);
             return {
               stream: videoOnlyStream,
               hasVideo: true,
@@ -78,6 +135,10 @@ export const mediaService = {
           // 4. If video is genuinely denied or unavailable, fallback to audio-only
           try {
             const audioOnlyStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            if (checkCancelled(audioOnlyStream)) {
+              return { stream: null, hasVideo: false, hasAudio: false };
+            }
+            registerStream(audioOnlyStream);
             return {
               stream: audioOnlyStream,
               hasVideo: false,
@@ -123,6 +184,10 @@ export const mediaService = {
             noiseSuppression: true,
           },
         });
+        if (checkCancelled(stream)) {
+          return { stream: null, hasVideo: false, hasAudio: false };
+        }
+        registerStream(stream);
         return {
           stream,
           hasVideo: false,
@@ -156,6 +221,7 @@ export const mediaService = {
         video: true,
         audio: true,
       });
+      registerStream(stream);
       return stream;
     } catch (err) {
       console.warn('Screen share cancelled or failed:', err);
@@ -172,6 +238,61 @@ export const mediaService = {
       } catch (err) {
         console.error('Error stopping track', err);
       }
+      activeTracks.delete(track);
     });
+    activeStreams.delete(stream);
+  },
+
+  /**
+   * Forcibly terminate and release ALL camera, screen, and audio hardware tracks
+   * across the entire application and flush all video element references.
+   */
+  stopAllMedia(): void {
+    // 1. Release video elements across DOM to unlock WebKit/Safari AVFoundation capture session
+    if (typeof document !== 'undefined') {
+      try {
+        const videoElements = document.querySelectorAll('video');
+        videoElements.forEach((vid) => {
+          try {
+            if (vid.srcObject instanceof MediaStream) {
+              vid.srcObject.getTracks().forEach((track) => {
+                try {
+                  track.enabled = false;
+                  track.stop();
+                } catch (e) {}
+              });
+            }
+            vid.pause();
+            vid.srcObject = null;
+            vid.load();
+          } catch (e) {}
+        });
+      } catch (e) {}
+    }
+
+    // 2. Stop all globally registered individual tracks
+    activeTracks.forEach((track) => {
+      try {
+        track.enabled = false;
+        track.stop();
+      } catch (err) {
+        console.error('[mediaService] Error stopping registered track:', err);
+      }
+    });
+    activeTracks.clear();
+
+    // 3. Stop all registered streams
+    activeStreams.forEach((stream) => {
+      try {
+        stream.getTracks().forEach((track) => {
+          try {
+            track.enabled = false;
+            track.stop();
+          } catch (e) {}
+        });
+      } catch (e) {}
+    });
+    activeStreams.clear();
   },
 };
+
