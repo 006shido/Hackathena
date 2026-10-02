@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { flushSync } from 'react-dom';
 import { useAuth } from './hooks/useAuth';
 import { LoginPage } from './pages/Login';
 import { UserDashboard } from './pages/UserDashboard';
@@ -21,19 +22,36 @@ export function App() {
     }
   }, []);
 
+  const transitionView = (callback: () => void) => {
+    const doc = document as unknown as { startViewTransition?: (cb: () => void) => void };
+    if (typeof doc.startViewTransition === 'function') {
+      doc.startViewTransition(() => {
+        flushSync(() => {
+          callback();
+        });
+      });
+    } else {
+      callback();
+    }
+  };
+
   const handleStartCall = (roomId: string) => {
-    setActiveRoomId(roomId);
-    // Update URL without page reload
-    const url = new URL(window.location.href);
-    url.searchParams.set('room', roomId);
-    window.history.pushState({}, '', url.toString());
+    transitionView(() => {
+      setActiveRoomId(roomId);
+      // Update URL without page reload
+      const url = new URL(window.location.href);
+      url.searchParams.set('room', roomId);
+      window.history.pushState({}, '', url.toString());
+    });
   };
 
   const handleExitCall = () => {
-    setActiveRoomId(null);
-    const url = new URL(window.location.href);
-    url.searchParams.delete('room');
-    window.history.pushState({}, '', url.toString());
+    transitionView(() => {
+      setActiveRoomId(null);
+      const url = new URL(window.location.href);
+      url.searchParams.delete('room');
+      window.history.pushState({}, '', url.toString());
+    });
   };
 
   // Loading Screen

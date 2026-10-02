@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LoginForm } from '../components/LoginForm';
 
 interface LoginPageProps {
-  onLogin: (username: string, password: string) => Promise<any>;
+  onLogin: (
+    username: string,
+    password: string,
+    onVerified?: () => Promise<void> | void
+  ) => Promise<any>;
   loading?: boolean;
   error?: string | null;
 }
@@ -12,8 +16,14 @@ export const LoginPage: React.FC<LoginPageProps> = ({
   loading,
   error,
 }) => {
+  const [isExiting, setIsExiting] = useState(false);
+
   return (
-    <div className="min-h-screen w-full flex bg-white text-slate-900 font-sans selection:bg-blue-100">
+    <div
+      className={`min-h-screen w-full flex bg-white text-slate-900 font-sans selection:bg-blue-100 transition-all duration-400 ease-out ${
+        isExiting ? 'opacity-0 scale-[0.985] filter blur-[1px] pointer-events-none' : 'opacity-100 scale-100'
+      }`}
+    >
       {/* Left Column: Top-Left Logo + Centered Form */}
       <div className="w-full lg:w-[48%] xl:w-[45%] min-h-screen flex flex-col justify-between p-6 sm:p-10 lg:p-12 z-10 bg-white">
         {/* Top-Left Logo */}
@@ -26,7 +36,12 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 
         {/* Centered Login Form */}
         <div className="my-auto w-full max-w-[390px] mx-auto py-8">
-          <LoginForm onLogin={onLogin} loading={loading} error={error} />
+          <LoginForm
+            onLogin={onLogin}
+            loading={loading}
+            error={error}
+            onExitingChange={setIsExiting}
+          />
         </div>
 
         {/* Bottom spacer for symmetrical balance */}

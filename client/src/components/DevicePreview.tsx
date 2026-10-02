@@ -53,34 +53,36 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
   const initials = username.split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2) || 'U';
 
   return (
-    <div className="flex flex-col items-center justify-center w-full max-w-xl mx-auto p-5 sm:p-8 bg-[#16181f] border border-white/10 rounded-3xl shadow-2xl text-slate-100">
+    <div className="flex flex-col items-center justify-center w-full max-w-xl mx-auto p-5 sm:p-8 bg-white border border-slate-200/80 rounded-3xl shadow-sm text-slate-900 font-sans">
       {/* Header */}
-      <div className="w-full flex items-center justify-between pb-4 border-b border-white/10 mb-5">
+      <div className="w-full flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
         <div>
-          <h2 className="text-lg font-bold text-white tracking-tight">Ready to join?</h2>
-          <p className="text-xs text-slate-400 mt-0.5">
-            Room: <span className="text-blue-400 font-mono font-medium">{roomId}</span>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Ready to join?</h2>
+          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+            Room: <span className="text-blue-600 font-mono font-semibold">{roomId}</span>
           </p>
         </div>
-        <div className="flex items-center gap-2 text-xs text-slate-300 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
-          <User className="h-3.5 w-3.5 text-slate-400" />
-          <span className="font-medium">{username}</span>
+        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/60 text-xs sm:text-sm font-medium text-slate-700 shadow-2xs">
+          <User className="h-3.5 w-3.5 text-slate-500 stroke-[2]" />
+          <span className="truncate max-w-[120px]">{username}</span>
           {role === 'tester' && (
-            <span className="text-[10px] text-blue-400 bg-blue-500/20 px-2 py-0.5 rounded-full font-semibold">Tester</span>
+            <span className="text-[10px] text-amber-700 bg-amber-50 border border-amber-200/60 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider ml-1">
+              Tester
+            </span>
           )}
         </div>
       </div>
 
       {/* Permission Warning */}
       {mediaError && (
-        <div className="w-full mb-4 flex items-center gap-2 p-3 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs sm:text-sm">
-          <AlertCircle className="h-4 w-4 shrink-0 text-red-400" />
+        <div className="w-full mb-4 flex items-center gap-2.5 p-3.5 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm animate-shake">
+          <AlertCircle className="h-4 w-4 shrink-0 text-red-600" />
           <span>{mediaError}</span>
         </div>
       )}
 
       {/* Camera Preview Tile */}
-      <div className="relative w-full aspect-video max-h-[360px] rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0f1115] border border-white/10 flex items-center justify-center shadow-inner">
+      <div className="relative w-full aspect-video max-h-[360px] rounded-2xl overflow-hidden bg-slate-950 border border-slate-200/80 flex items-center justify-center shadow-inner">
         <video
           ref={(el) => {
             videoRef.current = el;
@@ -117,14 +119,14 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
 
         {/* Status badges overlay */}
         <div className="absolute bottom-3 left-3 flex items-center gap-2">
-          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] backdrop-blur-md ${
+          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium backdrop-blur-md transition-colors ${
             isMicMuted ? 'bg-red-500 text-white' : 'bg-black/60 text-white'
           }`}>
             {isMicMuted ? <MicOff className="h-3 w-3" /> : <Mic className="h-3 w-3" />}
             <span>{isMicMuted ? 'Muted' : 'Mic on'}</span>
           </div>
 
-          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] backdrop-blur-md ${
+          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium backdrop-blur-md transition-colors ${
             isCameraOff ? 'bg-red-500 text-white' : 'bg-black/60 text-white'
           }`}>
             {isCameraOff ? <VideoOff className="h-3 w-3" /> : <Video className="h-3 w-3" />}
@@ -138,11 +140,12 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
         {/* Toggle Controls */}
         <div className="flex items-center gap-2 w-full sm:w-auto">
           <button
+            type="button"
             onClick={onToggleMic}
-            className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+            className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-2xs ${
               isMicMuted
-                ? 'bg-red-500 hover:bg-red-600 text-white'
-                : 'bg-white/10 hover:bg-white/15 text-slate-200'
+                ? 'bg-red-50 hover:bg-red-100 text-red-600 border border-red-200'
+                : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200/80 hover:border-slate-300'
             }`}
           >
             {isMicMuted ? <MicOff className="h-3.5 w-3.5" /> : <Mic className="h-3.5 w-3.5" />}
@@ -150,11 +153,12 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
           </button>
 
           <button
+            type="button"
             onClick={onToggleCamera}
-            className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+            className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-2xs ${
               isCameraOff
-                ? 'bg-red-500 hover:bg-red-600 text-white'
-                : 'bg-white/10 hover:bg-white/15 text-slate-200'
+                ? 'bg-red-50 hover:bg-red-100 text-red-600 border border-red-200'
+                : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200/80 hover:border-slate-300'
             }`}
           >
             {isCameraOff ? <VideoOff className="h-3.5 w-3.5" /> : <Video className="h-3.5 w-3.5" />}
@@ -165,18 +169,20 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
         {/* Action Buttons */}
         <div className="flex items-center gap-2.5 w-full sm:w-auto">
           <button
+            type="button"
             onClick={onCancel}
-            className="flex-1 sm:flex-none px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-semibold transition-colors cursor-pointer"
+            className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-600 border border-slate-200 text-xs sm:text-sm font-medium transition-colors cursor-pointer shadow-2xs"
           >
             Cancel
           </button>
 
           <button
+            type="button"
             onClick={onJoin}
-            className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-xs font-semibold shadow-md shadow-blue-500/25 transition-all cursor-pointer"
+            className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white text-xs sm:text-sm font-semibold shadow-xs transition-all cursor-pointer"
           >
             <span>Join now</span>
-            <ArrowRight className="h-3.5 w-3.5" />
+            <ArrowRight className="h-4 w-4" />
           </button>
         </div>
       </div>

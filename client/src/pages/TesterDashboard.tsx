@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Flame,
+  ShieldAlert,
   Video,
   LogOut,
   ArrowRight,
@@ -51,32 +51,35 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#f8fafc] text-slate-900 flex flex-col font-sans">
+    <div className="min-h-screen w-full bg-[#f8fafc] text-slate-900 flex flex-col font-sans animate-fade-in">
       {/* Top Bar */}
-      <header className="w-full border-b border-slate-200/80 bg-white sticky top-0 z-30">
-        <div className="max-w-5xl mx-auto px-3.5 sm:px-8 h-14 sm:h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 sm:gap-3">
-            <div className="h-8 w-8 sm:h-10 sm:w-10 shrink-0">
+      <header className="w-full border-b border-slate-200/80 bg-white sticky top-0 z-30 animate-slide-down">
+        <div className="max-w-5xl mx-auto px-4 sm:px-8 h-14 sm:h-16 flex items-center justify-between gap-3">
+          {/* Left Side: Brand Identity Only */}
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+            <div className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 flex items-center justify-center">
               <img src="/logo.svg" alt="DeepTrace Logo" className="h-full w-full" />
             </div>
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <span className="font-bold text-base sm:text-xl tracking-tight text-slate-900">DeepTrace</span>
-              <span className="px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200/60 uppercase">
-                Tester
-              </span>
-            </div>
+            <span className="font-bold text-base sm:text-xl tracking-tight text-slate-900 leading-none">
+              DeepTrace
+            </span>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-xs sm:text-sm font-medium text-slate-700">
-              <Shield className="h-3.5 w-3.5 text-blue-600 shrink-0" />
-              <span className="truncate max-w-[120px] sm:max-w-[160px]">{user.name}</span>
+          {/* Right Side: User Profile + Logout */}
+          <div className="flex items-center gap-2 sm:gap-3 ml-auto shrink-0">
+            {/* User Profile Tag */}
+            <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/60 text-xs sm:text-sm font-medium text-slate-700 shadow-2xs">
+              <Shield className="h-3.5 w-3.5 text-blue-600 shrink-0 stroke-[2]" />
+              <span className="truncate max-w-[100px] xs:max-w-[140px] sm:max-w-[180px] leading-none">
+                {user.name}
+              </span>
             </div>
 
+            {/* Logout Action */}
             <button
               onClick={onLogout}
               title="Logout"
-              className="p-2 rounded-full text-slate-400 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+              className="p-2 rounded-full text-slate-400 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer shrink-0"
             >
               <LogOut className="h-4 w-4" />
             </button>
@@ -85,7 +88,7 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
       </header>
 
       {/* Main Content Area */}
-      <main className="flex-1 max-w-3xl w-full mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col justify-center">
+      <main className="flex-1 max-w-3xl w-full mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col justify-center animate-fade-in-up">
         {/* Simple Heading */}
         <div className="text-center mb-10">
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-2">
@@ -99,10 +102,10 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
         {/* Action Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full">
           {/* Card 1: Launch Test Room */}
-          <div className="flex flex-col justify-between p-6 rounded-2xl bg-white border border-slate-200/80 shadow-2xs hover:border-slate-300 transition-all">
+          <div className="flex flex-col justify-between p-6 rounded-2xl bg-white border border-slate-200/80 shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all">
             <div>
-              <div className="h-10 w-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-4">
-                <Flame className="h-5 w-5 text-red-500" />
+              <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-rose-50 via-rose-100/60 to-orange-50 border border-rose-200/80 shadow-xs flex items-center justify-center mb-4 text-rose-600">
+                <ShieldAlert className="h-5 w-5 text-rose-600 stroke-[2]" />
               </div>
               <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-1">
                 Launch Test Room
@@ -122,10 +125,10 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
           </div>
 
           {/* Card 2: Join Meeting */}
-          <div className="flex flex-col justify-between p-6 rounded-2xl bg-white border border-slate-200/80 shadow-2xs hover:border-slate-300 transition-all">
+          <div className="flex flex-col justify-between p-6 rounded-2xl bg-white border border-slate-200/80 shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all">
             <div>
-              <div className="h-10 w-10 rounded-xl bg-slate-100 text-slate-600 flex items-center justify-center mb-4">
-                <Video className="h-5 w-5" />
+              <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100/90 border border-slate-200/80 shadow-xs flex items-center justify-center mb-4 text-slate-700">
+                <Video className="h-5 w-5 text-slate-700 stroke-[2]" />
               </div>
               <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-1">
                 Join Target Room

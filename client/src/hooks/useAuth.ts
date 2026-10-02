@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { flushSync } from 'react-dom';
 import { User, AuthState } from '../types/auth';
 import { authService } from '../services/auth';
 
@@ -47,32 +48,72 @@ export function useAuth() {
     };
   }, []);
 
-  const login = useCallback(async (username: string, password: string): Promise<User> => {
-    setError(null);
-    try {
-      const data = await authService.login(username, password);
-      setState({
-        user: data.user,
-        token: data.token,
-        isAuthenticated: true,
-        loading: false,
-      });
-      return data.user;
-    } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Login failed';
-      setError(message);
-      throw err;
-    }
-  }, []);
+  const login = useCallback(
+    async (
+      username: string,
+      password: string,
+      onVerified?: () => Promise<void> | void
+    ): Promise<User> => {
+      setError(null);
+      try {
+        const data = await authService.login(username, password);
+
+        // Allow UI to execute smooth verification feedback / exit choreography before committing
+        if (onVerified) {
+          await onVerified();
+        }
+
+        const commitState = () => {
+          setState({
+            user: data.user,
+            token: data.token,
+            isAuthenticated: true,
+            loading: false,
+          });
+        };
+
+        const doc = document as unknown as { startViewTransition?: (cb: () => void) => void };
+        if (typeof doc.startViewTransition === 'function') {
+          doc.startViewTransition(() => {
+            flushSync(() => {
+              commitState();
+            });
+          });
+        } else {
+          commitState();
+        }
+
+        return data.user;
+      } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : 'Login failed';
+        setError(message);
+        throw err;
+      }
+    },
+    []
+  );
 
   const logout = useCallback(() => {
-    authService.logout();
-    setState({
-      user: null,
-      token: null,
-      isAuthenticated: false,
-      loading: false,
-    });
+    const commitState = () => {
+      authService.logout();
+      setState({
+        user: null,
+        token: null,
+        isAuthenticated: false,
+        loading: false,
+      });
+    };
+
+    const doc = document as unknown as { startViewTransition?: (cb: () => void) => void };
+    if (typeof doc.startViewTransition === 'function') {
+      doc.startViewTransition(() => {
+        flushSync(() => {
+          commitState();
+        });
+      });
+    } else {
+      commitState();
+    }
   }, []);
 
   return {

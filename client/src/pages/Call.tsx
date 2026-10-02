@@ -105,7 +105,7 @@ export const CallPage: React.FC<CallPageProps> = ({
   // Device Preview Screen
   if (showDevicePreview) {
     return (
-      <div className="min-h-screen w-full bg-[#0f1115] flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      <div className="min-h-screen w-full bg-[#f8fafc] text-slate-900 flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-fade-in">
         <DevicePreview
           stream={localStream}
           isMicMuted={isMicMuted}
@@ -235,8 +235,8 @@ export const CallPage: React.FC<CallPageProps> = ({
                   {attackState.mode === 'combined'
                     ? 'Full Attack Active'
                     : attackState.mode === 'face'
-                    ? 'Face Swap Active'
-                    : 'Voice Transform Active'}
+                      ? 'Face Swap Active'
+                      : 'Voice Transform Active'}
                 </span>
               </div>
             )}
