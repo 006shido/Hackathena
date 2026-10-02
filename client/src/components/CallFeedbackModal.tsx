@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, CheckCircle2, Sparkles, ArrowRight, X } from 'lucide-react';
+import { Star, CheckCircle2, ArrowRight, X } from 'lucide-react';
 
 interface CallFeedbackModalProps {
   isOpen: boolean;
@@ -18,7 +18,7 @@ const RATING_LABELS: Record<number, { title: string; emoji: string }> = {
 
 export const CallFeedbackModal: React.FC<CallFeedbackModalProps> = ({
   isOpen,
-  roomId,
+  roomId: _roomId,
   onSubmit,
   onSkip,
 }) => {
@@ -63,10 +63,6 @@ export const CallFeedbackModal: React.FC<CallFeedbackModalProps> = ({
             {/* Header */}
             <div className="flex items-start justify-between mb-6">
               <div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 text-blue-600 text-xs font-semibold mb-2.5">
-                  <Sparkles className="h-3.5 w-3.5" />
-                  <span>Call Ended • Room {roomId}</span>
-                </div>
                 <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
                   How was your call?
                 </h3>
@@ -74,6 +70,7 @@ export const CallFeedbackModal: React.FC<CallFeedbackModalProps> = ({
                   Rate your overall call quality and experience.
                 </p>
               </div>
+
 
               <button
                 onClick={onSkip}
