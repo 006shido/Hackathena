@@ -9,55 +9,93 @@
   <!-- Replace content value with your actual verification code provided by Google Search Console -->
   <meta name="google-site-verification" content="VihAeevQSn-OUaE6jgcVSJS7jzGJZsp5AmMNuLTD4Js" />
 
-  <!-- Search Engine Robots Directive -->
+  <!-- Search Engine Robots & Crawlers Directive -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="slurp" content="index, follow" />
+  <meta name="revisit-after" content="1 days" />
+  <meta name="rating" content="General" />
+  <meta name="distribution" content="Global" />
+  <meta name="coverage" content="Worldwide" />
+  <meta name="target" content="all" />
+  <meta name="language" content="English" />
+  <meta http-equiv="content-language" content="en" />
 
-  <!-- Canonical URL (Replace domain with your production domain) -->
-  <link rel="canonical" href="https://deeptrace.example.com/" />
+  <!-- Canonical URL (CRITICAL: Must match your actual live site domain!) -->
+  <link rel="canonical" href="https://hackathena.onrender.com" />
 
   <!-- Primary Meta Tags -->
-  <title>DeepTrace — Secure Video Communication</title>
-  <meta name="title" content="DeepTrace — Secure Video Communication" />
+  <title>DeepTrace — Secure Video Communication & Real-Time Deepfake Defense</title>
+  <meta name="title" content="DeepTrace — Secure Video Communication & Real-Time Deepfake Defense" />
   <meta name="description"
-    content="Next-generation secure 1-to-1 video communication with real-time deepfake defense and controlled attack simulation." />
+    content="Next-generation secure 1-to-1 video communication with real-time deepfake defense and controlled attack simulation. Protect against synthetic voice and facial identity manipulation." />
   <meta name="keywords"
-    content="DeepTrace, WebRTC, deepfake detection, secure video calling, attack simulation, AI security, biometrics" />
+    content="DeepTrace, deeptrace video call, secure video calling, deepfake detection, real-time deepfake defense, AI video security, attack simulation, WebRTC video calling, biometrics verification, face swap detection, voice clone detection, deepfake shield, synthetic media detection, cybersecurity video conference" />
   <meta name="author" content="DeepTrace Team" />
+  <meta name="publisher" content="DeepTrace" />
+  <meta name="application-name" content="DeepTrace" />
   <meta name="theme-color" content="#2563eb" />
 
-  <!-- Open Graph / Facebook -->
+  <!-- Mobile & PWA Compatibility -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="DeepTrace" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://deeptrace.example.com/" />
   <meta property="og:site_name" content="DeepTrace" />
-  <meta property="og:title" content="DeepTrace — Secure Video Communication" />
+  <meta property="og:title" content="DeepTrace — Secure Video Communication & Real-Time Deepfake Defense" />
   <meta property="og:description"
     content="Next-generation secure 1-to-1 video communication with real-time deepfake defense and controlled attack simulation." />
   <meta property="og:image" content="/logo.svg" />
+  <meta property="og:image:alt" content="DeepTrace Secure Communication Platform" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://deeptrace.example.com/" />
-  <meta name="twitter:title" content="DeepTrace — Secure Video Communication" />
+  <meta name="twitter:title" content="DeepTrace — Secure Video Communication & Real-Time Deepfake Defense" />
   <meta name="twitter:description"
     content="Next-generation secure 1-to-1 video communication with real-time deepfake defense and controlled attack simulation." />
   <meta name="twitter:image" content="/logo.svg" />
 
-  <!-- Structured Data (JSON-LD) for Google Search Rich Results -->
+  <!-- Structured Data (JSON-LD) Graph for Google Search Rich Results -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "DeepTrace",
-    "url": "https://deeptrace.example.com/",
-    "description": "Next-generation secure 1-to-1 video communication with real-time deepfake defense and controlled attack simulation.",
-    "applicationCategory": "SecurityApplication",
-    "operatingSystem": "All modern browsers with WebRTC support",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://deeptrace.example.com/#website",
+        "url": "https://deeptrace.example.com/",
+        "name": "DeepTrace",
+        "alternateName": ["DeepTrace Security", "DeepTrace Video"],
+        "description": "Next-generation secure 1-to-1 video communication with real-time deepfake defense."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://deeptrace.example.com/#webapp",
+        "name": "DeepTrace",
+        "url": "https://deeptrace.example.com/",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "All modern browsers with WebRTC support",
+        "featureList": [
+          "Peer-to-peer encrypted WebRTC calling",
+          "Controlled deepfake attack simulation",
+          "Real-time face anomaly detection",
+          "Voice clone and vocoder defense"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
   }
   </script>
 
