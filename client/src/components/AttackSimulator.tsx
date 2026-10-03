@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   ShieldAlert,
   Flame,
@@ -8,8 +8,9 @@ import {
   Eye,
   Sliders,
   X,
+  Upload,
 } from 'lucide-react';
-import { AttackState } from '../types/attack';
+import { AttackState, FacePreset } from '../types/attack';
 
 interface AttackSimulatorProps {
   attackState: AttackState;
@@ -17,8 +18,9 @@ interface AttackSimulatorProps {
   onToggleVoiceTransform: () => void;
   onActivateCombined: () => void;
   onReset: () => void;
-  onSelectFacePreset: (preset: 'neural-clone' | 'biometric-mask' | 'synthetic-executive' | 'cyber-filter') => void;
+  onSelectFacePreset: (preset: FacePreset) => void;
   onSelectVoicePreset: (preset: 'robotic-vocoder' | 'deep-pitch-neural' | 'synthetic-clone') => void;
+  onUploadCustomFace?: (dataUrl: string) => void;
   onClose?: () => void;
 }
 
@@ -30,9 +32,24 @@ export const AttackSimulator: React.FC<AttackSimulatorProps> = ({
   onReset,
   onSelectFacePreset,
   onSelectVoicePreset,
+  onUploadCustomFace,
   onClose,
 }) => {
   const { faceSwap, voiceTransform, mode, facePreset, voicePreset } = attackState;
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file && onUploadCustomFace) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (typeof reader.result === 'string') {
+          onUploadCustomFace(reader.result);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div className="w-full lg:w-88 shrink-0 flex flex-col h-full bg-[#16181f] border-l border-white/10 p-4 overflow-y-auto shadow-2xl text-slate-100 font-sans">
@@ -109,30 +126,165 @@ export const AttackSimulator: React.FC<AttackSimulatorProps> = ({
           {faceSwap ? 'Disable Face Swap' : 'Enable Face Swap'}
         </button>
 
-        <div className="mt-3 space-y-1">
-          <label className="text-[10px] uppercase font-semibold text-slate-400 block mb-1">
-            Face Model & Filter:
-          </label>
-          {[
-            { id: 'neural-clone', label: 'Synthetic Persona (Delaunay)' },
-            { id: 'synthetic-executive', label: 'Corporate Executive (Affine)' },
-            { id: 'biometric-mask', label: 'Biometric Mesh (468-pt)' },
-            { id: 'cyber-filter', label: 'Cyber Augmented Filter' },
-          ].map((p) => (
+        <div className="mt-3.5 space-y-2">
+          <div className="flex items-center justify-between">
+            <label className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+              Human Face Swap Personas:
+            </label>
+            <span className="text-[10px] text-blue-400 font-medium">Original Human 3D</span>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              {
+                id: 'mona-lisa',
+                name: 'Emma',
+                tag: 'Studio Headshot',
+                image: '/mona_lisa.jpg',
+              },
+              {
+                id: 'cyber-agent',
+                name: 'Alex',
+                tag: 'Clean Headshot',
+                image: '/cyber_agent.jpg',
+              },
+              {
+                id: 'astronaut',
+                name: 'Sophia',
+                tag: 'Natural Portrait',
+                image: '/astronaut.jpg',
+              },
+              {
+                id: 'neural-clone',
+                name: 'Marcus',
+                tag: 'Confident Portrait',
+                image: '/synthetic_face_avatar.jpg',
+              },
+              {
+                id: 'synthetic-executive',
+                name: 'David',
+                tag: 'Corporate Exec',
+                image: '/synthetic_executive.jpg',
+              },
+              {
+                id: 'custom-upload',
+                name: 'Custom Photo',
+                tag: 'Your Upload',
+                image: null,
+              },
+            ].map((p) => {
+              const isSelected = facePreset === p.id;
+              return (
+                <button
+                  key={p.id}
+                  type="button"
+                  onClick={() => {
+                    onSelectFacePreset(p.id as FacePreset);
+                    if (!faceSwap) {
+                      onToggleFaceSwap();
+                    }
+                  }}
+                  className={`group relative flex flex-col items-center p-2 rounded-xl text-left transition-all cursor-pointer border ${
+                    isSelected
+                      ? 'bg-blue-600/20 border-blue-500 shadow-lg shadow-blue-500/20'
+                      : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
+                  }`}
+                >
+                  <div className="relative w-14 h-14 rounded-full overflow-hidden bg-slate-800 border-2 mb-1.5 transition-transform group-hover:scale-105 shrink-0 flex items-center justify-center">
+                    {p.image ? (
+                      <img
+                        src={p.image}
+                        alt={p.name}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-tr from-purple-900/60 to-blue-900/60 text-slate-300">
+                        <Upload className="h-5 w-5 text-blue-400" />
+                      </div>
+                    )}
+                    {isSelected && (
+                      <div className="absolute inset-0 bg-blue-600/20 flex items-center justify-center">
+                        <span className="h-2.5 w-2.5 rounded-full bg-blue-400 shadow-sm shadow-blue-300 animate-pulse" />
+                      </div>
+                    )}
+                  </div>
+
+                  <span
+                    className={`text-xs font-semibold truncate w-full text-center ${
+                      isSelected ? 'text-blue-400' : 'text-slate-200'
+                    }`}
+                  >
+                    {p.name}
+                  </span>
+                  <span className="text-[9px] text-slate-400 truncate w-full text-center">
+                    {p.tag}
+                  </span>
+
+                  {isSelected && (
+                    <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-blue-500 shadow-[0_0_8px_#3b82f6]" />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Custom Face Photo Upload Button */}
+          <div className="pt-1.5">
+            <input
+              type="file"
+              ref={fileInputRef}
+              accept="image/*"
+              className="hidden"
+              onChange={handleFileUpload}
+            />
             <button
-              key={p.id}
-              onClick={() => onSelectFacePreset(p.id as any)}
-              className={`w-full py-1.5 px-2.5 rounded-lg text-left text-xs transition-colors cursor-pointer ${
-                facePreset === p.id
-                  ? 'bg-blue-600/20 text-blue-400 font-semibold border border-blue-500/30'
-                  : 'text-slate-400 hover:bg-white/5 hover:text-slate-200'
-              }`}
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              className="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-white/10 border border-dashed border-white/20 text-xs font-medium text-slate-300 flex items-center justify-center gap-2 transition-all cursor-pointer hover:border-blue-400"
             >
-              {p.label}
+              <Upload className="h-3.5 w-3.5 text-blue-400" />
+              <span>Upload Custom Face Image</span>
             </button>
-          ))}
+          </div>
+
+          {/* Geometric & Biometric Filters */}
+          <div className="pt-2">
+            <label className="text-[10px] uppercase font-bold text-slate-400 tracking-wider block mb-1.5">
+              Geometric & FX Filters:
+            </label>
+            <div className="space-y-1">
+              {[
+                { id: 'biometric-mask', label: 'Biometric Mesh (468-pt Wireframe)', desc: 'Real-time Delaunay geometry' },
+                { id: 'cyber-filter', label: 'Cyber Augmented Visor', desc: 'HUD targeting reticle overlay' },
+              ].map((p) => {
+                const isSelected = facePreset === p.id;
+                return (
+                  <button
+                    key={p.id}
+                    type="button"
+                    onClick={() => {
+                      onSelectFacePreset(p.id as FacePreset);
+                      if (!faceSwap) {
+                        onToggleFaceSwap();
+                      }
+                    }}
+                    className={`w-full py-1.5 px-2.5 rounded-lg text-left text-xs transition-colors cursor-pointer flex items-center justify-between ${
+                      isSelected
+                        ? 'bg-blue-600/20 text-blue-400 font-semibold border border-blue-500/30'
+                        : 'text-slate-400 hover:bg-white/5 hover:text-slate-200'
+                    }`}
+                  >
+                    <span>{p.label}</span>
+                    {isSelected && <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
+
 
       {/* Voice Simulation */}
       <div className="mt-3 p-3.5 rounded-2xl bg-white/5 border border-white/10">

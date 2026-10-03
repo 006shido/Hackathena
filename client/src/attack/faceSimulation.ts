@@ -11,7 +11,8 @@
  * - 60 FPS requestAnimationFrame rendering loop with landmark smoothing
  */
 
-export type FacePreset = 'neural-clone' | 'biometric-mask' | 'synthetic-executive' | 'cyber-filter';
+import { FacePreset } from '../types/attack';
+export type { FacePreset };
 
 export interface LandmarkPoint {
   x: number;
@@ -103,19 +104,33 @@ export class FaceSimulationPipeline {
   }
 
   private preloadAvatars() {
-    const avatar1 = new Image();
-    avatar1.src = '/synthetic_face_avatar.jpg';
-    avatar1.crossOrigin = 'anonymous';
-    avatar1.onload = () => {
-      this.avatarImages.set('neural-clone', avatar1);
-      this.avatarImages.set('cyber-filter', avatar1);
+    const loadImg = (key: FacePreset, src: string) => {
+      const img = new Image();
+      img.src = src;
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        this.avatarImages.set(key, img);
+      };
+      return img;
     };
 
-    const avatar2 = new Image();
-    avatar2.src = '/synthetic_executive.jpg';
-    avatar2.crossOrigin = 'anonymous';
-    avatar2.onload = () => {
-      this.avatarImages.set('synthetic-executive', avatar2);
+    const avatarNeural = loadImg('neural-clone', '/synthetic_face_avatar.jpg');
+    this.avatarImages.set('cyber-filter', avatarNeural);
+
+    loadImg('synthetic-executive', '/synthetic_executive.jpg');
+    loadImg('mona-lisa', '/mona_lisa.jpg');
+    loadImg('cyber-agent', '/cyber_agent.jpg');
+    loadImg('astronaut', '/astronaut.jpg');
+  }
+
+  public setCustomAvatar(dataUrl: string): void {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.src = dataUrl;
+    img.onload = () => {
+      this.avatarImages.set('custom-upload', img);
+      this.preset = 'custom-upload';
+      console.log('[FaceSimulationPipeline] Custom avatar image loaded.');
     };
   }
 
@@ -318,20 +333,22 @@ export class FaceSimulationPipeline {
       case 'biometric-mask':
         this.drawDelaunayWireframe(landmarks);
         this.drawBiometricTelemetry(landmarks, centerX, centerY, faceWidth, faceHeight);
+        this.drawSecurityHud(centerX, centerY, faceWidth, faceHeight);
         break;
 
       case 'neural-clone':
       case 'synthetic-executive':
-        this.drawAffineFaceWarp(landmarks, centerX, centerY, faceWidth, faceHeight);
+      case 'mona-lisa':
+      case 'cyber-agent':
+      case 'astronaut':
+      case 'custom-upload':
+        this.drawFullFaceSwap(landmarks, centerX, centerY, faceWidth, faceHeight, width, height);
         break;
 
       case 'cyber-filter':
         this.drawCyberFilter(landmarks, centerX, centerY, faceWidth, faceHeight);
         break;
     }
-
-    // Tester Testing HUD Overlay
-    this.drawSecurityHud(centerX, centerY, faceWidth, faceHeight);
 
     this.ctx.restore();
   }
@@ -377,73 +394,172 @@ export class FaceSimulationPipeline {
   }
 
   /**
-   * Real-time Affine Face Warping onto Live Landmarks
-   * Uses Delaunay triangulation alignment to map avatar texture onto user's facial geometry.
+   * Real-time Complete Full Face Swap Engine
+   * Seamlessly maps, aligns, and composites target persona over live facial geometry.
+   * Features:
+   * - Eye-anchor affine alignment: Matches scale, angle, and position precisely to user's pupils
+   * - Face oval contour clipping: Wraps strictly along the natural face boundary
+   * - Preserves user's real ears, hair, neck, and clothing without artificial backgrounds
+   * - Expressive live mouth passthrough: Shows teeth/tongue dynamically when user speaks
    */
-  private drawAffineFaceWarp(
+  private drawFullFaceSwap(
     landmarks: LandmarkPoint[],
     cx: number,
     cy: number,
-    fw: number,
-    fh: number
+    _fw: number,
+    _fh: number,
+    width: number,
+    height: number
   ) {
-    const currentImg = this.preset === 'synthetic-executive'
-      ? this.avatarImages.get('synthetic-executive')
-      : this.avatarImages.get('neural-clone');
+    let currentImg = this.avatarImages.get(this.preset);
+    if (!currentImg) {
+      const srcMap: Record<string, string> = {
+        'mona-lisa': '/mona_lisa.jpg',
+        'cyber-agent': '/cyber_agent.jpg',
+        'astronaut': '/astronaut.jpg',
+        'synthetic-executive': '/synthetic_executive.jpg',
+        'neural-clone': '/synthetic_face_avatar.jpg',
+      };
+      if (srcMap[this.preset]) {
+        const img = new Image();
+        img.src = srcMap[this.preset];
+        img.crossOrigin = 'anonymous';
+        img.onload = () => {
+          this.avatarImages.set(this.preset, img);
+        };
+        this.avatarImages.set(this.preset, img);
+        currentImg = img;
+      } else {
+        currentImg = this.avatarImages.get('neural-clone');
+      }
+    }
 
     if (currentImg && currentImg.complete && currentImg.naturalWidth > 0) {
-      this.ctx.save();
+      // 1. Calculate live user eye centers from MediaPipe landmarks
+      // Left eye corner landmarks: 33 (outer), 133 (inner)
+      // Right eye corner landmarks: 263 (outer), 362 (inner)
+      const uLeftX = (landmarks[33].x + landmarks[133].x) / 2;
+      const uLeftY = (landmarks[33].y + landmarks[133].y) / 2;
+      const uRightX = (landmarks[263].x + landmarks[362].x) / 2;
+      const uRightY = (landmarks[263].y + landmarks[362].y) / 2;
 
-      // Create facial contour clipping path following the 36 face oval points
+      const userEyeMidX = (uLeftX + uRightX) / 2;
+      const userEyeMidY = (uLeftY + uRightY) / 2;
+      const userEyeDist = Math.hypot(uRightX - uLeftX, uRightY - uLeftY);
+      const userEyeAngle = Math.atan2(uRightY - uLeftY, uRightX - uLeftX);
+
+      // 2. Fetch target avatar normalized eye anchors
+      const PRESET_ANCHORS: Record<string, { eyeMidX: number; eyeMidY: number; eyeDist: number }> = {
+        'mona-lisa': { eyeMidX: 0.503, eyeMidY: 0.373, eyeDist: 0.169 },
+        'cyber-agent': { eyeMidX: 0.505, eyeMidY: 0.367, eyeDist: 0.152 },
+        'astronaut': { eyeMidX: 0.490, eyeMidY: 0.403, eyeDist: 0.187 },
+        'synthetic-executive': { eyeMidX: 0.508, eyeMidY: 0.350, eyeDist: 0.156 },
+        'neural-clone': { eyeMidX: 0.498, eyeMidY: 0.407, eyeDist: 0.184 },
+        'custom-upload': { eyeMidX: 0.500, eyeMidY: 0.380, eyeDist: 0.165 },
+      };
+
+      const anchor = PRESET_ANCHORS[this.preset] || PRESET_ANCHORS['neural-clone'];
+      const avatarNaturalW = currentImg.naturalWidth;
+      const avatarNaturalH = currentImg.naturalHeight;
+
+      const avatarEyeMidX = anchor.eyeMidX * avatarNaturalW;
+      const avatarEyeMidY = anchor.eyeMidY * avatarNaturalH;
+      const avatarEyeDist = anchor.eyeDist * avatarNaturalW;
+
+      // Exact scale ratio matching user eye width to target eye width
+      const scale = userEyeDist / (avatarEyeDist || 1);
+
+      // 3. User face perimeter contour from canonical MediaPipe face oval landmarks
       const faceOvalIndices = [
         10, 338, 297, 332, 284, 251, 389, 356, 454, 323, 361, 288, 397, 365,
         379, 378, 400, 377, 152, 148, 176, 149, 150, 136, 172, 58, 132, 93,
         234, 127, 162, 21, 54, 103, 67, 109
       ];
 
-      this.ctx.beginPath();
-      const firstPt = landmarks[faceOvalIndices[0]];
-      this.ctx.moveTo(firstPt.x, firstPt.y);
+      // Subtle outward margin (1.03) to ensure complete face coverage while preserving hair/ears/neck
+      const ovalPoints = faceOvalIndices.map((idx) => {
+        const pt = landmarks[idx];
+        if (!pt) return { x: cx, y: cy };
+        const dx = pt.x - cx;
+        const dy = pt.y - cy;
+        return {
+          x: cx + dx * 1.03,
+          y: cy + dy * 1.03,
+        };
+      });
 
-      for (let i = 1; i < faceOvalIndices.length; i++) {
-        const pt = landmarks[faceOvalIndices[i]];
-        if (pt) this.ctx.lineTo(pt.x, pt.y);
+      this.ctx.save();
+
+      // Smooth spline contour clipping
+      this.ctx.beginPath();
+      const nPts = ovalPoints.length;
+      const startX = (ovalPoints[nPts - 1].x + ovalPoints[0].x) / 2;
+      const startY = (ovalPoints[nPts - 1].y + ovalPoints[0].y) / 2;
+      this.ctx.moveTo(startX, startY);
+
+      for (let i = 0; i < nPts; i++) {
+        const curr = ovalPoints[i];
+        const next = ovalPoints[(i + 1) % nPts];
+        const midX = (curr.x + next.x) / 2;
+        const midY = (curr.y + next.y) / 2;
+        this.ctx.quadraticCurveTo(curr.x, curr.y, midX, midY);
       }
       this.ctx.closePath();
       this.ctx.clip();
 
-      // Calculate head rotation & tilt from eyes and nose
-      const leftEye = landmarks[33];
-      const rightEye = landmarks[263];
-      const angle = Math.atan2(rightEye.y - leftEye.y, rightEye.x - leftEye.x);
-
-      // Render transformed synthetic persona texture aligned with live face
-      this.ctx.translate(cx, cy);
-      this.ctx.rotate(angle);
-      this.ctx.globalAlpha = 0.94;
-      this.ctx.drawImage(currentImg, -fw / 2, -fh / 2, fw, fh);
-
-      // Neural synthesis scanline effect
-      if (this.frameCount % 8 === 0) {
-        this.ctx.fillStyle = 'rgba(138, 180, 248, 0.04)';
-        this.ctx.fillRect(-fw / 2, -fh / 2, fw, fh);
-      }
-
+      // 4. Draw avatar texture anchored directly at eye position & angle
+      this.ctx.save();
+      this.ctx.translate(userEyeMidX, userEyeMidY);
+      this.ctx.rotate(userEyeAngle);
+      this.ctx.scale(scale, scale);
+      this.ctx.drawImage(currentImg, -avatarEyeMidX, -avatarEyeMidY);
       this.ctx.restore();
 
-      // Soft edge feathering mask along face boundary
-      const featherGrad = this.ctx.createRadialGradient(
-        cx, cy, fw * 0.35,
-        cx, cy, fw * 0.52
-      );
-      featherGrad.addColorStop(0, 'rgba(0,0,0,0)');
-      featherGrad.addColorStop(1, 'rgba(32, 33, 36, 0.35)');
-      this.ctx.fillStyle = featherGrad;
+      // 5. Live Expressive Mouth Passthrough (When user talks / opens mouth)
+      const upperLip = landmarks[13];
+      const lowerLip = landmarks[14];
+      const mouthGap = (upperLip && lowerLip) ? Math.hypot(lowerLip.x - upperLip.x, lowerLip.y - upperLip.y) : 0;
+      if (mouthGap > 5) {
+        const innerLipIndices = [
+          78, 191, 80, 81, 82, 13, 312, 311, 310, 415, 308, 324, 318, 402, 317, 14, 87, 178, 88, 95
+        ];
+        this.ctx.save();
+        this.ctx.beginPath();
+        const firstLip = landmarks[innerLipIndices[0]];
+        if (firstLip) {
+          this.ctx.moveTo(firstLip.x, firstLip.y);
+          for (let i = 1; i < innerLipIndices.length; i++) {
+            const lp = landmarks[innerLipIndices[i]];
+            if (lp) this.ctx.lineTo(lp.x, lp.y);
+          }
+          this.ctx.closePath();
+          this.ctx.clip();
+          this.ctx.drawImage(this.videoEl, 0, 0, width, height);
+        }
+        this.ctx.restore();
+      }
+
+      this.ctx.restore(); // Exits face oval clip
+
+      // 6. Feathered edge blend around perimeter to eliminate harsh borders
+      this.ctx.save();
       this.ctx.beginPath();
-      this.ctx.ellipse(cx, cy, fw * 0.52, fh * 0.55, angle, 0, Math.PI * 2);
-      this.ctx.fill();
+      this.ctx.moveTo(startX, startY);
+      for (let i = 0; i < nPts; i++) {
+        const curr = ovalPoints[i];
+        const next = ovalPoints[(i + 1) % nPts];
+        const midX = (curr.x + next.x) / 2;
+        const midY = (curr.y + next.y) / 2;
+        this.ctx.quadraticCurveTo(curr.x, curr.y, midX, midY);
+      }
+      this.ctx.closePath();
+      this.ctx.lineWidth = 3;
+      this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+      this.ctx.stroke();
+      this.ctx.restore();
     }
   }
+
 
   /**
    * Snapchat-style Cybernetic Augmented Visual Filter

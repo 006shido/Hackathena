@@ -46,6 +46,7 @@ export function useCall(user: User | null, token: string | null) {
 
   // Pipelines
   const facePipelineRef = useRef<FaceSimulationPipeline | null>(null);
+  const facePresetRef = useRef<FacePreset>('neural-clone');
   const voicePipelineRef = useRef<VoiceTransformationPipeline | null>(null);
 
   // Keep references to original tracks & stream
@@ -380,7 +381,8 @@ export function useCall(user: User | null, token: string | null) {
         facePipelineRef.current = new FaceSimulationPipeline();
       }
 
-      const syntheticTrack = facePipelineRef.current.start(currentVideoTrack, attackState.facePreset as FacePreset);
+      const currentPreset = facePresetRef.current;
+      const syntheticTrack = facePipelineRef.current.start(currentVideoTrack, currentPreset);
       await replaceVideoTrack(syntheticTrack);
 
       if (localStreamRef.current) {
@@ -491,7 +493,8 @@ export function useCall(user: User | null, token: string | null) {
       if (!facePipelineRef.current) {
         facePipelineRef.current = new FaceSimulationPipeline();
       }
-      const syntheticTrack = facePipelineRef.current.start(currentVideoTrack, attackState.facePreset as FacePreset);
+      const currentPreset = facePresetRef.current;
+      const syntheticTrack = facePipelineRef.current.start(currentVideoTrack, currentPreset);
       await replaceVideoTrack(syntheticTrack);
       if (localStreamRef.current) {
         const audioTracks = localStreamRef.current.getAudioTracks();
@@ -517,7 +520,7 @@ export function useCall(user: User | null, token: string | null) {
     }));
 
     signalingService.sendAttackUpdate(roomId, true, true, 'combined');
-  }, [isTester, attackState.facePreset, attackState.voicePreset, roomId, replaceVideoTrack, replaceAudioTrack]);
+  }, [isTester, attackState.voicePreset, roomId, replaceVideoTrack, replaceAudioTrack]);
 
   const resetAttack = useCallback(async () => {
     if (!isTester) return;
@@ -553,11 +556,19 @@ export function useCall(user: User | null, token: string | null) {
   }, [isTester, roomId, replaceVideoTrack, replaceAudioTrack]);
 
   const setFacePreset = useCallback((preset: FacePreset) => {
+    facePresetRef.current = preset;
     setAttackState((prev) => ({ ...prev, facePreset: preset }));
-    if (facePipelineRef.current && attackState.faceSwap) {
+    if (facePipelineRef.current) {
       facePipelineRef.current.setPreset(preset);
     }
-  }, [attackState.faceSwap]);
+  }, []);
+
+  const setCustomFace = useCallback((dataUrl: string) => {
+    setAttackState((prev) => ({ ...prev, facePreset: 'custom-upload' }));
+    if (facePipelineRef.current) {
+      facePipelineRef.current.setCustomAvatar(dataUrl);
+    }
+  }, []);
 
   const setVoicePreset = useCallback((preset: 'robotic-vocoder' | 'deep-pitch-neural' | 'synthetic-clone') => {
     setAttackState((prev) => ({ ...prev, voicePreset: preset }));
@@ -722,8 +733,10 @@ export function useCall(user: User | null, token: string | null) {
     activateCombinedAttack,
     resetAttack,
     setFacePreset,
+    setCustomFace,
     setVoicePreset,
     endCall,
     clearError: () => setErrorMessage(null),
   };
 }
+

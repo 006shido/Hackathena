@@ -57,6 +57,7 @@ export const CallPage: React.FC<CallPageProps> = ({
     activateCombinedAttack,
     resetAttack,
     setFacePreset,
+    setCustomFace,
     setVoicePreset,
     endCall,
   } = useCall(user, token);
@@ -344,6 +345,7 @@ export const CallPage: React.FC<CallPageProps> = ({
               onReset={resetAttack}
               onSelectFacePreset={setFacePreset}
               onSelectVoicePreset={setVoicePreset}
+              onUploadCustomFace={setCustomFace}
               onClose={() => setIsAttackDrawerOpen(false)}
             />
           )}
@@ -380,6 +382,7 @@ export const CallPage: React.FC<CallPageProps> = ({
               onReset={resetAttack}
               onSelectFacePreset={setFacePreset}
               onSelectVoicePreset={setVoicePreset}
+              onUploadCustomFace={setCustomFace}
               onClose={() => setIsAttackDrawerOpen(false)}
             />
           </div>
