@@ -187,8 +187,28 @@ async function runTests() {
   userSocket.disconnect();
   thirdSocket.disconnect();
 
+  // 12. Server-side Face Swap Access Endpoint Authorization Check
+  console.log('\n[Test 12] Verifying /api/tester/verify-face-swap-access security enforcement...');
+  const testerFaceSwapRes = await fetch(`${API_URL}/api/tester/verify-face-swap-access`, {
+    headers: { Authorization: `Bearer ${testerAuth.token}` },
+  });
+  const testerFaceSwapData = await testerFaceSwapRes.json();
+  if (!testerFaceSwapRes.ok || !testerFaceSwapData.authorized) {
+    throw new Error('Tester was unexpectedly denied face swap access');
+  }
+  console.log('✓ Tester authorized for Face Swap:', testerFaceSwapData.features);
+
+  const userFaceSwapRes = await fetch(`${API_URL}/api/tester/verify-face-swap-access`, {
+    headers: { Authorization: `Bearer ${userAuth.token}` },
+  });
+  if (userFaceSwapRes.status !== 403) {
+    throw new Error('Non-tester user was NOT denied face swap access (expected 403, got ' + userFaceSwapRes.status + ')');
+  }
+  const userFaceSwapData = await userFaceSwapRes.json();
+  console.log('✓ Normal User correctly blocked with 403 Forbidden:', userFaceSwapData.error);
+
   console.log('\n==========================================');
-  console.log('ALL 11 INTEGRATION & SECURITY TESTS PASSED!');
+  console.log('ALL 12 INTEGRATION & SECURITY TESTS PASSED!');
   console.log('==========================================\n');
 }
 

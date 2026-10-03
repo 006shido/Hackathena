@@ -1,19 +1,20 @@
 import React from 'react';
-import { Mic, MicOff, Video, VideoOff, ScreenShare, PhoneOff, ShieldAlert, Activity } from 'lucide-react';
+import { Mic, MicOff, Video, VideoOff, ScreenShare, PhoneOff, ShieldAlert, Activity, Sparkles } from 'lucide-react';
 
 interface CallControlsProps {
   isMicMuted: boolean;
   isCameraOff: boolean;
   isScreenSharing: boolean;
   isTester: boolean;
-  isAttackDrawerOpen: boolean;
+  isTesterDrawerOpen: boolean;
   isSecurityPanelOpen?: boolean;
   attackMode: string;
+  faceSwapActive?: boolean;
   onToggleMic: () => void;
   onToggleCamera: () => void;
   onToggleScreenShare: () => void;
   onEndCall: () => void;
-  onToggleAttackDrawer?: () => void;
+  onToggleTesterDrawer?: () => void;
   onToggleSecurityPanel?: () => void;
 }
 
@@ -22,14 +23,15 @@ export const CallControls: React.FC<CallControlsProps> = ({
   isCameraOff,
   isScreenSharing,
   isTester,
-  isAttackDrawerOpen,
+  isTesterDrawerOpen,
   isSecurityPanelOpen,
   attackMode,
+  faceSwapActive,
   onToggleMic,
   onToggleCamera,
   onToggleScreenShare,
   onEndCall,
-  onToggleAttackDrawer,
+  onToggleTesterDrawer,
   onToggleSecurityPanel,
 }) => {
   const isAttackActive = attackMode !== 'none';
@@ -90,21 +92,21 @@ export const CallControls: React.FC<CallControlsProps> = ({
         </button>
       )}
 
-      {/* Tester: Attack Simulator */}
-      {isTester && onToggleAttackDrawer && (
+      {/* Tester: Integrated AI Face Swap & Attack Simulation Button (Single Button) */}
+      {isTester && onToggleTesterDrawer && (
         <button
-          onClick={onToggleAttackDrawer}
-          title="Attack Simulator"
+          onClick={onToggleTesterDrawer}
+          title="AI Face Swap & Attack Simulator (Tester Only)"
           className={`flex h-11 w-11 items-center justify-center rounded-full transition-all shrink-0 cursor-pointer relative ${
-            isAttackActive
+            isAttackActive || faceSwapActive
               ? 'bg-red-500 text-white shadow-md shadow-red-500/30'
-              : isAttackDrawerOpen
+              : isTesterDrawerOpen
               ? 'bg-blue-600 text-white'
               : 'bg-white/10 hover:bg-white/20 text-white'
           }`}
         >
           <ShieldAlert className="h-5 w-5" />
-          {isAttackActive && (
+          {(isAttackActive || faceSwapActive) && (
             <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-white animate-ping" />
           )}
         </button>

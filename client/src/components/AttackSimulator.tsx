@@ -21,6 +21,7 @@ interface AttackSimulatorProps {
   onSelectFacePreset: (preset: FacePreset) => void;
   onSelectVoicePreset: (preset: 'robotic-vocoder' | 'deep-pitch-neural' | 'synthetic-clone') => void;
   onUploadCustomFace?: (dataUrl: string) => void;
+  onUploadGalleryFile?: (file: File) => Promise<any>;
   onClose?: () => void;
 }
 
@@ -33,6 +34,7 @@ export const AttackSimulator: React.FC<AttackSimulatorProps> = ({
   onSelectFacePreset,
   onSelectVoicePreset,
   onUploadCustomFace,
+  onUploadGalleryFile,
   onClose,
 }) => {
   const { faceSwap, voiceTransform, mode, facePreset, voicePreset } = attackState;
@@ -40,14 +42,18 @@ export const AttackSimulator: React.FC<AttackSimulatorProps> = ({
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file && onUploadCustomFace) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (typeof reader.result === 'string') {
-          onUploadCustomFace(reader.result);
-        }
-      };
-      reader.readAsDataURL(file);
+    if (file) {
+      if (onUploadGalleryFile) {
+        onUploadGalleryFile(file);
+      } else if (onUploadCustomFace) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          if (typeof reader.result === 'string') {
+            onUploadCustomFace(reader.result);
+          }
+        };
+        reader.readAsDataURL(file);
+      }
     }
   };
 

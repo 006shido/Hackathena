@@ -5,7 +5,12 @@ import { AttackMode, AttackState } from '../types/attack';
 import { signalingService } from '../services/signaling';
 import { mediaService, MediaAccessResult } from '../services/media';
 import { useWebRTC } from './useWebRTC';
-import { FaceSimulationPipeline, FacePreset } from '../attack/faceSimulation';
+import {
+  FaceSimulationPipeline,
+  FacePreset,
+  GalleryFaceValidationResult,
+  FaceSwapTelemetry,
+} from '../attack/faceSimulation';
 import { VoiceTransformationPipeline, VoicePreset } from '../attack/voiceTransformation';
 
 export function useCall(user: User | null, token: string | null) {
@@ -21,7 +26,7 @@ export function useCall(user: User | null, token: string | null) {
   const [isScreenSharing, setIsScreenSharing] = useState<boolean>(false);
   const [mediaError, setMediaError] = useState<string | null>(null);
 
-  // Attack simulator state (strictly initialized & managed for tester role)
+  // Attack simulator & AI Face Swap state (strictly initialized & managed for tester role)
   const isTester = user?.role === 'tester';
   const [attackState, setAttackState] = useState<AttackState>({
     faceSwap: false,
@@ -30,6 +35,10 @@ export function useCall(user: User | null, token: string | null) {
     facePreset: 'neural-clone',
     voicePreset: 'robotic-vocoder',
   });
+
+  const [selectedFacePreview, setSelectedFacePreview] = useState<string | null>('/synthetic_face_avatar.jpg');
+  const [selectedFaceName, setSelectedFaceName] = useState<string>('Marcus (Neural Clone)');
+  const [faceSwapTelemetry, setFaceSwapTelemetry] = useState<FaceSwapTelemetry | undefined>(undefined);
 
   // Peer's attack simulation state (received by DeepTrace monitoring placeholder)
   const [peerAttackState, setPeerAttackState] = useState<{
@@ -48,6 +57,7 @@ export function useCall(user: User | null, token: string | null) {
   const facePipelineRef = useRef<FaceSimulationPipeline | null>(null);
   const facePresetRef = useRef<FacePreset>('neural-clone');
   const voicePipelineRef = useRef<VoiceTransformationPipeline | null>(null);
+  const [isVoiceMonitoring, setIsVoiceMonitoring] = useState<boolean>(false);
 
   // Keep references to original tracks & stream
   const localStreamRef = useRef<MediaStream | null>(null);
@@ -427,6 +437,16 @@ export function useCall(user: User | null, token: string | null) {
     }
   }, [isTester, attackState.faceSwap, attackState.voiceTransform, attackState.facePreset, roomId, replaceVideoTrack]);
 
+  const toggleVoiceMonitor = useCallback((enable?: boolean) => {
+    setIsVoiceMonitoring((prev) => {
+      const next = enable !== undefined ? enable : !prev;
+      if (voicePipelineRef.current) {
+        voicePipelineRef.current.setMonitoring(next);
+      }
+      return next;
+    });
+  }, []);
+
   const activateVoiceTransform = useCallback(async (enable?: boolean) => {
     if (!isTester) {
       console.error('[Security] Non-tester account attempted to activate voice transformation.');
@@ -447,8 +467,16 @@ export function useCall(user: User | null, token: string | null) {
         voicePipelineRef.current = new VoiceTransformationPipeline();
       }
 
-      const transformedTrack = voicePipelineRef.current.start(currentAudioTrack, attackState.voicePreset as VoicePreset);
+      const transformedTrack = await voicePipelineRef.current.start(currentAudioTrack, attackState.voicePreset as VoicePreset);
       await replaceAudioTrack(transformedTrack);
+
+      // Sync active transformed audio track into localStreamRef and state
+      if (localStreamRef.current) {
+        const videoTracks = localStreamRef.current.getVideoTracks();
+        const updatedStream = new MediaStream([transformedTrack, ...videoTracks]);
+        localStreamRef.current = updatedStream;
+        setLocalStream(updatedStream);
+      }
 
       const newMode = attackState.faceSwap ? 'combined' : 'voice';
       setAttackState((prev) => ({
@@ -466,6 +494,12 @@ export function useCall(user: User | null, token: string | null) {
 
       if (currentAudioTrack) {
         await replaceAudioTrack(currentAudioTrack);
+        if (localStreamRef.current) {
+          const videoTracks = localStreamRef.current.getVideoTracks();
+          const restoredStream = new MediaStream([currentAudioTrack, ...videoTracks]);
+          localStreamRef.current = restoredStream;
+          setLocalStream(restoredStream);
+        }
       }
 
       const newMode = attackState.faceSwap ? 'face' : 'none';
@@ -489,6 +523,7 @@ export function useCall(user: User | null, token: string | null) {
     const currentVideoTrack = originalVideoTrackRef.current;
     const currentAudioTrack = originalAudioTrackRef.current;
 
+    let activeVideo = currentVideoTrack;
     if (currentVideoTrack) {
       if (!facePipelineRef.current) {
         facePipelineRef.current = new FaceSimulationPipeline();
@@ -496,20 +531,23 @@ export function useCall(user: User | null, token: string | null) {
       const currentPreset = facePresetRef.current;
       const syntheticTrack = facePipelineRef.current.start(currentVideoTrack, currentPreset);
       await replaceVideoTrack(syntheticTrack);
-      if (localStreamRef.current) {
-        const audioTracks = localStreamRef.current.getAudioTracks();
-        const updatedStream = new MediaStream([...audioTracks, syntheticTrack]);
-        localStreamRef.current = updatedStream;
-        setLocalStream(updatedStream);
-      }
+      activeVideo = syntheticTrack;
     }
 
+    let activeAudio = currentAudioTrack;
     if (currentAudioTrack) {
       if (!voicePipelineRef.current) {
         voicePipelineRef.current = new VoiceTransformationPipeline();
       }
-      const transformedTrack = voicePipelineRef.current.start(currentAudioTrack, attackState.voicePreset as VoicePreset);
+      const transformedTrack = await voicePipelineRef.current.start(currentAudioTrack, attackState.voicePreset as VoicePreset);
       await replaceAudioTrack(transformedTrack);
+      activeAudio = transformedTrack;
+    }
+
+    if (localStreamRef.current && activeVideo && activeAudio) {
+      const updatedStream = new MediaStream([activeAudio, activeVideo]);
+      localStreamRef.current = updatedStream;
+      setLocalStream(updatedStream);
     }
 
     setAttackState((prev) => ({
@@ -534,15 +572,15 @@ export function useCall(user: User | null, token: string | null) {
 
     if (originalVideoTrackRef.current) {
       await replaceVideoTrack(originalVideoTrackRef.current);
-      if (localStreamRef.current) {
-        const audioTracks = localStreamRef.current.getAudioTracks();
-        const restoredStream = new MediaStream([...audioTracks, originalVideoTrackRef.current]);
-        localStreamRef.current = restoredStream;
-        setLocalStream(restoredStream);
-      }
     }
     if (originalAudioTrackRef.current) {
       await replaceAudioTrack(originalAudioTrackRef.current);
+    }
+
+    if (originalAudioTrackRef.current && originalVideoTrackRef.current) {
+      const restoredStream = new MediaStream([originalAudioTrackRef.current, originalVideoTrackRef.current]);
+      localStreamRef.current = restoredStream;
+      setLocalStream(restoredStream);
     }
 
     setAttackState((prev) => ({
@@ -558,10 +596,67 @@ export function useCall(user: User | null, token: string | null) {
   const setFacePreset = useCallback((preset: FacePreset) => {
     facePresetRef.current = preset;
     setAttackState((prev) => ({ ...prev, facePreset: preset }));
+
+    const presetNames: Record<string, { src: string; name: string }> = {
+      'neural-clone': { src: '/synthetic_face_avatar.jpg', name: 'Marcus (Neural Clone)' },
+      'mona-lisa': { src: '/mona_lisa.jpg', name: 'Emma (Studio Headshot)' },
+      'cyber-agent': { src: '/cyber_agent.jpg', name: 'Alex (Clean Headshot)' },
+      'astronaut': { src: '/astronaut.jpg', name: 'Sophia (Natural Portrait)' },
+      'synthetic-executive': { src: '/synthetic_executive.jpg', name: 'David (Corporate Exec)' },
+    };
+    if (presetNames[preset]) {
+      setSelectedFacePreview(presetNames[preset].src);
+      setSelectedFaceName(presetNames[preset].name);
+    }
+
     if (facePipelineRef.current) {
       facePipelineRef.current.setPreset(preset);
     }
   }, []);
+
+  const uploadGalleryFace = useCallback(async (file: File): Promise<GalleryFaceValidationResult> => {
+    if (!isTester) {
+      return { success: false, error: 'Unauthorized: Only Tester accounts can upload faces.' };
+    }
+
+    if (!facePipelineRef.current) {
+      facePipelineRef.current = new FaceSimulationPipeline();
+    }
+
+    const result = await facePipelineRef.current.loadGalleryImage(file);
+    if (result.success) {
+      facePresetRef.current = 'custom-upload';
+      setAttackState((prev) => ({ ...prev, facePreset: 'custom-upload' }));
+      setSelectedFacePreview(result.previewUrl || null);
+      setSelectedFaceName(file.name);
+    }
+    return result;
+  }, [isTester]);
+
+  const resetFaceSwapFace = useCallback(async () => {
+    if (!isTester) return;
+    if (facePipelineRef.current) {
+      await facePipelineRef.current.resetFace();
+    }
+    facePresetRef.current = 'neural-clone';
+    setAttackState((prev) => ({ ...prev, facePreset: 'neural-clone' }));
+    setSelectedFacePreview('/synthetic_face_avatar.jpg');
+    setSelectedFaceName('Marcus (Neural Clone)');
+  }, [isTester]);
+
+  // Periodic telemetry poll when face swap is active
+  useEffect(() => {
+    if (!attackState.faceSwap) {
+      setFaceSwapTelemetry(undefined);
+      return;
+    }
+    const interval = setInterval(() => {
+      if (facePipelineRef.current) {
+        setFaceSwapTelemetry(facePipelineRef.current.getTelemetry());
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [attackState.faceSwap]);
 
   const setCustomFace = useCallback((dataUrl: string) => {
     setAttackState((prev) => ({ ...prev, facePreset: 'custom-upload' }));
@@ -735,6 +830,13 @@ export function useCall(user: User | null, token: string | null) {
     setFacePreset,
     setCustomFace,
     setVoicePreset,
+    uploadGalleryFace,
+    resetFaceSwapFace,
+    selectedFacePreview,
+    selectedFaceName,
+    faceSwapTelemetry,
+    isVoiceMonitoring,
+    toggleVoiceMonitor,
     endCall,
     clearError: () => setErrorMessage(null),
   };

@@ -25,7 +25,16 @@ app.use(express.json());
 
 // Serve production frontend assets if client/dist exists
 const clientDistPath = path.resolve(__dirname, '../../client/dist');
-app.use(express.static(clientDistPath));
+app.use(express.static(clientDistPath, {
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith('.wasm')) {
+      res.setHeader('Content-Type', 'application/wasm');
+    } else if (filePath.endsWith('.task')) {
+      res.setHeader('Content-Type', 'application/octet-stream');
+    }
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+  },
+}));
 
 // Auth Route: Login
 app.post('/api/auth/login', (req, res) => {
@@ -60,6 +69,37 @@ app.get('/api/auth/me', (req, res) => {
   }
 
   return res.json({ user });
+});
+
+// Tester Role Verification Route for Face Swap Engine
+app.get('/api/tester/verify-face-swap-access', (req, res) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ error: 'Missing or malformed Authorization header.' });
+  }
+
+  const token = authHeader.split(' ')[1];
+  const user = verifyToken(token);
+  if (!user) {
+    return res.status(401).json({ error: 'Session expired or invalid token.' });
+  }
+
+  if (user.role !== 'tester') {
+    console.warn(`[Security Alert] Non-tester "${user.username}" denied access to Face Swap engine.`);
+    return res.status(403).json({
+      error: 'Security Policy Violation: Only authenticated TESTER accounts are authorized to access the Face Swap engine.',
+    });
+  }
+
+  return res.json({
+    authorized: true,
+    user: {
+      username: user.username,
+      role: user.role,
+      name: user.name,
+    },
+    features: ['realtime_face_swap', 'mediapipe_landmarker', 'gallery_upload', 'webgl_rasterizer'],
+  });
 });
 
 // Room status check
@@ -250,6 +290,11 @@ io.on('connection', (socket) => {
 app.get('*', (req, res, next) => {
   if (req.path.startsWith('/api') || req.path.startsWith('/socket.io')) {
     return next();
+  }
+  // If the request path has a file extension (e.g., .task, .wasm, .js, .png), return 404
+  // instead of serving index.html, preventing MediaPipe WASM/model corruption
+  if (path.extname(req.path)) {
+    return res.status(404).json({ error: 'Asset not found', path: req.path });
   }
   res.sendFile(path.join(clientDistPath, 'index.html'), (err) => {
     if (err) {

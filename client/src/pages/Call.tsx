@@ -8,6 +8,7 @@ import { VideoTile } from '../components/VideoTile';
 import { CallControls } from '../components/CallControls';
 import { SecurityPanel } from '../components/SecurityPanel';
 import { AttackSimulator } from '../components/AttackSimulator';
+import { AIFaceSwapPanel } from '../components/AIFaceSwapPanel';
 import { DevicePreview } from '../components/DevicePreview';
 import { CallFeedbackModal } from '../components/CallFeedbackModal';
 import { mediaService } from '../services/media';
@@ -29,9 +30,9 @@ export const CallPage: React.FC<CallPageProps> = ({
   const [showDevicePreview, setShowDevicePreview] = useState(true);
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
 
-  // Desktop default: Attack drawer closed so video takes full screen like Screenshot 1
-  const [isAttackDrawerOpen, setIsAttackDrawerOpen] = useState(false);
+  // Desktop default: Panels closed so video takes full screen
   const [isSecurityPanelOpen, setIsSecurityPanelOpen] = useState(false);
+  const [isTesterDrawerOpen, setIsTesterDrawerOpen] = useState(false);
 
   const {
     callStatus,
@@ -59,6 +60,13 @@ export const CallPage: React.FC<CallPageProps> = ({
     setFacePreset,
     setCustomFace,
     setVoicePreset,
+    uploadGalleryFace,
+    resetFaceSwapFace,
+    selectedFacePreview,
+    selectedFaceName,
+    faceSwapTelemetry,
+    isVoiceMonitoring,
+    toggleVoiceMonitor,
     endCall,
   } = useCall(user, token);
 
@@ -306,20 +314,25 @@ export const CallPage: React.FC<CallPageProps> = ({
               isCameraOff={isCameraOff}
               isScreenSharing={isScreenSharing}
               isTester={isTester}
-              isAttackDrawerOpen={isAttackDrawerOpen}
+              isTesterDrawerOpen={isTesterDrawerOpen}
               isSecurityPanelOpen={isSecurityPanelOpen}
               attackMode={attackState.mode}
+              faceSwapActive={attackState.faceSwap}
               onToggleMic={toggleMic}
               onToggleCamera={toggleCamera}
               onToggleScreenShare={toggleScreenShare}
               onEndCall={handleEndCall}
-              onToggleAttackDrawer={() => {
-                setIsAttackDrawerOpen(!isAttackDrawerOpen);
-                if (!isAttackDrawerOpen) setIsSecurityPanelOpen(false);
+              onToggleTesterDrawer={() => {
+                setIsTesterDrawerOpen(!isTesterDrawerOpen);
+                if (!isTesterDrawerOpen) {
+                  setIsSecurityPanelOpen(false);
+                }
               }}
               onToggleSecurityPanel={() => {
                 setIsSecurityPanelOpen(!isSecurityPanelOpen);
-                if (!isSecurityPanelOpen) setIsAttackDrawerOpen(false);
+                if (!isSecurityPanelOpen) {
+                  setIsTesterDrawerOpen(false);
+                }
               }}
             />
           </div>
@@ -336,17 +349,28 @@ export const CallPage: React.FC<CallPageProps> = ({
             />
           )}
 
-          {isTester && isAttackDrawerOpen && (
-            <AttackSimulator
-              attackState={attackState}
+          {isTester && isTesterDrawerOpen && (
+            <AIFaceSwapPanel
+              faceSwapActive={attackState.faceSwap}
               onToggleFaceSwap={activateFaceSwap}
+              onUploadGalleryFace={uploadGalleryFace}
+              onResetFace={resetFaceSwapFace}
+              onSelectPreset={setFacePreset}
+              currentPreset={attackState.facePreset}
+              telemetry={faceSwapTelemetry}
+              selectedFacePreview={selectedFacePreview}
+              selectedFaceName={selectedFaceName}
+              processedStream={localStream}
+              voiceTransformActive={attackState.voiceTransform}
               onToggleVoiceTransform={activateVoiceTransform}
               onActivateCombined={activateCombinedAttack}
-              onReset={resetAttack}
-              onSelectFacePreset={setFacePreset}
+              onResetAll={resetAttack}
               onSelectVoicePreset={setVoicePreset}
-              onUploadCustomFace={setCustomFace}
-              onClose={() => setIsAttackDrawerOpen(false)}
+              voicePreset={attackState.voicePreset}
+              attackMode={attackState.mode}
+              isVoiceMonitoring={isVoiceMonitoring}
+              onToggleVoiceMonitor={toggleVoiceMonitor}
+              onClose={() => setIsTesterDrawerOpen(false)}
             />
           )}
         </div>
@@ -368,22 +392,33 @@ export const CallPage: React.FC<CallPageProps> = ({
         </div>
       )}
 
-      {/* Mobile Bottom Sheets: Attack Simulator */}
-      {isTester && isAttackDrawerOpen && (
+      {/* Mobile Bottom Sheets: Integrated AI Face Swap & Tester Panel */}
+      {isTester && isTesterDrawerOpen && (
         <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end bg-black/60 backdrop-blur-xs">
-          <div className="w-full max-h-[85vh] h-[560px] rounded-t-3xl overflow-hidden shadow-2xl border-t border-white/10 flex flex-col bg-[#16181f]">
+          <div className="w-full max-h-[85vh] h-[580px] rounded-t-3xl overflow-hidden shadow-2xl border-t border-white/10 flex flex-col bg-[#16181f]">
             {/* Grab handle */}
             <div className="w-12 h-1 bg-white/20 rounded-full mx-auto my-2.5 shrink-0" />
-            <AttackSimulator
-              attackState={attackState}
+            <AIFaceSwapPanel
+              faceSwapActive={attackState.faceSwap}
               onToggleFaceSwap={activateFaceSwap}
+              onUploadGalleryFace={uploadGalleryFace}
+              onResetFace={resetFaceSwapFace}
+              onSelectPreset={setFacePreset}
+              currentPreset={attackState.facePreset}
+              telemetry={faceSwapTelemetry}
+              selectedFacePreview={selectedFacePreview}
+              selectedFaceName={selectedFaceName}
+              processedStream={localStream}
+              voiceTransformActive={attackState.voiceTransform}
               onToggleVoiceTransform={activateVoiceTransform}
               onActivateCombined={activateCombinedAttack}
-              onReset={resetAttack}
-              onSelectFacePreset={setFacePreset}
+              onResetAll={resetAttack}
               onSelectVoicePreset={setVoicePreset}
-              onUploadCustomFace={setCustomFace}
-              onClose={() => setIsAttackDrawerOpen(false)}
+              voicePreset={attackState.voicePreset}
+              attackMode={attackState.mode}
+              isVoiceMonitoring={isVoiceMonitoring}
+              onToggleVoiceMonitor={toggleVoiceMonitor}
+              onClose={() => setIsTesterDrawerOpen(false)}
             />
           </div>
         </div>
