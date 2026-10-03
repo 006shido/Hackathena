@@ -1,0 +1,9 @@
+# robots.txt for DeepTrace
+User-agent: *
+Allow: /
+
+# Prevent search engines from crawling private call session links
+Disallow: /*?room=*
+
+# Sitemap location (Replace with your actual production domain)
+Sitemap: https://deeptrace.example.com/sitemap.xml
