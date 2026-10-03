@@ -110,11 +110,10 @@ export const LoginForm: React.FC<LoginFormProps> = ({
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Email address"
               required
-              className={`w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-xl bg-white border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all duration-200 ${
-                status === 'success'
+              className={`w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-xl bg-white border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all duration-200 ${status === 'success'
                   ? 'border-emerald-300 bg-emerald-50/20'
                   : 'border-slate-200 focus:border-blue-600 focus:ring-4 focus:ring-blue-50'
-              } disabled:opacity-75 disabled:cursor-not-allowed`}
+                } disabled:opacity-75 disabled:cursor-not-allowed`}
             />
           </div>
         </div>
@@ -132,11 +131,10 @@ export const LoginForm: React.FC<LoginFormProps> = ({
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
               required
-              className={`w-full pl-10 pr-11 py-2.5 sm:py-3 rounded-xl bg-white border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all duration-200 ${
-                status === 'success'
+              className={`w-full pl-10 pr-11 py-2.5 sm:py-3 rounded-xl bg-white border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all duration-200 ${status === 'success'
                   ? 'border-emerald-300 bg-emerald-50/20'
                   : 'border-slate-200 focus:border-blue-600 focus:ring-4 focus:ring-blue-50'
-              } disabled:opacity-75 disabled:cursor-not-allowed`}
+                } disabled:opacity-75 disabled:cursor-not-allowed`}
             />
             <button
               type="button"
@@ -155,13 +153,12 @@ export const LoginForm: React.FC<LoginFormProps> = ({
           id="login-submit-button"
           type="submit"
           disabled={isBusy}
-          className={`w-full mt-1.5 sm:mt-2 py-2.5 sm:py-3 px-4 rounded-xl font-medium text-sm flex items-center justify-center gap-2 shadow-xs transition-all duration-300 cursor-pointer ${
-            status === 'success'
+          className={`w-full mt-1.5 sm:mt-2 py-2.5 sm:py-3 px-4 rounded-xl font-medium text-sm flex items-center justify-center gap-2 shadow-xs transition-all duration-300 cursor-pointer ${status === 'success'
               ? 'bg-emerald-600 text-white ring-4 ring-emerald-100 scale-[1.01] shadow-emerald-600/20'
               : status === 'submitting' && activeAction === 'form'
-              ? 'bg-blue-600 text-white opacity-90 cursor-wait'
-              : 'bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white disabled:opacity-50 disabled:cursor-not-allowed'
-          }`}
+                ? 'bg-blue-600 text-white opacity-90 cursor-wait'
+                : 'bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white disabled:opacity-50 disabled:cursor-not-allowed'
+            }`}
         >
           {status === 'success' ? (
             <span className="flex items-center gap-2 animate-scale-in">
@@ -199,13 +196,12 @@ export const LoginForm: React.FC<LoginFormProps> = ({
           type="button"
           disabled={isBusy}
           onClick={() => handleQuickDemo('user', 'user123', 'user-demo')}
-          className={`py-2.5 sm:py-3 px-3 rounded-xl border text-xs sm:text-sm font-medium transition-all duration-200 flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer shadow-2xs ${
-            status === 'success' && activeAction === 'user-demo'
+          className={`py-2.5 sm:py-3 px-3 rounded-xl border text-xs sm:text-sm font-medium transition-all duration-200 flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer shadow-2xs ${status === 'success' && activeAction === 'user-demo'
               ? 'bg-emerald-50 border-emerald-300 text-emerald-700 ring-2 ring-emerald-200'
               : status === 'submitting' && activeAction === 'user-demo'
-              ? 'bg-blue-50 border-blue-200 text-blue-700 cursor-wait'
-              : 'border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700 disabled:opacity-50 disabled:cursor-not-allowed'
-          }`}
+                ? 'bg-blue-50 border-blue-200 text-blue-700 cursor-wait'
+                : 'border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700 disabled:opacity-50 disabled:cursor-not-allowed'
+            }`}
         >
           {status === 'success' && activeAction === 'user-demo' ? (
             <>
@@ -230,13 +226,12 @@ export const LoginForm: React.FC<LoginFormProps> = ({
           type="button"
           disabled={isBusy}
           onClick={() => handleQuickDemo('tester', 'tester123', 'tester-demo')}
-          className={`py-2.5 sm:py-3 px-3 rounded-xl border text-xs sm:text-sm font-medium transition-all duration-200 flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer shadow-2xs ${
-            status === 'success' && activeAction === 'tester-demo'
+          className={`py-2.5 sm:py-3 px-3 rounded-xl border text-xs sm:text-sm font-medium transition-all duration-200 flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer shadow-2xs ${status === 'success' && activeAction === 'tester-demo'
               ? 'bg-emerald-50 border-emerald-300 text-emerald-700 ring-2 ring-emerald-200'
               : status === 'submitting' && activeAction === 'tester-demo'
-              ? 'bg-blue-50 border-blue-200 text-blue-700 cursor-wait'
-              : 'border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700 disabled:opacity-50 disabled:cursor-not-allowed'
-          }`}
+                ? 'bg-blue-50 border-blue-200 text-blue-700 cursor-wait'
+                : 'border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700 disabled:opacity-50 disabled:cursor-not-allowed'
+            }`}
         >
           {status === 'success' && activeAction === 'tester-demo' ? (
             <>

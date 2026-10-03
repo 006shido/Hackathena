@@ -55,7 +55,7 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
           video.pause();
           video.srcObject = null;
           video.load();
-        } catch (e) {}
+        } catch (e) { }
       }
     };
   }, [stream, isCameraOff]);
@@ -99,9 +99,8 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
           autoPlay
           playsInline
           muted
-          className={`w-full h-full object-cover scale-x-[-1] transition-opacity duration-200 ${
-            hasVideoTrack ? 'opacity-100' : 'opacity-0 absolute pointer-events-none'
-          }`}
+          className={`w-full h-full object-cover scale-x-[-1] transition-opacity duration-200 ${hasVideoTrack ? 'opacity-100' : 'opacity-0 absolute pointer-events-none'
+            }`}
         />
 
 
@@ -116,16 +115,14 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
 
         {/* Status badges overlay */}
         <div className="absolute bottom-3 left-3 flex items-center gap-2">
-          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium backdrop-blur-md transition-colors ${
-            isMicMuted ? 'bg-red-500 text-white' : 'bg-black/60 text-white'
-          }`}>
+          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium backdrop-blur-md transition-colors ${isMicMuted ? 'bg-red-500 text-white' : 'bg-black/60 text-white'
+            }`}>
             {isMicMuted ? <MicOff className="h-3 w-3" /> : <Mic className="h-3 w-3" />}
             <span>{isMicMuted ? 'Muted' : 'Mic on'}</span>
           </div>
 
-          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium backdrop-blur-md transition-colors ${
-            isCameraOff ? 'bg-red-500 text-white' : 'bg-black/60 text-white'
-          }`}>
+          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium backdrop-blur-md transition-colors ${isCameraOff ? 'bg-red-500 text-white' : 'bg-black/60 text-white'
+            }`}>
             {isCameraOff ? <VideoOff className="h-3 w-3" /> : <Video className="h-3 w-3" />}
             <span>{isCameraOff ? 'Camera off' : 'Camera on'}</span>
           </div>
@@ -139,11 +136,10 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
           <button
             type="button"
             onClick={onToggleMic}
-            className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-2xs ${
-              isMicMuted
+            className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-2xs ${isMicMuted
                 ? 'bg-red-50 hover:bg-red-100 text-red-600 border border-red-200'
                 : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200/80 hover:border-slate-300'
-            }`}
+              }`}
           >
             {isMicMuted ? <MicOff className="h-3.5 w-3.5" /> : <Mic className="h-3.5 w-3.5" />}
             <span>{isMicMuted ? 'Unmute' : 'Mute'}</span>
@@ -152,11 +148,10 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
           <button
             type="button"
             onClick={onToggleCamera}
-            className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-2xs ${
-              isCameraOff
+            className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-2xs ${isCameraOff
                 ? 'bg-red-50 hover:bg-red-100 text-red-600 border border-red-200'
                 : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200/80 hover:border-slate-300'
-            }`}
+              }`}
           >
             {isCameraOff ? <VideoOff className="h-3.5 w-3.5" /> : <Video className="h-3.5 w-3.5" />}
             <span>{isCameraOff ? 'Start Video' : 'Stop Video'}</span>

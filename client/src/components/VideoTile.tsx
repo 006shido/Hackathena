@@ -172,7 +172,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
       try {
         video.pause();
         video.srcObject = null;
-      } catch (e) {}
+      } catch (e) { }
       setIsHardwareBuffering(false);
     }
   }, [stream, isLocal, isVideoOff]);
@@ -185,7 +185,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
           video.pause();
           video.srcObject = null;
           video.load();
-        } catch (e) {}
+        } catch (e) { }
       }
     };
   }, []);
@@ -232,7 +232,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
 
     try {
       e.currentTarget.setPointerCapture(e.pointerId);
-    } catch (_) {}
+    } catch (_) { }
 
     const parentRect = parent.getBoundingClientRect();
     const tileRect = tileRef.current.getBoundingClientRect();
@@ -338,22 +338,20 @@ export const VideoTile: React.FC<VideoTileProps> = ({
       style={
         isFloating && position
           ? {
-              left: `${position.x}px`,
-              top: `${position.y}px`,
-              bottom: 'auto',
-              right: 'auto',
-            }
+            left: `${position.x}px`,
+            top: `${position.y}px`,
+            bottom: 'auto',
+            right: 'auto',
+          }
           : undefined
       }
-      className={`${
-        isFloating
+      className={`${isFloating
           ? `absolute ${position ? '' : 'bottom-4 right-4 sm:bottom-6 sm:right-6'} z-30 ${sizeClasses[sizePreset]} max-w-[calc(100%-32px)] max-h-[calc(100%-32px)] aspect-video border border-white/15 shadow-2xl hover:border-blue-500/50`
           : 'relative w-full h-full min-h-0'
-      } ${
-        isDeepfakeAlert && !isLocal
+        } ${isDeepfakeAlert && !isLocal
           ? 'ring-2 ring-red-500 shadow-red-500/20 shadow-lg'
           : ''
-      } overflow-hidden rounded-2xl sm:rounded-3xl bg-[#16181d] shadow-xl transition-[width,height,border-color] duration-150 select-none ${className}`}
+        } overflow-hidden rounded-2xl sm:rounded-3xl bg-[#16181d] shadow-xl transition-[width,height,border-color] duration-150 select-none ${className}`}
     >
       {/* Video Element */}
       <video
@@ -367,7 +365,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
             if (el.srcObject !== stream) {
               el.srcObject = stream;
             }
-            el.play().catch(() => {});
+            el.play().catch(() => { });
           }
         }}
         autoPlay
@@ -379,11 +377,10 @@ export const VideoTile: React.FC<VideoTileProps> = ({
             el.muted = true;
             el.defaultMuted = true;
           }
-          el.play().catch(() => {});
+          el.play().catch(() => { });
         }}
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-200 pointer-events-none ${
-          hasVideoTrack && !isHardwareBuffering ? 'opacity-100' : 'opacity-0'
-        } ${isLocal ? 'scale-x-[-1]' : ''}`}
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-200 pointer-events-none ${hasVideoTrack && !isHardwareBuffering ? 'opacity-100' : 'opacity-0'
+          } ${isLocal ? 'scale-x-[-1]' : ''}`}
       />
 
       {/* Hardware Muted Shutter Notification */}
