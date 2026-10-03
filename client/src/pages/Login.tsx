@@ -20,22 +20,22 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 
   return (
     <div
-      className={`min-h-screen w-full flex bg-white text-slate-900 font-sans selection:bg-blue-100 transition-all duration-400 ease-out ${
+      className={`min-h-[100dvh] w-full flex bg-white text-slate-900 font-sans selection:bg-blue-100 transition-all duration-400 ease-out overflow-x-hidden ${
         isExiting ? 'opacity-0 scale-[0.985] filter blur-[1px] pointer-events-none' : 'opacity-100 scale-100'
       }`}
     >
       {/* Left Column: Top-Left Logo + Centered Form */}
-      <div className="w-full lg:w-[48%] xl:w-[45%] min-h-screen flex flex-col justify-between p-6 sm:p-10 lg:p-12 z-10 bg-white">
+      <div className="w-full lg:w-[48%] xl:w-[45%] min-h-[100dvh] flex flex-col justify-between p-5 sm:p-8 lg:p-10 xl:p-14 z-10 bg-white overflow-y-auto">
         {/* Top-Left Logo */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
           <div className="h-8 w-8 sm:h-9 sm:w-9 shrink-0">
             <img src="/logo.svg" alt="DeepTrace Logo" className="h-full w-full" />
           </div>
           <span className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">DeepTrace</span>
         </div>
 
-        {/* Centered Login Form */}
-        <div className="my-auto w-full max-w-[390px] mx-auto py-8">
+        {/* Centered Login Form with fluid spacing */}
+        <div className="my-auto w-full max-w-[400px] mx-auto py-4 sm:py-6 lg:py-8">
           <LoginForm
             onLogin={onLogin}
             loading={loading}
@@ -45,7 +45,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
         </div>
 
         {/* Bottom spacer for symmetrical balance */}
-        <div className="h-4" />
+        <div className="h-2 sm:h-4 shrink-0" />
       </div>
 
       {/* Right Column: Exact Reference Design with DeepTrace-Specific Taglines */}

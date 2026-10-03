@@ -78,25 +78,25 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   return (
     <div className="w-full max-w-[400px] mx-auto transition-opacity duration-300">
       {/* Welcome Title */}
-      <div className="mb-8">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-2">
+      <div className="mb-5 sm:mb-7 lg:mb-8">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900 mb-1.5 sm:mb-2">
           Welcome back
         </h1>
-        <p className="text-sm sm:text-base text-slate-500">
+        <p className="text-xs sm:text-sm lg:text-base text-slate-500">
           Sign in to continue to DeepTrace
         </p>
       </div>
 
       {/* Error Alert */}
       {displayError && (
-        <div className="mb-5 flex items-center gap-2.5 p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs animate-shake">
+        <div className="mb-4 sm:mb-5 flex items-center gap-2.5 p-3 sm:p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs animate-shake">
           <AlertCircle className="h-4 w-4 shrink-0 text-red-600" />
           <span>{displayError}</span>
         </div>
       )}
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
         <div>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -110,7 +110,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Email address"
               required
-              className={`w-full pl-10 pr-4 py-3 rounded-xl bg-white border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all duration-200 ${
+              className={`w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-xl bg-white border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all duration-200 ${
                 status === 'success'
                   ? 'border-emerald-300 bg-emerald-50/20'
                   : 'border-slate-200 focus:border-blue-600 focus:ring-4 focus:ring-blue-50'
@@ -132,7 +132,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
               required
-              className={`w-full pl-10 pr-11 py-3 rounded-xl bg-white border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all duration-200 ${
+              className={`w-full pl-10 pr-11 py-2.5 sm:py-3 rounded-xl bg-white border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all duration-200 ${
                 status === 'success'
                   ? 'border-emerald-300 bg-emerald-50/20'
                   : 'border-slate-200 focus:border-blue-600 focus:ring-4 focus:ring-blue-50'
@@ -155,7 +155,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
           id="login-submit-button"
           type="submit"
           disabled={isBusy}
-          className={`w-full mt-2 py-3 px-4 rounded-xl font-medium text-sm flex items-center justify-center gap-2 shadow-xs transition-all duration-300 cursor-pointer ${
+          className={`w-full mt-1.5 sm:mt-2 py-2.5 sm:py-3 px-4 rounded-xl font-medium text-sm flex items-center justify-center gap-2 shadow-xs transition-all duration-300 cursor-pointer ${
             status === 'success'
               ? 'bg-emerald-600 text-white ring-4 ring-emerald-100 scale-[1.01] shadow-emerald-600/20'
               : status === 'submitting' && activeAction === 'form'
@@ -183,7 +183,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       </form>
 
       {/* Divider */}
-      <div className="relative my-7">
+      <div className="relative my-4 sm:my-6">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-slate-200" />
         </div>
@@ -193,13 +193,13 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       </div>
 
       {/* Two Demo Buttons with Reactive Transitions */}
-      <div className="grid grid-cols-2 gap-3.5">
+      <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
         <button
           id="login-user-demo-button"
           type="button"
           disabled={isBusy}
           onClick={() => handleQuickDemo('user', 'user123', 'user-demo')}
-          className={`py-3 px-3 rounded-xl border text-xs sm:text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-2xs ${
+          className={`py-2.5 sm:py-3 px-3 rounded-xl border text-xs sm:text-sm font-medium transition-all duration-200 flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer shadow-2xs ${
             status === 'success' && activeAction === 'user-demo'
               ? 'bg-emerald-50 border-emerald-300 text-emerald-700 ring-2 ring-emerald-200'
               : status === 'submitting' && activeAction === 'user-demo'
@@ -219,7 +219,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
             </>
           ) : (
             <>
-              <UserIcon className="h-4 w-4 text-slate-500" />
+              <UserIcon className="h-4 w-4 text-slate-500 shrink-0" />
               <span>User Demo</span>
             </>
           )}
@@ -230,7 +230,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
           type="button"
           disabled={isBusy}
           onClick={() => handleQuickDemo('tester', 'tester123', 'tester-demo')}
-          className={`py-3 px-3 rounded-xl border text-xs sm:text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-2xs ${
+          className={`py-2.5 sm:py-3 px-3 rounded-xl border text-xs sm:text-sm font-medium transition-all duration-200 flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer shadow-2xs ${
             status === 'success' && activeAction === 'tester-demo'
               ? 'bg-emerald-50 border-emerald-300 text-emerald-700 ring-2 ring-emerald-200'
               : status === 'submitting' && activeAction === 'tester-demo'
@@ -250,7 +250,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
             </>
           ) : (
             <>
-              <Users className="h-4 w-4 text-slate-500" />
+              <Users className="h-4 w-4 text-slate-500 shrink-0" />
               <span>Tester Demo</span>
             </>
           )}
@@ -258,7 +258,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       </div>
 
       {/* Footer link */}
-      <div className="mt-10 text-left text-xs sm:text-sm text-slate-500">
+      <div className="mt-5 sm:mt-7 lg:mt-9 text-left text-xs sm:text-sm text-slate-500">
         <span>Don't have an account? </span>
         <button
           id="login-signup-button"

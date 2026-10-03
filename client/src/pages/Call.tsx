@@ -191,7 +191,7 @@ export const CallPage: React.FC<CallPageProps> = ({
   const participantCount = peerInfo ? 2 : 1;
 
   return (
-    <div className="h-screen w-screen flex flex-col bg-[#0f1115] text-slate-100 overflow-hidden font-sans">
+    <div className="h-[100dvh] w-full flex flex-col bg-[#0f1115] text-slate-100 overflow-hidden font-sans">
       {/* Top Header (Matching Screenshot 1 Right) */}
       <RoomHeader
         roomId={roomId}
@@ -208,7 +208,7 @@ export const CallPage: React.FC<CallPageProps> = ({
       {/* Main Layout Area */}
       <div className="flex-1 flex overflow-hidden relative">
         {/* Call Stage */}
-        <div className="flex-1 flex flex-col p-2 sm:p-4 overflow-hidden relative">
+        <div className="flex-1 flex flex-col p-1.5 sm:p-3 lg:p-4 overflow-hidden relative">
           {/* Video Container (Framed with smooth rounded corners) */}
           <div className="flex-1 w-full h-full relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#16181d] border border-white/5 shadow-2xl flex items-center justify-center">
             {peerInfo && remoteStream ? (
@@ -379,15 +379,17 @@ export const CallPage: React.FC<CallPageProps> = ({
       {/* Mobile Bottom Sheets: Security Panel */}
       {isSecurityPanelOpen && (
         <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end bg-black/60 backdrop-blur-xs">
-          <div className="w-full max-h-[85vh] h-[520px] rounded-t-3xl overflow-hidden shadow-2xl border-t border-white/10 flex flex-col bg-[#16181f]">
+          <div className="w-full max-h-[85dvh] h-[520px] rounded-t-3xl overflow-hidden shadow-2xl border-t border-white/10 flex flex-col bg-[#16181f]">
             {/* Grab handle */}
             <div className="w-12 h-1 bg-white/20 rounded-full mx-auto my-2.5 shrink-0" />
-            <SecurityPanel
-              peerAttackState={peerAttackState}
-              voiceDetection={voiceDetection}
-              isTester={isTester}
-              onClose={() => setIsSecurityPanelOpen(false)}
-            />
+            <div className="flex-1 overflow-y-auto min-h-0">
+              <SecurityPanel
+                peerAttackState={peerAttackState}
+                voiceDetection={voiceDetection}
+                isTester={isTester}
+                onClose={() => setIsSecurityPanelOpen(false)}
+              />
+            </div>
           </div>
         </div>
       )}
@@ -395,31 +397,33 @@ export const CallPage: React.FC<CallPageProps> = ({
       {/* Mobile Bottom Sheets: Integrated AI Face Swap & Tester Panel */}
       {isTester && isTesterDrawerOpen && (
         <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end bg-black/60 backdrop-blur-xs">
-          <div className="w-full max-h-[85vh] h-[580px] rounded-t-3xl overflow-hidden shadow-2xl border-t border-white/10 flex flex-col bg-[#16181f]">
+          <div className="w-full max-h-[85dvh] h-[580px] rounded-t-3xl overflow-hidden shadow-2xl border-t border-white/10 flex flex-col bg-[#16181f]">
             {/* Grab handle */}
             <div className="w-12 h-1 bg-white/20 rounded-full mx-auto my-2.5 shrink-0" />
-            <AIFaceSwapPanel
-              faceSwapActive={attackState.faceSwap}
-              onToggleFaceSwap={activateFaceSwap}
-              onUploadGalleryFace={uploadGalleryFace}
-              onResetFace={resetFaceSwapFace}
-              onSelectPreset={setFacePreset}
-              currentPreset={attackState.facePreset}
-              telemetry={faceSwapTelemetry}
-              selectedFacePreview={selectedFacePreview}
-              selectedFaceName={selectedFaceName}
-              processedStream={localStream}
-              voiceTransformActive={attackState.voiceTransform}
-              onToggleVoiceTransform={activateVoiceTransform}
-              onActivateCombined={activateCombinedAttack}
-              onResetAll={resetAttack}
-              onSelectVoicePreset={setVoicePreset}
-              voicePreset={attackState.voicePreset}
-              attackMode={attackState.mode}
-              isVoiceMonitoring={isVoiceMonitoring}
-              onToggleVoiceMonitor={toggleVoiceMonitor}
-              onClose={() => setIsTesterDrawerOpen(false)}
-            />
+            <div className="flex-1 overflow-y-auto min-h-0">
+              <AIFaceSwapPanel
+                faceSwapActive={attackState.faceSwap}
+                onToggleFaceSwap={activateFaceSwap}
+                onUploadGalleryFace={uploadGalleryFace}
+                onResetFace={resetFaceSwapFace}
+                onSelectPreset={setFacePreset}
+                currentPreset={attackState.facePreset}
+                telemetry={faceSwapTelemetry}
+                selectedFacePreview={selectedFacePreview}
+                selectedFaceName={selectedFaceName}
+                processedStream={localStream}
+                voiceTransformActive={attackState.voiceTransform}
+                onToggleVoiceTransform={activateVoiceTransform}
+                onActivateCombined={activateCombinedAttack}
+                onResetAll={resetAttack}
+                onSelectVoicePreset={setVoicePreset}
+                voicePreset={attackState.voicePreset}
+                attackMode={attackState.mode}
+                isVoiceMonitoring={isVoiceMonitoring}
+                onToggleVoiceMonitor={toggleVoiceMonitor}
+                onClose={() => setIsTesterDrawerOpen(false)}
+              />
+            </div>
           </div>
         </div>
       )}

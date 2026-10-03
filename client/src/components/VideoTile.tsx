@@ -325,10 +325,10 @@ export const VideoTile: React.FC<VideoTileProps> = ({
   const initials = username.split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2) || 'U';
 
   const sizeClasses: Record<SizePreset, string> = {
-    sm: 'w-36 sm:w-48',
-    md: 'w-48 sm:w-60 md:w-68',
-    lg: 'w-56 sm:w-72 md:w-80',
-    xl: 'w-64 sm:w-84 md:w-96',
+    sm: 'w-28 xs:w-36 sm:w-48',
+    md: 'w-36 xs:w-48 sm:w-60 md:w-68',
+    lg: 'w-44 xs:w-56 sm:w-72 md:w-80',
+    xl: 'w-52 xs:w-64 sm:w-84 md:w-96',
   };
 
   return (
