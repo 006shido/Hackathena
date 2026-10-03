@@ -33,6 +33,7 @@ export const CallPage: React.FC<CallPageProps> = ({
   // Desktop default: Panels closed so video takes full screen
   const [isSecurityPanelOpen, setIsSecurityPanelOpen] = useState(false);
   const [isTesterDrawerOpen, setIsTesterDrawerOpen] = useState(false);
+  const [showEndCallSlider, setShowEndCallSlider] = useState(false);
 
   const {
     callStatus,
@@ -106,10 +107,19 @@ export const CallPage: React.FC<CallPageProps> = ({
     joinRoom(roomId);
   };
 
-  const handleEndCall = () => {
+  const handleRequestEndCall = () => {
+    setShowEndCallSlider(true);
+  };
+
+  const handleConfirmEndCall = () => {
+    setShowEndCallSlider(false);
     endCall();
     mediaService.stopAllMedia();
     setShowFeedbackModal(true);
+  };
+
+  const handleCancelEndCall = () => {
+    setShowEndCallSlider(false);
   };
 
   const handleCancelPreview = () => {
@@ -200,7 +210,7 @@ export const CallPage: React.FC<CallPageProps> = ({
         participantCount={participantCount}
         connectionState={connectionState}
         iceState={iceState}
-        onExit={handleEndCall}
+        onExit={handleRequestEndCall}
         onToggleSecurityPanel={() => setIsSecurityPanelOpen(!isSecurityPanelOpen)}
         isSecurityPanelOpen={isSecurityPanelOpen}
       />
@@ -321,7 +331,9 @@ export const CallPage: React.FC<CallPageProps> = ({
               onToggleMic={toggleMic}
               onToggleCamera={toggleCamera}
               onToggleScreenShare={toggleScreenShare}
-              onEndCall={handleEndCall}
+              isSliderActive={showEndCallSlider}
+              onToggleSlider={setShowEndCallSlider}
+              onEndCall={handleConfirmEndCall}
               onToggleTesterDrawer={() => {
                 setIsTesterDrawerOpen(!isTesterDrawerOpen);
                 if (!isTesterDrawerOpen) {

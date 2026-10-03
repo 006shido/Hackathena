@@ -5,5 +5,5 @@ Allow: /
 # Prevent search engines from crawling private call session links
 Disallow: /*?room=*
 
-# Sitemap location (Replace with your actual production domain)
-Sitemap: https://deeptrace.example.com/sitemap.xml
+# Sitemap location
+Sitemap: https://hackathena.onrender.com/sitemap.xml
