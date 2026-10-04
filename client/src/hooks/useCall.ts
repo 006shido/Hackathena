@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { User } from '../types/auth';
 import { CallStatus, ParticipantInfo } from '../types/call';
-import { AttackMode, AttackState } from '../types/attack';
+import { AttackMode, AttackState, FaceBlendConfig, DEFAULT_FACE_BLEND_CONFIG } from '../types/attack';
 import { signalingService } from '../services/signaling';
 import { mediaService, MediaAccessResult } from '../services/media';
 import { useWebRTC } from './useWebRTC';
@@ -39,6 +39,19 @@ export function useCall(user: User | null, token: string | null) {
   const [selectedFacePreview, setSelectedFacePreview] = useState<string | null>('/synthetic_face_avatar.jpg');
   const [selectedFaceName, setSelectedFaceName] = useState<string>('Marcus (Neural Clone)');
   const [faceSwapTelemetry, setFaceSwapTelemetry] = useState<FaceSwapTelemetry | undefined>(undefined);
+  const [faceBlendConfig, setFaceBlendConfig] = useState<FaceBlendConfig>({
+    ...DEFAULT_FACE_BLEND_CONFIG,
+  });
+
+  const updateFaceBlendConfig = useCallback((newConfig: Partial<FaceBlendConfig>) => {
+    setFaceBlendConfig((prev) => {
+      const merged = { ...prev, ...newConfig };
+      if (facePipelineRef.current) {
+        facePipelineRef.current.setBlendConfig(merged);
+      }
+      return merged;
+    });
+  }, []);
 
   // Peer's attack simulation state (received by DeepTrace monitoring placeholder)
   const [peerAttackState, setPeerAttackState] = useState<{
@@ -164,24 +177,23 @@ export function useCall(user: User | null, token: string | null) {
           // A peer is already in room: initialize connection and WAIT for their offer
           setPeerInfo(data.peers[0]);
           setCallStatus('connected');
-          createPeerConnection(data.roomId, activeLocalStream);
+          createPeerConnection(data.roomId, activeLocalStream, true);
           console.log('[useCall] Initialized receiver peer connection, awaiting offer from host...');
         } else {
-          // First in room: waiting for someone to join
+          // First in room: waiting for someone to join. Do not pre-gather ICE candidates into the void
           setCallStatus('waiting');
           setPeerInfo(null);
-          createPeerConnection(data.roomId, activeLocalStream);
         }
       },
 
       onPeerJoined: (peer) => {
-        console.log('[useCall] Peer joined room, initiating WebRTC offer:', peer);
+        console.log('[useCall] Peer joined room, initiating fresh WebRTC offer:', peer);
         const activeLocalStream = localStreamRef.current || localStream;
         setPeerInfo(peer);
         setCallStatus('connected');
         
-        // Host initiates the offer to the newly joined peer
-        createPeerConnection(cleanRoomId, activeLocalStream);
+        // Host initializes fresh peer connection and sends offer to the newly joined peer
+        createPeerConnection(cleanRoomId, activeLocalStream, true);
         makeOffer(cleanRoomId, activeLocalStream);
       },
 
@@ -390,6 +402,7 @@ export function useCall(user: User | null, token: string | null) {
       if (!facePipelineRef.current) {
         facePipelineRef.current = new FaceSimulationPipeline();
       }
+      facePipelineRef.current.setBlendConfig(faceBlendConfig);
 
       const currentPreset = facePresetRef.current;
       const syntheticTrack = facePipelineRef.current.start(currentVideoTrack, currentPreset);
@@ -711,7 +724,7 @@ export function useCall(user: User | null, token: string | null) {
 
     // 4. Attack simulation pipelines
     if (facePipelineRef.current) {
-      facePipelineRef.current.stop();
+      facePipelineRef.current.destroy();
       facePipelineRef.current = null;
     }
     if (voicePipelineRef.current) {
@@ -732,7 +745,7 @@ export function useCall(user: User | null, token: string | null) {
 
     // Stop attack simulation pipelines
     if (facePipelineRef.current) {
-      facePipelineRef.current.stop();
+      facePipelineRef.current.destroy();
       facePipelineRef.current = null;
     }
     if (voicePipelineRef.current) {
@@ -788,7 +801,7 @@ export function useCall(user: User | null, token: string | null) {
         localStreamRef.current = null;
       }
       if (facePipelineRef.current) {
-        facePipelineRef.current.stop();
+        facePipelineRef.current.destroy();
         facePipelineRef.current = null;
       }
       if (voicePipelineRef.current) {
@@ -835,6 +848,8 @@ export function useCall(user: User | null, token: string | null) {
     selectedFacePreview,
     selectedFaceName,
     faceSwapTelemetry,
+    faceBlendConfig,
+    updateFaceBlendConfig,
     isVoiceMonitoring,
     toggleVoiceMonitor,
     endCall,

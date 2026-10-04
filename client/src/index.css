@@ -36,8 +36,14 @@
 
 /* Custom subtle animations */
 @keyframes pulseSubtle {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.85; transform: scale(1.02); }
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
 }
 
 .animate-pulse-subtle {
@@ -91,9 +97,15 @@
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-4px); }
-  40%, 80% { transform: translateX(4px); }
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(-4px);
+  }
+  40%, 80% {
+    transform: translateX(4px);
+  }
 }
 
 .animate-fade-in {
@@ -116,16 +128,35 @@
   animation: shake 0.35s ease-in-out;
 }
 
-/* Single-Page App View Transitions */
+/* ==========================================================================
+   Page Transitions & View Transition API Choreography
+   ========================================================================== */
+
+/* Universal View Transition settings (mix-blend-mode: normal prevents flashing) */
+::view-transition-group(root) {
+  animation-duration: 0.32s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.32s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+  mix-blend-mode: normal;
+  display: block;
+}
+
+/* Default View Transition cross-fade */
 ::view-transition-old(root) {
-  animation: viewTransitionOut 0.35s cubic-bezier(0.4, 0, 1, 1) both;
+  animation-name: pageFadeOut;
 }
 
 ::view-transition-new(root) {
-  animation: viewTransitionIn 0.45s cubic-bezier(0, 0, 0.2, 1) both;
+  animation-name: pageFadeIn;
 }
 
-@keyframes viewTransitionOut {
+@keyframes pageFadeOut {
   from {
     opacity: 1;
     transform: scale(1);
@@ -136,10 +167,10 @@
   }
 }
 
-@keyframes viewTransitionIn {
+@keyframes pageFadeIn {
   from {
     opacity: 0;
-    transform: scale(1.015);
+    transform: scale(0.99);
   }
   to {
     opacity: 1;
@@ -147,14 +178,131 @@
   }
 }
 
+/* Forward Navigation (e.g., Home -> Sign Up/In, Dashboard -> Call) */
+html[data-nav-direction="forward"]::view-transition-old(root) {
+  animation-name: pageForwardOut;
+}
+
+html[data-nav-direction="forward"]::view-transition-new(root) {
+  animation-name: pageForwardIn;
+}
+
+@keyframes pageForwardOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.98) translateY(-10px);
+  }
+}
+
+@keyframes pageForwardIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.99) translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Backward Navigation (e.g., Sign Up/In -> Home, Call -> Dashboard, Logout) */
+html[data-nav-direction="back"]::view-transition-old(root) {
+  animation-name: pageBackOut;
+}
+
+html[data-nav-direction="back"]::view-transition-new(root) {
+  animation-name: pageBackIn;
+}
+
+@keyframes pageBackOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.98) translateY(10px);
+  }
+}
+
+@keyframes pageBackIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.99) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Staggered entrance cascade for elements within pages */
+@keyframes cascadeReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-cascade-1 {
+  animation: cascadeReveal 0.40s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 25ms;
+}
+
+.animate-cascade-2 {
+  animation: cascadeReveal 0.44s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 65ms;
+}
+
+.animate-cascade-3 {
+  animation: cascadeReveal 0.48s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 105ms;
+}
+
+.animate-cascade-4 {
+  animation: cascadeReveal 0.52s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 145ms;
+}
+
+.animate-cascade-5 {
+  animation: cascadeReveal 0.56s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 185ms;
+}
+
+/* Ambient floating motion for decorative hero art */
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.012);
+  }
+}
+
+.animate-float-subtle {
+  animation: floatSubtle 9s ease-in-out infinite;
+}
+
 /* Call End Slider Shimmer & Spring Animations */
 @keyframes shimmerText {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .animate-shimmer-text {
-  background: linear-gradient(90deg, rgba(148,163,184,0.4) 0%, rgba(255,255,255,0.95) 50%, rgba(148,163,184,0.4) 100%);
+  background: linear-gradient(90deg, rgba(148, 163, 184, 0.4) 0%, rgba(255, 255, 255, 0.95) 50%, rgba(148, 163, 184, 0.4) 100%);
   background-size: 200% auto;
   color: transparent;
   -webkit-background-clip: text;
@@ -194,4 +342,34 @@
 
 .animate-slider-fade-in {
   animation: sliderFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Premium Minimal Range Slider */
+input[type="range"].premium-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #27272a;
+  border-radius: 9999px;
+  height: 4px;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+input[type="range"].premium-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #f4f4f5;
+  border: 1px solid #71717a;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+input[type="range"].premium-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  background: #ffffff;
+  border-color: #a1a1aa;
 }

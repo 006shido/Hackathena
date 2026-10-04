@@ -39,6 +39,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
   deepfakeScore = 0,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const tileRef = useRef<HTMLDivElement>(null);
   const [, setTrackRevision] = useState<number>(0);
   const [audioBlocked, setAudioBlocked] = useState<boolean>(false);
@@ -64,32 +65,46 @@ export const VideoTile: React.FC<VideoTileProps> = ({
 
   useEffect(() => {
     const video = videoRef.current;
+    const audio = audioRef.current;
     if (!video) return;
 
     if (stream) {
       if (video.srcObject !== stream) {
         video.srcObject = stream;
       }
+      video.muted = true;
+      video.defaultMuted = true;
+      video.play().catch((err) => {
+        console.warn('[VideoTile] Video play:', err);
+      });
+
+      // Handle remote audio playback on dedicated audio element
+      if (!isLocal && audio) {
+        if (audio.srcObject !== stream) {
+          audio.srcObject = stream;
+        }
+        audio.play().then(() => {
+          setAudioBlocked(false);
+        }).catch((err) => {
+          console.warn('[VideoTile] Remote audio autoplay prevented by browser policy:', err);
+          setAudioBlocked(true);
+        });
+      }
 
       const attemptPlay = async () => {
         try {
-          if (isLocal) {
-            video.muted = true;
-            video.defaultMuted = true;
-          }
+          video.muted = true;
+          video.defaultMuted = true;
           await video.play();
-          setAudioBlocked(false);
+
+          if (!isLocal && audio) {
+            await audio.play();
+            setAudioBlocked(false);
+          }
         } catch (err: unknown) {
-          console.warn('[VideoTile] Autoplay prevented, fallback to muted:', (err as Error)?.message);
+          console.warn('[VideoTile] Autoplay retry warning:', (err as Error)?.message);
           if (!isLocal) {
-            video.muted = true;
-            video.defaultMuted = true;
-            try {
-              await video.play();
-              setAudioBlocked(true);
-            } catch (playErr) {
-              console.error('[VideoTile] Video play error after mute:', playErr);
-            }
+            setAudioBlocked(true);
           }
         }
       };
@@ -122,17 +137,21 @@ export const VideoTile: React.FC<VideoTileProps> = ({
       const handleTrackUnmute = () => {
         if (isLocal) {
           setIsHardwareBuffering(false);
-          attemptPlay();
         }
+        attemptPlay();
       };
 
-      if (isLocal && videoTrack && !isVideoOff) {
-        if (videoTrack.muted) {
-          setIsHardwareBuffering(true);
+      if (videoTrack) {
+        if (isLocal && !isVideoOff) {
+          if (videoTrack.muted) {
+            setIsHardwareBuffering(true);
+          } else {
+            watchdogTimer = setTimeout(checkFrameArrival, 2000);
+          }
+          videoTrack.addEventListener('mute', handleTrackMute);
         } else {
-          watchdogTimer = setTimeout(checkFrameArrival, 2000);
+          setIsHardwareBuffering(false);
         }
-        videoTrack.addEventListener('mute', handleTrackMute);
         videoTrack.addEventListener('unmute', handleTrackUnmute);
       } else {
         setIsHardwareBuffering(false);
@@ -193,9 +212,9 @@ export const VideoTile: React.FC<VideoTileProps> = ({
 
   const handleUnmuteClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (videoRef.current && !isLocal) {
-      videoRef.current.muted = false;
-      videoRef.current
+    if (audioRef.current && !isLocal) {
+      audioRef.current.muted = false;
+      audioRef.current
         .play()
         .then(() => setAudioBlocked(false))
         .catch((err) => console.warn('Unmute error:', err));
@@ -316,10 +335,11 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     setSizePreset(order[nextIndex]);
   };
 
+  const videoTrack = stream?.getVideoTracks()[0];
   const hasVideoTrack = Boolean(
     stream &&
-    stream.getVideoTracks().length > 0 &&
-    (isLocal ? (stream.getVideoTracks()[0].enabled && !isVideoOff) : true)
+    videoTrack &&
+    (isLocal ? (videoTrack.enabled && !isVideoOff) : videoTrack.enabled)
   );
 
   const initials = username.split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2) || 'U';
@@ -353,35 +373,24 @@ export const VideoTile: React.FC<VideoTileProps> = ({
           : ''
         } overflow-hidden rounded-2xl sm:rounded-3xl bg-[#16181d] shadow-xl transition-[width,height,border-color] duration-150 select-none ${className}`}
     >
-      {/* Video Element */}
+      {/* Video Element: Always muted so browsers NEVER block video playback */}
       <video
-        ref={(el) => {
-          videoRef.current = el;
-          if (el && stream) {
-            if (isLocal) {
-              el.muted = true;
-              el.defaultMuted = true;
-            }
-            if (el.srcObject !== stream) {
-              el.srcObject = stream;
-            }
-            el.play().catch(() => { });
-          }
-        }}
+        ref={videoRef}
         autoPlay
         playsInline
-        muted={isLocal}
-        onLoadedMetadata={(e) => {
-          const el = e.currentTarget;
-          if (isLocal) {
-            el.muted = true;
-            el.defaultMuted = true;
-          }
-          el.play().catch(() => { });
-        }}
+        muted
         className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-200 pointer-events-none ${hasVideoTrack && !isHardwareBuffering ? 'opacity-100' : 'opacity-0'
           } ${isLocal ? 'scale-x-[-1]' : ''}`}
       />
+
+      {/* Dedicated Hidden Audio Element for Remote Audio */}
+      {!isLocal && (
+        <audio
+          ref={audioRef}
+          autoPlay
+          playsInline
+        />
+      )}
 
       {/* Hardware Muted Shutter Notification */}
       {isLocal && isHardwareBuffering && !isVideoOff && (

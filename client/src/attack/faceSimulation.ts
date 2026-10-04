@@ -15,10 +15,10 @@
  * - Automatic graceful degradation: unaltered webcam frame if face is lost
  */
 
-import { FacePreset } from '../types/attack';
+import { FacePreset, FaceBlendConfig } from '../types/attack';
 import { FaceSwapEngine, GalleryFaceValidationResult, FaceSwapTelemetry } from './faceSwapEngine';
 
-export type { FacePreset, GalleryFaceValidationResult, FaceSwapTelemetry };
+export type { FacePreset, FaceBlendConfig, GalleryFaceValidationResult, FaceSwapTelemetry };
 
 export interface LandmarkPoint {
   x: number;
@@ -113,6 +113,14 @@ export class FaceSimulationPipeline {
     }
   }
 
+  public setBlendConfig(config: Partial<FaceBlendConfig>): void {
+    this.engine.setBlendConfig(config);
+  }
+
+  public getBlendConfig(): FaceBlendConfig {
+    return this.engine.getBlendConfig();
+  }
+
   public getTelemetry(): FaceSwapTelemetry {
     return this.engine.getTelemetry();
   }
@@ -137,9 +145,15 @@ export class FaceSimulationPipeline {
     // Trigger on-demand library load for Tester
     this.initializeLibraries();
 
-    // Attach original video track to internal video element
-    const stream = new MediaStream([originalTrack]);
-    this.videoEl.srcObject = stream;
+    // Ensure WebGL GPU programs and buffers are healthy
+    this.engine.ensureWebGL();
+
+    // Attach original video track to internal video element if needed
+    const currentStream = this.videoEl.srcObject as MediaStream | null;
+    const currentTrack = currentStream?.getVideoTracks()[0];
+    if (!currentTrack || currentTrack.id !== originalTrack.id) {
+      this.videoEl.srcObject = new MediaStream([originalTrack]);
+    }
     this.videoEl.play().catch((err) => console.warn('[FaceSimulationPipeline] Video play error:', err));
 
     // Match canvas dimensions to track settings
@@ -148,6 +162,12 @@ export class FaceSimulationPipeline {
       this.canvas.width = settings.width;
       this.canvas.height = settings.height;
       this.engine.resize(settings.width, settings.height);
+    }
+
+    // Cancel existing loop before starting new one
+    if (this.animFrameId !== null) {
+      cancelAnimationFrame(this.animFrameId);
+      this.animFrameId = null;
     }
 
     // Start 60 FPS requestAnimationFrame render loop
@@ -199,6 +219,10 @@ export class FaceSimulationPipeline {
     this.ctx.restore();
   }
 
+  /**
+   * Pauses face swap rendering and halts canvas capture stream.
+   * Keeps WebGL shaders, GPU buffers, and AI models in memory so re-enabling is instant.
+   */
   public stop(): void {
     this.active = false;
     if (this.animFrameId !== null) {
@@ -214,6 +238,19 @@ export class FaceSimulationPipeline {
       });
       this.outputStream = null;
     }
+    if (this.videoEl) {
+      try {
+        this.videoEl.pause();
+      } catch (e) {}
+    }
+    this.engine.resetTracking();
+  }
+
+  /**
+   * Permanent teardown when call ends or component unmounts.
+   */
+  public destroy(): void {
+    this.stop();
     if (this.videoEl) {
       try {
         this.videoEl.pause();

@@ -93,6 +93,51 @@ export function useAuth() {
     []
   );
 
+  const register = useCallback(
+    async (
+      username: string,
+      password: string,
+      name?: string,
+      onVerified?: () => Promise<void> | void
+    ): Promise<User> => {
+      setError(null);
+      try {
+        const data = await authService.register(username, password, name);
+
+        if (onVerified) {
+          await onVerified();
+        }
+
+        const commitState = () => {
+          setState({
+            user: data.user,
+            token: data.token,
+            isAuthenticated: true,
+            loading: false,
+          });
+        };
+
+        const doc = document as unknown as { startViewTransition?: (cb: () => void) => void };
+        if (typeof doc.startViewTransition === 'function') {
+          doc.startViewTransition(() => {
+            flushSync(() => {
+              commitState();
+            });
+          });
+        } else {
+          commitState();
+        }
+
+        return data.user;
+      } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : 'Registration failed';
+        setError(message);
+        throw err;
+      }
+    },
+    []
+  );
+
   const logout = useCallback(() => {
     const commitState = () => {
       authService.logout();
@@ -123,6 +168,7 @@ export function useAuth() {
     loading: state.loading,
     error,
     login,
+    register,
     logout,
   };
 }

@@ -312,7 +312,7 @@ export const CallControls: React.FC<CallControlsProps> = ({
                 isAttackActive || faceSwapActive
                   ? 'bg-[#ea3812] text-white shadow-[0_0_16px_rgba(234,56,18,0.35)]'
                   : isTesterDrawerOpen
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-zinc-650 text-white border border-zinc-500'
                   : 'bg-[#2b2d35] hover:bg-[#343740] text-white shadow-xs'
               }`}
             >

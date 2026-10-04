@@ -97,9 +97,8 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
         {participantCount === 2 && (
           <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs">
             <Circle
-              className={`h-2 w-2 fill-current ${
-                isConnected ? 'text-emerald-400' : 'text-amber-400 animate-pulse'
-              }`}
+              className={`h-2 w-2 fill-current ${isConnected ? 'text-emerald-400' : 'text-amber-400 animate-pulse'
+                }`}
             />
             <span className={isConnected ? 'text-emerald-400' : 'text-slate-400'}>
               {isConnected ? 'P2P Encrypted' : 'Connecting...'}
@@ -126,11 +125,10 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
           <button
             onClick={onToggleSecurityPanel}
             title="Toggle Security Monitor"
-            className={`p-2 rounded-full transition-colors cursor-pointer ${
-              isSecurityPanelOpen
+            className={`p-2 rounded-full transition-colors cursor-pointer ${isSecurityPanelOpen
                 ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
                 : 'text-slate-400 hover:text-white hover:bg-white/10'
-            }`}
+              }`}
           >
             <Activity className="h-4 w-4" />
           </button>

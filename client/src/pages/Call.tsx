@@ -66,6 +66,8 @@ export const CallPage: React.FC<CallPageProps> = ({
     selectedFacePreview,
     selectedFaceName,
     faceSwapTelemetry,
+    faceBlendConfig,
+    updateFaceBlendConfig,
     isVoiceMonitoring,
     toggleVoiceMonitor,
     endCall,
@@ -249,16 +251,33 @@ export const CallPage: React.FC<CallPageProps> = ({
                       : 'You'
                   }
                 />
-
-                {/* Waiting Chip */}
-                <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-xs text-white shadow-xl">
-                  <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
-                  <span>Waiting for peer to join</span>
-                  <span className="text-slate-400">•</span>
-                  <span className="text-blue-400 font-mono font-medium">{roomId}</span>
-                </div>
               </div>
             )}
+
+            {/* Top-Left Stage HUD: Waiting status and Active Attack mode */}
+            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-30 flex items-center gap-2 pointer-events-none">
+              {!peerInfo && (
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/10 text-[11px] text-white/95 shadow-md pointer-events-auto">
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse" />
+                  <span>Waiting for peer to join</span>
+                  <span className="text-slate-500">•</span>
+                  <span className="text-blue-400 font-mono font-medium">{roomId}</span>
+                </div>
+              )}
+
+              {isTester && attackState.mode !== 'none' && (
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-600 text-white text-[11px] font-medium shadow-md shadow-red-600/30 pointer-events-auto">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white animate-ping" />
+                  <span>
+                    {attackState.mode === 'combined'
+                      ? 'Full Attack Active'
+                      : attackState.mode === 'face'
+                        ? 'Face Swap Active'
+                        : 'Voice Transform Active'}
+                  </span>
+                </div>
+              )}
+            </div>
 
             {/* When Peer is present: Floating PiP Local User Video (Matching Screenshot 1 Right) */}
             {peerInfo && (
@@ -276,20 +295,6 @@ export const CallPage: React.FC<CallPageProps> = ({
                     : 'You'
                 }
               />
-            )}
-
-            {/* Tester Attack Mode Active Badge */}
-            {isTester && attackState.mode !== 'none' && (
-              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-30 flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-semibold shadow-lg shadow-red-600/30">
-                <span className="h-2 w-2 rounded-full bg-white animate-ping" />
-                <span>
-                  {attackState.mode === 'combined'
-                    ? 'Full Attack Active'
-                    : attackState.mode === 'face'
-                      ? 'Face Swap Active'
-                      : 'Voice Transform Active'}
-                </span>
-              </div>
             )}
 
             {/* Autonomous Deepfake Alert Floating Banner */}
@@ -370,6 +375,8 @@ export const CallPage: React.FC<CallPageProps> = ({
               onSelectPreset={setFacePreset}
               currentPreset={attackState.facePreset}
               telemetry={faceSwapTelemetry}
+              blendConfig={faceBlendConfig}
+              onUpdateBlendConfig={updateFaceBlendConfig}
               selectedFacePreview={selectedFacePreview}
               selectedFaceName={selectedFaceName}
               processedStream={localStream}
@@ -421,6 +428,8 @@ export const CallPage: React.FC<CallPageProps> = ({
                 onSelectPreset={setFacePreset}
                 currentPreset={attackState.facePreset}
                 telemetry={faceSwapTelemetry}
+                blendConfig={faceBlendConfig}
+                onUpdateBlendConfig={updateFaceBlendConfig}
                 selectedFacePreview={selectedFacePreview}
                 selectedFaceName={selectedFaceName}
                 processedStream={localStream}
