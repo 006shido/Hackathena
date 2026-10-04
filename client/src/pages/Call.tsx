@@ -66,6 +66,8 @@ export const CallPage: React.FC<CallPageProps> = ({
     selectedFacePreview,
     selectedFaceName,
     faceSwapTelemetry,
+    faceBlendConfig,
+    updateFaceBlendConfig,
     isVoiceMonitoring,
     toggleVoiceMonitor,
     endCall,
@@ -370,6 +372,8 @@ export const CallPage: React.FC<CallPageProps> = ({
               onSelectPreset={setFacePreset}
               currentPreset={attackState.facePreset}
               telemetry={faceSwapTelemetry}
+              blendConfig={faceBlendConfig}
+              onUpdateBlendConfig={updateFaceBlendConfig}
               selectedFacePreview={selectedFacePreview}
               selectedFaceName={selectedFaceName}
               processedStream={localStream}
@@ -421,6 +425,8 @@ export const CallPage: React.FC<CallPageProps> = ({
                 onSelectPreset={setFacePreset}
                 currentPreset={attackState.facePreset}
                 telemetry={faceSwapTelemetry}
+                blendConfig={faceBlendConfig}
+                onUpdateBlendConfig={updateFaceBlendConfig}
                 selectedFacePreview={selectedFacePreview}
                 selectedFaceName={selectedFaceName}
                 processedStream={localStream}

@@ -15,10 +15,10 @@
  * - Automatic graceful degradation: unaltered webcam frame if face is lost
  */
 
-import { FacePreset } from '../types/attack';
+import { FacePreset, FaceBlendConfig } from '../types/attack';
 import { FaceSwapEngine, GalleryFaceValidationResult, FaceSwapTelemetry } from './faceSwapEngine';
 
-export type { FacePreset, GalleryFaceValidationResult, FaceSwapTelemetry };
+export type { FacePreset, FaceBlendConfig, GalleryFaceValidationResult, FaceSwapTelemetry };
 
 export interface LandmarkPoint {
   x: number;
@@ -111,6 +111,14 @@ export class FaceSimulationPipeline {
     if (presetMap[preset]) {
       await this.engine.loadPresetSource(preset, presetMap[preset].src, presetMap[preset].name);
     }
+  }
+
+  public setBlendConfig(config: Partial<FaceBlendConfig>): void {
+    this.engine.setBlendConfig(config);
+  }
+
+  public getBlendConfig(): FaceBlendConfig {
+    return this.engine.getBlendConfig();
   }
 
   public getTelemetry(): FaceSwapTelemetry {

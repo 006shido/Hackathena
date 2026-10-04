@@ -25,3 +25,23 @@ export interface AttackStatusUpdate {
   voiceTransform: boolean;
   timestamp: number;
 }
+
+export interface FaceBlendConfig {
+  featherRadius: number;
+  skinToneMatch: number;
+  lightingTransfer: number;
+  mouthBlend: number;
+  sensorGrain: number;
+  maskInset: number;
+  naturalEyes: boolean;
+}
+
+export const DEFAULT_FACE_BLEND_CONFIG: FaceBlendConfig = {
+  featherRadius: 16,
+  skinToneMatch: 0.85,
+  lightingTransfer: 0.65,
+  mouthBlend: 0.90,
+  sensorGrain: 0.35,
+  maskInset: 0.06,
+  naturalEyes: true,
+};
