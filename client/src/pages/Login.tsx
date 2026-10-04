@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { LoginForm } from '../components/LoginForm';
 
 interface LoginPageProps {
@@ -7,40 +7,61 @@ interface LoginPageProps {
     password: string,
     onVerified?: () => Promise<void> | void
   ) => Promise<any>;
+  onRegister?: (
+    username: string,
+    password: string,
+    name?: string,
+    onVerified?: () => Promise<void> | void
+  ) => Promise<any>;
   loading?: boolean;
   error?: string | null;
+  onBackToHome?: () => void;
+  initialMode?: 'signin' | 'signup';
 }
 
 export const LoginPage: React.FC<LoginPageProps> = ({
   onLogin,
+  onRegister,
   loading,
   error,
+  onBackToHome,
+  initialMode = 'signin',
 }) => {
-  const [isExiting, setIsExiting] = useState(false);
-
   return (
-    <div
-      className={`min-h-[100dvh] w-full flex bg-white text-slate-900 font-sans selection:bg-blue-100 transition-all duration-400 ease-out overflow-x-hidden ${
-        isExiting ? 'opacity-0 scale-[0.985] filter blur-[1px] pointer-events-none' : 'opacity-100 scale-100'
-      }`}
-    >
+    <div className="min-h-[100dvh] w-full flex bg-white text-slate-900 font-sans selection:bg-blue-100 overflow-x-hidden">
       {/* Left Column: Top-Left Logo + Centered Form */}
       <div className="w-full lg:w-[48%] xl:w-[45%] min-h-[100dvh] flex flex-col justify-between p-5 sm:p-8 lg:p-10 xl:p-14 z-10 bg-white overflow-y-auto">
-        {/* Top-Left Logo */}
-        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-          <div className="h-8 w-8 sm:h-9 sm:w-9 shrink-0">
-            <img src="/logo.svg" alt="DeepTrace Logo" className="h-full w-full" />
+        {/* Top-Left Logo & Back to Home */}
+        <div className="flex items-center justify-between shrink-0 animate-cascade-1">
+          <div
+            className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group"
+            onClick={onBackToHome}
+          >
+            <div className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 transition-transform group-hover:scale-105">
+              <img src="/logo.svg" alt="DeepTrace Logo" className="h-full w-full" />
+            </div>
+            <span className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">DeepTrace</span>
           </div>
-          <span className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">DeepTrace</span>
+
+          {onBackToHome && (
+            <button
+              type="button"
+              onClick={onBackToHome}
+              className="text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors flex items-center gap-1.5 cursor-pointer px-2.5 py-1.5 rounded-lg hover:bg-slate-100 active:scale-95"
+            >
+              <span>← Back to Home</span>
+            </button>
+          )}
         </div>
 
-        {/* Centered Login Form with fluid spacing */}
+        {/* Centered Login / Sign Up Form with fluid spacing */}
         <div className="my-auto w-full max-w-[400px] mx-auto py-4 sm:py-6 lg:py-8">
           <LoginForm
             onLogin={onLogin}
+            onRegister={onRegister}
+            initialMode={initialMode}
             loading={loading}
             error={error}
-            onExitingChange={setIsExiting}
           />
         </div>
 
@@ -52,7 +73,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
       <div className="hidden lg:flex flex-1 relative bg-[#f2f6fd] flex-col justify-between p-10 lg:p-14 xl:p-16 overflow-hidden select-none border-l border-slate-100">
         {/* Soft Geometric Shapes: exactly 1 middle-right disc + 1 bottom-right dome (no ripples) */}
         <svg
-          className="absolute inset-0 w-full h-full pointer-events-none"
+          className="absolute inset-0 w-full h-full pointer-events-none animate-float-subtle"
           viewBox="0 0 800 900"
           preserveAspectRatio="xMaxYMid slice"
           fill="none"
@@ -87,14 +108,14 @@ export const LoginPage: React.FC<LoginPageProps> = ({
         </svg>
 
         {/* Top-Right Tagline */}
-        <div className="w-full flex justify-end z-10">
+        <div className="w-full flex justify-end z-10 animate-cascade-1">
           <span className="text-[13px] sm:text-sm font-normal text-slate-400 tracking-wide">
             Simple. Secure. Verified.
           </span>
         </div>
 
         {/* Hero Copy (DeepTrace Website Specific) */}
-        <div className="w-full max-w-lg my-auto pl-6 sm:pl-10 xl:pl-16 z-10">
+        <div className="w-full max-w-lg my-auto pl-6 sm:pl-10 xl:pl-16 z-10 animate-cascade-3">
           <h2 className="text-3xl sm:text-4xl xl:text-[42px] font-bold tracking-tight text-slate-900 leading-[1.2] mb-4">
             Secure conversations,<br />
             anywhere.

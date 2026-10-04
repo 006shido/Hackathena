@@ -73,7 +73,7 @@
         "@id": "https://hackathena.onrender.com/#website",
         "url": "https://hackathena.onrender.com/",
         "name": "DeepTrace",
-        "alternateName": ["DeepTrace Security", "DeepTrace Video"],
+        "alternateName": ["Hackathena", "DeepTrace Security", "DeepTrace Video"],
         "description": "Next-generation secure 1-to-1 video communication with real-time deepfake defense."
       },
       {
@@ -94,6 +94,36 @@
           "price": "0",
           "priceCurrency": "USD"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://hackathena.onrender.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does DeepTrace detect deepfakes in real-time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "DeepTrace runs an in-browser neural pipeline using MediaPipe and WebGL. It tracks 478 3D facial landmarks to spot subtle warping, edge feathering discrepancies, and unnatural blink rates. Simultaneously, a spectral acoustic analyzer scans 48kHz audio for vocoder harmonic frequencies and synthetic voice clone signatures."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to install software or browser extensions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. DeepTrace is 100% browser-native using standard WebRTC, WebGL, and Web Audio APIs built into modern browsers like Chrome, Edge, Safari, and Firefox."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are our video calls recorded or saved on servers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. All media is encrypted end-to-end via DTLS-SRTP and flows directly peer-to-peer between participants without central server recording."
+            }
+          }
+        ]
       }
     ]
   }

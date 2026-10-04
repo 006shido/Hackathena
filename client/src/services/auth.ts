@@ -22,6 +22,24 @@ export const authService = {
     return data;
   },
 
+  async register(username: string, password: string, name?: string): Promise<AuthResponse> {
+    const res = await fetch('/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password, name }),
+    });
+
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      throw new Error(data.error || 'Registration failed. Please check your details.');
+    }
+
+    const data: AuthResponse = await res.json();
+    localStorage.setItem(TOKEN_KEY, data.token);
+    localStorage.setItem(USER_KEY, JSON.stringify(data.user));
+    return data;
+  },
+
   getToken(): string | null {
     return localStorage.getItem(TOKEN_KEY);
   },

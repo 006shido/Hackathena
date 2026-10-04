@@ -755,9 +755,6 @@ export class FaceSwapEngine {
     ) {
       this.renderFaceSwap(videoEl, outCtx, width, height);
     }
-
-    // 4. Overlay clear AI-Modified watermark badge for compliance
-    this.drawWatermarkBadge(outCtx, width, height);
   }
 
   private onVideoResults(results: any, width: number, height: number) {
@@ -1155,36 +1152,6 @@ export class FaceSwapEngine {
     }
   }
 
-  /**
-   * Draws a discreet watermark badge on the video frame indicating AI transformation
-   */
-  private drawWatermarkBadge(ctx: CanvasRenderingContext2D, width: number, height: number) {
-    ctx.save();
-    const badgeW = 168;
-    const badgeH = 22;
-    const badgeX = width - badgeW - 14;
-    const badgeY = 14;
-
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.72)';
-    ctx.strokeStyle = 'rgba(59, 130, 246, 0.4)';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 6);
-    ctx.fill();
-    ctx.stroke();
-
-    // Blue pulsating indicator
-    const pulse = 0.5 + Math.sin(this.frameCount * 0.08) * 0.5;
-    ctx.fillStyle = `rgba(59, 130, 246, ${0.4 + pulse * 0.6})`;
-    ctx.beginPath();
-    ctx.arc(badgeX + 11, badgeY + 11, 3.5, 0, Math.PI * 2);
-    ctx.fill();
-
-    ctx.font = '600 10px Inter, -apple-system, sans-serif';
-    ctx.fillStyle = '#e2e8f0';
-    ctx.fillText('AI Face Swap (Tester)', badgeX + 20, badgeY + 14.5);
-    ctx.restore();
-  }
 
   /**
    * Telemetry for UI Status Panel
