@@ -23,7 +23,7 @@
   <meta http-equiv="content-language" content="en" />
 
   <!-- Canonical URL (CRITICAL: Must match your actual live site domain!) -->
-  <link rel="canonical" href="https://hackathena.onrender.com" />
+  <link rel="canonical" href="https://hackathena.onrender.com/" />
 
   <!-- Primary Meta Tags -->
   <title>DeepTrace — Secure Video Communication & Real-Time Deepfake Defense</title>
@@ -107,7 +107,33 @@
 </head>
 
 <body class="bg-[#f8fafc] text-slate-900 antialiased font-sans selection:bg-blue-600/20 selection:text-blue-700">
-  <div id="root"></div>
+  <div id="root">
+    <!-- Semantic Static Content for Search Engine Crawlers & Immediate Indexing (Hydrated by React on mount) -->
+    <header style="padding: 24px; text-align: center;">
+      <h1 style="font-size: 28px; font-weight: 800; color: #0f172a; margin-bottom: 8px;">
+        DeepTrace — Secure Video Communication & Real-Time Deepfake Defense
+      </h1>
+      <p style="font-size: 16px; color: #475569; max-width: 640px; margin: 0 auto 16px;">
+        Next-generation peer-to-peer encrypted WebRTC video conference platform featuring autonomous real-time biometric deepfake defense and controlled attack simulation.
+      </p>
+    </header>
+    <main style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
+      <section style="margin-bottom: 24px;">
+        <h2 style="font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Key Capabilities</h2>
+        <ul style="color: #334155; line-height: 1.6;">
+          <li><strong>Real-Time Deepfake Defense:</strong> Continuous 3D facial landmark mesh tracking and acoustic spectral voice clone detection.</li>
+          <li><strong>Encrypted Video Calling:</strong> Low-latency 1-to-1 WebRTC video conferencing with secure room credentials.</li>
+          <li><strong>Controlled Simulation:</strong> Educational face swap and neural voice transformation simulation for security testing.</li>
+          <li><strong>Biometric Integrity:</strong> Instant anomaly alerts when synthetic media artifacts are detected on live streams.</li>
+        </ul>
+      </section>
+    </main>
+    <noscript>
+      <div style="text-align: center; padding: 20px; color: #dc2626;">
+        <p>JavaScript is required to run the interactive DeepTrace video call application.</p>
+      </div>
+    </noscript>
+  </div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 
