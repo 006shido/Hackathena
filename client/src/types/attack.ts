@@ -37,11 +37,11 @@ export interface FaceBlendConfig {
 }
 
 export const DEFAULT_FACE_BLEND_CONFIG: FaceBlendConfig = {
-  featherRadius: 16,
+  featherRadius: 6,
   skinToneMatch: 0.85,
   lightingTransfer: 0.65,
   mouthBlend: 0.90,
   sensorGrain: 0.35,
-  maskInset: 0.06,
+  maskInset: 0.0,
   naturalEyes: true,
 };

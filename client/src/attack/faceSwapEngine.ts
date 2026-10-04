@@ -910,12 +910,33 @@ export class FaceSwapEngine {
     const posArray = new Float32Array(numPoints * 2);
     const texArray = new Float32Array(numPoints * 2);
 
+    // Compute central anchor for subtle boundary expansion (+3.5px)
+    const centerPts = [destLandmarks[168], destLandmarks[1], destLandmarks[4], destLandmarks[13]];
+    const validCenter = centerPts.filter(Boolean);
+    const cx = validCenter.length > 0 ? validCenter.reduce((acc, p) => acc + p.x, 0) / validCenter.length : width * 0.5;
+    const cy = validCenter.length > 0 ? validCenter.reduce((acc, p) => acc + p.y, 0) / validCenter.length : height * 0.48;
+
+    const ovalSet = new Set(FACE_OVAL_INDICES);
+
     for (let i = 0; i < numPoints; i++) {
       const d = destLandmarks[i];
       const s = srcLandmarks[i];
 
-      posArray[i * 2] = (d.x / width) * 2 - 1;
-      posArray[i * 2 + 1] = 1 - (d.y / height) * 2; // Flip Y for WebGL NDC
+      let px = d.x;
+      let py = d.y;
+
+      // Expand the outermost perimeter landmarks by 3.5px so the swapped face reaches
+      // 100% of both cheeks, temples, and jawline without leaving any raw skin gaps
+      if (ovalSet.has(i)) {
+        const vx = d.x - cx;
+        const vy = d.y - cy;
+        const dist = Math.hypot(vx, vy) || 1;
+        px += (vx / dist) * 3.5;
+        py += (vy / dist) * 3.5;
+      }
+
+      posArray[i * 2] = (px / width) * 2 - 1;
+      posArray[i * 2 + 1] = 1 - (py / height) * 2; // Flip Y for WebGL NDC
 
       texArray[i * 2] = s.x / srcW;
       texArray[i * 2 + 1] = s.y / srcH;
@@ -985,64 +1006,47 @@ export class FaceSwapEngine {
 
   /**
    * Generates a soft feathered alpha contour mask:
-   * - Insets the boundary towards the face center (avoiding hair, bangs, ears, and neck)
-   * - Applies a Gaussian blur filter creating a smooth gradient decay from 1.0 to 0.0
-   * - Guarantees 0% cut edges and smooth blending into surrounding skin
+   * - Follows the true anatomical 36 perimeter points without aggressive inward shrinking
+   * - Eliminates un-swapped gaps on the left and right cheeks
+   * - Applies a calibrated 6px-7px Gaussian blur filter for smooth, seamless skin edge blending
    */
   private generateFeatheredMask(landmarks: LandmarkPoint[], width: number, height: number) {
     this.rawMaskCtx.clearRect(0, 0, width, height);
 
-    // Compute central anchor for inward inset
+    // Compute central anchor
     const centerPts = [landmarks[168], landmarks[1], landmarks[4], landmarks[13]];
     const validCenter = centerPts.filter(Boolean);
     const cx = validCenter.length > 0 ? validCenter.reduce((acc, p) => acc + p.x, 0) / validCenter.length : width * 0.5;
     const cy = validCenter.length > 0 ? validCenter.reduce((acc, p) => acc + p.y, 0) / validCenter.length : height * 0.48;
 
-    // Build inset contour points
-    const baseInset = this.blendConfig.maskInset;
-    const foreheadIndices = new Set([10, 338, 297, 332, 109, 67, 103, 54, 284, 251]);
-    const earIndices = new Set([234, 454, 127, 162, 356, 389, 323]);
-
-    const insetPts: { x: number; y: number }[] = [];
+    // Trace true outer perimeter along FACE_OVAL_INDICES with slight outward expansion (+3.5px)
+    // to guarantee 100% full coverage across both cheeks, temples, and jawline
+    const contourPts: { x: number; y: number }[] = [];
     for (const idx of FACE_OVAL_INDICES) {
       const pt = landmarks[idx];
       if (!pt) continue;
 
-      let factor = baseInset;
-      if (foreheadIndices.has(idx)) {
-        // Inset forehead deeper so bangs and hairline are 100% preserved
-        factor = baseInset * 2.2;
-      } else if (earIndices.has(idx)) {
-        // Inset sides so ears and sideburns are preserved
-        factor = baseInset * 1.3;
-      } else {
-        // Jaw and chin
-        factor = baseInset * 0.85;
-      }
+      const dx = pt.x - cx;
+      const dy = pt.y - cy;
+      const dist = Math.hypot(dx, dy) || 1;
+      const nx = dx / dist;
+      const ny = dy / dist;
 
-      const dx = cx - pt.x;
-      const dy = cy - pt.y;
-      insetPts.push({
-        x: pt.x + dx * factor,
-        y: pt.y + dy * factor,
+      // Expand outer edge by 3.5px to cover both left and right sides completely
+      contourPts.push({
+        x: pt.x + nx * 3.5,
+        y: pt.y + ny * 3.5,
       });
     }
 
-    const n = insetPts.length;
+    const n = contourPts.length;
     if (n < 3) return;
 
-    // Draw smooth spline contour on rawMaskCtx
+    // Draw anatomical polygon through all 36 contour points without cutting corners
     this.rawMaskCtx.beginPath();
-    const startX = (insetPts[n - 1].x + insetPts[0].x) / 2;
-    const startY = (insetPts[n - 1].y + insetPts[0].y) / 2;
-    this.rawMaskCtx.moveTo(startX, startY);
-
-    for (let i = 0; i < n; i++) {
-      const curr = insetPts[i];
-      const next = insetPts[(i + 1) % n];
-      const midX = (curr.x + next.x) / 2;
-      const midY = (curr.y + next.y) / 2;
-      this.rawMaskCtx.quadraticCurveTo(curr.x, curr.y, midX, midY);
+    this.rawMaskCtx.moveTo(contourPts[0].x, contourPts[0].y);
+    for (let i = 1; i < n; i++) {
+      this.rawMaskCtx.lineTo(contourPts[i].x, contourPts[i].y);
     }
     this.rawMaskCtx.closePath();
 
@@ -1053,7 +1057,8 @@ export class FaceSwapEngine {
     // Render onto maskCanvas with Gaussian blur filter for smooth feathering
     this.maskCtx.clearRect(0, 0, width, height);
     this.maskCtx.save();
-    const radius = Math.max(4, Math.round(this.blendConfig.featherRadius));
+    // Calibrated 6px-7px feathering: seamless edge transition without eating into cheeks
+    const radius = Math.max(3, Math.min(8, Math.round(this.blendConfig.featherRadius || 6)));
     this.maskCtx.filter = `blur(${radius}px)`;
     this.maskCtx.drawImage(this.rawMaskCanvas, 0, 0, width, height);
     this.maskCtx.restore();

@@ -92,45 +92,45 @@ export const AIFaceSwapPanel: React.FC<AIFaceSwapPanelProps> = ({
     switch (preset) {
       case 'ultra':
         onUpdateBlendConfig({
-          featherRadius: 16,
+          featherRadius: 6,
           skinToneMatch: 0.85,
           lightingTransfer: 0.65,
           mouthBlend: 0.90,
           sensorGrain: 0.35,
-          maskInset: 0.06,
+          maskInset: 0.0,
           naturalEyes: true,
         });
         break;
       case 'natural':
         onUpdateBlendConfig({
-          featherRadius: 22,
+          featherRadius: 7,
           skinToneMatch: 0.95,
           lightingTransfer: 0.80,
           mouthBlend: 0.95,
           sensorGrain: 0.45,
-          maskInset: 0.08,
+          maskInset: 0.0,
           naturalEyes: true,
         });
         break;
       case 'studio':
         onUpdateBlendConfig({
-          featherRadius: 10,
+          featherRadius: 5,
           skinToneMatch: 0.70,
           lightingTransfer: 0.40,
           mouthBlend: 0.85,
           sensorGrain: 0.15,
-          maskInset: 0.05,
+          maskInset: 0.0,
           naturalEyes: true,
         });
         break;
       case 'contour':
         onUpdateBlendConfig({
-          featherRadius: 14,
+          featherRadius: 6,
           skinToneMatch: 0.80,
           lightingTransfer: 0.60,
           mouthBlend: 0.90,
           sensorGrain: 0.25,
-          maskInset: 0.06,
+          maskInset: 0.0,
           naturalEyes: false,
         });
         break;
@@ -434,10 +434,10 @@ export const AIFaceSwapPanel: React.FC<AIFaceSwapPanelProps> = ({
             {/* Profiles */}
             <div className="grid grid-cols-4 gap-1">
               {[
-                { id: 'ultra', label: 'Ultra', sub: '16px' },
-                { id: 'natural', label: 'Soft', sub: '22px' },
-                { id: 'studio', label: 'Studio', sub: '10px' },
-                { id: 'contour', label: 'Contour', sub: '14px' },
+                { id: 'ultra', label: 'Ultra', sub: '6px' },
+                { id: 'natural', label: 'Soft', sub: '7px' },
+                { id: 'studio', label: 'Studio', sub: '5px' },
+                { id: 'contour', label: 'Contour', sub: '6px' },
               ].map((p) => {
                 const isSelected = activeBlendPreset === p.id;
                 return (
@@ -473,17 +473,17 @@ export const AIFaceSwapPanel: React.FC<AIFaceSwapPanelProps> = ({
                   </div>
                   <input
                     type="range"
-                    min="4"
-                    max="28"
+                    min="2"
+                    max="10"
                     step="1"
                     value={activeConfig.featherRadius}
                     onChange={(e) => onUpdateBlendConfig?.({ featherRadius: Number(e.target.value) })}
                     className="premium-slider w-full cursor-pointer"
                   />
                   <div className="flex justify-between text-[9px] text-zinc-500 mt-0.5">
-                    <span>Crisp (4px)</span>
-                    <span>Balanced (16px)</span>
-                    <span>Soft (28px)</span>
+                    <span>Crisp (3px)</span>
+                    <span>Balanced (6px)</span>
+                    <span>Soft (9px)</span>
                   </div>
                 </div>
 
