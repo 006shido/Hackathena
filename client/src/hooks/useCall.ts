@@ -725,7 +725,7 @@ export function useCall(user: User | null, token: string | null) {
 
     // 4. Attack simulation pipelines
     if (facePipelineRef.current) {
-      facePipelineRef.current.stop();
+      facePipelineRef.current.destroy();
       facePipelineRef.current = null;
     }
     if (voicePipelineRef.current) {
@@ -746,7 +746,7 @@ export function useCall(user: User | null, token: string | null) {
 
     // Stop attack simulation pipelines
     if (facePipelineRef.current) {
-      facePipelineRef.current.stop();
+      facePipelineRef.current.destroy();
       facePipelineRef.current = null;
     }
     if (voicePipelineRef.current) {
@@ -802,7 +802,7 @@ export function useCall(user: User | null, token: string | null) {
         localStreamRef.current = null;
       }
       if (facePipelineRef.current) {
-        facePipelineRef.current.stop();
+        facePipelineRef.current.destroy();
         facePipelineRef.current = null;
       }
       if (voicePipelineRef.current) {

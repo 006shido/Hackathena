@@ -268,6 +268,31 @@ export class FaceSwapEngine {
   }
 
   /**
+   * Ensures WebGL program and GPU resources are healthy.
+   * Self-heals if resources were released or context restored.
+   */
+  public ensureWebGL(): boolean {
+    if (!this.gl) return false;
+    if (!this.glProgram) {
+      this.initWebGL();
+      if (this.sourceImage) {
+        this.updateWebGLSourceTexture();
+      }
+    }
+    return Boolean(this.glProgram);
+  }
+
+  /**
+   * Resets active facial tracking coordinates and smoothing buffers.
+   * Called when pausing/resuming face swap to prevent coordinate jump.
+   */
+  public resetTracking(): void {
+    this.smoothedLandmarks = null;
+    this.liveLandmarks = null;
+    this.isInferring = false;
+  }
+
+  /**
    * Generates standard canonical 478 face landmarks mapped to portrait dimensions.
    */
   public generateEstimatedLandmarks(width: number, height: number): LandmarkPoint[] {
@@ -714,8 +739,9 @@ export class FaceSwapEngine {
       try {
         const results = this.videoLandmarker.detectForVideo(videoEl, now);
         this.onVideoResults(results, width, height);
-      } catch {
+      } catch (err) {
         this.isInferring = false;
+        console.warn('[FaceSwapEngine] detectForVideo non-fatal frame skip:', err);
       }
     }
 
@@ -891,6 +917,7 @@ export class FaceSwapEngine {
     srcW: number,
     srcH: number
   ) {
+    if (!this.ensureWebGL()) return;
     const gl = this.gl!;
     gl.useProgram(this.glProgram);
     gl.viewport(0, 0, width, height);
@@ -1196,11 +1223,12 @@ export class FaceSwapEngine {
 
     if (this.gl && this.glProgram) {
       this.gl.deleteProgram(this.glProgram);
-      if (this.positionBuffer) this.gl.deleteBuffer(this.positionBuffer);
-      if (this.texCoordBuffer) this.gl.deleteBuffer(this.texCoordBuffer);
-      if (this.indexBuffer) this.gl.deleteBuffer(this.indexBuffer);
-      if (this.sourceTexture) this.gl.deleteTexture(this.sourceTexture);
-      if (this.targetTexture) this.gl.deleteTexture(this.targetTexture);
+      this.glProgram = null;
+      if (this.positionBuffer) { this.gl.deleteBuffer(this.positionBuffer); this.positionBuffer = null; }
+      if (this.texCoordBuffer) { this.gl.deleteBuffer(this.texCoordBuffer); this.texCoordBuffer = null; }
+      if (this.indexBuffer) { this.gl.deleteBuffer(this.indexBuffer); this.indexBuffer = null; }
+      if (this.sourceTexture) { this.gl.deleteTexture(this.sourceTexture); this.sourceTexture = null; }
+      if (this.targetTexture) { this.gl.deleteTexture(this.targetTexture); this.targetTexture = null; }
     }
   }
 }
