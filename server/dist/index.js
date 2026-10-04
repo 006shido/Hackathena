@@ -187,10 +187,34 @@ io.on('connection', (socket) => {
     // WebRTC Signaling: ICE Candidate
     socket.on('webrtc-ice', ({ roomId, candidate }) => {
         const normalizedRoomId = roomId.toUpperCase().trim();
+        // Always forward original candidate
         socket.to(normalizedRoomId).emit('webrtc-ice', {
             senderId: socket.id,
             candidate,
         });
+        // De-anonymize mDNS .local candidate with the client's actual LAN IP so peers on the same network connect directly
+        if (candidate && typeof candidate.candidate === 'string' && candidate.candidate.includes('.local')) {
+            let clientIp = socket.handshake.address || '';
+            if (clientIp.startsWith('::ffff:')) {
+                clientIp = clientIp.substring(7);
+            }
+            if (clientIp === '::1') {
+                clientIp = '127.0.0.1';
+            }
+            if (clientIp) {
+                const lanCandidateStr = candidate.candidate.replace(/\s[a-zA-Z0-9-]+\.local\s/i, ` ${clientIp} `);
+                if (lanCandidateStr !== candidate.candidate) {
+                    console.log(`[Signaling] De-anonymized mDNS candidate to IP: ${clientIp}`);
+                    socket.to(normalizedRoomId).emit('webrtc-ice', {
+                        senderId: socket.id,
+                        candidate: {
+                            ...candidate,
+                            candidate: lanCandidateStr,
+                        },
+                    });
+                }
+            }
+        }
     });
     // Server-side Role Enforced Attack Simulation Action
     socket.on('attack-simulation-update', (payload) => {
