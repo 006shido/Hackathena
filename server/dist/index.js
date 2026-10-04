@@ -4,6 +4,7 @@ import { Server as SocketIOServer } from 'socket.io';
 import cors from 'cors';
 import { authenticateUser, generateToken, verifyToken } from './auth.js';
 import { roomManager } from './rooms.js';
+import { mlRouter } from './ml.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
@@ -16,6 +17,8 @@ app.use(cors({
     methods: ['GET', 'POST'],
 }));
 app.use(express.json());
+// ML Inference Proxy Route (Phase 6G Neural Pipeline)
+app.use('/api/ml', mlRouter);
 // Serve production frontend assets if client/dist exists
 const clientDistPath = path.resolve(__dirname, '../../client/dist');
 app.use(express.static(clientDistPath, {

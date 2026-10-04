@@ -6,6 +6,8 @@ import {
   ArrowRight,
   Shield,
   User as UserIcon,
+  Cpu,
+  Sparkles,
 } from 'lucide-react';
 import { User as UserType } from '../types/auth';
 
@@ -13,12 +15,14 @@ interface TesterDashboardProps {
   user: UserType;
   onLogout: () => void;
   onStartCall: (roomId: string) => void;
+  onOpenPhase6GTest?: () => void;
 }
 
 export const TesterDashboard: React.FC<TesterDashboardProps> = ({
   user,
   onLogout,
   onStartCall,
+  onOpenPhase6GTest,
 }) => {
   const [inputRoomId, setInputRoomId] = useState('');
 
@@ -155,6 +159,32 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </form>
+          </div>
+
+          {/* Card 3: Phase 6G Neural Face Swap Test */}
+          <div className="flex flex-col justify-between p-5 sm:p-7 lg:p-9 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/80 shadow-2xs hover:border-blue-300 hover:shadow-xs transition-all sm:col-span-2 lg:col-span-1">
+            <div>
+              <div className="h-11 w-11 sm:h-12 sm:w-12 lg:h-14 lg:w-14 rounded-2xl bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border border-blue-200/80 shadow-xs flex items-center justify-center mb-4 lg:mb-5 text-blue-600">
+                <Cpu className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 stroke-[2]" />
+              </div>
+              <div className="flex items-center gap-1.5 mb-1">
+                <h2 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900">
+                  Phase 6G Neural Test
+                </h2>
+                <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-700">CUDA</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-500 mb-6 lg:mb-8 leading-relaxed">
+                Test the Phase 6G neural pipeline directly via Express &amp; RTX 5060.
+              </p>
+            </div>
+
+            <button
+              onClick={onOpenPhase6GTest}
+              className="w-full py-2.5 sm:py-3 px-4 sm:px-6 rounded-xl sm:rounded-2xl bg-slate-900 hover:bg-slate-800 active:scale-[0.99] text-white text-xs sm:text-sm lg:text-base font-semibold flex items-center justify-center gap-2 shadow-2xs transition-all cursor-pointer"
+            >
+              <span>Run Neural Test</span>
+              <ArrowRight className="h-4 w-4" />
+            </button>
           </div>
         </div>
 

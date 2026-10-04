@@ -9,17 +9,22 @@ import { mediaService } from './services/media';
 import { Shield } from 'lucide-react';
 
 import { LoadingScreen } from './components/LoadingScreen';
+import { Phase6GTestPanel } from './components/Phase6GTestPanel';
 
 export function App() {
   const { user, token, isAuthenticated, loading, error, login, logout } = useAuth();
   const [activeRoomId, setActiveRoomId] = useState<string | null>(null);
+  const [showPhase6GTest, setShowPhase6GTest] = useState<boolean>(false);
 
-  // Check URL query parameters for direct room join (e.g. ?room=ABC-123)
+  // Check URL query parameters for direct room join (e.g. ?room=ABC-123) or ?test=phase6g
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const roomParam = params.get('room');
     if (roomParam) {
       setActiveRoomId(roomParam.toUpperCase());
+    }
+    if (params.get('test') === 'phase6g') {
+      setShowPhase6GTest(true);
     }
   }, []);
 
@@ -34,6 +39,24 @@ export function App() {
     } else {
       callback();
     }
+  };
+
+  const handleOpenPhase6GTest = () => {
+    transitionView(() => {
+      setShowPhase6GTest(true);
+      const url = new URL(window.location.href);
+      url.searchParams.set('test', 'phase6g');
+      window.history.pushState({}, '', url.toString());
+    });
+  };
+
+  const handleClosePhase6GTest = () => {
+    transitionView(() => {
+      setShowPhase6GTest(false);
+      const url = new URL(window.location.href);
+      url.searchParams.delete('test');
+      window.history.pushState({}, '', url.toString());
+    });
   };
 
   const handleStartCall = (roomId: string) => {
@@ -61,6 +84,11 @@ export function App() {
     logout();
   };
 
+  // Dedicated Phase 6G Neural Face Swap Test UI
+  if (showPhase6GTest) {
+    return <Phase6GTestPanel onBack={handleClosePhase6GTest} />;
+  }
+
   // Loading Screen
   if (loading) {
     return <LoadingScreen message="Loading DeepTrace..." />;
@@ -68,7 +96,7 @@ export function App() {
 
   // Login
   if (!isAuthenticated || !user || !token) {
-    return <LoginPage onLogin={login} error={error} />;
+    return <LoginPage onLogin={login} error={error} onOpenPhase6GTest={handleOpenPhase6GTest} />;
   }
 
   // Active Call
@@ -90,6 +118,7 @@ export function App() {
         user={user}
         onLogout={handleLogout}
         onStartCall={handleStartCall}
+        onOpenPhase6GTest={handleOpenPhase6GTest}
       />
     );
   }

@@ -9,12 +9,14 @@ interface LoginPageProps {
   ) => Promise<any>;
   loading?: boolean;
   error?: string | null;
+  onOpenPhase6GTest?: () => void;
 }
 
 export const LoginPage: React.FC<LoginPageProps> = ({
   onLogin,
   loading,
   error,
+  onOpenPhase6GTest,
 }) => {
   const [isExiting, setIsExiting] = useState(false);
 
@@ -42,6 +44,18 @@ export const LoginPage: React.FC<LoginPageProps> = ({
             error={error}
             onExitingChange={setIsExiting}
           />
+          {onOpenPhase6GTest && (
+            <div className="text-center mt-4">
+              <button
+                type="button"
+                onClick={onOpenPhase6GTest}
+                className="text-xs text-blue-600 hover:text-blue-800 font-semibold hover:underline inline-flex items-center gap-1 cursor-pointer transition-colors"
+              >
+                <span>Phase 6G Neural Face Swap Test UI</span>
+                <span>&rarr;</span>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Bottom spacer for symmetrical balance */}
