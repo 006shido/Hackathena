@@ -37,6 +37,101 @@ export const mediaService = {
   },
 
   /**
+   * Create an animated synthetic video stream for testing or when hardware cameras
+   * are absent or blocked (e.g. desktop PCs with no webcam or insecure LAN HTTP).
+   */
+  createSyntheticStream(username = 'Desktop User'): MediaStream {
+    if (typeof document === 'undefined') {
+      return new MediaStream();
+    }
+    const canvas = document.createElement('canvas');
+    canvas.width = 640;
+    canvas.height = 480;
+    const ctx = canvas.getContext('2d');
+
+    let frame = 0;
+    const draw = () => {
+      if (!ctx) return;
+      frame++;
+      // Background gradient
+      const grad = ctx.createLinearGradient(0, 0, 640, 480);
+      grad.addColorStop(0, '#0f172a');
+      grad.addColorStop(1, '#1e293b');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 640, 480);
+
+      // Avatar circle
+      ctx.fillStyle = '#2563eb';
+      ctx.beginPath();
+      ctx.arc(320, 210, 65, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Initials
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 40px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      const initials = username.split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2) || 'U';
+      ctx.fillText(initials, 320, 210);
+
+      // Username text
+      ctx.fillStyle = '#f8fafc';
+      ctx.font = '600 18px sans-serif';
+      ctx.fillText(username, 320, 305);
+
+      // Subtitle
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '13px sans-serif';
+      ctx.fillText('Webcam Offline / Simulated Video', 320, 335);
+
+      // Pulsing green live indicator
+      const radius = 5 + Math.sin(frame * 0.08) * 2;
+      ctx.fillStyle = '#22c55e';
+      ctx.beginPath();
+      ctx.arc(40, 40, radius, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#86efac';
+      ctx.font = '11px monospace';
+      ctx.textAlign = 'left';
+      ctx.fillText('LIVE STREAM', 55, 43);
+    };
+
+    draw();
+    const interval = setInterval(draw, 66); // ~15 fps
+    const canvasStream = canvas.captureStream(15);
+    const videoTrack = canvasStream.getVideoTracks()[0];
+
+    // Silent audio track via AudioContext destination
+    let audioTrack: MediaStreamTrack | null = null;
+    try {
+      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      if (AudioCtx) {
+        const audioCtx = new AudioCtx();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        gain.gain.value = 0; // silent
+        const dst = audioCtx.createMediaStreamDestination();
+        osc.connect(gain);
+        gain.connect(dst);
+        osc.start();
+        audioTrack = dst.stream.getAudioTracks()[0] || null;
+      }
+    } catch (_) {}
+
+    const tracks: MediaStreamTrack[] = [];
+    if (videoTrack) tracks.push(videoTrack);
+    if (audioTrack) tracks.push(audioTrack);
+    const stream = new MediaStream(tracks);
+
+    videoTrack?.addEventListener('ended', () => {
+      clearInterval(interval);
+    });
+
+    return stream;
+  },
+
+  /**
    * Request user media with graceful fallback and strict session lifecycle checks.
    */
   async getUserMedia(video = true, audio = true): Promise<MediaAccessResult> {
@@ -56,6 +151,28 @@ export const mediaService = {
       }
       return false;
     };
+
+    // Safe check for browser mediaDevices support (handles insecure HTTP on LAN)
+    if (typeof navigator === 'undefined' || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      const isHttp = typeof window !== 'undefined' &&
+        window.location.protocol === 'http:' &&
+        window.location.hostname !== 'localhost' &&
+        window.location.hostname !== '127.0.0.1';
+
+      const errorMsg = isHttp
+        ? `Camera access requires HTTPS or localhost. Browsers block webcam on non-localhost HTTP (${window.location.hostname}). Using simulated video stream so call can proceed.`
+        : 'Webcam API not supported in this browser. Using simulated video stream.';
+
+      console.warn('[mediaService]', errorMsg);
+      const fallbackStream = this.createSyntheticStream('Desktop User');
+      registerStream(fallbackStream);
+      return {
+        stream: fallbackStream,
+        hasVideo: true,
+        hasAudio: true,
+        error: errorMsg,
+      };
+    }
 
     // 1. Try high-definition video if video requested
     if (video) {
@@ -132,44 +249,42 @@ export const mediaService = {
             console.warn('[mediaService] Video-only acquisition failed:', videoOnlyErr);
           }
 
-          // 4. If video is genuinely denied or unavailable, fallback to audio-only
+          // 4. If video is genuinely denied or unavailable, fallback to real audio + simulated video
           try {
             const audioOnlyStream = await navigator.mediaDevices.getUserMedia({ audio: true });
             if (checkCancelled(audioOnlyStream)) {
               return { stream: null, hasVideo: false, hasAudio: false };
             }
-            registerStream(audioOnlyStream);
+            const synStream = this.createSyntheticStream('Desktop User');
+            const synVideo = synStream.getVideoTracks()[0];
+            const realAudio = audioOnlyStream.getAudioTracks()[0];
+            const combinedStream = new MediaStream([synVideo, realAudio]);
+            registerStream(combinedStream);
             return {
-              stream: audioOnlyStream,
-              hasVideo: false,
+              stream: combinedStream,
+              hasVideo: true,
               hasAudio: true,
               cameraDenied: isPermissionDenied,
               error: isPermissionDenied
-                ? 'Camera permission denied. Please allow camera in browser address bar.'
-                : 'Webcam device not found. Continuing with audio only.',
+                ? 'Camera permission denied. Audio active with simulated video stream.'
+                : 'Webcam device not found. Audio active with simulated video stream.',
             };
           } catch (audioErr) {
-            const aErr = audioErr as Error;
-            const micDenied = aErr.name === 'NotAllowedError' || aErr.name === 'PermissionDeniedError';
-            return {
-              stream: null,
-              hasVideo: false,
-              hasAudio: false,
-              cameraDenied: isPermissionDenied,
-              micDenied,
-              error: 'Unable to access camera or microphone. Please check system permissions.',
-            };
+            console.warn('[mediaService] Audio acquisition failed:', audioErr);
           }
         }
 
+        // 5. Final fallback when hardware is unavailable: simulated stream so WebRTC never fails
+        const synOnly = this.createSyntheticStream('Desktop User');
+        registerStream(synOnly);
         return {
-          stream: null,
-          hasVideo: false,
+          stream: synOnly,
+          hasVideo: true,
           hasAudio: false,
           cameraDenied: isPermissionDenied,
           error: isPermissionDenied
-            ? 'Camera access denied. Please allow camera in browser address bar.'
-            : (isNotFound ? 'Webcam device not found.' : 'Webcam error: ' + err.message),
+            ? 'Camera access denied. Using simulated video stream.'
+            : (isNotFound ? 'Webcam device not found. Using simulated video stream.' : 'Webcam error: ' + err.message + '. Using simulated stream.'),
         };
       }
     }
@@ -295,4 +410,3 @@ export const mediaService = {
     activeStreams.clear();
   },
 };
-

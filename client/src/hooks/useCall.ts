@@ -177,24 +177,23 @@ export function useCall(user: User | null, token: string | null) {
           // A peer is already in room: initialize connection and WAIT for their offer
           setPeerInfo(data.peers[0]);
           setCallStatus('connected');
-          createPeerConnection(data.roomId, activeLocalStream);
+          createPeerConnection(data.roomId, activeLocalStream, true);
           console.log('[useCall] Initialized receiver peer connection, awaiting offer from host...');
         } else {
-          // First in room: waiting for someone to join
+          // First in room: waiting for someone to join. Do not pre-gather ICE candidates into the void
           setCallStatus('waiting');
           setPeerInfo(null);
-          createPeerConnection(data.roomId, activeLocalStream);
         }
       },
 
       onPeerJoined: (peer) => {
-        console.log('[useCall] Peer joined room, initiating WebRTC offer:', peer);
+        console.log('[useCall] Peer joined room, initiating fresh WebRTC offer:', peer);
         const activeLocalStream = localStreamRef.current || localStream;
         setPeerInfo(peer);
         setCallStatus('connected');
         
-        // Host initiates the offer to the newly joined peer
-        createPeerConnection(cleanRoomId, activeLocalStream);
+        // Host initializes fresh peer connection and sends offer to the newly joined peer
+        createPeerConnection(cleanRoomId, activeLocalStream, true);
         makeOffer(cleanRoomId, activeLocalStream);
       },
 

@@ -122,17 +122,21 @@ export const VideoTile: React.FC<VideoTileProps> = ({
       const handleTrackUnmute = () => {
         if (isLocal) {
           setIsHardwareBuffering(false);
-          attemptPlay();
         }
+        attemptPlay();
       };
 
-      if (isLocal && videoTrack && !isVideoOff) {
-        if (videoTrack.muted) {
-          setIsHardwareBuffering(true);
+      if (videoTrack) {
+        if (isLocal && !isVideoOff) {
+          if (videoTrack.muted) {
+            setIsHardwareBuffering(true);
+          } else {
+            watchdogTimer = setTimeout(checkFrameArrival, 2000);
+          }
+          videoTrack.addEventListener('mute', handleTrackMute);
         } else {
-          watchdogTimer = setTimeout(checkFrameArrival, 2000);
+          setIsHardwareBuffering(false);
         }
-        videoTrack.addEventListener('mute', handleTrackMute);
         videoTrack.addEventListener('unmute', handleTrackUnmute);
       } else {
         setIsHardwareBuffering(false);
@@ -316,10 +320,11 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     setSizePreset(order[nextIndex]);
   };
 
+  const videoTrack = stream?.getVideoTracks()[0];
   const hasVideoTrack = Boolean(
     stream &&
-    stream.getVideoTracks().length > 0 &&
-    (isLocal ? (stream.getVideoTracks()[0].enabled && !isVideoOff) : true)
+    videoTrack &&
+    (isLocal ? (videoTrack.enabled && !isVideoOff) : videoTrack.enabled)
   );
 
   const initials = username.split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2) || 'U';
@@ -355,30 +360,10 @@ export const VideoTile: React.FC<VideoTileProps> = ({
     >
       {/* Video Element */}
       <video
-        ref={(el) => {
-          videoRef.current = el;
-          if (el && stream) {
-            if (isLocal) {
-              el.muted = true;
-              el.defaultMuted = true;
-            }
-            if (el.srcObject !== stream) {
-              el.srcObject = stream;
-            }
-            el.play().catch(() => { });
-          }
-        }}
+        ref={videoRef}
         autoPlay
         playsInline
-        muted={isLocal}
-        onLoadedMetadata={(e) => {
-          const el = e.currentTarget;
-          if (isLocal) {
-            el.muted = true;
-            el.defaultMuted = true;
-          }
-          el.play().catch(() => { });
-        }}
+        muted={isLocal || audioBlocked}
         className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-200 pointer-events-none ${hasVideoTrack && !isHardwareBuffering ? 'opacity-100' : 'opacity-0'
           } ${isLocal ? 'scale-x-[-1]' : ''}`}
       />
