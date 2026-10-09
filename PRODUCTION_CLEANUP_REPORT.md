@@ -1,6 +1,6 @@
 # Production cleanup report
 
-Completed 2026-10-09. Existing local changes and application behavior were preserved. No commit was created.
+Completed 2026-10-09. Existing local changes and application behavior were preserved. The initial cleanup created no commit; the subsequent user-authorized GitHub release commits include the cleaned platform. See `RELEASE_VALIDATION.md` for release preparation checks.
 
 Follow-up ML separation: four unchanged Phase 6D/6E helpers now live in `ml/inference/face_correspondence.py`, with legacy research imports preserved. Nine unconsumed Phase 6C/6E/6F diagnostic checkpoints were removed, freeing 2.09 GiB. See `ml/RUNTIME_LAYOUT.md` for the exact list and required runtime assets. Fresh-service three-pair inference, error/concurrency integration checks, actual face anomaly inference, frame projection/fallback, service metadata, legacy-import compatibility, and parsing of 120 Python files passed. All services remain running.
 
