@@ -1,0 +1,40 @@
+{
+  "scope": "Recorded speech, production voice pipeline and actual loopback WebRTC. Not full UI, microphone, cross-computer connectivity or speech-recognition accuracy.",
+  "measurements": {
+    "clean": {
+      "rms": 0.12049769677042645,
+      "peak": 0.97625732421875,
+      "clippedRatio": 0,
+      "samples": 212992
+    },
+    "robotic-vocoder": {
+      "rms": 0.05350942271973301,
+      "peak": 1,
+      "clippedRatio": 0.0000046950120192307695,
+      "samples": 212992
+    },
+    "deep-pitch-neural": {
+      "rms": 0.36642572585441774,
+      "peak": 1,
+      "clippedRatio": 0.00015024038461538462,
+      "samples": 212992
+    },
+    "synthetic-clone": {
+      "rms": 0.1690298005574242,
+      "peak": 1,
+      "clippedRatio": 0.0008216271033653846,
+      "samples": 212992
+    }
+  },
+  "checks": {
+    "transport": true,
+    "presets": true
+  },
+  "input": {
+    "rms": 0.12096612426289877,
+    "peak": 0.9991488456726074,
+    "clippedRatio": 0.000037560096153846156,
+    "samples": 212992
+  },
+  "passed": true
+}

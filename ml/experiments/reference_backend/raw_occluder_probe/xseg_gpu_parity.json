@@ -1,0 +1,22 @@
+{
+  "parity": [
+    {
+      "case": 0,
+      "max_error": 0.00017154216766357422,
+      "mean_error": 3.401972662686603e-06
+    },
+    {
+      "case": 1,
+      "max_error": 0.00010699033737182617,
+      "mean_error": 3.967510565416887e-06
+    },
+    {
+      "case": 2,
+      "max_error": 0.00017982721328735352,
+      "mean_error": 2.3825361950002844e-06
+    }
+  ],
+  "warm_ms_median": 14.669000000139931,
+  "warm_ms_p95": 16.821570002502995,
+  "scope": "Three random inputs against OpenCV; includes input/output transfers, excludes face detection and compositing."
+}

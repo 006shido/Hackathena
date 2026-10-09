@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-06",
+  "method": "Browser UI interaction with production App, useCall and call panels; local fixture entry substitutes media acquisition only",
+  "backend": "research-reference with independent identity guard",
+  "normal_rollout_enabled": false,
+  "observed_checks": {
+    "authenticated_tester_and_user_join": true,
+    "receiver_decodes_320x240_video": true,
+    "gallery_upload_and_active_source_switch": true,
+    "combined_face_voice_reported_status": true,
+    "screen_replaces_receiver_video": true,
+    "screen_suspends_face_report_and_processing": true,
+    "simulated_browser_ended_share_restores_face_effect": true,
+    "reset_during_share_preserves_screen": true,
+    "reset_clears_receiver_flags": true,
+    "face_preview_rebinds_after_voice_tab": true,
+    "end_call_slider_removes_peer_and_clears_flags": true
+  },
+  "limitations": [
+    "Recorded faceocc2 camera substitute; generated 440 Hz audio, not natural speech",
+    "Simulated screen stream and ended event; no native display picker",
+    "Loopback WebRTC, not physical devices or separate computers",
+    "UI status is tester-reported; no calibrated independent video anomaly classifier",
+    "Temporary unable-to-play placeholder occurred while replacing stopped tracks and cleared after restoration",
+    "Observed UI checks do not establish all-frame face quality or audio intelligibility"
+  ]
+}

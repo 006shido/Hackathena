@@ -1,0 +1,20 @@
+{
+  "model": "xseg_1",
+  "operators": {
+    "Transpose": 1,
+    "Conv": 37,
+    "Mul": 108,
+    "GlobalAveragePool": 36,
+    "Add": 80,
+    "Sqrt": 36,
+    "Reciprocal": 36,
+    "Max": 36,
+    "Pad": 6,
+    "Reshape": 3,
+    "MatMul": 2,
+    "ConvTranspose": 6,
+    "Concat": 6,
+    "Sigmoid": 1
+  },
+  "scope": "Graph inventory only; GPU compatibility and numeric parity are not established."
+}

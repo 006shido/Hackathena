@@ -1,0 +1,35 @@
+{
+  "face_detected": true,
+  "changed_pixels": 0,
+  "lowlight_retry": false,
+  "occlusion_mask_ms": 20.116700005019084,
+  "occlusion_restored_pixels": 2797,
+  "key_landmarks_5pts": [
+    [
+      150.7187957763672,
+      87.74943542480469
+    ],
+    [
+      183.01235961914062,
+      89.73751068115234
+    ],
+    [
+      166.69772338867188,
+      109.29328155517578
+    ],
+    [
+      153.1100311279297,
+      115.76746368408203
+    ],
+    [
+      175.6077880859375,
+      116.95623016357422
+    ]
+  ],
+  "identity_accepted": false,
+  "source_similarity": 0.4370744228363037,
+  "target_similarity": 0.5133266448974609,
+  "reason": "Source identity gate rejected this frame.",
+  "pipeline_ms": 95.3635000041686,
+  "face_changed": false
+}

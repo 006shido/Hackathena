@@ -1,0 +1,915 @@
+{
+  "scope": "Recorded public natural speech through production VoiceTransformationPipeline, actual loopback WebRTC and receiver AudioWorklet at 16 kHz. Not microphone or two-device validation.",
+  "records": [
+    {
+      "file": "1272-141231-0000-clean.f32",
+      "speakers": [
+        "librispeech-1272"
+      ],
+      "source_file": "1272-141231-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.10094340473965434,
+      "sha256": "45f9c99fb9237170f30ca4fae9c49f24f7363fbd6924a993e6879742b9cac24a"
+    },
+    {
+      "file": "1272-141231-0000-robotic-vocoder.f32",
+      "speakers": [
+        "librispeech-1272"
+      ],
+      "source_file": "1272-141231-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "robotic-vocoder",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.033798079735639516,
+      "sha256": "0c9d85c6c1d261d4ce168a678832a36e0cf22f9052ad2e0cafeb9a3e727b2db3"
+    },
+    {
+      "file": "1272-141231-0000-deep-pitch-neural.f32",
+      "speakers": [
+        "librispeech-1272"
+      ],
+      "source_file": "1272-141231-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "deep-pitch-neural",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.31227326132766153,
+      "sha256": "993a793ef3fee56e7284b4007b27eae171790c4d5461c89dac14dfb6e68e0de7"
+    },
+    {
+      "file": "1272-141231-0000-synthetic-clone.f32",
+      "speakers": [
+        "librispeech-1272"
+      ],
+      "source_file": "1272-141231-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "synthetic-clone",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.1670017768784034,
+      "sha256": "dae1ff0db28aaccbdef945cd35e11a1278bba0e75028e0d484cd56be2da41b12"
+    },
+    {
+      "file": "1462-170142-0000-clean.f32",
+      "speakers": [
+        "librispeech-1462"
+      ],
+      "source_file": "1462-170142-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.08392780957293053,
+      "sha256": "b62cde1cdfc78971722ecbd59f5ae411566baa2cff96f1250e4db79d7e25fdf7"
+    },
+    {
+      "file": "174-168635-0000-clean.f32",
+      "speakers": [
+        "librispeech-174"
+      ],
+      "source_file": "174-168635-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.04144375845745905,
+      "sha256": "59f4ffa6b3493dfcd1ca3a1c64a26ad78be22bbbf35ef1ff64b407ca24251250"
+    },
+    {
+      "file": "174-168635-0000-robotic-vocoder.f32",
+      "speakers": [
+        "librispeech-174"
+      ],
+      "source_file": "174-168635-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "robotic-vocoder",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.03002612496751466,
+      "sha256": "895edb46830c4a3c2dbf9692af0682ece4945c478d87a66a9b5853626be8aba1"
+    },
+    {
+      "file": "174-168635-0000-deep-pitch-neural.f32",
+      "speakers": [
+        "librispeech-174"
+      ],
+      "source_file": "174-168635-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "deep-pitch-neural",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.20585988855448184,
+      "sha256": "61d8754a64b01d2e2131882db343e2c22f6044da787486295b452c33f8bf7345"
+    },
+    {
+      "file": "174-168635-0000-synthetic-clone.f32",
+      "speakers": [
+        "librispeech-174"
+      ],
+      "source_file": "174-168635-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "synthetic-clone",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.08108065965214041,
+      "sha256": "2c65a7f7eddfb27df667061c9b8fcc916ca4429fa4696c9d37a10bce8db958ea"
+    },
+    {
+      "file": "1988-24833-0000-clean.f32",
+      "speakers": [
+        "librispeech-1988"
+      ],
+      "source_file": "1988-24833-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "calibration",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.02173417735317336,
+      "sha256": "23904d3953660d7efd6d3afd963a0b300fabcdcf6127c1a6cdf6613e02f90bf5"
+    },
+    {
+      "file": "1993-147964-0000-clean.f32",
+      "speakers": [
+        "librispeech-1993"
+      ],
+      "source_file": "1993-147964-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "test",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.06452768138490994,
+      "sha256": "a0a109eee4c48516d88140c5161455a6583ded8c38e6af1754090d2d516ab512"
+    },
+    {
+      "file": "1993-147964-0000-robotic-vocoder.f32",
+      "speakers": [
+        "librispeech-1993"
+      ],
+      "source_file": "1993-147964-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "robotic-vocoder",
+      "split": "test",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.02682495864494734,
+      "sha256": "cbd5734706e292129ad59c27d11246cbc17d58c0ab32432200f3c73d2270fc6e"
+    },
+    {
+      "file": "1993-147964-0000-deep-pitch-neural.f32",
+      "speakers": [
+        "librispeech-1993"
+      ],
+      "source_file": "1993-147964-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "deep-pitch-neural",
+      "split": "test",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.2920220481711788,
+      "sha256": "2c5c1d208f68538f293999d75ef600ec98d00a4b45000ce884eed5bb3ef0d2f4"
+    },
+    {
+      "file": "1993-147964-0000-synthetic-clone.f32",
+      "speakers": [
+        "librispeech-1993"
+      ],
+      "source_file": "1993-147964-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "synthetic-clone",
+      "split": "test",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.1219217156381037,
+      "sha256": "7fbbef3031a4a772bf3e30c7dee0e7daaf630023cb93b9adbb803582ac8934e3"
+    },
+    {
+      "file": "2035-147961-0000-clean.f32",
+      "speakers": [
+        "librispeech-2035"
+      ],
+      "source_file": "2035-147961-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.03515210091238657,
+      "sha256": "83be4b312dafd89687a486a0d898e890442aa88754d998e65b17dd114d76ec42"
+    },
+    {
+      "file": "2412-153948-0000-clean.f32",
+      "speakers": [
+        "librispeech-2412"
+      ],
+      "source_file": "2412-153948-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.04329119125874943,
+      "sha256": "dc32df3fdcef97215f45dc9a55a87a4010b326ca880d6ce4176424897ce30779"
+    },
+    {
+      "file": "2412-153948-0000-robotic-vocoder.f32",
+      "speakers": [
+        "librispeech-2412"
+      ],
+      "source_file": "2412-153948-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "robotic-vocoder",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.024033978712572814,
+      "sha256": "cc82a3778ec541f96dcf53aed8a527748d68595c47f453fc4d138864fb2a91b8"
+    },
+    {
+      "file": "2412-153948-0000-deep-pitch-neural.f32",
+      "speakers": [
+        "librispeech-2412"
+      ],
+      "source_file": "2412-153948-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "deep-pitch-neural",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.22075729548020737,
+      "sha256": "502f119b5dd2f008fe95d6e003e7682d8c251e91e87a6a215081fc4118a3d574"
+    },
+    {
+      "file": "2412-153948-0000-synthetic-clone.f32",
+      "speakers": [
+        "librispeech-2412"
+      ],
+      "source_file": "2412-153948-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "synthetic-clone",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.0879251259564522,
+      "sha256": "f2d78784d5ac689266e47acf77c2be2ecb340f03c5997a7a550d348ef79eb171"
+    },
+    {
+      "file": "2428-83699-0000-clean.f32",
+      "speakers": [
+        "librispeech-2428"
+      ],
+      "source_file": "2428-83699-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.0372080060488228,
+      "sha256": "e48a8220b91091296fbadc5917a95bfbc42f41326a7e621276f7b795bb83e65d"
+    },
+    {
+      "file": "251-118436-0000-clean.f32",
+      "speakers": [
+        "librispeech-251"
+      ],
+      "source_file": "251-118436-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "calibration",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.05976785597176779,
+      "sha256": "8150e6595722754d4e5043f1e2cf2ba3f11e403ebdb455b2c7671131132947d7"
+    },
+    {
+      "file": "251-118436-0000-robotic-vocoder.f32",
+      "speakers": [
+        "librispeech-251"
+      ],
+      "source_file": "251-118436-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "robotic-vocoder",
+      "split": "calibration",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.021601543590089388,
+      "sha256": "63dd00b3cc4a79fba73b182a38f04ae27946685cc90e0bf56b8ae6e241cc2ec6"
+    },
+    {
+      "file": "251-118436-0000-deep-pitch-neural.f32",
+      "speakers": [
+        "librispeech-251"
+      ],
+      "source_file": "251-118436-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "deep-pitch-neural",
+      "split": "calibration",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.2513748116192764,
+      "sha256": "474a687a777bf442c3074bb528c694a4d65bd17d3e160c89d2c36738efa4f075"
+    },
+    {
+      "file": "251-118436-0000-synthetic-clone.f32",
+      "speakers": [
+        "librispeech-251"
+      ],
+      "source_file": "251-118436-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "synthetic-clone",
+      "split": "calibration",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.10273926771652588,
+      "sha256": "0b9c1a613aeeca11ef612df00497d814f429dbb89dd3e57932a842b4d921fb5f"
+    },
+    {
+      "file": "2803-161169-0000-clean.f32",
+      "speakers": [
+        "librispeech-2803"
+      ],
+      "source_file": "2803-161169-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "test",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.03969218978442151,
+      "sha256": "31a0186699d687e4fd4c248fb0c19b587c56d778eee4f471fe37973f33fbf65c"
+    },
+    {
+      "file": "3000-15664-0000-clean.f32",
+      "speakers": [
+        "librispeech-3000"
+      ],
+      "source_file": "3000-15664-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.07030595570799235,
+      "sha256": "5bbc8c9f0d6ba2c8ebee6a0cde71cd3a4bf2289b49e482005d2193522d755f34"
+    },
+    {
+      "file": "3000-15664-0000-robotic-vocoder.f32",
+      "speakers": [
+        "librispeech-3000"
+      ],
+      "source_file": "3000-15664-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "robotic-vocoder",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.027430551281355985,
+      "sha256": "c521fae643266467a99f98669536575e463844aeec165ca21b53c20dbd5001bf"
+    },
+    {
+      "file": "3000-15664-0000-deep-pitch-neural.f32",
+      "speakers": [
+        "librispeech-3000"
+      ],
+      "source_file": "3000-15664-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "deep-pitch-neural",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.2849381830856679,
+      "sha256": "bb1ec0fac846ff714d1af4d45d1b83a5435b24e99a185472ebd0bf84f4551504"
+    },
+    {
+      "file": "3000-15664-0000-synthetic-clone.f32",
+      "speakers": [
+        "librispeech-3000"
+      ],
+      "source_file": "3000-15664-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "synthetic-clone",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.12564178608142068,
+      "sha256": "b94f55f0a14043032b6a1d3c2ec25a61645d12db053c0fc960f7b5d7695612be"
+    },
+    {
+      "file": "3536-23268-0000-clean.f32",
+      "speakers": [
+        "librispeech-3536"
+      ],
+      "source_file": "3536-23268-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.07325790241214827,
+      "sha256": "06f917ea058495847729848f3b2b9842311d6e66fb9de24d5e35510a8f8dc717"
+    },
+    {
+      "file": "3576-138058-0000-clean.f32",
+      "speakers": [
+        "librispeech-3576"
+      ],
+      "source_file": "3576-138058-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.07552904689981393,
+      "sha256": "291500a9095ae32f08666bd6c9e742adfe8771da5b01d2715f17dd3953c9d056"
+    },
+    {
+      "file": "3576-138058-0000-robotic-vocoder.f32",
+      "speakers": [
+        "librispeech-3576"
+      ],
+      "source_file": "3576-138058-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "robotic-vocoder",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.027753086677413025,
+      "sha256": "c1ddde108b6b63805b86203bd1cc867d36c6e4bb556fe0441dbc3d02c55cb968"
+    },
+    {
+      "file": "3576-138058-0000-deep-pitch-neural.f32",
+      "speakers": [
+        "librispeech-3576"
+      ],
+      "source_file": "3576-138058-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "deep-pitch-neural",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.32467546555473853,
+      "sha256": "e8792ce2826f7a9b9a3aef34bc2fdb59c1213a525d0c5a75ea8e4c6c499487bd"
+    },
+    {
+      "file": "3576-138058-0000-synthetic-clone.f32",
+      "speakers": [
+        "librispeech-3576"
+      ],
+      "source_file": "3576-138058-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "synthetic-clone",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.14152642287928058,
+      "sha256": "dd40ab930b1a84e18d40ceb8c07cd5ac0071a6de7e7b818ce3d90f6e74c9570a"
+    },
+    {
+      "file": "3752-4944-0000-clean.f32",
+      "speakers": [
+        "librispeech-3752"
+      ],
+      "source_file": "3752-4944-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "calibration",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.14375649722034692,
+      "sha256": "3f8babc018b93d9fcbadb5872e8e4036fcaa1ce9bdb8c7d27f87f2fcf88ed6d2"
+    },
+    {
+      "file": "5338-24640-0000-clean.f32",
+      "speakers": [
+        "librispeech-5338"
+      ],
+      "source_file": "5338-24640-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "test",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.05422742481690805,
+      "sha256": "e68c951718f462b4b11c4c8a7081baf2a9dad69ff77c6a28f3e3c8629f138350"
+    },
+    {
+      "file": "5338-24640-0000-robotic-vocoder.f32",
+      "speakers": [
+        "librispeech-5338"
+      ],
+      "source_file": "5338-24640-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "robotic-vocoder",
+      "split": "test",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.0353215580908111,
+      "sha256": "2a82fce52b090b77a1d9352fef86af8e38cfe3514e2c3279dedb5e6778704f2c"
+    },
+    {
+      "file": "5338-24640-0000-deep-pitch-neural.f32",
+      "speakers": [
+        "librispeech-5338"
+      ],
+      "source_file": "5338-24640-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "deep-pitch-neural",
+      "split": "test",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.19072358769553063,
+      "sha256": "0fdd45ab4b5ed0a28014fb44dedbfe0282ccbafb44449e570f7345e5f4518e24"
+    },
+    {
+      "file": "5338-24640-0000-synthetic-clone.f32",
+      "speakers": [
+        "librispeech-5338"
+      ],
+      "source_file": "5338-24640-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "synthetic-clone",
+      "split": "test",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.11030822265231803,
+      "sha256": "942ac59a6e23c53d5c1045fb8849dbabfed3d2fdf920aa5c7bf0f0fae410257e"
+    },
+    {
+      "file": "5694-64038-0000-clean.f32",
+      "speakers": [
+        "librispeech-5694"
+      ],
+      "source_file": "5694-64038-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.05411416636722975,
+      "sha256": "6001621173a19d558a1a7382de0c2599eff52e080f06cd3b067e2054830e4f65"
+    },
+    {
+      "file": "5895-34622-0000-clean.f32",
+      "speakers": [
+        "librispeech-5895"
+      ],
+      "source_file": "5895-34622-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.030624027630285308,
+      "sha256": "1771f6d3168ee53ee37118e9536053f1669b8b1b425ae75e9fef8cc985a5640d"
+    },
+    {
+      "file": "5895-34622-0000-robotic-vocoder.f32",
+      "speakers": [
+        "librispeech-5895"
+      ],
+      "source_file": "5895-34622-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "robotic-vocoder",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.016803884253018934,
+      "sha256": "b5e40a7d24859af3781681bc4914463fd849187492d6c2dd78257f6e0e5aaa64"
+    },
+    {
+      "file": "5895-34622-0000-deep-pitch-neural.f32",
+      "speakers": [
+        "librispeech-5895"
+      ],
+      "source_file": "5895-34622-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "deep-pitch-neural",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.18925831932241036,
+      "sha256": "c67ab5348c743d0453ee19f23c5d19368c27934eeacd347c0c394a0b70f027c2"
+    },
+    {
+      "file": "5895-34622-0000-synthetic-clone.f32",
+      "speakers": [
+        "librispeech-5895"
+      ],
+      "source_file": "5895-34622-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "synthetic-clone",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.0742937430655361,
+      "sha256": "33e506beb2c2a0e311368c122810c6beff8060cd3d3d3fdfb613697cdd07702d"
+    },
+    {
+      "file": "6241-61946-0000-clean.f32",
+      "speakers": [
+        "librispeech-6241"
+      ],
+      "source_file": "6241-61946-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.0558925677959711,
+      "sha256": "dadafb44280e7fe0d3932b0f9509e0d9fee53489c7e9f0afdf50d44f648375c4"
+    },
+    {
+      "file": "6295-244435-0000-clean.f32",
+      "speakers": [
+        "librispeech-6295"
+      ],
+      "source_file": "6295-244435-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "calibration",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.05510677545203055,
+      "sha256": "ede1bd024fbff9a229948dfed1efeb8326f1d0be4825657090d4ffbcb46af1a0"
+    },
+    {
+      "file": "6295-244435-0000-robotic-vocoder.f32",
+      "speakers": [
+        "librispeech-6295"
+      ],
+      "source_file": "6295-244435-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "robotic-vocoder",
+      "split": "calibration",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.019078721519546243,
+      "sha256": "1d681d9408d261054bab9402fcfdf4be7fa1ceaece544193ea6916aeed94c9c1"
+    },
+    {
+      "file": "6295-244435-0000-deep-pitch-neural.f32",
+      "speakers": [
+        "librispeech-6295"
+      ],
+      "source_file": "6295-244435-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "deep-pitch-neural",
+      "split": "calibration",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.21190346469677104,
+      "sha256": "6f5124359ab5c107cd36ca9c497a4442d7f77f2d99ffaa2439f503021f3c8ffb"
+    },
+    {
+      "file": "6295-244435-0000-synthetic-clone.f32",
+      "speakers": [
+        "librispeech-6295"
+      ],
+      "source_file": "6295-244435-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "synthetic-clone",
+      "split": "calibration",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.10533944996349467,
+      "sha256": "6b26e29443cbe77d828ed190333ef9f8c79c712fa980733d3ffbc25a5aaed483"
+    },
+    {
+      "file": "6319-57405-0000-clean.f32",
+      "speakers": [
+        "librispeech-6319"
+      ],
+      "source_file": "6319-57405-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "test",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.10132864196568642,
+      "sha256": "ffee178c44f7bf401ed8725c3c2b3854114f6450b1142aa6414ac597ca1d3ce1"
+    },
+    {
+      "file": "777-126732-0000-clean.f32",
+      "speakers": [
+        "librispeech-777"
+      ],
+      "source_file": "777-126732-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.03819481096258745,
+      "sha256": "9faf6079786cc762d4cb2cbd8757cc8cae8818d732c03c7beecd8c7520ebdbce"
+    },
+    {
+      "file": "777-126732-0000-robotic-vocoder.f32",
+      "speakers": [
+        "librispeech-777"
+      ],
+      "source_file": "777-126732-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "robotic-vocoder",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.01821147399662325,
+      "sha256": "2479dfc07922557105fc729221ea3ea09d168c8887768f65e7f45b039efbc4eb"
+    },
+    {
+      "file": "777-126732-0000-deep-pitch-neural.f32",
+      "speakers": [
+        "librispeech-777"
+      ],
+      "source_file": "777-126732-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "deep-pitch-neural",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.2128647700251959,
+      "sha256": "927cb36fe28be98a55a587269bddb9612ae874904de1fac3856cfdcc0d87a9e1"
+    },
+    {
+      "file": "777-126732-0000-synthetic-clone.f32",
+      "speakers": [
+        "librispeech-777"
+      ],
+      "source_file": "777-126732-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "synthetic-clone",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.08115854775717365,
+      "sha256": "323cb43c17279820fb82aba0259c0474a4193151bd1cbf3f03d458f2176bd022"
+    },
+    {
+      "file": "7850-286674-0000-clean.f32",
+      "speakers": [
+        "librispeech-7850"
+      ],
+      "source_file": "7850-286674-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.11107278769938857,
+      "sha256": "f8082898261160673a04ec6c76dd0ba8b3ee6a0329d50ea11d544336ce2f2415"
+    },
+    {
+      "file": "7976-110523-0000-clean.f32",
+      "speakers": [
+        "librispeech-7976"
+      ],
+      "source_file": "7976-110523-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.06741055085703089,
+      "sha256": "afec8fd1e7d78f96d4b1b6d848c9094bca645159b9af056811e5f94ed6474674"
+    },
+    {
+      "file": "7976-110523-0000-robotic-vocoder.f32",
+      "speakers": [
+        "librispeech-7976"
+      ],
+      "source_file": "7976-110523-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "robotic-vocoder",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.030040717512379893,
+      "sha256": "69182df7b5ac4b312f0253d65558759d606a090230aaf08bc38425b6526271bc"
+    },
+    {
+      "file": "7976-110523-0000-deep-pitch-neural.f32",
+      "speakers": [
+        "librispeech-7976"
+      ],
+      "source_file": "7976-110523-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "deep-pitch-neural",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.2878298393393657,
+      "sha256": "70722d5ddf981b4b10acf480e418e897307f8239ae9d9c2b79692c8eb980f142"
+    },
+    {
+      "file": "7976-110523-0000-synthetic-clone.f32",
+      "speakers": [
+        "librispeech-7976"
+      ],
+      "source_file": "7976-110523-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "synthetic-clone",
+      "split": "train",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.12895754149035188,
+      "sha256": "a4c46734889f02f36e53b5b7fc17a6cd35346747d1e70eef01745dc71bb51a33"
+    },
+    {
+      "file": "8297-275156-0000-clean.f32",
+      "speakers": [
+        "librispeech-8297"
+      ],
+      "source_file": "8297-275156-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "calibration",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.05153134091604964,
+      "sha256": "daf8fede0e8c4feb51dd2b7fbb8f51c8f7da38054abdcf1d1dc5037de6776187"
+    },
+    {
+      "file": "84-121550-0000-clean.f32",
+      "speakers": [
+        "librispeech-84"
+      ],
+      "source_file": "84-121550-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "test",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.063839193312392,
+      "sha256": "120cf31d2486f9ac7fb7a27769feb1ec877518b70fc970017614c4439389ef2e"
+    },
+    {
+      "file": "84-121550-0000-robotic-vocoder.f32",
+      "speakers": [
+        "librispeech-84"
+      ],
+      "source_file": "84-121550-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "robotic-vocoder",
+      "split": "test",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.02966943293743653,
+      "sha256": "ecd7126b98b604b9de9031ffff3edf88a8fda7f53ac5240245034cfa99c014c9"
+    },
+    {
+      "file": "84-121550-0000-deep-pitch-neural.f32",
+      "speakers": [
+        "librispeech-84"
+      ],
+      "source_file": "84-121550-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "deep-pitch-neural",
+      "split": "test",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.2701037119485336,
+      "sha256": "3d1f9ff15bdf173728d50200f15cbee9f83504919df296a718c9b7fdb032a4db"
+    },
+    {
+      "file": "84-121550-0000-synthetic-clone.f32",
+      "speakers": [
+        "librispeech-84"
+      ],
+      "source_file": "84-121550-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "synthetic-clone",
+      "split": "test",
+      "label": 1,
+      "sample_rate": 16000,
+      "rms": 0.12385495378411271,
+      "sha256": "60b7d41320102c9c56d19f6c9326f382be0d3ee2d9ba4da55f0aeb2a5cf55243"
+    },
+    {
+      "file": "8842-304647-0000-clean.f32",
+      "speakers": [
+        "librispeech-8842"
+      ],
+      "source_file": "8842-304647-0000.flac",
+      "method": "actual-browser-webrtc",
+      "variant": "clean",
+      "split": "train",
+      "label": 0,
+      "sample_rate": 16000,
+      "rms": 0.07724130811429793,
+      "sha256": "05b96c09d54ee4a9f998f79b02fcbf6171f40978467f286a9fba6970d388e6d8"
+    }
+  ]
+}

@@ -1,5 +1,20 @@
-import { useRef, useCallback, useState } from 'react';
+import { useCallback,useRef,useState } from 'react';
 import { signalingService } from '../services/signaling';
+
+const turnUrls = String(import.meta.env.VITE_TURN_URLS || '')
+  .split(',').map((url) => url.trim()).filter(Boolean);
+if (turnUrls.some((url) => !/^turns?:[^\s]+$/i.test(url))) {
+  throw new Error('VITE_TURN_URLS must contain comma-separated TURN URLs.');
+}
+const turnUsername = String(import.meta.env.VITE_TURN_USERNAME || '');
+const turnCredential = String(import.meta.env.VITE_TURN_CREDENTIAL || '');
+if (turnUrls.length && (!turnUsername || !turnCredential)) {
+  throw new Error('Configured TURN relay requires a username and credential.');
+}
+const relayOnly = import.meta.env.VITE_WEBRTC_RELAY_ONLY === 'true';
+if (relayOnly && !turnUrls.length) {
+  throw new Error('Relay-only calls require a configured TURN server.');
+}
 
 const RTC_CONFIG: RTCConfiguration = {
   iceServers: [
@@ -9,7 +24,9 @@ const RTC_CONFIG: RTCConfiguration = {
     { urls: 'stun:stun3.l.google.com:19302' },
     { urls: 'stun:stun4.l.google.com:19302' },
     { urls: 'stun:stun.cloudflare.com:3478' },
+    ...(turnUrls.length ? [{ urls: turnUrls, username: turnUsername, credential: turnCredential }] : []),
   ],
+  iceTransportPolicy: relayOnly ? 'relay' : 'all',
   iceCandidatePoolSize: 0,
 };
 
@@ -43,7 +60,6 @@ export function useWebRTC() {
       } else {
         try {
           pc.addTrack(track, stream);
-          console.log(`[WebRTC] Attached local track: ${track.kind} (${track.id})`);
         } catch (err) {
           console.warn(`[WebRTC] Could not add track ${track.kind}:`, err);
         }
@@ -53,13 +69,11 @@ export function useWebRTC() {
 
   const drainQueuedCandidates = async (pc: RTCPeerConnection) => {
     if (queuedCandidates.current.length === 0) return;
-    console.log(`[WebRTC] Draining ${queuedCandidates.current.length} queued ICE candidate(s)`);
     while (queuedCandidates.current.length > 0) {
       const cand = queuedCandidates.current.shift();
       if (cand && cand.candidate) {
         try {
           await pc.addIceCandidate(new RTCIceCandidate(cand));
-          console.log('[WebRTC] Added queued ICE candidate');
         } catch (e) {
           console.warn('[WebRTC] Failed to add queued ICE candidate', e);
         }
@@ -74,7 +88,6 @@ export function useWebRTC() {
   ): RTCPeerConnection => {
     // If peer connection already exists and is active, reuse it unless forceRecreate is specified
     if (pcRef.current && !forceRecreate && pcRef.current.signalingState !== 'closed') {
-      console.log('[WebRTC] Reusing active RTCPeerConnection, signalingState:', pcRef.current.signalingState);
       if (localStream) {
         attachLocalTracks(pcRef.current, localStream);
       }
@@ -82,14 +95,11 @@ export function useWebRTC() {
     }
 
     if (pcRef.current) {
-      console.log('[WebRTC] Closing previous RTCPeerConnection for recreation');
       try {
         pcRef.current.close();
       } catch {}
       pcRef.current = null;
     }
-
-    console.log('[WebRTC] Initializing fresh RTCPeerConnection with STUN & TURN...');
     const pc = new RTCPeerConnection(RTC_CONFIG);
     pcRef.current = pc;
     remoteStreamInstanceRef.current = new MediaStream();
@@ -101,7 +111,6 @@ export function useWebRTC() {
 
     // Handle remote track arrivals
     pc.ontrack = (event) => {
-      console.log('[WebRTC] Received remote track:', event.track.kind, event.track.id, 'readyState:', event.track.readyState);
 
       if (!remoteStreamInstanceRef.current.getTrackById(event.track.id)) {
         remoteStreamInstanceRef.current.addTrack(event.track);
@@ -116,32 +125,27 @@ export function useWebRTC() {
       }
 
       event.track.onunmute = () => {
-        console.log('[WebRTC] Remote track unmuted:', event.track.kind);
         const tracks = remoteStreamInstanceRef.current.getTracks();
         setRemoteStream(new MediaStream(tracks));
       };
 
       const allTracks = remoteStreamInstanceRef.current.getTracks();
-      console.log(`[WebRTC] Remote stream updated with ${allTracks.length} tracks:`, allTracks.map((t) => `${t.kind}(${t.enabled})`));
       setRemoteStream(new MediaStream(allTracks));
     };
 
     // Handle ICE candidates generated locally
     pc.onicecandidate = (event) => {
       if (event.candidate && event.candidate.candidate) {
-        console.log('[WebRTC] Generated ICE candidate:', event.candidate.type, event.candidate.protocol);
         signalingService.sendIceCandidate(roomId, event.candidate.toJSON());
       }
     };
 
     // Monitor connection states
     pc.onconnectionstatechange = () => {
-      console.log('[WebRTC] Connection state change:', pc.connectionState);
       setConnectionState(pc.connectionState);
     };
 
     pc.oniceconnectionstatechange = () => {
-      console.log('[WebRTC] ICE connection state change:', pc.iceConnectionState);
       setIceState(pc.iceConnectionState);
     };
 
@@ -169,15 +173,12 @@ export function useWebRTC() {
       if (!kinds.includes('video')) {
         pc.addTransceiver('video', { direction: 'sendrecv' });
       }
-
-      console.log('[WebRTC] Creating offer...');
       const offer = await pc.createOffer({
         offerToReceiveAudio: true,
         offerToReceiveVideo: true,
       });
       await pc.setLocalDescription(offer);
       signalingService.sendOffer(roomId, offer);
-      console.log('[WebRTC] Sent offer to peer');
     } catch (err) {
       console.error('[WebRTC] Error creating offer:', err);
     }
@@ -195,7 +196,6 @@ export function useWebRTC() {
 
     try {
       isInitiator.current = false;
-      console.log('[WebRTC] Handling offer in state:', pc.signalingState);
 
       // Handle offer collision / glare
       if (pc.signalingState !== 'stable') {
@@ -205,7 +205,6 @@ export function useWebRTC() {
 
       // 1. Set Remote Description FIRST from offer
       await pc.setRemoteDescription(new RTCSessionDescription(sdp));
-      console.log('[WebRTC] Remote description successfully set from offer');
 
       // 2. Attach local tracks to match offer's transceivers
       if (localStream) {
@@ -216,11 +215,9 @@ export function useWebRTC() {
       await drainQueuedCandidates(pc);
 
       // 4. Create and send answer
-      console.log('[WebRTC] Creating answer...');
       const answer = await pc.createAnswer();
       await pc.setLocalDescription(answer);
       signalingService.sendAnswer(roomId, answer);
-      console.log('[WebRTC] Sent answer to peer');
     } catch (err) {
       console.error('[WebRTC] Error handling offer and sending answer:', err);
     }
@@ -234,10 +231,8 @@ export function useWebRTC() {
     }
 
     try {
-      console.log('[WebRTC] Setting remote description from answer, state:', pc.signalingState);
       if (pc.signalingState === 'have-local-offer') {
         await pc.setRemoteDescription(new RTCSessionDescription(sdp));
-        console.log('[WebRTC] Remote description successfully set from answer');
         await drainQueuedCandidates(pc);
       } else {
         console.warn('[WebRTC] Skipping handleAnswer as signalingState is', pc.signalingState);
@@ -252,14 +247,12 @@ export function useWebRTC() {
     const pc = pcRef.current;
 
     if (!pc || !pc.remoteDescription || !pc.remoteDescription.type) {
-      console.log('[WebRTC] Remote description not set yet, queuing ICE candidate');
       queuedCandidates.current.push(candidate);
       return;
     }
 
     try {
       await pc.addIceCandidate(new RTCIceCandidate(candidate));
-      console.log('[WebRTC] Added ICE candidate');
     } catch (err) {
       console.error('[WebRTC] Error adding ICE candidate:', err);
     }
@@ -275,7 +268,6 @@ export function useWebRTC() {
     if (sender) {
       try {
         await sender.replaceTrack(newTrack);
-        console.log('[WebRTC] Replaced video track with:', newTrack ? newTrack.id : 'null');
         return true;
       } catch (err) {
         console.error('[WebRTC] Failed to replace video track:', err);
@@ -284,7 +276,6 @@ export function useWebRTC() {
     } else if (newTrack) {
       try {
         pc.addTrack(newTrack);
-        console.log('[WebRTC] Added new video track to connection:', newTrack.id);
         return true;
       } catch (err) {
         console.error('[WebRTC] Failed to add video track:', err);
@@ -304,7 +295,6 @@ export function useWebRTC() {
     if (sender) {
       try {
         await sender.replaceTrack(newTrack);
-        console.log('[WebRTC] Replaced audio track with:', newTrack ? newTrack.id : 'null');
         return true;
       } catch (err) {
         console.error('[WebRTC] Failed to replace audio track:', err);
@@ -313,7 +303,6 @@ export function useWebRTC() {
     } else if (newTrack) {
       try {
         pc.addTrack(newTrack);
-        console.log('[WebRTC] Added new audio track to connection:', newTrack.id);
         return true;
       } catch (err) {
         console.error('[WebRTC] Failed to add audio track:', err);
@@ -338,7 +327,7 @@ export function useWebRTC() {
         try {
           track.enabled = false;
           track.stop();
-        } catch (e) {}
+        } catch {}
       });
       remoteStreamInstanceRef.current = new MediaStream();
     }

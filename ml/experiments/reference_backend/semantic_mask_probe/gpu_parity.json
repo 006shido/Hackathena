@@ -1,0 +1,18 @@
+{
+  "cases": [
+    {
+      "case": 0,
+      "max_error": 5.9604644775390625e-06,
+      "mean_error": 6.713196398777654e-07,
+      "label_agreement": 1.0
+    },
+    {
+      "case": 1,
+      "max_error": 7.152557373046875e-06,
+      "mean_error": 7.162132646953978e-07,
+      "label_agreement": 1.0
+    }
+  ],
+  "warm_ms_median": 12.67464999546064,
+  "scope": "Two random normalized inputs, primary output logits and label parity. Includes transfers, excludes image preprocessing and compositing."
+}

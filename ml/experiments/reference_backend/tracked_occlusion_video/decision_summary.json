@@ -1,0 +1,98 @@
+{
+  "frames": 812,
+  "changed_frames": 699,
+  "identity_rejected_frames": 50,
+  "missing_face_frames": 63,
+  "decision_transitions": 21,
+  "transition_frames": [
+    84,
+    87,
+    133,
+    150,
+    151,
+    174,
+    175,
+    179,
+    567,
+    575,
+    576,
+    577,
+    578,
+    579,
+    633,
+    634,
+    682,
+    683,
+    684,
+    735,
+    737
+  ],
+  "longest_identity_rejections": [
+    [
+      151,
+      173,
+      23
+    ],
+    [
+      133,
+      149,
+      17
+    ],
+    [
+      175,
+      178,
+      4
+    ],
+    [
+      84,
+      86,
+      3
+    ],
+    [
+      735,
+      736,
+      2
+    ],
+    [
+      633,
+      633,
+      1
+    ]
+  ],
+  "longest_missing_face_runs": [
+    [
+      684,
+      734,
+      51
+    ],
+    [
+      567,
+      574,
+      8
+    ],
+    [
+      174,
+      174,
+      1
+    ],
+    [
+      576,
+      576,
+      1
+    ],
+    [
+      578,
+      578,
+      1
+    ],
+    [
+      682,
+      682,
+      1
+    ]
+  ],
+  "scope": "Observed identity/detection decisions and selected encoded comparison frames; not all-frame perceptual quality or a flicker score.",
+  "accepted_source_similarity_mean": 0.5644732650172216,
+  "accepted_source_similarity_min": 0.4026021659374237,
+  "accepted_source_minus_target_min": 0.052668213844299316
+}

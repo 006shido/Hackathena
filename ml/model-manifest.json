@@ -1,0 +1,63 @@
+{
+  "repository": "006shido/Hackathena",
+  "release": "research-v1.0.0",
+  "usage": "Noncommercial research; see MODEL_NOTICES.md and upstream licenses.",
+  "assets": [
+    {
+      "path": "ml/experiments/phase6g_3_full_dataset/run/best_model.pt",
+      "name": "phase6g-fullres.pt",
+      "bytes": 701360199,
+      "sha256": "156e922187b56c3d4fcddc8bec48bc5fd85813f78739a6801b09dcb4e3d5a4d9",
+      "license": "Project-trained research model; contains pretrained identity tensors; noncommercial research only",
+      "url": "https://github.com/006shido/Hackathena/releases/download/research-v1.0.0/phase6g-fullres.pt"
+    },
+    {
+      "path": "ml/models/weights/ms1mv2_iresnet50.pth",
+      "name": "arcface-iresnet50.pth",
+      "bytes": 174661554,
+      "sha256": "2b75b93c48b01c78a4263f7295ab2dbf84f85190c51be45b92c4c0b0aedceaa3",
+      "license": "InsightFace pretrained identity model; noncommercial research only",
+      "url": "https://github.com/006shido/Hackathena/releases/download/research-v1.0.0/arcface-iresnet50.pth"
+    },
+    {
+      "path": "ml/experiments/reference_backend/assets/inswapper_128.onnx",
+      "name": "inswapper_128.onnx",
+      "bytes": 554253681,
+      "sha256": "e4a3f08c753cb72d04e10aa0f7dbe3deebbf39567d4ead6dce08e98aa49e16af",
+      "license": "InsightFace pretrained swapper; noncommercial research only",
+      "url": "https://github.com/006shido/Hackathena/releases/download/research-v1.0.0/inswapper_128.onnx"
+    },
+    {
+      "path": "ml/experiments/reference_backend/assets/w600k_r50.onnx",
+      "name": "w600k_r50.onnx",
+      "bytes": 174383860,
+      "sha256": "4c06341c33c2ca1f86781dab0e829f88ad5b64be9fba56e56bc9ebdefc619e43",
+      "license": "InsightFace pretrained identity model; noncommercial research only",
+      "url": "https://github.com/006shido/Hackathena/releases/download/research-v1.0.0/w600k_r50.onnx"
+    },
+    {
+      "path": "ml/detection/assets/xception_best.pth",
+      "name": "xception_best.pth",
+      "bytes": 87763531,
+      "sha256": "dd61186f9ac8e99aae85982cae338b555dfaeef042f6b699e5a55cae3998ba47",
+      "license": "DeepfakeBench CC-BY-NC-4.0; upstream notices apply",
+      "url": "https://github.com/006shido/Hackathena/releases/download/research-v1.0.0/xception_best.pth"
+    },
+    {
+      "path": "ml/detection/assets/AASIST.pth",
+      "name": "AASIST.pth",
+      "bytes": 1281532,
+      "sha256": "51d2d9cf0738172f61e2a384ec50a54a55363240f67c971ed55a92435bc1a1c0",
+      "license": "NAVER AASIST MIT; upstream notices apply",
+      "url": "https://github.com/006shido/Hackathena/releases/download/research-v1.0.0/AASIST.pth"
+    },
+    {
+      "path": "ml/detection/swap_domain_robust/best.pt",
+      "name": "xception-swap-domain-robust.pt",
+      "bytes": 87740134,
+      "sha256": "51e05cf564afcdbf051ce92a54511a031e508674bb82a8ffa3ceb2bbbd50e361",
+      "license": "Research adaptation of DeepfakeBench; CC-BY-NC-4.0",
+      "url": "https://github.com/006shido/Hackathena/releases/download/research-v1.0.0/xception-swap-domain-robust.pt"
+    }
+  ]
+}

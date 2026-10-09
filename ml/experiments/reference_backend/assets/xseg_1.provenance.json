@@ -1,0 +1,11 @@
+{
+  "filename": "xseg_1.onnx",
+  "source": "https://huggingface.co/facefusion/models-3.1.0/blob/main/xseg_1.onnx",
+  "download": "https://huggingface.co/facefusion/models-3.1.0/resolve/main/xseg_1.onnx",
+  "sha256": "c4d1498b8a03b5fe2a3a5d2ef2a0402ab03bd51edaf5b2d8d5fb764702a97dd3",
+  "checksum_verified": true,
+  "metadata_source": "https://github.com/facefusion/facefusion/blob/master/facefusion/face_masker.py",
+  "vendor_per_metadata": "DeepFaceLab",
+  "license_per_metadata": "GPL-3.0",
+  "scope": "Isolated occlusion research probe; not enabled in live service. No new Python packages installed."
+}

@@ -15,15 +15,15 @@
  * - Subtle camera sensor grain matching for photorealistic integration
  */
 
-import { FilesetResolver, FaceLandmarker } from '@mediapipe/tasks-vision';
+import { FaceLandmarker,FilesetResolver } from '@mediapipe/tasks-vision';
+import { DEFAULT_FACE_BLEND_CONFIG,FaceBlendConfig } from '../types/attack';
 import {
-  FACE_MESH_TRIANGLES,
-  FACE_OVAL_INDICES,
-  INNER_LIPS_INDICES,
-  LEFT_EYE_INDICES,
-  RIGHT_EYE_INDICES,
+FACE_MESH_TRIANGLES,
+FACE_OVAL_INDICES,
+INNER_LIPS_INDICES,
+LEFT_EYE_INDICES,
+RIGHT_EYE_INDICES,
 } from './faceTriangles';
-import { FaceBlendConfig, DEFAULT_FACE_BLEND_CONFIG } from '../types/attack';
 
 export interface LandmarkPoint {
   x: number;
@@ -344,7 +344,6 @@ export class FaceSwapEngine {
 
     this.isModelLoading = true;
     try {
-      console.log('[FaceSwapEngine] Initializing MediaPipe FaceLandmarker models...');
 
       const CDN_WASM = 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@1.0.1/wasm';
       const CDN_MODEL = 'https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task';
@@ -381,8 +380,6 @@ export class FaceSwapEngine {
       } catch {
         modelAssetPath = CDN_MODEL;
       }
-
-      console.log(`[FaceSwapEngine] Loading FaceLandmarker model from: ${modelAssetPath}`);
 
       // 3. Helper to create landmarker with GPU -> CPU fallback
       const createLandmarker = async (mode: 'VIDEO' | 'IMAGE') => {
@@ -440,7 +437,6 @@ export class FaceSwapEngine {
 
       this.isModelReady = true;
       this.isModelLoading = false;
-      console.log('[FaceSwapEngine] MediaPipe FaceLandmarker models loaded successfully.');
 
       // If a default source image wasn't loaded yet, initialize default persona
       if (!this.sourceImage) {
@@ -519,8 +515,6 @@ export class FaceSwapEngine {
           // Upload new texture to WebGL
           this.updateWebGLSourceTexture();
 
-          console.log(`[FaceSwapEngine] Gallery face verified: ${this.sourceFaceName} (${naturalW}x${naturalH}), ${mappedLandmarks.length} landmarks.`);
-
           resolve({
             success: true,
             faceDetected: true,
@@ -552,7 +546,7 @@ export class FaceSwapEngine {
   /**
    * Loads a predefined portrait persona
    */
-  public async loadPresetSource(id: string, src: string, name: string): Promise<boolean> {
+  public async loadPresetSource(_id: string, src: string, name: string): Promise<boolean> {
     return new Promise((resolve) => {
       const img = new Image();
       img.crossOrigin = 'anonymous';

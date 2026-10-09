@@ -1,0 +1,28 @@
+{
+  "started": "2026-10-06T02:27:55.977Z",
+  "audioFixture": "tone",
+  "scope": "Real browser, production preview/voice classes and production signaling; recorded video and selected audio fixture, not physical webcam/microphone or full Call UI.",
+  "checks": {
+    "lateJoin": true,
+    "video": true,
+    "audio": true,
+    "screenReplacement": true,
+    "sourceSwitch": true,
+    "stop": true
+  },
+  "previewFps": 11.19047619047619,
+  "audioRms": 0.049762417191279,
+  "inboundStats": [
+    {
+      "kind": "audio",
+      "bytesReceived": 48379
+    },
+    {
+      "kind": "video",
+      "bytesReceived": 738760,
+      "framesDecoded": 123
+    }
+  ],
+  "passed": true,
+  "finished": "2026-10-06T02:28:09.205Z"
+}

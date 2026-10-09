@@ -1,0 +1,118 @@
+{
+  "scope": "Three lossless tuning frames with saved live VIDEO landmarks. Hard semantic facial classes only, preserving hair/glasses/background. No runtime or general-quality promotion.",
+  "model_sha256": "2218b6183c26ca5c83303232d682a536c670c13ea9695f716c777d1f244eefe9",
+  "records": [
+    {
+      "frame": 0,
+      "warm_cpu_ms_median": 116.28999999084044,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786920785903931,
+          "target_similarity": 0.3429468274116516
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.5473902225494385,
+          "target_similarity": 0.35043954849243164
+        }
+      },
+      "class_pixel_counts": {
+        "0": 72099,
+        "1": 65851,
+        "2": 1838,
+        "3": 0,
+        "4": 1138,
+        "5": 1101,
+        "6": 2879,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 6387,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 8172,
+        "15": 0,
+        "16": 40706,
+        "17": 60161,
+        "18": 1812
+      }
+    },
+    {
+      "frame": 150,
+      "warm_cpu_ms_median": 138.0345999932615,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5274490118026733,
+          "target_similarity": 0.4569459855556488
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.4922306537628174,
+          "target_similarity": 0.4830535650253296
+        }
+      },
+      "class_pixel_counts": {
+        "0": 94793,
+        "1": 66044,
+        "2": 1917,
+        "3": 136,
+        "4": 1235,
+        "5": 1161,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 9337,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 87521,
+        "18": 0
+      },
+      "book_candidate_mae": 0.41037905057993546
+    },
+    {
+      "frame": 478,
+      "warm_cpu_ms_median": 118.6221999960253,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.4987078011035919,
+          "target_similarity": 0.09306064248085022
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.4613129794597626,
+          "target_similarity": 0.16003552079200745
+        }
+      },
+      "class_pixel_counts": {
+        "0": 11540,
+        "1": 53806,
+        "2": 262,
+        "3": 0,
+        "4": 736,
+        "5": 0,
+        "6": 0,
+        "7": 124,
+        "8": 0,
+        "9": 0,
+        "10": 5966,
+        "11": 0,
+        "12": 953,
+        "13": 1800,
+        "14": 18719,
+        "15": 0,
+        "16": 10306,
+        "17": 19887,
+        "18": 138045
+      }
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "scope": "Sampled faceocc2 frames with independent IMAGE landmarks. Orange excludes face boundary, magenta excludes eroded core; neither is a ground-truth object label. Core uses 15px erosion in aligned128 coordinates.",
+  "records": [
+    {
+      "frame": 0,
+      "detected": true,
+      "face_pixels": 5607,
+      "excluded_face_pixels": 436,
+      "core_pixels": 3494,
+      "excluded_core_pixels": 92,
+      "core_excluded_fraction": 0.02633085289066972,
+      "excluded_pixels_outside_core_fraction": 0.7889908256880734
+    },
+    {
+      "frame": 40,
+      "detected": true,
+      "face_pixels": 5649,
+      "excluded_face_pixels": 464,
+      "core_pixels": 3520,
+      "excluded_core_pixels": 105,
+      "core_excluded_fraction": 0.029829545454545456,
+      "excluded_pixels_outside_core_fraction": 0.7737068965517241
+    },
+    {
+      "frame": 80,
+      "detected": true,
+      "face_pixels": 5244,
+      "excluded_face_pixels": 499,
+      "core_pixels": 3231,
+      "excluded_core_pixels": 120,
+      "core_excluded_fraction": 0.03714020427112349,
+      "excluded_pixels_outside_core_fraction": 0.7595190380761523
+    },
+    {
+      "frame": 83,
+      "detected": true,
+      "face_pixels": 4731,
+      "excluded_face_pixels": 565,
+      "core_pixels": 2809,
+      "excluded_core_pixels": 60,
+      "core_excluded_fraction": 0.02135991456034176,
+      "excluded_pixels_outside_core_fraction": 0.8938053097345132
+    },
+    {
+      "frame": 120,
+      "detected": true,
+      "face_pixels": 5691,
+      "excluded_face_pixels": 479,
+      "core_pixels": 3562,
+      "excluded_core_pixels": 108,
+      "core_excluded_fraction": 0.030320044918585063,
+      "excluded_pixels_outside_core_fraction": 0.7745302713987474
+    },
+    {
+      "frame": 150,
+      "detected": true,
+      "face_pixels": 5734,
+      "excluded_face_pixels": 2034,
+      "core_pixels": 3579,
+      "excluded_core_pixels": 783,
+      "core_excluded_fraction": 0.21877619446772842,
+      "excluded_pixels_outside_core_fraction": 0.6150442477876106
+    },
+    {
+      "frame": 160,
+      "detected": true,
+      "face_pixels": 5717,
+      "excluded_face_pixels": 1907,
+      "core_pixels": 3581,
+      "excluded_core_pixels": 738,
+      "core_excluded_fraction": 0.20608768500418878,
+      "excluded_pixels_outside_core_fraction": 0.6130047194546407
+    },
+    {
+      "frame": 200,
+      "detected": true,
+      "face_pixels": 5877,
+      "excluded_face_pixels": 713,
+      "core_pixels": 3706,
+      "excluded_core_pixels": 229,
+      "core_excluded_fraction": 0.06179168915272531,
+      "excluded_pixels_outside_core_fraction": 0.6788218793828892
+    },
+    {
+      "frame": 240,
+      "detected": true,
+      "face_pixels": 5857,
+      "excluded_face_pixels": 522,
+      "core_pixels": 3681,
+      "excluded_core_pixels": 119,
+      "core_excluded_fraction": 0.03232817169247487,
+      "excluded_pixels_outside_core_fraction": 0.7720306513409961
+    },
+    {
+      "frame": 280,
+      "detected": true,
+      "face_pixels": 5895,
+      "excluded_face_pixels": 465,
+      "core_pixels": 3734,
+      "excluded_core_pixels": 94,
+      "core_excluded_fraction": 0.025174076057846814,
+      "excluded_pixels_outside_core_fraction": 0.7978494623655914
+    },
+    {
+      "frame": 320,
+      "detected": true,
+      "face_pixels": 5776,
+      "excluded_face_pixels": 533,
+      "core_pixels": 3639,
+      "excluded_core_pixels": 125,
+      "core_excluded_fraction": 0.0343500961802693,
+      "excluded_pixels_outside_core_fraction": 0.7654784240150094
+    },
+    {
+      "frame": 360,
+      "detected": true,
+      "face_pixels": 5917,
+      "excluded_face_pixels": 213,
+      "core_pixels": 3750,
+      "excluded_core_pixels": 0,
+      "core_excluded_fraction": 0.0,
+      "excluded_pixels_outside_core_fraction": 1.0
+    },
+    {
+      "frame": 400,
+      "detected": true,
+      "face_pixels": 5766,
+      "excluded_face_pixels": 157,
+      "core_pixels": 3644,
+      "excluded_core_pixels": 0,
+      "core_excluded_fraction": 0.0,
+      "excluded_pixels_outside_core_fraction": 1.0
+    },
+    {
+      "frame": 440,
+      "detected": true,
+      "face_pixels": 5957,
+      "excluded_face_pixels": 283,
+      "core_pixels": 3799,
+      "excluded_core_pixels": 6,
+      "core_excluded_fraction": 0.0015793629902605948,
+      "excluded_pixels_outside_core_fraction": 0.9787985865724381
+    },
+    {
+      "frame": 478,
+      "detected": false,
+      "reason": "No face detected in image by MediaPipe FaceLandmarker"
+    },
+    {
+      "frame": 480,
+      "detected": false,
+      "reason": "No face detected in image by MediaPipe FaceLandmarker"
+    },
+    {
+      "frame": 520,
+      "detected": true,
+      "face_pixels": 5448,
+      "excluded_face_pixels": 399,
+      "core_pixels": 3375,
+      "excluded_core_pixels": 44,
+      "core_excluded_fraction": 0.013037037037037036,
+      "excluded_pixels_outside_core_fraction": 0.8897243107769424
+    },
+    {
+      "frame": 560,
+      "detected": true,
+      "face_pixels": 4765,
+      "excluded_face_pixels": 1098,
+      "core_pixels": 2756,
+      "excluded_core_pixels": 452,
+      "core_excluded_fraction": 0.16400580551523947,
+      "excluded_pixels_outside_core_fraction": 0.5883424408014571
+    },
+    {
+      "frame": 600,
+      "detected": true,
+      "face_pixels": 4507,
+      "excluded_face_pixels": 931,
+      "core_pixels": 2527,
+      "excluded_core_pixels": 276,
+      "core_excluded_fraction": 0.10922041946972695,
+      "excluded_pixels_outside_core_fraction": 0.7035445757250268
+    },
+    {
+      "frame": 640,
+      "detected": true,
+      "face_pixels": 4691,
+      "excluded_face_pixels": 695,
+      "core_pixels": 2685,
+      "excluded_core_pixels": 112,
+      "core_excluded_fraction": 0.041713221601489756,
+      "excluded_pixels_outside_core_fraction": 0.8388489208633093
+    },
+    {
+      "frame": 680,
+      "detected": true,
+      "face_pixels": 4568,
+      "excluded_face_pixels": 1086,
+      "core_pixels": 2603,
+      "excluded_core_pixels": 357,
+      "core_excluded_fraction": 0.1371494429504418,
+      "excluded_pixels_outside_core_fraction": 0.6712707182320442
+    },
+    {
+      "frame": 720,
+      "detected": false,
+      "reason": "No face detected in image by MediaPipe FaceLandmarker"
+    },
+    {
+      "frame": 737,
+      "detected": true,
+      "face_pixels": 2234,
+      "excluded_face_pixels": 0,
+      "core_pixels": 937,
+      "excluded_core_pixels": 0,
+      "core_excluded_fraction": 0.0,
+      "excluded_pixels_outside_core_fraction": 0.0
+    },
+    {
+      "frame": 760,
+      "detected": true,
+      "face_pixels": 4780,
+      "excluded_face_pixels": 700,
+      "core_pixels": 2778,
+      "excluded_core_pixels": 74,
+      "core_excluded_fraction": 0.02663786897048236,
+      "excluded_pixels_outside_core_fraction": 0.8942857142857142
+    },
+    {
+      "frame": 800,
+      "detected": true,
+      "face_pixels": 4863,
+      "excluded_face_pixels": 465,
+      "core_pixels": 2855,
+      "excluded_core_pixels": 45,
+      "core_excluded_fraction": 0.01576182136602452,
+      "excluded_pixels_outside_core_fraction": 0.9032258064516129
+    },
+    {
+      "frame": 811,
+      "detected": true,
+      "face_pixels": 4838,
+      "excluded_face_pixels": 501,
+      "core_pixels": 2832,
+      "excluded_core_pixels": 4,
+      "core_excluded_fraction": 0.0014124293785310734,
+      "excluded_pixels_outside_core_fraction": 0.9920159680638723
+    }
+  ]
+}

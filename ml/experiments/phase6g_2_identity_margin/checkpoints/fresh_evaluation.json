@@ -1,0 +1,449 @@
+{
+  "seed": 137,
+  "pairs": [
+    {
+      "source": "188586.jpg",
+      "target": "055664.jpg"
+    },
+    {
+      "source": "051845.jpg",
+      "target": "059220.jpg"
+    },
+    {
+      "source": "202393.jpg",
+      "target": "115430.jpg"
+    },
+    {
+      "source": "180797.jpg",
+      "target": "146388.jpg"
+    },
+    {
+      "source": "179629.jpg",
+      "target": "111899.jpg"
+    },
+    {
+      "source": "007326.jpg",
+      "target": "175197.jpg"
+    },
+    {
+      "source": "123920.jpg",
+      "target": "185206.jpg"
+    },
+    {
+      "source": "073547.jpg",
+      "target": "171786.jpg"
+    },
+    {
+      "source": "134868.jpg",
+      "target": "101333.jpg"
+    },
+    {
+      "source": "008637.jpg",
+      "target": "125724.jpg"
+    },
+    {
+      "source": "038374.jpg",
+      "target": "123410.jpg"
+    },
+    {
+      "source": "005401.jpg",
+      "target": "036064.jpg"
+    },
+    {
+      "source": "111246.jpg",
+      "target": "202060.jpg"
+    },
+    {
+      "source": "194550.jpg",
+      "target": "195530.jpg"
+    },
+    {
+      "source": "018143.jpg",
+      "target": "038359.jpg"
+    },
+    {
+      "source": "083699.jpg",
+      "target": "192822.jpg"
+    },
+    {
+      "source": "069456.jpg",
+      "target": "105367.jpg"
+    },
+    {
+      "source": "140152.jpg",
+      "target": "080108.jpg"
+    },
+    {
+      "source": "198779.jpg",
+      "target": "110979.jpg"
+    },
+    {
+      "source": "033095.jpg",
+      "target": "129805.jpg"
+    },
+    {
+      "source": "090997.jpg",
+      "target": "116840.jpg"
+    },
+    {
+      "source": "056330.jpg",
+      "target": "202035.jpg"
+    },
+    {
+      "source": "016705.jpg",
+      "target": "091862.jpg"
+    },
+    {
+      "source": "165098.jpg",
+      "target": "201675.jpg"
+    },
+    {
+      "source": "057413.jpg",
+      "target": "148948.jpg"
+    },
+    {
+      "source": "174338.jpg",
+      "target": "118928.jpg"
+    },
+    {
+      "source": "125876.jpg",
+      "target": "200716.jpg"
+    },
+    {
+      "source": "061251.jpg",
+      "target": "012494.jpg"
+    },
+    {
+      "source": "128102.jpg",
+      "target": "055885.jpg"
+    },
+    {
+      "source": "053463.jpg",
+      "target": "141775.jpg"
+    },
+    {
+      "source": "196745.jpg",
+      "target": "183401.jpg"
+    },
+    {
+      "source": "131906.jpg",
+      "target": "046255.jpg"
+    },
+    {
+      "source": "099355.jpg",
+      "target": "050975.jpg"
+    },
+    {
+      "source": "071284.jpg",
+      "target": "139461.jpg"
+    },
+    {
+      "source": "134527.jpg",
+      "target": "014615.jpg"
+    },
+    {
+      "source": "129255.jpg",
+      "target": "173159.jpg"
+    },
+    {
+      "source": "147339.jpg",
+      "target": "133416.jpg"
+    },
+    {
+      "source": "001147.jpg",
+      "target": "045202.jpg"
+    },
+    {
+      "source": "050213.jpg",
+      "target": "016650.jpg"
+    },
+    {
+      "source": "123719.jpg",
+      "target": "175852.jpg"
+    },
+    {
+      "source": "108818.jpg",
+      "target": "131367.jpg"
+    },
+    {
+      "source": "036099.jpg",
+      "target": "069219.jpg"
+    },
+    {
+      "source": "080934.jpg",
+      "target": "152292.jpg"
+    },
+    {
+      "source": "169992.jpg",
+      "target": "176224.jpg"
+    },
+    {
+      "source": "121839.jpg",
+      "target": "036089.jpg"
+    },
+    {
+      "source": "098060.jpg",
+      "target": "108270.jpg"
+    },
+    {
+      "source": "000573.jpg",
+      "target": "104427.jpg"
+    },
+    {
+      "source": "086592.jpg",
+      "target": "196724.jpg"
+    },
+    {
+      "source": "065757.jpg",
+      "target": "078815.jpg"
+    },
+    {
+      "source": "066282.jpg",
+      "target": "185165.jpg"
+    },
+    {
+      "source": "163622.jpg",
+      "target": "022739.jpg"
+    },
+    {
+      "source": "098135.jpg",
+      "target": "173021.jpg"
+    },
+    {
+      "source": "163514.jpg",
+      "target": "193121.jpg"
+    },
+    {
+      "source": "033173.jpg",
+      "target": "122193.jpg"
+    },
+    {
+      "source": "033691.jpg",
+      "target": "124359.jpg"
+    },
+    {
+      "source": "046623.jpg",
+      "target": "190461.jpg"
+    },
+    {
+      "source": "191037.jpg",
+      "target": "101949.jpg"
+    },
+    {
+      "source": "120647.jpg",
+      "target": "169770.jpg"
+    },
+    {
+      "source": "201751.jpg",
+      "target": "112042.jpg"
+    },
+    {
+      "source": "077275.jpg",
+      "target": "021253.jpg"
+    },
+    {
+      "source": "101316.jpg",
+      "target": "068587.jpg"
+    },
+    {
+      "source": "079847.jpg",
+      "target": "057817.jpg"
+    },
+    {
+      "source": "186567.jpg",
+      "target": "086148.jpg"
+    },
+    {
+      "source": "189335.jpg",
+      "target": "021856.jpg"
+    },
+    {
+      "source": "130578.jpg",
+      "target": "071278.jpg"
+    },
+    {
+      "source": "120624.jpg",
+      "target": "148807.jpg"
+    },
+    {
+      "source": "068483.jpg",
+      "target": "077116.jpg"
+    },
+    {
+      "source": "183349.jpg",
+      "target": "006023.jpg"
+    },
+    {
+      "source": "202192.jpg",
+      "target": "169511.jpg"
+    },
+    {
+      "source": "147049.jpg",
+      "target": "006927.jpg"
+    },
+    {
+      "source": "169214.jpg",
+      "target": "098106.jpg"
+    },
+    {
+      "source": "062682.jpg",
+      "target": "028897.jpg"
+    },
+    {
+      "source": "047969.jpg",
+      "target": "020350.jpg"
+    },
+    {
+      "source": "066967.jpg",
+      "target": "063189.jpg"
+    },
+    {
+      "source": "190752.jpg",
+      "target": "133364.jpg"
+    },
+    {
+      "source": "033046.jpg",
+      "target": "022104.jpg"
+    },
+    {
+      "source": "110584.jpg",
+      "target": "114964.jpg"
+    },
+    {
+      "source": "104487.jpg",
+      "target": "168106.jpg"
+    },
+    {
+      "source": "012255.jpg",
+      "target": "045757.jpg"
+    },
+    {
+      "source": "164179.jpg",
+      "target": "134308.jpg"
+    },
+    {
+      "source": "143006.jpg",
+      "target": "199853.jpg"
+    },
+    {
+      "source": "030971.jpg",
+      "target": "136606.jpg"
+    },
+    {
+      "source": "056038.jpg",
+      "target": "100837.jpg"
+    },
+    {
+      "source": "160212.jpg",
+      "target": "076972.jpg"
+    },
+    {
+      "source": "004171.jpg",
+      "target": "056028.jpg"
+    },
+    {
+      "source": "148301.jpg",
+      "target": "109351.jpg"
+    },
+    {
+      "source": "074259.jpg",
+      "target": "011786.jpg"
+    },
+    {
+      "source": "141798.jpg",
+      "target": "080972.jpg"
+    },
+    {
+      "source": "107057.jpg",
+      "target": "153865.jpg"
+    },
+    {
+      "source": "113907.jpg",
+      "target": "083206.jpg"
+    },
+    {
+      "source": "042539.jpg",
+      "target": "189132.jpg"
+    },
+    {
+      "source": "013753.jpg",
+      "target": "136191.jpg"
+    },
+    {
+      "source": "172128.jpg",
+      "target": "009558.jpg"
+    },
+    {
+      "source": "007407.jpg",
+      "target": "152976.jpg"
+    },
+    {
+      "source": "011106.jpg",
+      "target": "172523.jpg"
+    },
+    {
+      "source": "107343.jpg",
+      "target": "154253.jpg"
+    },
+    {
+      "source": "170010.jpg",
+      "target": "144231.jpg"
+    },
+    {
+      "source": "020898.jpg",
+      "target": "107850.jpg"
+    },
+    {
+      "source": "096937.jpg",
+      "target": "198160.jpg"
+    },
+    {
+      "source": "064902.jpg",
+      "target": "029853.jpg"
+    }
+  ],
+  "baseline": {
+    "A": 0.2603456142824143,
+    "B": 0.18573815152049064,
+    "C": -0.007794444803148508,
+    "D_swap": 0.2849212076514959,
+    "A_minus_C": 0.2681400590855628,
+    "A_minus_B": 0.07460746276192368,
+    "pct_A_gt_B": 68.0,
+    "pct_A_gt_C": 95.0,
+    "pct_gain_gt_0": 95.0,
+    "sharp_comp": 288.4522921676934,
+    "sharp_swap": 359.39947932124136,
+    "mask_cov": 45.5728759765625,
+    "redetect_rate": 100.0,
+    "mean_lm_err": 1.8306786161661148,
+    "ablation_A_no128": 0.17649693708866834,
+    "ablation_B_no128": 0.19221461633220316,
+    "ablation_adv_no128": -0.015717679243534816,
+    "ablation_sharp_no128": 197.50116101391615,
+    "skip128_adv_delta": 0.09032514200545849,
+    "skip128_sharp_delta": 90.95113115377723
+  },
+  "candidate": {
+    "A": 0.49363840378820895,
+    "B": 0.12804368596524,
+    "C": -0.007794444803148508,
+    "D_swap": 0.5632683442533016,
+    "A_minus_C": 0.5014328485913575,
+    "A_minus_B": 0.36559471782296893,
+    "pct_A_gt_B": 97.0,
+    "pct_A_gt_C": 100.0,
+    "pct_gain_gt_0": 100.0,
+    "sharp_comp": 264.11438843905927,
+    "sharp_swap": 357.1477076233551,
+    "mask_cov": 46.18377685546875,
+    "redetect_rate": 100.0,
+    "mean_lm_err": 1.6979795026779174,
+    "ablation_A_no128": 0.30352589092217386,
+    "ablation_B_no128": 0.1512157003302127,
+    "ablation_adv_no128": 0.15231019059196116,
+    "ablation_sharp_no128": 184.74977585788815,
+    "skip128_adv_delta": 0.21328452723100777,
+    "skip128_sharp_delta": 79.36461258117112
+  }
+}

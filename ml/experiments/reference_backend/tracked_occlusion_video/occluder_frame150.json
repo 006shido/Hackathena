@@ -1,0 +1,26 @@
+{
+  "frame": 150,
+  "polygon": [
+    [
+      110,
+      110
+    ],
+    [
+      232,
+      120
+    ],
+    [
+      222,
+      203
+    ],
+    [
+      104,
+      190
+    ]
+  ],
+  "erosion_kernel": 9,
+  "interior_pixels": 8363,
+  "mean_absolute_rgb_difference": 0.7152935266494751,
+  "fraction_over_8_rgb_levels": 0.025947626449838574,
+  "scope": "Manual occluder annotation on encoded panels. Codec error is included; not an exact raw-pixel preservation test or automatic segmentation."
+}

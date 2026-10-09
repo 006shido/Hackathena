@@ -1,0 +1,10 @@
+{
+  "filename": "bisenet_resnet_18.onnx",
+  "source": "https://huggingface.co/facefusion/models-3.1.0/blob/main/bisenet_resnet_18.onnx",
+  "sha256": "2218b6183c26ca5c83303232d682a536c670c13ea9695f716c777d1f244eefe9",
+  "checksum_verified": true,
+  "upstream": "https://github.com/yakhyo/face-parsing",
+  "license_per_upstream": "MIT",
+  "training_dataset_per_upstream": "CelebAMask-HQ",
+  "scope": "Isolated semantic face-mask probe, not enabled in the live service. No new packages installed."
+}

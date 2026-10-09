@@ -1,0 +1,19 @@
+<!doctype html><html><body><button id="run">Measure received audio fixtures</button><pre id="output">Ready</pre>
+<script type="module">
+import {VoiceDeepfakeDetector} from '/src/detection/voiceDeepfakeDetector.ts';
+document.querySelector('#run').onclick=async()=>{
+ const results=[];const ctx=new AudioContext();await ctx.resume();
+ const destination=ctx.createMediaStreamDestination();let states=[];
+ const detector=new VoiceDeepfakeDetector(state=>{if(state.hasAudio)states.push({score:state.anomalyScore,metrics:state.metrics,anomalies:state.detectedAnomalies,reference:state.referenceState,measured:state.referenceMeasured});});
+ detector.start(destination.stream);detector.calibrateReference();
+ for(const name of ['clean','robotic-vocoder','deep-pitch-neural','synthetic-clone','clean-return']){
+  document.querySelector('#output').textContent=`Measuring ${name}`;
+  const audio=await ctx.decodeAudioData(await (await fetch(`/fixtures/${name === 'clean-return' ? 'clean' : name}.wav`)).arrayBuffer());
+  const source=ctx.createBufferSource();source.buffer=audio;source.loop=true;source.connect(destination);
+  states=[];source.start();await new Promise(resolve=>setTimeout(resolve,name==='clean'?18000:12000));source.stop();
+  const scores=states.filter(state=>state.measured).map(state=>state.score).sort((a,b)=>a-b);
+  results.push({name,samples:states.length,median:scores[Math.floor(scores.length/2)],p95:scores[Math.floor(scores.length*.95)],states});
+ }
+ detector.stop();destination.stream.getTracks().forEach(track=>track.stop());await ctx.close();await fetch('/result',{method:'POST',body:JSON.stringify(results)});document.querySelector('#output').textContent=JSON.stringify(results.map(({states,...rest})=>rest),null,2);
+};
+</script></body></html>

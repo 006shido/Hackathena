@@ -1,20 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
 import {
-  Upload,
-  Cpu,
-  ArrowRight,
-  AlertTriangle,
-  CheckCircle,
-  RefreshCw,
-  Clock,
-  Layers,
-  Sparkles,
-  ArrowLeft,
-  Activity,
-  Image as ImageIcon,
-  ShieldCheck,
-  Check
+Activity,
+AlertTriangle,
+ArrowLeft,
+ArrowRight,
+Check,
+Cpu,
+Layers,
+RefreshCw,
+ShieldCheck,
+Sparkles,
+Upload
 } from 'lucide-react';
+import React,{ useCallback,useEffect,useRef,useState } from 'react';
 
 interface InferenceMetadata {
   model: string;
@@ -46,30 +43,27 @@ interface SamplePair {
   description: string;
   sourceUrl: string;
   targetUrl: string;
-  expectedGain: string;
+  expectedGain?: string;
 }
 
 const PRESET_PAIRS: SamplePair[] = [
   {
     name: 'Pair 1',
-    description: 'CelebA 197935 → 098180',
-    sourceUrl: '/samples/celeba/197935.jpg',
-    targetUrl: '/samples/celeba/098180.jpg',
-    expectedGain: '+0.1177',
+    description: 'CelebA 004831 → 004865',
+    sourceUrl: '/samples/celeba/004831.jpg',
+    targetUrl: '/samples/celeba/004865.jpg',
   },
   {
     name: 'Pair 2',
-    description: 'CelebA 081968 → 037827',
-    sourceUrl: '/samples/celeba/081968.jpg',
-    targetUrl: '/samples/celeba/037827.jpg',
-    expectedGain: '+0.1771',
+    description: 'CelebA 004931 → 004842',
+    sourceUrl: '/samples/celeba/004931.jpg',
+    targetUrl: '/samples/celeba/004842.jpg',
   },
   {
     name: 'Pair 3',
-    description: 'CelebA 202283 → 169194',
-    sourceUrl: '/samples/celeba/202283.jpg',
-    targetUrl: '/samples/celeba/169194.jpg',
-    expectedGain: '+0.2154',
+    description: 'CelebA 004893 → 004925',
+    sourceUrl: '/samples/celeba/004893.jpg',
+    targetUrl: '/samples/celeba/004925.jpg',
   },
 ];
 
@@ -103,25 +97,42 @@ export const Phase6GTestPanel: React.FC<Phase6GTestPanelProps> = ({ onBack }) =>
   const sourceInputRef = useRef<HTMLInputElement>(null);
   const targetInputRef = useRef<HTMLInputElement>(null);
   const timerRef = useRef<number | null>(null);
+  const healthControllerRef = useRef<AbortController | null>(null);
 
-  // Check health on mount
-  useEffect(() => {
-    checkHealth();
-  }, []);
-
-  const checkHealth = async () => {
-    try {
-      const res = await fetch('/api/ml/health');
+  const checkHealth = useCallback(() => {
+    healthControllerRef.current?.abort();
+    const controller = new AbortController();
+    healthControllerRef.current = controller;
+    return fetch('/api/ml/health', { signal: controller.signal }).then(async res => {
       if (res.ok) {
         const data = await res.json();
+        if (controller.signal.aborted) return;
         setServiceHealth({ ready: data.ready, gpu: data.gpu });
       } else {
         setServiceHealth({ ready: false, error: `HTTP ${res.status}` });
       }
-    } catch (err: any) {
+    }).catch((err: Error) => {
+      if (controller.signal.aborted) return;
       setServiceHealth({ ready: false, error: err.message || 'Connection failed' });
-    }
-  };
+    });
+  }, []);
+
+  // Check health on mount
+  useEffect(() => {
+    void checkHealth();
+    return () => {
+      healthControllerRef.current?.abort();
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [checkHealth]);
+
+  useEffect(() => () => {
+    if (sourcePreview?.startsWith('blob:')) URL.revokeObjectURL(sourcePreview);
+  }, [sourcePreview]);
+
+  useEffect(() => () => {
+    if (targetPreview?.startsWith('blob:')) URL.revokeObjectURL(targetPreview);
+  }, [targetPreview]);
 
   // Helper to load sample image
   const loadPresetPair = async (pair: SamplePair) => {
@@ -299,7 +310,7 @@ export const Phase6GTestPanel: React.FC<Phase6GTestPanelProps> = ({ onBack }) =>
       </header>
 
       {/* Main Body */}
-      <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+      <main className="flex-1 w-full max-w-screen-2xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
         {/* Preset Selector Card */}
         <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-3">
           <div className="flex items-center justify-between">
@@ -325,7 +336,7 @@ export const Phase6GTestPanel: React.FC<Phase6GTestPanelProps> = ({ onBack }) =>
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-xs font-bold text-slate-900">{pair.name}</span>
                   <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-100/70 text-blue-700 font-semibold">
-                    Exp: {pair.expectedGain}
+                    {pair.expectedGain ? `Exp: ${pair.expectedGain}` : 'Measure on run'}
                   </span>
                 </div>
                 <span className="text-[11px] text-slate-500 font-mono truncate">{pair.description}</span>
@@ -538,7 +549,7 @@ export const Phase6GTestPanel: React.FC<Phase6GTestPanelProps> = ({ onBack }) =>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {/* 1. Swapped Composite */}
                 <div className="flex flex-col items-center p-3 rounded-xl bg-slate-50 border border-slate-200/80">
                   <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2 text-center">
@@ -587,18 +598,18 @@ export const Phase6GTestPanel: React.FC<Phase6GTestPanelProps> = ({ onBack }) =>
                 </div>
 
                 {/* 4. Full Diagnostic Strip Preview */}
-                <div className="flex flex-col items-center p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+                <div className="flex flex-col items-center p-3 rounded-xl bg-slate-50 border border-slate-200/80 sm:col-span-2 lg:col-span-3">
                   <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2 text-center">
                     Comparison Grid Strip
                   </span>
-                  <div className="aspect-square w-full rounded-lg overflow-hidden border border-slate-300 bg-white shadow-2xs flex items-center justify-center p-1">
+                  <div className="w-full rounded-lg overflow-x-auto border border-slate-300 bg-white shadow-2xs p-2" tabIndex={0} aria-label="Large comparison grid; scroll horizontally on small screens">
                     <img
                       src={result.comparison_grid_image}
                       alt="Full 6-column comparison grid"
-                      className="w-full h-auto object-contain"
+                      className="w-full min-w-[1200px] h-auto object-contain"
                     />
                   </div>
-                  <span className="text-[10px] text-slate-400 mt-2 font-mono">6-Channel Grid</span>
+                  <span className="text-xs text-slate-500 mt-2">Full-width comparison · scroll sideways on smaller screens</span>
                 </div>
               </div>
             </div>

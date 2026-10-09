@@ -4,9 +4,9 @@
  * Verifies:
  *   1. GET /api/ml/health -> 200 OK
  *   2. POST /api/ml/face-swap with 3 genuine CelebA cross-ID pairs
- *      - Pair 1: 197935.jpg -> 098180.jpg
- *      - Pair 2: 081968.jpg -> 037827.jpg
- *      - Pair 3: 202283.jpg -> 169194.jpg
+ *      - Pair 1: 004831.jpg -> 004865.jpg
+ *      - Pair 2: 004931.jpg -> 004842.jpg
+ *      - Pair 3: 004893.jpg -> 004925.jpg
  *   3. Error Handling:
  *      - Missing source
  *      - Missing target
@@ -25,26 +25,26 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '../../');
 
-const EXPRESS_BASE = 'http://localhost:5001';
+const EXPRESS_BASE = process.env.TEST_APP_URL || 'http://127.0.0.1:5001';
 
 const PAIRS = [
   {
-    name: 'Pair 1 (197935 -> 098180)',
-    source: path.join(REPO_ROOT, 'ml/data/celeba/img_align_celeba/197935.jpg'),
-    target: path.join(REPO_ROOT, 'ml/data/celeba/img_align_celeba/098180.jpg'),
-    expectedGain: 0.1177,
+    name: 'Pair 1 (004831 -> 004865)',
+    source: path.join(REPO_ROOT, 'ml/data/celeba/img_align_celeba/004831.jpg'),
+    target: path.join(REPO_ROOT, 'ml/data/celeba/img_align_celeba/004865.jpg'),
+    expectedGain: 1.0636,
   },
   {
-    name: 'Pair 2 (081968 -> 037827)',
-    source: path.join(REPO_ROOT, 'ml/data/celeba/img_align_celeba/081968.jpg'),
-    target: path.join(REPO_ROOT, 'ml/data/celeba/img_align_celeba/037827.jpg'),
-    expectedGain: 0.1771,
+    name: 'Pair 2 (004931 -> 004842)',
+    source: path.join(REPO_ROOT, 'ml/data/celeba/img_align_celeba/004931.jpg'),
+    target: path.join(REPO_ROOT, 'ml/data/celeba/img_align_celeba/004842.jpg'),
+    expectedGain: 0.7785,
   },
   {
-    name: 'Pair 3 (202283 -> 169194)',
-    source: path.join(REPO_ROOT, 'ml/data/celeba/img_align_celeba/202283.jpg'),
-    target: path.join(REPO_ROOT, 'ml/data/celeba/img_align_celeba/169194.jpg'),
-    expectedGain: 0.2154,
+    name: 'Pair 3 (004893 -> 004925)',
+    source: path.join(REPO_ROOT, 'ml/data/celeba/img_align_celeba/004893.jpg'),
+    target: path.join(REPO_ROOT, 'ml/data/celeba/img_align_celeba/004925.jpg'),
+    expectedGain: 0.6639,
   },
 ];
 
@@ -66,7 +66,8 @@ async function testHealth() {
   const data = await res.json();
   console.log('Health Response:', data);
   assert.strictEqual(data.status, 'ok');
-  assert.strictEqual(data.model, 'phase6g');
+  assert.strictEqual(data.model, 'fullres');
+  assert.strictEqual(data.checkpoint_sha256, '156e922187b56c3d4fcddc8bec48bc5fd85813f78739a6801b09dcb4e3d5a4d9', 'Golden metrics require the current fullres checkpoint');
   assert.strictEqual(data.ready, true);
   console.log('GET /api/ml/health PASSED!');
 }
@@ -116,7 +117,7 @@ async function testInferencePair(pair: typeof PAIRS[0], index: number): Promise<
   console.log(`  Expected Gain:      +${pair.expectedGain}`);
 
   assert.strictEqual(meta.face_detected, true, 'Face was not redetected on composite output');
-  assert(Math.abs(meta.identity_gain - pair.expectedGain) < 0.05, `Identity gain diverged significantly: got ${meta.identity_gain}, expected ${pair.expectedGain}`);
+  assert(Math.abs(meta.identity_gain - pair.expectedGain) < 0.0001, `Identity gain diverged significantly: got ${meta.identity_gain}, expected ${pair.expectedGain}`);
 
   console.log(`${pair.name} PASSED!`);
 
@@ -262,7 +263,7 @@ async function testConcurrency429() {
 async function main() {
   console.log('================================================================');
   console.log('PHASE 6G EXPRESS ML FACE-SWAP INTEGRATION TEST SUITE');
-  console.log('Target: Express (http://localhost:5001) -> FastAPI (127.0.0.1:8000)');
+  console.log('Target:', EXPRESS_BASE);
   console.log('================================================================');
 
   await testHealth();

@@ -1,0 +1,54 @@
+[
+  {
+    "name": "clean",
+    "trim_start_seconds": 0.0,
+    "trim_end_seconds": 4.437333333333333,
+    "score": {
+      "status": "measured",
+      "score": 0.9989616870880127,
+      "model": "AASIST",
+      "rms": 0.12049555778503418,
+      "pipeline_ms": 16010.926599992672,
+      "calibrated": false
+    }
+  },
+  {
+    "name": "robotic-vocoder",
+    "trim_start_seconds": 0.7,
+    "trim_end_seconds": 4.437333333333333,
+    "score": {
+      "status": "measured",
+      "score": 0.9999781847000122,
+      "model": "AASIST",
+      "rms": 0.05830401927232742,
+      "pipeline_ms": 15.475599997444078,
+      "calibrated": false
+    }
+  },
+  {
+    "name": "deep-pitch-neural",
+    "trim_start_seconds": 0.0,
+    "trim_end_seconds": 4.437333333333333,
+    "score": {
+      "status": "measured",
+      "score": 0.9986611604690552,
+      "model": "AASIST",
+      "rms": 0.3664141297340393,
+      "pipeline_ms": 16.9803999888245,
+      "calibrated": false
+    }
+  },
+  {
+    "name": "synthetic-clone",
+    "trim_start_seconds": 0.0,
+    "trim_end_seconds": 4.437333333333333,
+    "score": {
+      "status": "measured",
+      "score": 0.9999958276748657,
+      "model": "AASIST",
+      "rms": 0.16902509331703186,
+      "pipeline_ms": 15.797100000781938,
+      "calibrated": false
+    }
+  }
+]

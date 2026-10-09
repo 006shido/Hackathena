@@ -1,0 +1,10 @@
+# Tested Windows Python 3.12 runtime; install CUDA PyTorch separately.
+mediapipe==1.0.1
+opencv-python==5.0.0.93
+Pillow==12.3.0
+numpy==2.5.3
+scipy==1.18.1
+fastapi==0.142.2
+uvicorn==0.54.0
+python-multipart==0.0.32
+pydantic==2.13.5

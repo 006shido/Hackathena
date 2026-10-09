@@ -1,0 +1,48 @@
+{
+  "scope": "Fine-tuned Xception on this swapper/photo domain. Same identity-disjoint test as linear-head experiment, reused comparison; blind/video confirmation still required. No audio validation or live promotion.",
+  "threshold": 0.9664114580879212,
+  "test_pairs": 150,
+  "test_auc": 0.986,
+  "test_false_positives": 3,
+  "test_true_positives": 130,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.2781687777554616,
+      "calibration_loss": 0.13406329369294065,
+      "calibration_auc": 0.9899333333333333
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.14253588261114783,
+      "calibration_loss": 0.11839136003294269,
+      "calibration_auc": 0.9941333333333333
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.09720224365452304,
+      "calibration_loss": 0.14631040259209957,
+      "calibration_auc": 0.9948444444444444
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.06333934185966791,
+      "calibration_loss": 0.13308637117979946,
+      "calibration_auc": 0.9952888888888889
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.04718671970191656,
+      "calibration_loss": 0.13864197838103082,
+      "calibration_auc": 0.9948222222222223
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.033714435564687506,
+      "calibration_loss": 0.1668533382964636,
+      "calibration_auc": 0.9947777777777778
+    }
+  ],
+  "elapsed_seconds": 185.39080119132996,
+  "live_promoted": false
+}

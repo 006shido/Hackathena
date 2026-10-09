@@ -1,0 +1,29 @@
+{
+  "source_path": "ml\\data\\celeba\\img_align_celeba\\081968.jpg",
+  "target_path": "ml\\data\\celeba\\img_align_celeba\\037827.jpg",
+  "output_paths": {
+    "composite": "ml\\inference\\outputs\\phase6g\\test_pair_2_composite.png",
+    "swap": "ml\\inference\\outputs\\phase6g\\test_pair_2_swap.png",
+    "mask": "ml\\inference\\outputs\\phase6g\\test_pair_2_mask.png",
+    "aligned_source": "ml\\inference\\outputs\\phase6g\\test_pair_2_aligned_source.png",
+    "grid": "ml\\inference\\outputs\\phase6g\\test_pair_2_comparison_grid.png",
+    "diagnostic": "ml\\inference\\outputs\\phase6g\\test_pair_2_diagnostic.json"
+  },
+  "metrics": {
+    "A_cosine_source_composite": 0.10400743037462234,
+    "B_cosine_target_composite": 0.2699934244155884,
+    "C_cosine_source_target": -0.07305347174406052,
+    "D_cosine_source_swap": 0.16485227644443512,
+    "A_minus_C_gain": 0.17706090211868286,
+    "D_minus_C_gain": 0.23790574818849564,
+    "mask_mean": 0.485482728247549,
+    "face_redetected": true,
+    "landmark_error_px": 1.0096086263656616
+  },
+  "performance": {
+    "network_latency_ms": 82.3509693145752,
+    "total_pipeline_latency_ms": 179.79669570922852,
+    "device": "cuda",
+    "vram_alloc_mb": 663.2421875
+  }
+}

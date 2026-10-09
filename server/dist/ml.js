@@ -1,14 +1,100 @@
 import { Router } from 'express';
 import http from 'http';
+import { verifyToken } from './auth.js';
 export const mlRouter = Router();
 const FASTAPI_HOST = process.env.ML_SERVICE_HOST || '127.0.0.1';
 const FASTAPI_PORT = process.env.ML_SERVICE_PORT ? parseInt(process.env.ML_SERVICE_PORT, 10) : 8000;
 const ML_TIMEOUT_MS = process.env.ML_TIMEOUT_MS ? parseInt(process.env.ML_TIMEOUT_MS, 10) : 60000; // 60s timeout
+function proxyVideo(req, res, destination) {
+    const bearer = req.headers.authorization;
+    const user = bearer?.startsWith('Bearer ') ? verifyToken(bearer.slice(7)) : null;
+    if (!user)
+        return res.status(401).json({ error: 'Authenticated tester session required.' });
+    if (user.role !== 'tester')
+        return res.status(403).json({ error: 'Neural video preview is available only to testers.' });
+    const headers = { 'x-ml-owner': user.username };
+    if (req.headers['content-type'])
+        headers['content-type'] = req.headers['content-type'];
+    if (req.headers['content-length'])
+        headers['content-length'] = req.headers['content-length'];
+    const jsonBody = req.is('application/json') ? Buffer.from(JSON.stringify(req.body)) : null;
+    if (jsonBody)
+        headers['content-length'] = jsonBody.length;
+    const upstream = http.request({ host: FASTAPI_HOST, port: FASTAPI_PORT, path: destination,
+        method: req.method, headers, timeout: destination.endsWith('/offer') ? 20000 : 10000 }, response => {
+        res.status(response.statusCode || 502);
+        for (const name of ['content-type', 'x-face-detected', 'x-face-changed', 'x-pipeline-ms', 'x-video-backend', 'cache-control']) {
+            const value = response.headers[name];
+            if (value)
+                res.setHeader(name, value);
+        }
+        response.pipe(res);
+    });
+    upstream.on('timeout', () => upstream.destroy(new Error('Neural video preview timed out.')));
+    upstream.on('error', () => {
+        if (!res.headersSent)
+            res.status(503).json({ error: 'Neural video preview service unavailable.' });
+        else
+            res.destroy();
+    });
+    req.on('aborted', () => upstream.destroy());
+    if (jsonBody)
+        upstream.end(jsonBody);
+    else
+        req.pipe(upstream);
+}
+mlRouter.post('/video/sessions', (req, res) => proxyVideo(req, res, '/video/sessions'));
+mlRouter.post('/video/sessions/:sessionId/offer', (req, res) => {
+    const id = String(req.params.sessionId);
+    if (!/^[a-f0-9]{32}$/.test(id))
+        return res.status(400).json({ error: 'Invalid session ID.' });
+    return proxyVideo(req, res, `/video/sessions/${id}/offer`);
+});
+function proxyDetection(req, res, media) {
+    const bearer = req.headers.authorization;
+    const user = bearer?.startsWith('Bearer ') ? verifyToken(bearer.slice(7)) : null;
+    if (!user)
+        return res.status(401).json({ error: 'Authenticated receiver session required.' });
+    const headers = { 'x-ml-owner': user.username };
+    for (const name of ['content-type', 'content-length', 'x-sample-rate']) {
+        if (req.headers[name])
+            headers[name] = req.headers[name];
+    }
+    const upstream = http.request({ host: FASTAPI_HOST, port: FASTAPI_PORT,
+        path: `/detection/${media}`, method: 'POST', headers, timeout: 10000 }, response => {
+        res.status(response.statusCode || 502);
+        res.setHeader('Cache-Control', 'no-store');
+        if (response.headers['content-type'])
+            res.setHeader('Content-Type', response.headers['content-type']);
+        response.pipe(res);
+    });
+    upstream.on('timeout', () => upstream.destroy(new Error('Detector timed out')));
+    upstream.on('error', () => { if (!res.headersSent)
+        res.status(503).json({ error: 'Independent detector unavailable.' });
+    else
+        res.destroy(); });
+    req.on('aborted', () => upstream.destroy());
+    req.pipe(upstream);
+}
+mlRouter.post('/detection/video', (req, res) => proxyDetection(req, res, 'video'));
+mlRouter.post('/detection/audio', (req, res) => proxyDetection(req, res, 'audio'));
+mlRouter.post('/video/sessions/:sessionId/frame', (req, res) => {
+    const id = String(req.params.sessionId);
+    if (!/^[a-f0-9]{32}$/.test(id))
+        return res.status(400).json({ error: 'Invalid session ID.' });
+    return proxyVideo(req, res, `/video/sessions/${id}/frame`);
+});
+mlRouter.delete('/video/sessions/:sessionId', (req, res) => {
+    const id = String(req.params.sessionId);
+    if (!/^[a-f0-9]{32}$/.test(id))
+        return res.status(400).json({ error: 'Invalid session ID.' });
+    return proxyVideo(req, res, `/video/sessions/${id}`);
+});
 /**
  * GET /api/ml/health
  * Proxies health status from the Python FastAPI ML service.
  */
-mlRouter.get('/health', (req, res) => {
+mlRouter.get('/health', (_req, res) => {
     const proxyReq = http.request({
         host: FASTAPI_HOST,
         port: FASTAPI_PORT,

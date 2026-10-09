@@ -1,25 +1,29 @@
-import { AuthResponse, User } from '../types/auth';
+import { AuthResponse,User } from '../types/auth';
 
 const TOKEN_KEY = 'deeptrace_auth_token';
 const USER_KEY = 'deeptrace_auth_user';
 
+async function saveAuthResponse(response: Response, fallbackError: string): Promise<AuthResponse> {
+  if (!response.ok) {
+    const data = await response.json().catch(() => ({}));
+    throw new Error(data.error || fallbackError);
+  }
+  const data: AuthResponse = await response.json();
+  localStorage.setItem(TOKEN_KEY, data.token);
+  localStorage.setItem(USER_KEY, JSON.stringify(data.user));
+  return data;
+}
+
 export const authService = {
   async login(username: string, password: string): Promise<AuthResponse> {
-    const res = await fetch('/api/auth/login', {
+    const localDemo = password === '__LOCAL_DEMO__' && ['localhost', '127.0.0.1'].includes(window.location.hostname);
+    const res = await fetch(localDemo ? '/api/auth/demo' : '/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
     });
 
-    if (!res.ok) {
-      const data = await res.json().catch(() => ({}));
-      throw new Error(data.error || 'Authentication failed. Please verify your credentials.');
-    }
-
-    const data: AuthResponse = await res.json();
-    localStorage.setItem(TOKEN_KEY, data.token);
-    localStorage.setItem(USER_KEY, JSON.stringify(data.user));
-    return data;
+    return saveAuthResponse(res, 'Authentication failed. Please verify your credentials.');
   },
 
   async register(username: string, password: string, name?: string): Promise<AuthResponse> {
@@ -29,15 +33,7 @@ export const authService = {
       body: JSON.stringify({ username, password, name }),
     });
 
-    if (!res.ok) {
-      const data = await res.json().catch(() => ({}));
-      throw new Error(data.error || 'Registration failed. Please check your details.');
-    }
-
-    const data: AuthResponse = await res.json();
-    localStorage.setItem(TOKEN_KEY, data.token);
-    localStorage.setItem(USER_KEY, JSON.stringify(data.user));
-    return data;
+    return saveAuthResponse(res, 'Registration failed. Please check your details.');
   },
 
   getToken(): string | null {

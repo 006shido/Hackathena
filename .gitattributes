@@ -1,0 +1,2 @@
+# Detector provenance hashes cover exact upstream bytes, including line endings.
+ml/detection/assets/* -text

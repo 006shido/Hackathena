@@ -1,4 +1,4 @@
-import { VoiceAcousticMetrics, VoiceDetectionState, DetectionStatus } from '../types/detection';
+import { DetectionStatus,VoiceAcousticMetrics,VoiceDetectionState } from '../types/detection';
 
 interface FrameAnomalyScores {
   carrierScore: number;
@@ -13,7 +13,6 @@ export class VoiceDeepfakeDetector {
   private audioCtx: AudioContext | null = null;
   private analyser: AnalyserNode | null = null;
   private sourceNode: MediaStreamAudioSourceNode | null = null;
-  private stream: MediaStream | null = null;
   private isRunning = false;
   private animFrameId: number | null = null;
   private smoothedScore = 0;
@@ -41,7 +40,6 @@ export class VoiceDeepfakeDetector {
 
   public start(remoteStream: MediaStream) {
     this.stop();
-    this.stream = remoteStream;
 
     const audioTracks = remoteStream.getAudioTracks();
     if (audioTracks.length === 0) {
@@ -71,7 +69,6 @@ export class VoiceDeepfakeDetector {
 
       this.isRunning = true;
       this.runAnalysisLoop();
-      console.log('[VoiceDetector] Precision acoustic classifier started with fan-noise immunity.');
     } catch (err) {
       console.error('[VoiceDetector] Failed to initialize AudioContext:', err);
     }
@@ -100,7 +97,6 @@ export class VoiceDeepfakeDetector {
       this.audioCtx = null;
     }
     this.analyser = null;
-    this.stream = null;
     this.smoothedScore = 0;
     this.pitchPeriodHistory = [];
     this.frameHistory = [];
@@ -322,7 +318,7 @@ export class VoiceDeepfakeDetector {
     let bestCorrelation = 0;
     let currentPitchPeriod = 0;
     const minLag = Math.floor(sampleRate / 400); // 400 Hz
-    const maxLag = Math.floor(sampleRate / 60);  // 60 Hz
+    const maxLag = Math.min(Math.floor(sampleRate / 60), timeData.length - 256 + 1);
 
     if (instantSpeech) {
       for (let lag = minLag; lag < maxLag; lag += 2) {

@@ -1,0 +1,18 @@
+# Real Trainable Face-Swap Pipeline Dependencies (CelebA Dataset + PyTorch)
+
+# Deep Learning Framework
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Facial Landmark Detection & Computer Vision
+mediapipe>=0.10.0
+opencv-python>=4.7.0
+Pillow>=9.5.0
+numpy>=1.24.0
+
+# Scientific Computing & Metrics
+scipy>=1.10.0
+scikit-learn>=1.2.0
+
+# Utilities
+tqdm>=4.65.0

@@ -1,0 +1,1357 @@
+{
+  "source_page": "https://nii-yamagishilab.github.io/samples-xin/main-asvspoof2019",
+  "license": "Open Data Commons Attribution License; see source page and ASVspoof2019 database",
+  "scope": "Curated published LA evaluation-set showcase, not random full benchmark; some original recordings repeat.",
+  "records": [
+    {
+      "row": 2,
+      "column": 0,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p226_c0022.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_3_new/p226_c0022.wav",
+      "file": "samples-asvspoof2019__sample-SS_3_new__p226_c0022.wav",
+      "sha256": "0ea9f421db9453119916cd457ff459336c2e13582e437bb9e76c50121c0dc7ad"
+    },
+    {
+      "row": 2,
+      "column": 1,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p226_c0022.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_5/p226_c0022.wav",
+      "file": "samples-asvspoof2019__sample-SS_5__p226_c0022.wav",
+      "sha256": "b5fb5cd3e2927b76edfc5c3987b81422996cadf51725e4387402715ddcf8473f"
+    },
+    {
+      "row": 2,
+      "column": 2,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p226_c0022.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_6/p226_c0022.wav",
+      "file": "samples-asvspoof2019__sample-SS_6__p226_c0022.wav",
+      "sha256": "cee8876c2b040fd699343101bedfca27389ee004240adc05296dbf3ddf3afb80"
+    },
+    {
+      "row": 2,
+      "column": 3,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p226_c0022.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_7_new/p226_c0022.wav",
+      "file": "samples-asvspoof2019__sample-SS_7_new__p226_c0022.wav",
+      "sha256": "2876137b7a952210d0f692ba25a9df2ad42d4970b007a95c401e63f7b25a90ff"
+    },
+    {
+      "row": 2,
+      "column": 4,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p226_c0022.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_8_new/p226_c0022.wav",
+      "file": "samples-asvspoof2019__sample-SS_8_new__p226_c0022.wav",
+      "sha256": "526b44b4126c416bd407f5adcb54f3c3fae1c276c3115f949bdb7f09eb521c0d"
+    },
+    {
+      "row": 2,
+      "column": 5,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p226_c0022.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_9_16k/p226_c0022.wav",
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p226_c0022.wav",
+      "sha256": "bb90088dfe9d8acf3d9aecc5d14b09a739dee4a3cce12ac0c343805cb665070b"
+    },
+    {
+      "row": 2,
+      "column": 6,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p226_c0022.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_1/p226_c0022.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p226_c0022.wav",
+      "sha256": "d201ad7ea70fbd704a42608bafd0270bfc2e9bd398dafb097913a5bdc32825ad"
+    },
+    {
+      "row": 2,
+      "column": 7,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p226_c0022.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_2_new/p226_c0022.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p226_c0022.wav",
+      "sha256": "04e7521fd702be14b4378dc28898b448f181e0414f466d76d04a7f4e22ce7f7b"
+    },
+    {
+      "row": 2,
+      "column": 8,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p226_c0022.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_3/p226_c0022.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p226_c0022.wav",
+      "sha256": "5e0540a86e03eaae7c76e298cae124a32e2a2e35ef5d301ce95a734e4130c109"
+    },
+    {
+      "row": 2,
+      "column": 9,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p226_c0022.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-US_1_R/p226_c0022.wav",
+      "file": "samples-asvspoof2019__sample-US_1_R__p226_c0022.wav",
+      "sha256": "6f4130c4564b63289b39aae14ddc6578ef65d392444a302b57bf539c922d09b1"
+    },
+    {
+      "row": 2,
+      "column": 10,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p226_247.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p226_247.wav",
+      "file": "samples-asvspoof2019__sample-human__p226_247.wav",
+      "sha256": "e736cc64e59e927a19c60520e1abac5f138590611d3cced18cb906861e956f65"
+    },
+    {
+      "row": 2,
+      "column": 11,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p226_p281_394.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_2/p226_p281_394.wav",
+      "file": "samples-asvspoof2019__sample-VC_2__p226_p281_394.wav",
+      "sha256": "a3963d1884877f59e82643d0a42cfb7e68efb99fe4001effe727bdeb1df1aee8"
+    },
+    {
+      "row": 2,
+      "column": 12,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p226_p281_394.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_3_new/p226_p281_394.wav",
+      "file": "samples-asvspoof2019__sample-VC_3_new__p226_p281_394.wav",
+      "sha256": "47c9b33ee5910b5967f2b67cbac3d0e3d5b1017f7d85fcb00f286d5e17602194"
+    },
+    {
+      "row": 2,
+      "column": 13,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p226_p281_394.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_5/p226_p281_394.wav",
+      "file": "samples-asvspoof2019__sample-VC_5__p226_p281_394.wav",
+      "sha256": "213047dc5c94a74e6511904c19f12bd46210dc7322c55c947f1378665c65788a"
+    },
+    {
+      "row": 2,
+      "column": 14,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p281_394.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p281_394.wav",
+      "file": "samples-asvspoof2019__sample-human__p281_394.wav",
+      "sha256": "ac93f3daf71a8c03be10337ee5735257dc81d772c94b88f22ee92735f0e1889c"
+    },
+    {
+      "row": 3,
+      "column": 0,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p232_c0033.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_3_new/p232_c0033.wav",
+      "file": "samples-asvspoof2019__sample-SS_3_new__p232_c0033.wav",
+      "sha256": "814e796e457727c75f130afba0c8c6eb17263daf32e110d938d6fb37f2a1840f"
+    },
+    {
+      "row": 3,
+      "column": 1,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p232_c0033.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_5/p232_c0033.wav",
+      "file": "samples-asvspoof2019__sample-SS_5__p232_c0033.wav",
+      "sha256": "ee066a506ac9668030c4df204f138704918929438b081bb702a036678697ef62"
+    },
+    {
+      "row": 3,
+      "column": 2,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p232_c0033.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_6/p232_c0033.wav",
+      "file": "samples-asvspoof2019__sample-SS_6__p232_c0033.wav",
+      "sha256": "716b8719648c2fecf7f26cdeba7f93bcf19e9556570f87523b3266037896a875"
+    },
+    {
+      "row": 3,
+      "column": 3,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p232_c0033.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_7_new/p232_c0033.wav",
+      "file": "samples-asvspoof2019__sample-SS_7_new__p232_c0033.wav",
+      "sha256": "e8756dda4c69695ada542aed7c7fc0d541234f2617be6e87f7424eead46c544b"
+    },
+    {
+      "row": 3,
+      "column": 4,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p232_c0033.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_8_new/p232_c0033.wav",
+      "file": "samples-asvspoof2019__sample-SS_8_new__p232_c0033.wav",
+      "sha256": "45537e0f1518f4b5a3c8814d8c5934f30af71c9627559c424716ca66b81b9802"
+    },
+    {
+      "row": 3,
+      "column": 5,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p232_c0033.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_9_16k/p232_c0033.wav",
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p232_c0033.wav",
+      "sha256": "9fd264bc95cb2945b37d3905f3ba9a7663cfc384c8f49310ef8dd5f8d1233b71"
+    },
+    {
+      "row": 3,
+      "column": 6,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p232_c0033.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_1/p232_c0033.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p232_c0033.wav",
+      "sha256": "4446075cfd6679be35620d636ab3b3afa901fae51754951e0a181bacd93807f0"
+    },
+    {
+      "row": 3,
+      "column": 7,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p232_c0033.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_2_new/p232_c0033.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p232_c0033.wav",
+      "sha256": "3436f8d0d7725e57a00fc85b49abc1c1b7c63c97387d729b21c5803a6aaf0a4a"
+    },
+    {
+      "row": 3,
+      "column": 8,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p232_c0033.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_3/p232_c0033.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p232_c0033.wav",
+      "sha256": "3274a891fad03c590dee40e127a13b059bca51507fe271813f43dec44c5bf929"
+    },
+    {
+      "row": 3,
+      "column": 9,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p232_c0033.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-US_1_R/p232_c0033.wav",
+      "file": "samples-asvspoof2019__sample-US_1_R__p232_c0033.wav",
+      "sha256": "6f7af5289456afe6ef4ff4f536ce0ebddff77d82a9518cb201295b124d21e25d"
+    },
+    {
+      "row": 3,
+      "column": 10,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p232_258.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p232_258.wav",
+      "file": "samples-asvspoof2019__sample-human__p232_258.wav",
+      "sha256": "d5f3fda05091acc858c5df044f34601f8871387112bbc96a90b3fe47bdccfdb6"
+    },
+    {
+      "row": 3,
+      "column": 11,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p232_p360_305.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_2/p232_p360_305.wav",
+      "file": "samples-asvspoof2019__sample-VC_2__p232_p360_305.wav",
+      "sha256": "447da45a03c861ba203df15444eedbc10b458bcc561fd83cba31d722bba77e43"
+    },
+    {
+      "row": 3,
+      "column": 12,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p232_p360_305.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_3_new/p232_p360_305.wav",
+      "file": "samples-asvspoof2019__sample-VC_3_new__p232_p360_305.wav",
+      "sha256": "979f99759e4e08f6a3244e3b81ae64c2781ece8603085711988c7f816f43caaf"
+    },
+    {
+      "row": 3,
+      "column": 13,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p232_p360_305.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_5/p232_p360_305.wav",
+      "file": "samples-asvspoof2019__sample-VC_5__p232_p360_305.wav",
+      "sha256": "a1f69a049041d39c9d72228fc23a37694fe76069283f8a583223cf896ef911df"
+    },
+    {
+      "row": 3,
+      "column": 14,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p360_305.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p360_305.wav",
+      "file": "samples-asvspoof2019__sample-human__p360_305.wav",
+      "sha256": "8a72cc78eb7605f17349e1ec37c6d331b97592f8297c3359bace810520441ada"
+    },
+    {
+      "row": 4,
+      "column": 0,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p280_c0012.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_3_new/p280_c0012.wav",
+      "file": "samples-asvspoof2019__sample-SS_3_new__p280_c0012.wav",
+      "sha256": "b3d24262afe49c597da1a5ae5089cfb098dddfbff645a5d8c543ad6064b4a1df"
+    },
+    {
+      "row": 4,
+      "column": 1,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p280_c0012.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_5/p280_c0012.wav",
+      "file": "samples-asvspoof2019__sample-SS_5__p280_c0012.wav",
+      "sha256": "a35c3846291e19f9dbd07a20944cebe624a0c77991cd2066a43bcae4ce8cff52"
+    },
+    {
+      "row": 4,
+      "column": 2,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p280_c0012.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_6/p280_c0012.wav",
+      "file": "samples-asvspoof2019__sample-SS_6__p280_c0012.wav",
+      "sha256": "eee40a73a8343641aafd8cf4f6bf1ff9942c1e8caa0ac9c14dd6da25148d5b85"
+    },
+    {
+      "row": 4,
+      "column": 3,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p280_c0012.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_7_new/p280_c0012.wav",
+      "file": "samples-asvspoof2019__sample-SS_7_new__p280_c0012.wav",
+      "sha256": "d0a32d339b3248ddb4f5c8fa9921839033e21eb88e03055262b09f6ff92c66fa"
+    },
+    {
+      "row": 4,
+      "column": 4,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p280_c0012.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_8_new/p280_c0012.wav",
+      "file": "samples-asvspoof2019__sample-SS_8_new__p280_c0012.wav",
+      "sha256": "e7e92bcc05519d685db7658f4135e6c250581b7673217509b0abe380cadcdc11"
+    },
+    {
+      "row": 4,
+      "column": 5,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p280_c0012.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_9_16k/p280_c0012.wav",
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p280_c0012.wav",
+      "sha256": "fd13434aea5dfbd12a1dde2b3905125d64a743abbc2190b36449c9979ca48f91"
+    },
+    {
+      "row": 4,
+      "column": 6,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p280_c0012.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_1/p280_c0012.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p280_c0012.wav",
+      "sha256": "f3b4a1bbbd15311f5155e4941b3fc6b119f1af1c05626a1c301185dd53f8c18c"
+    },
+    {
+      "row": 4,
+      "column": 7,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p280_c0012.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_2_new/p280_c0012.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p280_c0012.wav",
+      "sha256": "f439d6e72dabff6d7901b855c49b27f6fffd4fd2ed2f119d0d13ecc3568f6f6e"
+    },
+    {
+      "row": 4,
+      "column": 8,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p280_c0012.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_3/p280_c0012.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p280_c0012.wav",
+      "sha256": "1119fd2b8ab2f12f9fef5fa41d9cd9a3b163b96ced62e3f58ad0a68eced46619"
+    },
+    {
+      "row": 4,
+      "column": 9,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p280_c0012.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-US_1_R/p280_c0012.wav",
+      "file": "samples-asvspoof2019__sample-US_1_R__p280_c0012.wav",
+      "sha256": "6dc5d0f2a5f25ecb94527925aef6178f4a67b1f26b1ec410191365f4ef42b7cd"
+    },
+    {
+      "row": 4,
+      "column": 10,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p280_237.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p280_237.wav",
+      "file": "samples-asvspoof2019__sample-human__p280_237.wav",
+      "sha256": "aa48ff5741323a7e0833f755073aad3f3e63ae388e62b2b6c32f4392580485c2"
+    },
+    {
+      "row": 4,
+      "column": 11,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p280_p231_234.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_2/p280_p231_234.wav",
+      "file": "samples-asvspoof2019__sample-VC_2__p280_p231_234.wav",
+      "sha256": "325337cb732f1e51ba7279f0645a19977d92381a362c6f91204fb7659c8c861d"
+    },
+    {
+      "row": 4,
+      "column": 12,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p280_p231_234.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_3_new/p280_p231_234.wav",
+      "file": "samples-asvspoof2019__sample-VC_3_new__p280_p231_234.wav",
+      "sha256": "4b7881999fab9b010ba606aff95fc97ecda2f15e6f58213de5bb25ca8d8d2814"
+    },
+    {
+      "row": 4,
+      "column": 13,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p280_p231_234.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_5/p280_p231_234.wav",
+      "file": "samples-asvspoof2019__sample-VC_5__p280_p231_234.wav",
+      "sha256": "b10bffdedf26cc9874429c9b833a8cf09126fee34228aa4acdce6e92a8feb8e1"
+    },
+    {
+      "row": 4,
+      "column": 14,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p231_234.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p231_234.wav",
+      "file": "samples-asvspoof2019__sample-human__p231_234.wav",
+      "sha256": "fa3845a105beebd13776d776ea55b9709b16446bce1197f41de69f5ddc688872"
+    },
+    {
+      "row": 5,
+      "column": 0,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p300_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_3_new/p300_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_3_new__p300_c0019.wav",
+      "sha256": "c887aa791f426831dfad5916bb945128341160637968c8fa2b2d939522bd2fcd"
+    },
+    {
+      "row": 5,
+      "column": 1,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p300_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_5/p300_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_5__p300_c0019.wav",
+      "sha256": "73020a7e867e8a9807b52507bdb48f7db2d9a6a2951783509940975187082419"
+    },
+    {
+      "row": 5,
+      "column": 2,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p300_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_6/p300_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_6__p300_c0019.wav",
+      "sha256": "a4e4f5a1294a2b2259cf454c25886649f7570a78848b9215f38bf1baa808f0a4"
+    },
+    {
+      "row": 5,
+      "column": 3,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p300_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_7_new/p300_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_7_new__p300_c0019.wav",
+      "sha256": "4932c7c88ca71cbfcf21213f088d4fcd34991beef5ec984cf64ab26d3ec70e28"
+    },
+    {
+      "row": 5,
+      "column": 4,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p300_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_8_new/p300_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_8_new__p300_c0019.wav",
+      "sha256": "e83d1c8470a4891c8d4c68f948675c32e88942203c74db322e92d56db534733b"
+    },
+    {
+      "row": 5,
+      "column": 5,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p300_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_9_16k/p300_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p300_c0019.wav",
+      "sha256": "83fa494a9dbb5762642512dc3a8615ebd5ccf23343bf3a9d6525bdfbe71d1000"
+    },
+    {
+      "row": 5,
+      "column": 6,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p300_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_1/p300_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p300_c0019.wav",
+      "sha256": "046bfc563bfec1fcdb3e4909674d097ead72100a8f27a70cf920efe355116285"
+    },
+    {
+      "row": 5,
+      "column": 7,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p300_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_2_new/p300_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p300_c0019.wav",
+      "sha256": "69fec32804838b439c3d53469cb61825b1ca2822067a05a2873a25e125dba72d"
+    },
+    {
+      "row": 5,
+      "column": 8,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p300_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_3/p300_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p300_c0019.wav",
+      "sha256": "773d4b8472370aa546dd6eb11b024cc912cc79d2a70b3c1f3c8861c920f8ac3e"
+    },
+    {
+      "row": 5,
+      "column": 9,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p300_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-US_1_R/p300_c0019.wav",
+      "file": "samples-asvspoof2019__sample-US_1_R__p300_c0019.wav",
+      "sha256": "7ea4bf965d34b9cecf7d18674340a7fa61ead434e2561e8ca7865533f0bb62ce"
+    },
+    {
+      "row": 5,
+      "column": 10,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p300_244.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p300_244.wav",
+      "file": "samples-asvspoof2019__sample-human__p300_244.wav",
+      "sha256": "a22a4cdec22a1621948467c351660adf007f4535f727c66eeba1d92fbc32e0f0"
+    },
+    {
+      "row": 5,
+      "column": 11,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p300_p231_234.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_2/p300_p231_234.wav",
+      "file": "samples-asvspoof2019__sample-VC_2__p300_p231_234.wav",
+      "sha256": "9398167c1f6698ccd05c0cbf25a02fa6fa3968889ebc5e0dad5709ec764aab38"
+    },
+    {
+      "row": 5,
+      "column": 12,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p300_p231_234.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_3_new/p300_p231_234.wav",
+      "file": "samples-asvspoof2019__sample-VC_3_new__p300_p231_234.wav",
+      "sha256": "a2c8bdb186a66b0e8fa15ae38aa57862e102a6ceb9012c913af964d596d1dd71"
+    },
+    {
+      "row": 5,
+      "column": 13,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p300_p231_234.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_5/p300_p231_234.wav",
+      "file": "samples-asvspoof2019__sample-VC_5__p300_p231_234.wav",
+      "sha256": "6778b002c1291a628a101387d04c48e5493fa75d59699ea53ada7ccabe69b721"
+    },
+    {
+      "row": 5,
+      "column": 14,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p231_234.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p231_234.wav",
+      "file": "samples-asvspoof2019__sample-human__p231_234.wav",
+      "sha256": "fa3845a105beebd13776d776ea55b9709b16446bce1197f41de69f5ddc688872"
+    },
+    {
+      "row": 6,
+      "column": 0,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p317_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_3_new/p317_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_3_new__p317_c0019.wav",
+      "sha256": "00a7a84a1ba32d2dcac169307363b1ae5a02a9dcf075f2bbdf11a542ca926094"
+    },
+    {
+      "row": 6,
+      "column": 1,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p317_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_5/p317_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_5__p317_c0019.wav",
+      "sha256": "fb1119376875edf875e38ceaf46e1dd4a14e4ac72e7253ad969eacf371e3d3ec"
+    },
+    {
+      "row": 6,
+      "column": 2,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p317_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_6/p317_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_6__p317_c0019.wav",
+      "sha256": "00ba7610345da6ebb0a82d19368be25471542bd1e04ca81b31d716ad2b3106d5"
+    },
+    {
+      "row": 6,
+      "column": 3,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p317_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_7_new/p317_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_7_new__p317_c0019.wav",
+      "sha256": "a82008d58357f5f30eb023af5ea0d738a3880e7fea93035b1d006a189b14e2dd"
+    },
+    {
+      "row": 6,
+      "column": 4,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p317_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_8_new/p317_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_8_new__p317_c0019.wav",
+      "sha256": "5bea362072cd2f437a6f1520ce9bcd9868a5bf5bd692f7737978fe3b95a884f2"
+    },
+    {
+      "row": 6,
+      "column": 5,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p317_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_9_16k/p317_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p317_c0019.wav",
+      "sha256": "08f03c7cb7959f93af3a9c17d70733ab946304483111a05576abf32ec06af78c"
+    },
+    {
+      "row": 6,
+      "column": 6,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p317_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_1/p317_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p317_c0019.wav",
+      "sha256": "b1542bcaf1346985a0413ed57b0810022e9f8f41d3693bd3230d6813bff2b335"
+    },
+    {
+      "row": 6,
+      "column": 7,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p317_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_2_new/p317_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p317_c0019.wav",
+      "sha256": "5cbec72da14d6ac27007c913914afe6a1aadf4f6459cb2175efdfd0374eab053"
+    },
+    {
+      "row": 6,
+      "column": 8,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p317_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_3/p317_c0019.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p317_c0019.wav",
+      "sha256": "12b68c249f894bb94d742e1f94429a88660e7044a8a0bf7f7d77fcc2bbdee5e5"
+    },
+    {
+      "row": 6,
+      "column": 9,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p317_c0019.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-US_1_R/p317_c0019.wav",
+      "file": "samples-asvspoof2019__sample-US_1_R__p317_c0019.wav",
+      "sha256": "45aa05c60aad5e9ffec45ae85b38af1686adb1e96fd5636391a26e2810988b62"
+    },
+    {
+      "row": 6,
+      "column": 10,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p317_244.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p317_244.wav",
+      "file": "samples-asvspoof2019__sample-human__p317_244.wav",
+      "sha256": "e4ad2411d7ff030b6678a15fa42fb7f69fa88936bbd726a51bf1ec58132c825f"
+    },
+    {
+      "row": 6,
+      "column": 11,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p317_p228_227.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_2/p317_p228_227.wav",
+      "file": "samples-asvspoof2019__sample-VC_2__p317_p228_227.wav",
+      "sha256": "643cff00f0f455dc8d1f9316f39939f872933d0a61e1fa304113a4ee4291c304"
+    },
+    {
+      "row": 6,
+      "column": 12,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p317_p228_227.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_3_new/p317_p228_227.wav",
+      "file": "samples-asvspoof2019__sample-VC_3_new__p317_p228_227.wav",
+      "sha256": "c8e78cbb560abbbfe9a973a59b5c910e7a6ec0e9805b1ae6c324c56f0c43bd08"
+    },
+    {
+      "row": 6,
+      "column": 13,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p317_p228_227.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_5/p317_p228_227.wav",
+      "file": "samples-asvspoof2019__sample-VC_5__p317_p228_227.wav",
+      "sha256": "683fae5b016b915c237abf9b85b53d31ce86dd1ba65fa47875192f3d9bcc75d3"
+    },
+    {
+      "row": 6,
+      "column": 14,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p228_227.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p228_227.wav",
+      "file": "samples-asvspoof2019__sample-human__p228_227.wav",
+      "sha256": "fce43074d1ee27b5b51e0c8a31f752b18ab1b54f94746b1842e4e22aefebd30e"
+    },
+    {
+      "row": 7,
+      "column": 0,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p326_c0034.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_3_new/p326_c0034.wav",
+      "file": "samples-asvspoof2019__sample-SS_3_new__p326_c0034.wav",
+      "sha256": "7e34efbdfe44be447bd392904c2ec5aecba4ea994a45aaadbc3daac7ce5f2dad"
+    },
+    {
+      "row": 7,
+      "column": 1,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p326_c0034.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_5/p326_c0034.wav",
+      "file": "samples-asvspoof2019__sample-SS_5__p326_c0034.wav",
+      "sha256": "da6fcefa52544ef95b74f1778b0314ff1e1eb7fe8d6d9e64abc06900a4f64f41"
+    },
+    {
+      "row": 7,
+      "column": 2,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p326_c0034.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_6/p326_c0034.wav",
+      "file": "samples-asvspoof2019__sample-SS_6__p326_c0034.wav",
+      "sha256": "d058aa14518f860e5cd49fc19cb527aaafaed522d71da6f611ec9ae2e1cb76d6"
+    },
+    {
+      "row": 7,
+      "column": 3,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p326_c0034.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_7_new/p326_c0034.wav",
+      "file": "samples-asvspoof2019__sample-SS_7_new__p326_c0034.wav",
+      "sha256": "ee3247794ae3b0ecf09b0daead927120b72065cdc9beda52730e4da08d6d5b9e"
+    },
+    {
+      "row": 7,
+      "column": 4,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p326_c0034.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_8_new/p326_c0034.wav",
+      "file": "samples-asvspoof2019__sample-SS_8_new__p326_c0034.wav",
+      "sha256": "90acddda1a1523a091603eea2224ce5a617c881e83fc1e736fb099982856af2d"
+    },
+    {
+      "row": 7,
+      "column": 5,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p326_c0034.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_9_16k/p326_c0034.wav",
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p326_c0034.wav",
+      "sha256": "36a0b363d5ddd1328e99857d2f03cb5c4abc6b33cab1e803e7dfd5f91ab43b33"
+    },
+    {
+      "row": 7,
+      "column": 6,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p326_c0034.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_1/p326_c0034.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p326_c0034.wav",
+      "sha256": "b389270347d08c76b7457b316ad0ce916ebfab0edc183bd9d56ae67083468414"
+    },
+    {
+      "row": 7,
+      "column": 7,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p326_c0034.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_2_new/p326_c0034.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p326_c0034.wav",
+      "sha256": "f8e40aee093f885749988526c1425e0350350bbf2cad0a765056e811b3c22286"
+    },
+    {
+      "row": 7,
+      "column": 8,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p326_c0034.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_3/p326_c0034.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p326_c0034.wav",
+      "sha256": "79743d57182db742b3668c06d8e8e1c500f8fba6155499bea38146e929e12de1"
+    },
+    {
+      "row": 7,
+      "column": 9,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p326_c0034.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-US_1_R/p326_c0034.wav",
+      "file": "samples-asvspoof2019__sample-US_1_R__p326_c0034.wav",
+      "sha256": "00580e8e24704156179f8976bb819d381293106efe987509acb31de317783251"
+    },
+    {
+      "row": 7,
+      "column": 10,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p326_259.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p326_259.wav",
+      "file": "samples-asvspoof2019__sample-human__p326_259.wav",
+      "sha256": "ef7612668aa21e7344ef6150dde6fb022e86bf6d357b745a206884dbb203bb59"
+    },
+    {
+      "row": 7,
+      "column": 11,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p326_p256_225.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_2/p326_p256_225.wav",
+      "file": "samples-asvspoof2019__sample-VC_2__p326_p256_225.wav",
+      "sha256": "074f7745e6a8f8b07ecee4d5efea74acfc5cd158b5e8b640ba9c174c2436d688"
+    },
+    {
+      "row": 7,
+      "column": 12,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p326_p256_225.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_3_new/p326_p256_225.wav",
+      "file": "samples-asvspoof2019__sample-VC_3_new__p326_p256_225.wav",
+      "sha256": "348155ddc1f6ca3189486dd1b7b5a03c061c6c391d86a6207a49295aac79e38e"
+    },
+    {
+      "row": 7,
+      "column": 13,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p326_p256_225.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_5/p326_p256_225.wav",
+      "file": "samples-asvspoof2019__sample-VC_5__p326_p256_225.wav",
+      "sha256": "22a5666924aaee03126d01522881477069de246c9698545a0131733d18f4dfe1"
+    },
+    {
+      "row": 7,
+      "column": 14,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p256_225.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p256_225.wav",
+      "file": "samples-asvspoof2019__sample-human__p256_225.wav",
+      "sha256": "0446eea08d5d91212988725c4999f6d72037bd13e0b134ca30e2718378693547"
+    },
+    {
+      "row": 8,
+      "column": 0,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p274_c0023.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_3_new/p274_c0023.wav",
+      "file": "samples-asvspoof2019__sample-SS_3_new__p274_c0023.wav",
+      "sha256": "e7cc7f54057efc75e183161630a673efa562bae715d2f2d70fe72804032166e0"
+    },
+    {
+      "row": 8,
+      "column": 1,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p274_c0023.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_5/p274_c0023.wav",
+      "file": "samples-asvspoof2019__sample-SS_5__p274_c0023.wav",
+      "sha256": "215b3ecef2f2b7cc49bfec4eeafccb440a0b085dd14946c36a7564f5e9800d6b"
+    },
+    {
+      "row": 8,
+      "column": 2,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p274_c0023.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_6/p274_c0023.wav",
+      "file": "samples-asvspoof2019__sample-SS_6__p274_c0023.wav",
+      "sha256": "fe3e3b99219de281ab6b7236da2caa7b9fc0f7a8a09d553f167803f43ab131ed"
+    },
+    {
+      "row": 8,
+      "column": 3,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p274_c0023.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_7_new/p274_c0023.wav",
+      "file": "samples-asvspoof2019__sample-SS_7_new__p274_c0023.wav",
+      "sha256": "804e3df3568dd0b2aff13cf43439902665647f4cbae926e9c86920db967cd1de"
+    },
+    {
+      "row": 8,
+      "column": 4,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p274_c0023.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_8_new/p274_c0023.wav",
+      "file": "samples-asvspoof2019__sample-SS_8_new__p274_c0023.wav",
+      "sha256": "2ce3548a767fe3a30ed82d4cb4d963d893588b500197d78d90df3bcf2d4006bd"
+    },
+    {
+      "row": 8,
+      "column": 5,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p274_c0023.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_9_16k/p274_c0023.wav",
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p274_c0023.wav",
+      "sha256": "a1c79b650f518eb7d841e6d7aa9bedcd87bb50a517501b90d2619aca624ab8ae"
+    },
+    {
+      "row": 8,
+      "column": 6,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p274_c0023.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_1/p274_c0023.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p274_c0023.wav",
+      "sha256": "aa55156f65d1f8cb57fde690c561156eddb96b5d67d95c0a5d2692e20cfcd403"
+    },
+    {
+      "row": 8,
+      "column": 7,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p274_c0023.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_2_new/p274_c0023.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p274_c0023.wav",
+      "sha256": "9f6a7794dcd92b99aac3ed050eafb77d2f5cf6fdaea593ebd19da5c22f9812e0"
+    },
+    {
+      "row": 8,
+      "column": 8,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p274_c0023.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_3/p274_c0023.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p274_c0023.wav",
+      "sha256": "e9896f5b6851e04ff4c1e632c0b854f898093f533418b1186a775aad9329868f"
+    },
+    {
+      "row": 8,
+      "column": 9,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p274_c0023.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-US_1_R/p274_c0023.wav",
+      "file": "samples-asvspoof2019__sample-US_1_R__p274_c0023.wav",
+      "sha256": "e4f0debd2b2dcc722e6516fca238da03af9399c33d99c4dd79bb07f8ed624585"
+    },
+    {
+      "row": 8,
+      "column": 10,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p274_248.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p274_248.wav",
+      "file": "samples-asvspoof2019__sample-human__p274_248.wav",
+      "sha256": "a9c29687093ea18f1ae71d92c68576343208e1308c723f4a5874421456d97203"
+    },
+    {
+      "row": 8,
+      "column": 11,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p274_p256_225.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_2/p274_p256_225.wav",
+      "file": "samples-asvspoof2019__sample-VC_2__p274_p256_225.wav",
+      "sha256": "13382148eefccff01bb4da5b74a49757f0d7719b833393d1c0fd430df2721ff8"
+    },
+    {
+      "row": 8,
+      "column": 12,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p274_p256_225.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_3_new/p274_p256_225.wav",
+      "file": "samples-asvspoof2019__sample-VC_3_new__p274_p256_225.wav",
+      "sha256": "f5206d81786c72ed544b9e3ab75b2ec3460e805f521792192b717bc046856e9b"
+    },
+    {
+      "row": 8,
+      "column": 13,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p274_p256_225.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_5/p274_p256_225.wav",
+      "file": "samples-asvspoof2019__sample-VC_5__p274_p256_225.wav",
+      "sha256": "9f4a65292eabefcde676f36d11ea790d6c028cdb71cece406a70349025b6e2b6"
+    },
+    {
+      "row": 8,
+      "column": 14,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p256_225.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p256_225.wav",
+      "file": "samples-asvspoof2019__sample-human__p256_225.wav",
+      "sha256": "0446eea08d5d91212988725c4999f6d72037bd13e0b134ca30e2718378693547"
+    },
+    {
+      "row": 9,
+      "column": 0,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p252_c0021.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_3_new/p252_c0021.wav",
+      "file": "samples-asvspoof2019__sample-SS_3_new__p252_c0021.wav",
+      "sha256": "e8eee58963738d40b89e82b39ee78a639a7932538eafde940b7a208f01732d6e"
+    },
+    {
+      "row": 9,
+      "column": 1,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p252_c0021.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_5/p252_c0021.wav",
+      "file": "samples-asvspoof2019__sample-SS_5__p252_c0021.wav",
+      "sha256": "94944000e053f7704bf48762459495e4d45c2b4f73057ae5c087ac1f2f328791"
+    },
+    {
+      "row": 9,
+      "column": 2,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p252_c0021.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_6/p252_c0021.wav",
+      "file": "samples-asvspoof2019__sample-SS_6__p252_c0021.wav",
+      "sha256": "9c22739a1ab467b7f94dc7c806206d3f67aa26451759ca223a6e7fbc375feebf"
+    },
+    {
+      "row": 9,
+      "column": 3,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p252_c0021.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_7_new/p252_c0021.wav",
+      "file": "samples-asvspoof2019__sample-SS_7_new__p252_c0021.wav",
+      "sha256": "058292997cb91cefdf4460689caf50827c569826d563e014435b175324cb23b9"
+    },
+    {
+      "row": 9,
+      "column": 4,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p252_c0021.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_8_new/p252_c0021.wav",
+      "file": "samples-asvspoof2019__sample-SS_8_new__p252_c0021.wav",
+      "sha256": "bf340784cbcb1fd630a7b53e4a207ef126a0f0f11c9e798b05891dcdc0b684ba"
+    },
+    {
+      "row": 9,
+      "column": 5,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p252_c0021.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_9_16k/p252_c0021.wav",
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p252_c0021.wav",
+      "sha256": "c759efe9dfe50ca411f8d70e0e54e6bbb25c6840112526e45a0865bc38ca2457"
+    },
+    {
+      "row": 9,
+      "column": 6,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p252_c0021.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_1/p252_c0021.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p252_c0021.wav",
+      "sha256": "9c126d7cd42f03d790d59feeb644949f477fdc5609bd967686263414266a5737"
+    },
+    {
+      "row": 9,
+      "column": 7,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p252_c0021.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_2_new/p252_c0021.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p252_c0021.wav",
+      "sha256": "b028b64a333312684da2e10dc6962516788f701b2d403a1f9c064ccde9f56870"
+    },
+    {
+      "row": 9,
+      "column": 8,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p252_c0021.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_3/p252_c0021.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p252_c0021.wav",
+      "sha256": "443ba9d95d634ba620bd23d123a22f204aaead19de7303b68658b219b4b21a3b"
+    },
+    {
+      "row": 9,
+      "column": 9,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p252_c0021.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-US_1_R/p252_c0021.wav",
+      "file": "samples-asvspoof2019__sample-US_1_R__p252_c0021.wav",
+      "sha256": "d306d0756f194e1595abbfca0f2e8db3d590ffdc5e86c039a66a5e4ce98af2d5"
+    },
+    {
+      "row": 9,
+      "column": 10,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p252_246.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p252_246.wav",
+      "file": "samples-asvspoof2019__sample-human__p252_246.wav",
+      "sha256": "c4eb2fecc504aa7eda842e1ce7ec7e5df29fc0da9ac99355d71b24a1172a63f4"
+    },
+    {
+      "row": 9,
+      "column": 11,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p252_p363_301.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_2/p252_p363_301.wav",
+      "file": "samples-asvspoof2019__sample-VC_2__p252_p363_301.wav",
+      "sha256": "9d0ba9fac86522f8536bb723ea12b6d01543f3c95e4713f1f7c932ab330bbf1a"
+    },
+    {
+      "row": 9,
+      "column": 12,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p252_p363_301.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_3_new/p252_p363_301.wav",
+      "file": "samples-asvspoof2019__sample-VC_3_new__p252_p363_301.wav",
+      "sha256": "612ccd30f0c4cd2d1141fce0e99272aabe6f14a053f92ca92259309fb3fdf9f4"
+    },
+    {
+      "row": 9,
+      "column": 13,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p252_p363_301.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_5/p252_p363_301.wav",
+      "file": "samples-asvspoof2019__sample-VC_5__p252_p363_301.wav",
+      "sha256": "28f3009a7f7561d2f3b29ffed652f8ac860d356f5929154377f445108e7ca0b9"
+    },
+    {
+      "row": 9,
+      "column": 14,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p295_269.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p295_269.wav",
+      "file": "samples-asvspoof2019__sample-human__p295_269.wav",
+      "sha256": "ce22c234c25c0ae1eff4178725d4569185d4c7fb1de73f9090d34894387725d5"
+    },
+    {
+      "row": 10,
+      "column": 0,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p266_c0017.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_3_new/p266_c0017.wav",
+      "file": "samples-asvspoof2019__sample-SS_3_new__p266_c0017.wav",
+      "sha256": "1aaba9c59b02aed9108d5dae7f235d716f5eaa0d67e9914d1f61549953694cc0"
+    },
+    {
+      "row": 10,
+      "column": 1,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p266_c0017.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_5/p266_c0017.wav",
+      "file": "samples-asvspoof2019__sample-SS_5__p266_c0017.wav",
+      "sha256": "0e6576f8f9211b3cd32aeedcb717731fdcfc66abcf85ff79a1a1170d882db1fa"
+    },
+    {
+      "row": 10,
+      "column": 2,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p266_c0017.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_6/p266_c0017.wav",
+      "file": "samples-asvspoof2019__sample-SS_6__p266_c0017.wav",
+      "sha256": "471e52f912bff8cdc1ddc1dfc1363cb6252d5c10efc9aedafa2ab258aacb2e43"
+    },
+    {
+      "row": 10,
+      "column": 3,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p266_c0017.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_7_new/p266_c0017.wav",
+      "file": "samples-asvspoof2019__sample-SS_7_new__p266_c0017.wav",
+      "sha256": "f8e9f91595a3db204e1de067056c7bd685e23ae9f269a19756eaa4437bf9f4a3"
+    },
+    {
+      "row": 10,
+      "column": 4,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p266_c0017.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_8_new/p266_c0017.wav",
+      "file": "samples-asvspoof2019__sample-SS_8_new__p266_c0017.wav",
+      "sha256": "97d70db643488a4d06e96019f99925ec709649394788602f208b721971569178"
+    },
+    {
+      "row": 10,
+      "column": 5,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p266_c0017.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_9_16k/p266_c0017.wav",
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p266_c0017.wav",
+      "sha256": "4ce9761f2fd6a97c224e8d5ef1c1eb0c4c666389d3fe928e27a32a46f7f33123"
+    },
+    {
+      "row": 10,
+      "column": 6,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p266_c0017.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_1/p266_c0017.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p266_c0017.wav",
+      "sha256": "5778316adb695101ed75a10ec0f15075b057883d861664df8fffda891b38f305"
+    },
+    {
+      "row": 10,
+      "column": 7,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p266_c0017.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_2_new/p266_c0017.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p266_c0017.wav",
+      "sha256": "9f502f6ef75ca1eb3de82c27cd837662b03f3f67a0e3702de785d01967601860"
+    },
+    {
+      "row": 10,
+      "column": 8,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p266_c0017.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_3/p266_c0017.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p266_c0017.wav",
+      "sha256": "28a09f7e4a8ba5a00d7ef666e2d610958fcc8335c38ac4cfca17855700f8075a"
+    },
+    {
+      "row": 10,
+      "column": 9,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p266_c0017.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-US_1_R/p266_c0017.wav",
+      "file": "samples-asvspoof2019__sample-US_1_R__p266_c0017.wav",
+      "sha256": "083ab200553db0bb80720724fa239c56c524832fd7ff53024ae6e116f9610985"
+    },
+    {
+      "row": 10,
+      "column": 10,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p266_242.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p266_242.wav",
+      "file": "samples-asvspoof2019__sample-human__p266_242.wav",
+      "sha256": "719d6372c691de3ddaedc6e02e4538388d2a1565be7fa9267823f0210b2a9dcf"
+    },
+    {
+      "row": 10,
+      "column": 11,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p266_p343_257.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_2/p266_p343_257.wav",
+      "file": "samples-asvspoof2019__sample-VC_2__p266_p343_257.wav",
+      "sha256": "fe8be6937315e26461300b8ff62f58e350f6c9c5d340e5c9563b776a1651971a"
+    },
+    {
+      "row": 10,
+      "column": 12,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p266_p343_257.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_3_new/p266_p343_257.wav",
+      "file": "samples-asvspoof2019__sample-VC_3_new__p266_p343_257.wav",
+      "sha256": "c4a26953d4202e5abe1fc351869d313ecdabaaec30c03fe249d4c47cbae6c4a7"
+    },
+    {
+      "row": 10,
+      "column": 13,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p266_p343_257.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_5/p266_p343_257.wav",
+      "file": "samples-asvspoof2019__sample-VC_5__p266_p343_257.wav",
+      "sha256": "e1d07916cce8c41b25b6c35d1c0f02475212fe77a32d90e08204f21b068bdfeb"
+    },
+    {
+      "row": 10,
+      "column": 14,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p363_301.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p363_301.wav",
+      "file": "samples-asvspoof2019__sample-human__p363_301.wav",
+      "sha256": "0360862e0844ade47ae3bdc554ea3ab853d267b3300f0381401cc267d9a826a7"
+    },
+    {
+      "row": 11,
+      "column": 0,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p233_c0026.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_3_new/p233_c0026.wav",
+      "file": "samples-asvspoof2019__sample-SS_3_new__p233_c0026.wav",
+      "sha256": "71a41af250a1756c35f9414b043e1add41ad13af28fcf7778ce74b1823e9692f"
+    },
+    {
+      "row": 11,
+      "column": 1,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p233_c0026.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_5/p233_c0026.wav",
+      "file": "samples-asvspoof2019__sample-SS_5__p233_c0026.wav",
+      "sha256": "98d213d11f89bb65ddd1354f712eda80403a465418455636211d21fd1114feea"
+    },
+    {
+      "row": 11,
+      "column": 2,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p233_c0026.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_6/p233_c0026.wav",
+      "file": "samples-asvspoof2019__sample-SS_6__p233_c0026.wav",
+      "sha256": "82f6d358f85573d744472ff08cd7d070ea4c29b598efe3b2a39cd014146e2483"
+    },
+    {
+      "row": 11,
+      "column": 3,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p233_c0026.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_7_new/p233_c0026.wav",
+      "file": "samples-asvspoof2019__sample-SS_7_new__p233_c0026.wav",
+      "sha256": "dd1bbefd94a62a00cc7270f78c8d24fceff4a33544aa41dac986e1bea994b85b"
+    },
+    {
+      "row": 11,
+      "column": 4,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p233_c0026.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_8_new/p233_c0026.wav",
+      "file": "samples-asvspoof2019__sample-SS_8_new__p233_c0026.wav",
+      "sha256": "b6f0b151ae0ba051577e06f946ce0743161aba77ba00d9791c7679d745d81cc7"
+    },
+    {
+      "row": 11,
+      "column": 5,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p233_c0026.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_9_16k/p233_c0026.wav",
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p233_c0026.wav",
+      "sha256": "577538d845c9e9fd659dc60446614be1427fc0b14447c3b3b7b0be578d224087"
+    },
+    {
+      "row": 11,
+      "column": 6,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p233_c0026.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_1/p233_c0026.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p233_c0026.wav",
+      "sha256": "1bfc5f560e23a8b0cc2cfd3fdab867bc4aaac2db2ad14cbf265b154189f61ce9"
+    },
+    {
+      "row": 11,
+      "column": 7,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p233_c0026.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_2_new/p233_c0026.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p233_c0026.wav",
+      "sha256": "b6977d173ffe28b0555d50bd6823bc6352b8202492e7b391ece6c6baec72c8a4"
+    },
+    {
+      "row": 11,
+      "column": 8,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p233_c0026.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-SS_VC_3/p233_c0026.wav",
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p233_c0026.wav",
+      "sha256": "6a7175c72cc1a0abf0490b277d3d4bf524a60d2aa060f980e90dc851f6ea34fa"
+    },
+    {
+      "row": 11,
+      "column": 9,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p233_c0026.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-US_1_R/p233_c0026.wav",
+      "file": "samples-asvspoof2019__sample-US_1_R__p233_c0026.wav",
+      "sha256": "23385ea52cbd3816e9f3dda0183b1027bdcd6b66a07bc7cd6d5acbd33d73d0a1"
+    },
+    {
+      "row": 11,
+      "column": 10,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p233_252.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p233_252.wav",
+      "file": "samples-asvspoof2019__sample-human__p233_252.wav",
+      "sha256": "185fc0f6a0ad3fa46dc5c7c63bc082fed425682b3c6173017f61e31c6a4711a5"
+    },
+    {
+      "row": 11,
+      "column": 11,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p233_p295_269.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_2/p233_p295_269.wav",
+      "file": "samples-asvspoof2019__sample-VC_2__p233_p295_269.wav",
+      "sha256": "29294275360c4b4e35ccb3c07d76b8851cd477ad6a9006e850bc240aa1aecb32"
+    },
+    {
+      "row": 11,
+      "column": 12,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p233_p295_269.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_3_new/p233_p295_269.wav",
+      "file": "samples-asvspoof2019__sample-VC_3_new__p233_p295_269.wav",
+      "sha256": "65161700f2d5cc5cd286d467619c944b7abd1901e3ba6bcfbf8bdb365f9de248"
+    },
+    {
+      "row": 11,
+      "column": 13,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p233_p295_269.wav",
+      "label": "spoof",
+      "upstream_path": "samples-asvspoof2019/sample-VC_5/p233_p295_269.wav",
+      "file": "samples-asvspoof2019__sample-VC_5__p233_p295_269.wav",
+      "sha256": "9ce4bb57bc3c3170ad4e55c8fc4837028e32d0c1be4442854b0e8332de586912"
+    },
+    {
+      "row": 11,
+      "column": 14,
+      "url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p343_257.wav",
+      "label": "real",
+      "upstream_path": "samples-asvspoof2019/sample-human/p343_257.wav",
+      "file": "samples-asvspoof2019__sample-human__p343_257.wav",
+      "sha256": "03a2d8069a0f96eb7459ba3a4bce3c4d54c4b0fae7f3250ca8f2e65d4bdb4a90"
+    }
+  ]
+}

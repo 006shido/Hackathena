@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import { VoiceDetectionState } from '../types/detection';
+import { useEffect,useRef,useState } from 'react';
 import { VoiceDeepfakeDetector } from '../detection/voiceDeepfakeDetector';
+import { VoiceDetectionState } from '../types/detection';
 
 const INITIAL_STATE: VoiceDetectionState = {
   isAnalyzing: false,
@@ -26,9 +26,9 @@ const INITIAL_STATE: VoiceDetectionState = {
 };
 
 /**
- * Autonomous real-time Voice Deepfake Detection hook.
+ * Experimental acoustic anomaly monitoring of incoming audio.
  * Analyzes the incoming WebRTC MediaStream purely via digital signal processing
- * and acoustic machine learning feature classification.
+ * and hand-written acoustic rules; no trained classifier is used here.
  * Completely independent of any sender signals or telemetry.
  */
 export function useVoiceDetection(
@@ -37,6 +37,11 @@ export function useVoiceDetection(
 ) {
   const [detectionState, setDetectionState] = useState<VoiceDetectionState>(INITIAL_STATE);
   const detectorRef = useRef<VoiceDeepfakeDetector | null>(null);
+  const [previousInput, setPreviousInput] = useState({ remoteStream, enabled });
+  if (previousInput.remoteStream !== remoteStream || previousInput.enabled !== enabled) {
+    setPreviousInput({ remoteStream, enabled });
+    setDetectionState(INITIAL_STATE);
+  }
 
   useEffect(() => {
     if (!enabled || !remoteStream) {
@@ -44,7 +49,6 @@ export function useVoiceDetection(
         detectorRef.current.stop();
         detectorRef.current = null;
       }
-      setDetectionState(INITIAL_STATE);
       return;
     }
 

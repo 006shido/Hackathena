@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
 import {
-  MicOff,
-  VideoOff,
-  VolumeX,
-  Maximize2,
-  GripHorizontal,
-  AlertTriangle,
+AlertTriangle,
+GripHorizontal,
+Maximize2,
+MicOff,
+VideoOff,
+VolumeX,
 } from 'lucide-react';
+import React,{ useCallback,useEffect,useRef,useState } from 'react';
 import { UserRole } from '../types/auth';
 
 interface VideoTileProps {
@@ -43,7 +43,14 @@ export const VideoTile: React.FC<VideoTileProps> = ({
   const tileRef = useRef<HTMLDivElement>(null);
   const [, setTrackRevision] = useState<number>(0);
   const [audioBlocked, setAudioBlocked] = useState<boolean>(false);
-  const [isHardwareBuffering, setIsHardwareBuffering] = useState<boolean>(false);
+  const [isHardwareBuffering, setIsHardwareBuffering] = useState(() =>
+    isLocal && !isVideoOff && Boolean(stream?.getVideoTracks()[0]?.muted)
+  );
+  const [previousVideoInput, setPreviousVideoInput] = useState({ stream, isLocal, isVideoOff });
+  if (previousVideoInput.stream !== stream || previousVideoInput.isLocal !== isLocal || previousVideoInput.isVideoOff !== isVideoOff) {
+    setPreviousVideoInput({ stream, isLocal, isVideoOff });
+    setIsHardwareBuffering(isLocal && !isVideoOff && Boolean(stream?.getVideoTracks()[0]?.muted));
+  }
 
   // Floating movable & resizable state
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
@@ -143,18 +150,12 @@ export const VideoTile: React.FC<VideoTileProps> = ({
 
       if (videoTrack) {
         if (isLocal && !isVideoOff) {
-          if (videoTrack.muted) {
-            setIsHardwareBuffering(true);
-          } else {
+          if (!videoTrack.muted) {
             watchdogTimer = setTimeout(checkFrameArrival, 2000);
           }
           videoTrack.addEventListener('mute', handleTrackMute);
-        } else {
-          setIsHardwareBuffering(false);
         }
         videoTrack.addEventListener('unmute', handleTrackUnmute);
-      } else {
-        setIsHardwareBuffering(false);
       }
 
       video.addEventListener('playing', handlePlaying);
@@ -191,20 +192,19 @@ export const VideoTile: React.FC<VideoTileProps> = ({
       try {
         video.pause();
         video.srcObject = null;
-      } catch (e) { }
-      setIsHardwareBuffering(false);
+      } catch { }
     }
   }, [stream, isLocal, isVideoOff]);
 
   useEffect(() => {
+    const video = videoRef.current;
     return () => {
-      const video = videoRef.current;
       if (video) {
         try {
           video.pause();
           video.srcObject = null;
           video.load();
-        } catch (e) { }
+        } catch { }
       }
     };
   }, []);
@@ -251,7 +251,7 @@ export const VideoTile: React.FC<VideoTileProps> = ({
 
     try {
       e.currentTarget.setPointerCapture(e.pointerId);
-    } catch (_) { }
+    } catch { }
 
     const parentRect = parent.getBoundingClientRect();
     const tileRect = tileRef.current.getBoundingClientRect();

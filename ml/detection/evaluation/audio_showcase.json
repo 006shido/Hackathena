@@ -1,0 +1,2084 @@
+{
+  "scope": "Curated official ASVspoof2019 LA evaluation showcase, not full/random corpus. Some speakers/texts shared across labels. No calibration or fine tuning on these examples.",
+  "real_count": 18,
+  "spoof_count": 130,
+  "auc": 0.958974358974359,
+  "false_positives_at_uncalibrated_half": 0,
+  "true_positives_at_uncalibrated_half": 104,
+  "real_mean": 0.03011605965470052,
+  "fake_mean": 0.7916769919740685,
+  "records": [
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p226_c0022.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p226_c0022.wav",
+      "original_duration": 2.5,
+      "result": {
+        "status": "measured",
+        "score": 0.9922318458557129,
+        "model": "AASIST",
+        "rms": 0.049620501697063446,
+        "pipeline_ms": 15892.536300001666,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p226_c0022.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p226_c0022.wav",
+      "original_duration": 2.67,
+      "result": {
+        "status": "measured",
+        "score": 0.9988178610801697,
+        "model": "AASIST",
+        "rms": 0.04467614367604256,
+        "pipeline_ms": 16.24360001005698,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p226_c0022.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p226_c0022.wav",
+      "original_duration": 2.665,
+      "result": {
+        "status": "measured",
+        "score": 0.999904990196228,
+        "model": "AASIST",
+        "rms": 0.04969599097967148,
+        "pipeline_ms": 18.209300003945827,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p226_c0022.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p226_c0022.wav",
+      "original_duration": 2.35,
+      "result": {
+        "status": "measured",
+        "score": 0.9386483430862427,
+        "model": "AASIST",
+        "rms": 0.04973936080932617,
+        "pipeline_ms": 47.29769998812117,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p226_c0022.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p226_c0022.wav",
+      "original_duration": 2.3875,
+      "result": {
+        "status": "measured",
+        "score": 0.99661785364151,
+        "model": "AASIST",
+        "rms": 0.049937717616558075,
+        "pipeline_ms": 18.02099999622442,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p226_c0022.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p226_c0022.wav",
+      "original_duration": 2.79,
+      "result": {
+        "status": "measured",
+        "score": 0.9672917127609253,
+        "model": "AASIST",
+        "rms": 0.04809601604938507,
+        "pipeline_ms": 12.465699997846968,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p226_c0022.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p226_c0022.wav",
+      "original_duration": 2.5274375,
+      "result": {
+        "status": "measured",
+        "score": 0.9956360459327698,
+        "model": "AASIST",
+        "rms": 0.050284359604120255,
+        "pipeline_ms": 12.309699988691136,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p226_c0022.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p226_c0022.wav",
+      "original_duration": 3.1050625,
+      "result": {
+        "status": "measured",
+        "score": 0.9992730021476746,
+        "model": "AASIST",
+        "rms": 0.048633549362421036,
+        "pipeline_ms": 13.459300011163577,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p226_c0022.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p226_c0022.wav",
+      "original_duration": 3.1100625,
+      "result": {
+        "status": "measured",
+        "score": 0.9311413764953613,
+        "model": "AASIST",
+        "rms": 0.04895755648612976,
+        "pipeline_ms": 12.14760000584647,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p226_c0022.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p226_c0022.wav",
+      "original_duration": 2.81425,
+      "result": {
+        "status": "measured",
+        "score": 0.9970105886459351,
+        "model": "AASIST",
+        "rms": 0.046921879053115845,
+        "pipeline_ms": 14.709299997775815,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p226_247.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p226_247.wav",
+      "original_duration": 4.7410625,
+      "result": {
+        "status": "measured",
+        "score": 0.0003755964571610093,
+        "model": "AASIST",
+        "rms": 0.03655475378036499,
+        "pipeline_ms": 12.501299992436543,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p226_p281_394.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p226_p281_394.wav",
+      "original_duration": 2.4790625,
+      "result": {
+        "status": "measured",
+        "score": 0.03825406730175018,
+        "model": "AASIST",
+        "rms": 0.029211539775133133,
+        "pipeline_ms": 18.365099997026846,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p226_p281_394.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p226_p281_394.wav",
+      "original_duration": 2.48,
+      "result": {
+        "status": "measured",
+        "score": 0.001503645908087492,
+        "model": "AASIST",
+        "rms": 0.0290243960916996,
+        "pipeline_ms": 15.982299999450333,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p226_p281_394.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p226_p281_394.wav",
+      "original_duration": 2.47,
+      "result": {
+        "status": "measured",
+        "score": 0.029223481193184853,
+        "model": "AASIST",
+        "rms": 0.03166675940155983,
+        "pipeline_ms": 39.523200000985526,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p281_394.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p281_394.wav",
+      "original_duration": 2.4790625,
+      "result": {
+        "status": "measured",
+        "score": 0.003229740308597684,
+        "model": "AASIST",
+        "rms": 0.04422071576118469,
+        "pipeline_ms": 16.441700005088933,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p232_c0033.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p232_c0033.wav",
+      "original_duration": 2.55,
+      "result": {
+        "status": "measured",
+        "score": 0.9672468900680542,
+        "model": "AASIST",
+        "rms": 0.04985716938972473,
+        "pipeline_ms": 13.995100001920946,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p232_c0033.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p232_c0033.wav",
+      "original_duration": 2.26,
+      "result": {
+        "status": "measured",
+        "score": 0.9999963045120239,
+        "model": "AASIST",
+        "rms": 0.049143996089696884,
+        "pipeline_ms": 11.960100004216656,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p232_c0033.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p232_c0033.wav",
+      "original_duration": 2.645,
+      "result": {
+        "status": "measured",
+        "score": 0.9999703168869019,
+        "model": "AASIST",
+        "rms": 0.048906564712524414,
+        "pipeline_ms": 12.444200008758344,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p232_c0033.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p232_c0033.wav",
+      "original_duration": 2.2,
+      "result": {
+        "status": "measured",
+        "score": 0.9638286828994751,
+        "model": "AASIST",
+        "rms": 0.05144515261054039,
+        "pipeline_ms": 12.93230000010226,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p232_c0033.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p232_c0033.wav",
+      "original_duration": 2.2375,
+      "result": {
+        "status": "measured",
+        "score": 0.9994932413101196,
+        "model": "AASIST",
+        "rms": 0.05253373458981514,
+        "pipeline_ms": 11.838899998110719,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p232_c0033.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p232_c0033.wav",
+      "original_duration": 2.655,
+      "result": {
+        "status": "measured",
+        "score": 0.9999638795852661,
+        "model": "AASIST",
+        "rms": 0.04948137700557709,
+        "pipeline_ms": 13.542799992137589,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p232_c0033.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p232_c0033.wav",
+      "original_duration": 2.8560625,
+      "result": {
+        "status": "measured",
+        "score": 0.9992071986198425,
+        "model": "AASIST",
+        "rms": 0.04874768108129501,
+        "pipeline_ms": 13.026700005866587,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p232_c0033.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p232_c0033.wav",
+      "original_duration": 3.3450625,
+      "result": {
+        "status": "measured",
+        "score": 0.9999151229858398,
+        "model": "AASIST",
+        "rms": 0.04860813543200493,
+        "pipeline_ms": 21.825199990416877,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p232_c0033.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p232_c0033.wav",
+      "original_duration": 3.3500625,
+      "result": {
+        "status": "measured",
+        "score": 0.7861977815628052,
+        "model": "AASIST",
+        "rms": 0.04875835031270981,
+        "pipeline_ms": 35.129399999277666,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p232_c0033.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p232_c0033.wav",
+      "original_duration": 2.9729375,
+      "result": {
+        "status": "measured",
+        "score": 0.007250905968248844,
+        "model": "AASIST",
+        "rms": 0.04537462815642357,
+        "pipeline_ms": 18.80229999369476,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p232_258.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p232_258.wav",
+      "original_duration": 3.11925,
+      "result": {
+        "status": "measured",
+        "score": 0.00017260052845813334,
+        "model": "AASIST",
+        "rms": 0.04131828248500824,
+        "pipeline_ms": 12.067499992554076,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p232_p360_305.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p232_p360_305.wav",
+      "original_duration": 2.1805625,
+      "result": {
+        "status": "measured",
+        "score": 0.016769176349043846,
+        "model": "AASIST",
+        "rms": 0.027949661016464233,
+        "pipeline_ms": 14.649399992777035,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p232_p360_305.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p232_p360_305.wav",
+      "original_duration": 2.185,
+      "result": {
+        "status": "measured",
+        "score": 0.6512745022773743,
+        "model": "AASIST",
+        "rms": 0.028640897944569588,
+        "pipeline_ms": 11.754200007999316,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p232_p360_305.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p232_p360_305.wav",
+      "original_duration": 2.18,
+      "result": {
+        "status": "measured",
+        "score": 0.028652498498558998,
+        "model": "AASIST",
+        "rms": 0.030382731929421425,
+        "pipeline_ms": 12.07810000050813,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p360_305.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p360_305.wav",
+      "original_duration": 2.1805625,
+      "result": {
+        "status": "measured",
+        "score": 0.00015885659377090633,
+        "model": "AASIST",
+        "rms": 0.029634865000844002,
+        "pipeline_ms": 15.869999988353811,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p280_c0012.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p280_c0012.wav",
+      "original_duration": 2.695,
+      "result": {
+        "status": "measured",
+        "score": 0.99577796459198,
+        "model": "AASIST",
+        "rms": 0.04917766526341438,
+        "pipeline_ms": 11.947399994824082,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p280_c0012.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p280_c0012.wav",
+      "original_duration": 2.695,
+      "result": {
+        "status": "measured",
+        "score": 0.9681549668312073,
+        "model": "AASIST",
+        "rms": 0.045207150280475616,
+        "pipeline_ms": 18.705900001805276,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p280_c0012.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p280_c0012.wav",
+      "original_duration": 3.09,
+      "result": {
+        "status": "measured",
+        "score": 0.9999990463256836,
+        "model": "AASIST",
+        "rms": 0.047043830156326294,
+        "pipeline_ms": 43.51740000129212,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p280_c0012.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p280_c0012.wav",
+      "original_duration": 2.4875,
+      "result": {
+        "status": "measured",
+        "score": 0.5584153532981873,
+        "model": "AASIST",
+        "rms": 0.0525667704641819,
+        "pipeline_ms": 17.915100004756823,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p280_c0012.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p280_c0012.wav",
+      "original_duration": 2.525,
+      "result": {
+        "status": "measured",
+        "score": 0.9985138773918152,
+        "model": "AASIST",
+        "rms": 0.05226374790072441,
+        "pipeline_ms": 12.999799990211613,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p280_c0012.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p280_c0012.wav",
+      "original_duration": 3.155,
+      "result": {
+        "status": "measured",
+        "score": 0.7450850605964661,
+        "model": "AASIST",
+        "rms": 0.04597596079111099,
+        "pipeline_ms": 12.082899993401952,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p280_c0012.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p280_c0012.wav",
+      "original_duration": 2.77675,
+      "result": {
+        "status": "measured",
+        "score": 0.998813271522522,
+        "model": "AASIST",
+        "rms": 0.048989780247211456,
+        "pipeline_ms": 11.73949999792967,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p280_c0012.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p280_c0012.wav",
+      "original_duration": 3.3050625,
+      "result": {
+        "status": "measured",
+        "score": 0.9999936819076538,
+        "model": "AASIST",
+        "rms": 0.04689733684062958,
+        "pipeline_ms": 14.13600001251325,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p280_c0012.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p280_c0012.wav",
+      "original_duration": 3.3100625,
+      "result": {
+        "status": "measured",
+        "score": 0.48653969168663025,
+        "model": "AASIST",
+        "rms": 0.04698832705616951,
+        "pipeline_ms": 11.933899993891828,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p280_c0012.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p280_c0012.wav",
+      "original_duration": 3.348125,
+      "result": {
+        "status": "measured",
+        "score": 0.006537567358464003,
+        "model": "AASIST",
+        "rms": 0.0448371060192585,
+        "pipeline_ms": 13.822799999616109,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p280_237.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p280_237.wav",
+      "original_duration": 3.6299375,
+      "result": {
+        "status": "measured",
+        "score": 0.000565789348911494,
+        "model": "AASIST",
+        "rms": 0.040985189378261566,
+        "pipeline_ms": 16.87970000784844,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p280_p231_234.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p280_p231_234.wav",
+      "original_duration": 1.793875,
+      "result": {
+        "status": "measured",
+        "score": 0.350296288728714,
+        "model": "AASIST",
+        "rms": 0.03443865478038788,
+        "pipeline_ms": 43.90249999414664,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p280_p231_234.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p280_p231_234.wav",
+      "original_duration": 1.795,
+      "result": {
+        "status": "measured",
+        "score": 0.9846423268318176,
+        "model": "AASIST",
+        "rms": 0.03433927893638611,
+        "pipeline_ms": 17.94279999739956,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p280_p231_234.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p280_p231_234.wav",
+      "original_duration": 1.79,
+      "result": {
+        "status": "measured",
+        "score": 0.6997343301773071,
+        "model": "AASIST",
+        "rms": 0.03236355260014534,
+        "pipeline_ms": 13.474799998220988,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p231_234.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p231_234.wav",
+      "original_duration": 1.793875,
+      "result": {
+        "status": "measured",
+        "score": 0.015303479507565498,
+        "model": "AASIST",
+        "rms": 0.039959438145160675,
+        "pipeline_ms": 12.961800006451085,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p300_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p300_c0019.wav",
+      "original_duration": 3.085,
+      "result": {
+        "status": "measured",
+        "score": 0.9248080253601074,
+        "model": "AASIST",
+        "rms": 0.04962974786758423,
+        "pipeline_ms": 14.130800002021715,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p300_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p300_c0019.wav",
+      "original_duration": 3.22,
+      "result": {
+        "status": "measured",
+        "score": 0.9998300075531006,
+        "model": "AASIST",
+        "rms": 0.04849739745259285,
+        "pipeline_ms": 11.6520000010496,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p300_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p300_c0019.wav",
+      "original_duration": 3.21,
+      "result": {
+        "status": "measured",
+        "score": 0.9999997615814209,
+        "model": "AASIST",
+        "rms": 0.04814701899886131,
+        "pipeline_ms": 12.907600001199171,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p300_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p300_c0019.wav",
+      "original_duration": 2.8125,
+      "result": {
+        "status": "measured",
+        "score": 0.9824753999710083,
+        "model": "AASIST",
+        "rms": 0.05007369816303253,
+        "pipeline_ms": 15.147799989790656,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p300_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p300_c0019.wav",
+      "original_duration": 2.85,
+      "result": {
+        "status": "measured",
+        "score": 0.9997864365577698,
+        "model": "AASIST",
+        "rms": 0.04973071813583374,
+        "pipeline_ms": 18.473700009053573,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p300_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p300_c0019.wav",
+      "original_duration": 3.315,
+      "result": {
+        "status": "measured",
+        "score": 0.9933444261550903,
+        "model": "AASIST",
+        "rms": 0.047943174839019775,
+        "pipeline_ms": 42.00799998943694,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p300_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p300_c0019.wav",
+      "original_duration": 3.487625,
+      "result": {
+        "status": "measured",
+        "score": 0.9982799291610718,
+        "model": "AASIST",
+        "rms": 0.04993037134408951,
+        "pipeline_ms": 20.890200001304038,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p300_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p300_c0019.wav",
+      "original_duration": 3.6650625,
+      "result": {
+        "status": "measured",
+        "score": 0.999987006187439,
+        "model": "AASIST",
+        "rms": 0.04802573099732399,
+        "pipeline_ms": 14.047599994228221,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p300_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p300_c0019.wav",
+      "original_duration": 3.6700625,
+      "result": {
+        "status": "measured",
+        "score": 0.9885330200195312,
+        "model": "AASIST",
+        "rms": 0.0481216125190258,
+        "pipeline_ms": 14.691100004711188,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p300_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p300_c0019.wav",
+      "original_duration": 3.5921875,
+      "result": {
+        "status": "measured",
+        "score": 0.6090942621231079,
+        "model": "AASIST",
+        "rms": 0.04608163982629776,
+        "pipeline_ms": 12.550500003271736,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p300_244.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p300_244.wav",
+      "original_duration": 5.335,
+      "result": {
+        "status": "measured",
+        "score": 0.0027989884838461876,
+        "model": "AASIST",
+        "rms": 0.04126247018575668,
+        "pipeline_ms": 14.514000009512529,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p300_p231_234.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p300_p231_234.wav",
+      "original_duration": 1.793875,
+      "result": {
+        "status": "measured",
+        "score": 0.7359943389892578,
+        "model": "AASIST",
+        "rms": 0.034539561718702316,
+        "pipeline_ms": 13.24190000013914,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p300_p231_234.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p300_p231_234.wav",
+      "original_duration": 1.795,
+      "result": {
+        "status": "measured",
+        "score": 0.7469037175178528,
+        "model": "AASIST",
+        "rms": 0.034340374171733856,
+        "pipeline_ms": 14.908200013451278,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p300_p231_234.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p300_p231_234.wav",
+      "original_duration": 1.79,
+      "result": {
+        "status": "measured",
+        "score": 0.11948976665735245,
+        "model": "AASIST",
+        "rms": 0.0316750705242157,
+        "pipeline_ms": 14.875900000333786,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p317_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p317_c0019.wav",
+      "original_duration": 2.65,
+      "result": {
+        "status": "measured",
+        "score": 0.9982613921165466,
+        "model": "AASIST",
+        "rms": 0.04883410781621933,
+        "pipeline_ms": 43.09839999768883,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p317_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p317_c0019.wav",
+      "original_duration": 2.84,
+      "result": {
+        "status": "measured",
+        "score": 0.9955986738204956,
+        "model": "AASIST",
+        "rms": 0.044711627066135406,
+        "pipeline_ms": 19.469199993181974,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p317_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p317_c0019.wav",
+      "original_duration": 2.7,
+      "result": {
+        "status": "measured",
+        "score": 0.9999998807907104,
+        "model": "AASIST",
+        "rms": 0.047898754477500916,
+        "pipeline_ms": 12.757699994836003,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p317_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p317_c0019.wav",
+      "original_duration": 2.4625,
+      "result": {
+        "status": "measured",
+        "score": 0.9985321760177612,
+        "model": "AASIST",
+        "rms": 0.051724568009376526,
+        "pipeline_ms": 13.582400002633221,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p317_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p317_c0019.wav",
+      "original_duration": 2.5,
+      "result": {
+        "status": "measured",
+        "score": 0.9998605251312256,
+        "model": "AASIST",
+        "rms": 0.05345120653510094,
+        "pipeline_ms": 12.571100000059232,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p317_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p317_c0019.wav",
+      "original_duration": 2.795,
+      "result": {
+        "status": "measured",
+        "score": 0.9989075660705566,
+        "model": "AASIST",
+        "rms": 0.05034691095352173,
+        "pipeline_ms": 15.593900010571815,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p317_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p317_c0019.wav",
+      "original_duration": 2.663875,
+      "result": {
+        "status": "measured",
+        "score": 0.9991015195846558,
+        "model": "AASIST",
+        "rms": 0.05047241225838661,
+        "pipeline_ms": 12.361299988697283,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p317_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p317_c0019.wav",
+      "original_duration": 3.0250625,
+      "result": {
+        "status": "measured",
+        "score": 0.9999971389770508,
+        "model": "AASIST",
+        "rms": 0.04681048542261124,
+        "pipeline_ms": 13.982200005557388,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p317_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p317_c0019.wav",
+      "original_duration": 3.0300625,
+      "result": {
+        "status": "measured",
+        "score": 0.9733028411865234,
+        "model": "AASIST",
+        "rms": 0.04751528427004814,
+        "pipeline_ms": 17.688500010990538,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p317_c0019.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p317_c0019.wav",
+      "original_duration": 3.1359375,
+      "result": {
+        "status": "measured",
+        "score": 0.9417017102241516,
+        "model": "AASIST",
+        "rms": 0.04801037907600403,
+        "pipeline_ms": 45.44479999458417,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p317_244.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p317_244.wav",
+      "original_duration": 4.054875,
+      "result": {
+        "status": "measured",
+        "score": 6.742628465872258e-05,
+        "model": "AASIST",
+        "rms": 0.03919587284326553,
+        "pipeline_ms": 18.18990000174381,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p317_p228_227.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p317_p228_227.wav",
+      "original_duration": 3.11975,
+      "result": {
+        "status": "measured",
+        "score": 0.14072519540786743,
+        "model": "AASIST",
+        "rms": 0.035482823848724365,
+        "pipeline_ms": 14.034100007847883,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p317_p228_227.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p317_p228_227.wav",
+      "original_duration": 3.12,
+      "result": {
+        "status": "measured",
+        "score": 0.05002376437187195,
+        "model": "AASIST",
+        "rms": 0.03523009642958641,
+        "pipeline_ms": 12.835099987569265,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p317_p228_227.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p317_p228_227.wav",
+      "original_duration": 3.11,
+      "result": {
+        "status": "measured",
+        "score": 0.03281489759683609,
+        "model": "AASIST",
+        "rms": 0.03773161396384239,
+        "pipeline_ms": 14.340000008814968,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p228_227.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p228_227.wav",
+      "original_duration": 3.11975,
+      "result": {
+        "status": "measured",
+        "score": 0.0018512309761717916,
+        "model": "AASIST",
+        "rms": 0.03799939900636673,
+        "pipeline_ms": 12.978300001122989,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p326_c0034.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p326_c0034.wav",
+      "original_duration": 1.42,
+      "result": {
+        "status": "measured",
+        "score": 0.9953963160514832,
+        "model": "AASIST",
+        "rms": 0.048792287707328796,
+        "pipeline_ms": 13.943099998869002,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p326_c0034.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p326_c0034.wav",
+      "original_duration": 1.725,
+      "result": {
+        "status": "measured",
+        "score": 0.983230710029602,
+        "model": "AASIST",
+        "rms": 0.04866352677345276,
+        "pipeline_ms": 12.501500008511357,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p326_c0034.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p326_c0034.wav",
+      "original_duration": 1.835,
+      "result": {
+        "status": "measured",
+        "score": 0.9999964237213135,
+        "model": "AASIST",
+        "rms": 0.04964994266629219,
+        "pipeline_ms": 19.17850000609178,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p326_c0034.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p326_c0034.wav",
+      "original_duration": 1.55,
+      "result": {
+        "status": "measured",
+        "score": 0.9795280694961548,
+        "model": "AASIST",
+        "rms": 0.048976700752973557,
+        "pipeline_ms": 43.345700003555976,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p326_c0034.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p326_c0034.wav",
+      "original_duration": 1.5875,
+      "result": {
+        "status": "measured",
+        "score": 0.9997362494468689,
+        "model": "AASIST",
+        "rms": 0.04950088635087013,
+        "pipeline_ms": 22.803100000601262,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p326_c0034.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p326_c0034.wav",
+      "original_duration": 1.805,
+      "result": {
+        "status": "measured",
+        "score": 0.9997028708457947,
+        "model": "AASIST",
+        "rms": 0.04946745187044144,
+        "pipeline_ms": 15.212500002235174,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p326_c0034.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p326_c0034.wav",
+      "original_duration": 1.5871875,
+      "result": {
+        "status": "measured",
+        "score": 0.9996651411056519,
+        "model": "AASIST",
+        "rms": 0.0511254221200943,
+        "pipeline_ms": 12.417700010701083,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p326_c0034.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p326_c0034.wav",
+      "original_duration": 2.0250625,
+      "result": {
+        "status": "measured",
+        "score": 0.9995356798171997,
+        "model": "AASIST",
+        "rms": 0.05250153690576553,
+        "pipeline_ms": 11.840100007248111,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p326_c0034.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p326_c0034.wav",
+      "original_duration": 2.0300625,
+      "result": {
+        "status": "measured",
+        "score": 0.9991598129272461,
+        "model": "AASIST",
+        "rms": 0.052816715091466904,
+        "pipeline_ms": 13.63149999815505,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p326_c0034.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p326_c0034.wav",
+      "original_duration": 1.8539375,
+      "result": {
+        "status": "measured",
+        "score": 0.9396534562110901,
+        "model": "AASIST",
+        "rms": 0.050467003136873245,
+        "pipeline_ms": 12.01049999508541,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p326_259.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p326_259.wav",
+      "original_duration": 4.099,
+      "result": {
+        "status": "measured",
+        "score": 0.0076747736893594265,
+        "model": "AASIST",
+        "rms": 0.042628902941942215,
+        "pipeline_ms": 15.128300001379102,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p326_p256_225.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p326_p256_225.wav",
+      "original_duration": 4.098875,
+      "result": {
+        "status": "measured",
+        "score": 0.00011592663213377818,
+        "model": "AASIST",
+        "rms": 0.029887519776821136,
+        "pipeline_ms": 15.738700007204898,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p326_p256_225.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p326_p256_225.wav",
+      "original_duration": 4.1,
+      "result": {
+        "status": "measured",
+        "score": 7.058681512717158e-05,
+        "model": "AASIST",
+        "rms": 0.029537620022892952,
+        "pipeline_ms": 45.81109998980537,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p326_p256_225.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p326_p256_225.wav",
+      "original_duration": 4.09,
+      "result": {
+        "status": "measured",
+        "score": 0.005724669434130192,
+        "model": "AASIST",
+        "rms": 0.029955560341477394,
+        "pipeline_ms": 22.63900000252761,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p256_225.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p256_225.wav",
+      "original_duration": 4.0988125,
+      "result": {
+        "status": "measured",
+        "score": 3.126565570710227e-05,
+        "model": "AASIST",
+        "rms": 0.029793141409754753,
+        "pipeline_ms": 12.567099998705089,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p274_c0023.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p274_c0023.wav",
+      "original_duration": 3.52,
+      "result": {
+        "status": "measured",
+        "score": 0.8320696949958801,
+        "model": "AASIST",
+        "rms": 0.0495653934776783,
+        "pipeline_ms": 14.06630000565201,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p274_c0023.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p274_c0023.wav",
+      "original_duration": 3.52,
+      "result": {
+        "status": "measured",
+        "score": 0.9996730089187622,
+        "model": "AASIST",
+        "rms": 0.04853838309645653,
+        "pipeline_ms": 11.883600003784522,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p274_c0023.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p274_c0023.wav",
+      "original_duration": 3.49,
+      "result": {
+        "status": "measured",
+        "score": 0.999988317489624,
+        "model": "AASIST",
+        "rms": 0.049168772995471954,
+        "pipeline_ms": 14.12920000439044,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p274_c0023.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p274_c0023.wav",
+      "original_duration": 3.3625,
+      "result": {
+        "status": "measured",
+        "score": 0.01913323812186718,
+        "model": "AASIST",
+        "rms": 0.049160636961460114,
+        "pipeline_ms": 14.23590000194963,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p274_c0023.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p274_c0023.wav",
+      "original_duration": 3.4,
+      "result": {
+        "status": "measured",
+        "score": 0.9997095465660095,
+        "model": "AASIST",
+        "rms": 0.04860389605164528,
+        "pipeline_ms": 16.709899995476007,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p274_c0023.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p274_c0023.wav",
+      "original_duration": 3.685,
+      "result": {
+        "status": "measured",
+        "score": 0.4136870801448822,
+        "model": "AASIST",
+        "rms": 0.04871886223554611,
+        "pipeline_ms": 12.724300002446398,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p274_c0023.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p274_c0023.wav",
+      "original_duration": 3.297875,
+      "result": {
+        "status": "measured",
+        "score": 0.9965741634368896,
+        "model": "AASIST",
+        "rms": 0.049901168793439865,
+        "pipeline_ms": 42.95299999648705,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p274_c0023.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p274_c0023.wav",
+      "original_duration": 3.6650625,
+      "result": {
+        "status": "measured",
+        "score": 0.9994385838508606,
+        "model": "AASIST",
+        "rms": 0.0490158274769783,
+        "pipeline_ms": 19.38959999824874,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p274_c0023.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p274_c0023.wav",
+      "original_duration": 3.6700625,
+      "result": {
+        "status": "measured",
+        "score": 0.9893425703048706,
+        "model": "AASIST",
+        "rms": 0.04914804920554161,
+        "pipeline_ms": 13.96050000039395,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p274_c0023.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p274_c0023.wav",
+      "original_duration": 3.8729375,
+      "result": {
+        "status": "measured",
+        "score": 0.9855872392654419,
+        "model": "AASIST",
+        "rms": 0.0482071228325367,
+        "pipeline_ms": 12.234699999680743,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p274_248.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p274_248.wav",
+      "original_duration": 5.1208125,
+      "result": {
+        "status": "measured",
+        "score": 2.945355390693294e-06,
+        "model": "AASIST",
+        "rms": 0.042065054178237915,
+        "pipeline_ms": 14.617799999541603,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p274_p256_225.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p274_p256_225.wav",
+      "original_duration": 4.098875,
+      "result": {
+        "status": "measured",
+        "score": 0.014397666789591312,
+        "model": "AASIST",
+        "rms": 0.030027827247977257,
+        "pipeline_ms": 12.40479999978561,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p274_p256_225.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p274_p256_225.wav",
+      "original_duration": 4.1,
+      "result": {
+        "status": "measured",
+        "score": 0.054383378475904465,
+        "model": "AASIST",
+        "rms": 0.02951780892908573,
+        "pipeline_ms": 14.98629999696277,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p274_p256_225.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p274_p256_225.wav",
+      "original_duration": 4.09,
+      "result": {
+        "status": "measured",
+        "score": 0.003621062496677041,
+        "model": "AASIST",
+        "rms": 0.029881104826927185,
+        "pipeline_ms": 12.723799998639151,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p252_c0021.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p252_c0021.wav",
+      "original_duration": 3.33,
+      "result": {
+        "status": "measured",
+        "score": 0.9528510570526123,
+        "model": "AASIST",
+        "rms": 0.04943417012691498,
+        "pipeline_ms": 18.733299992163666,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p252_c0021.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p252_c0021.wav",
+      "original_duration": 3.29,
+      "result": {
+        "status": "measured",
+        "score": 0.9999954700469971,
+        "model": "AASIST",
+        "rms": 0.04766828939318657,
+        "pipeline_ms": 36.00459999870509,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p252_c0021.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p252_c0021.wav",
+      "original_duration": 3.545,
+      "result": {
+        "status": "measured",
+        "score": 0.9999985694885254,
+        "model": "AASIST",
+        "rms": 0.04929232597351074,
+        "pipeline_ms": 16.99420000659302,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p252_c0021.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p252_c0021.wav",
+      "original_duration": 3.325,
+      "result": {
+        "status": "measured",
+        "score": 0.9679246544837952,
+        "model": "AASIST",
+        "rms": 0.04945514351129532,
+        "pipeline_ms": 18.391499994322658,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p252_c0021.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p252_c0021.wav",
+      "original_duration": 3.3625,
+      "result": {
+        "status": "measured",
+        "score": 0.9995710253715515,
+        "model": "AASIST",
+        "rms": 0.04943283647298813,
+        "pipeline_ms": 13.758699991740286,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p252_c0021.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p252_c0021.wav",
+      "original_duration": 3.65,
+      "result": {
+        "status": "measured",
+        "score": 0.670326292514801,
+        "model": "AASIST",
+        "rms": 0.04872215539216995,
+        "pipeline_ms": 14.45219999004621,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p252_c0021.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p252_c0021.wav",
+      "original_duration": 3.44775,
+      "result": {
+        "status": "measured",
+        "score": 0.9993579983711243,
+        "model": "AASIST",
+        "rms": 0.04980488866567612,
+        "pipeline_ms": 13.366600003791973,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p252_c0021.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p252_c0021.wav",
+      "original_duration": 4.0250625,
+      "result": {
+        "status": "measured",
+        "score": 0.9999603033065796,
+        "model": "AASIST",
+        "rms": 0.04887908324599266,
+        "pipeline_ms": 13.824299996485934,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p252_c0021.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p252_c0021.wav",
+      "original_duration": 4.0300625,
+      "result": {
+        "status": "measured",
+        "score": 0.9402139782905579,
+        "model": "AASIST",
+        "rms": 0.04905549809336662,
+        "pipeline_ms": 13.02189999842085,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p252_c0021.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p252_c0021.wav",
+      "original_duration": 3.7118125,
+      "result": {
+        "status": "measured",
+        "score": 0.42904120683670044,
+        "model": "AASIST",
+        "rms": 0.048630788922309875,
+        "pipeline_ms": 16.901000009966083,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p252_246.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p252_246.wav",
+      "original_duration": 6.9564375,
+      "result": {
+        "status": "measured",
+        "score": 0.1860206425189972,
+        "model": "AASIST",
+        "rms": 0.02439585141837597,
+        "pipeline_ms": 13.811600001645274,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p252_p363_301.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p252_p363_301.wav",
+      "original_duration": 2.69025,
+      "result": {
+        "status": "measured",
+        "score": 0.9268895387649536,
+        "model": "AASIST",
+        "rms": 0.03794344514608383,
+        "pipeline_ms": 45.57670000940561,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p252_p363_301.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p252_p363_301.wav",
+      "original_duration": 2.695,
+      "result": {
+        "status": "measured",
+        "score": 0.994005560874939,
+        "model": "AASIST",
+        "rms": 0.03773888945579529,
+        "pipeline_ms": 18.299100003787316,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p252_p363_301.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p252_p363_301.wav",
+      "original_duration": 2.69,
+      "result": {
+        "status": "measured",
+        "score": 0.8841955661773682,
+        "model": "AASIST",
+        "rms": 0.039620477706193924,
+        "pipeline_ms": 14.23969998722896,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p295_269.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p295_269.wav",
+      "original_duration": 2.9875625,
+      "result": {
+        "status": "measured",
+        "score": 0.27457040548324585,
+        "model": "AASIST",
+        "rms": 0.03376045450568199,
+        "pipeline_ms": 13.772000005701557,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p266_c0017.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p266_c0017.wav",
+      "original_duration": 2.925,
+      "result": {
+        "status": "measured",
+        "score": 0.9353668093681335,
+        "model": "AASIST",
+        "rms": 0.04893523082137108,
+        "pipeline_ms": 15.10420000704471,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p266_c0017.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p266_c0017.wav",
+      "original_duration": 2.89,
+      "result": {
+        "status": "measured",
+        "score": 0.9993820190429688,
+        "model": "AASIST",
+        "rms": 0.0465487502515316,
+        "pipeline_ms": 17.186500001116656,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p266_c0017.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p266_c0017.wav",
+      "original_duration": 3.54,
+      "result": {
+        "status": "measured",
+        "score": 0.9999996423721313,
+        "model": "AASIST",
+        "rms": 0.04602135717868805,
+        "pipeline_ms": 14.03819999541156,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p266_c0017.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p266_c0017.wav",
+      "original_duration": 2.9125,
+      "result": {
+        "status": "measured",
+        "score": 0.9713855981826782,
+        "model": "AASIST",
+        "rms": 0.04880731925368309,
+        "pipeline_ms": 12.882600000011735,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p266_c0017.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p266_c0017.wav",
+      "original_duration": 2.95,
+      "result": {
+        "status": "measured",
+        "score": 0.9786620736122131,
+        "model": "AASIST",
+        "rms": 0.048890549689531326,
+        "pipeline_ms": 19.171299994923174,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p266_c0017.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p266_c0017.wav",
+      "original_duration": 3.57,
+      "result": {
+        "status": "measured",
+        "score": 0.27126941084861755,
+        "model": "AASIST",
+        "rms": 0.046176258474588394,
+        "pipeline_ms": 43.099999995320104,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p266_c0017.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p266_c0017.wav",
+      "original_duration": 3.495125,
+      "result": {
+        "status": "measured",
+        "score": 0.9973357319831848,
+        "model": "AASIST",
+        "rms": 0.049914900213479996,
+        "pipeline_ms": 22.443800000473857,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p266_c0017.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p266_c0017.wav",
+      "original_duration": 4.0650625,
+      "result": {
+        "status": "measured",
+        "score": 0.9999469518661499,
+        "model": "AASIST",
+        "rms": 0.04928554221987724,
+        "pipeline_ms": 16.5947000059532,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p266_c0017.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p266_c0017.wav",
+      "original_duration": 4.0700625,
+      "result": {
+        "status": "measured",
+        "score": 0.34665149450302124,
+        "model": "AASIST",
+        "rms": 0.04941333457827568,
+        "pipeline_ms": 14.599200003431179,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p266_c0017.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p266_c0017.wav",
+      "original_duration": 3.31225,
+      "result": {
+        "status": "measured",
+        "score": 0.9831793308258057,
+        "model": "AASIST",
+        "rms": 0.04764079302549362,
+        "pipeline_ms": 14.236800008802675,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p266_242.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p266_242.wav",
+      "original_duration": 4.0129375,
+      "result": {
+        "status": "measured",
+        "score": 0.005263647995889187,
+        "model": "AASIST",
+        "rms": 0.04440300911664963,
+        "pipeline_ms": 12.883500006864779,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p266_p343_257.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p266_p343_257.wav",
+      "original_duration": 2.4344375,
+      "result": {
+        "status": "measured",
+        "score": 0.13848567008972168,
+        "model": "AASIST",
+        "rms": 0.0343753956258297,
+        "pipeline_ms": 13.299900005222298,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p266_p343_257.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p266_p343_257.wav",
+      "original_duration": 2.435,
+      "result": {
+        "status": "measured",
+        "score": 0.45732399821281433,
+        "model": "AASIST",
+        "rms": 0.03418879210948944,
+        "pipeline_ms": 15.013800002634525,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p266_p343_257.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p266_p343_257.wav",
+      "original_duration": 2.43,
+      "result": {
+        "status": "measured",
+        "score": 0.9668224453926086,
+        "model": "AASIST",
+        "rms": 0.034635912626981735,
+        "pipeline_ms": 19.45579999301117,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p363_301.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p363_301.wav",
+      "original_duration": 2.6901875,
+      "result": {
+        "status": "measured",
+        "score": 0.02320706658065319,
+        "model": "AASIST",
+        "rms": 0.04075928032398224,
+        "pipeline_ms": 41.65579999971669,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p233_c0026.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_3_new/p233_c0026.wav",
+      "original_duration": 1.39,
+      "result": {
+        "status": "measured",
+        "score": 0.9995228052139282,
+        "model": "AASIST",
+        "rms": 0.047637611627578735,
+        "pipeline_ms": 22.621099997195415,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p233_c0026.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_5/p233_c0026.wav",
+      "original_duration": 1.56,
+      "result": {
+        "status": "measured",
+        "score": 0.9996920824050903,
+        "model": "AASIST",
+        "rms": 0.04773908108472824,
+        "pipeline_ms": 14.135200006421655,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p233_c0026.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_6/p233_c0026.wav",
+      "original_duration": 1.645,
+      "result": {
+        "status": "measured",
+        "score": 0.9999943971633911,
+        "model": "AASIST",
+        "rms": 0.05061837658286095,
+        "pipeline_ms": 14.06789998873137,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p233_c0026.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_7_new/p233_c0026.wav",
+      "original_duration": 1.25,
+      "result": {
+        "status": "measured",
+        "score": 0.9758392572402954,
+        "model": "AASIST",
+        "rms": 0.04868025705218315,
+        "pipeline_ms": 14.614899992011487,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p233_c0026.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_8_new/p233_c0026.wav",
+      "original_duration": 1.2875,
+      "result": {
+        "status": "measured",
+        "score": 0.9998273849487305,
+        "model": "AASIST",
+        "rms": 0.04964987561106682,
+        "pipeline_ms": 14.00929999363143,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p233_c0026.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_9_16k/p233_c0026.wav",
+      "original_duration": 1.735,
+      "result": {
+        "status": "measured",
+        "score": 0.9791346788406372,
+        "model": "AASIST",
+        "rms": 0.0508621484041214,
+        "pipeline_ms": 13.441999995848164,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p233_c0026.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_1/p233_c0026.wav",
+      "original_duration": 1.5525,
+      "result": {
+        "status": "measured",
+        "score": 0.9995269775390625,
+        "model": "AASIST",
+        "rms": 0.05053048953413963,
+        "pipeline_ms": 19.58290000038687,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p233_c0026.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_2_new/p233_c0026.wav",
+      "original_duration": 1.7050625,
+      "result": {
+        "status": "measured",
+        "score": 0.9999990463256836,
+        "model": "AASIST",
+        "rms": 0.05150764063000679,
+        "pipeline_ms": 41.37680001440458,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p233_c0026.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-SS_VC_3/p233_c0026.wav",
+      "original_duration": 1.7100625,
+      "result": {
+        "status": "measured",
+        "score": 0.9985639452934265,
+        "model": "AASIST",
+        "rms": 0.05161859467625618,
+        "pipeline_ms": 23.08699999412056,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p233_c0026.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-US_1_R/p233_c0026.wav",
+      "original_duration": 1.847625,
+      "result": {
+        "status": "measured",
+        "score": 0.9998631477355957,
+        "model": "AASIST",
+        "rms": 0.04994901269674301,
+        "pipeline_ms": 16.969599993899465,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p233_252.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p233_252.wav",
+      "original_duration": 2.9910625,
+      "result": {
+        "status": "measured",
+        "score": 9.421918366570026e-05,
+        "model": "AASIST",
+        "rms": 0.036114826798439026,
+        "pipeline_ms": 13.990300009027123,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p233_p295_269.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_2/p233_p295_269.wav",
+      "original_duration": 2.9875625,
+      "result": {
+        "status": "measured",
+        "score": 0.9917607307434082,
+        "model": "AASIST",
+        "rms": 0.03373131528496742,
+        "pipeline_ms": 13.129500002833083,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p233_p295_269.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_3_new/p233_p295_269.wav",
+      "original_duration": 2.99,
+      "result": {
+        "status": "measured",
+        "score": 0.634386420249939,
+        "model": "AASIST",
+        "rms": 0.03353072330355644,
+        "pipeline_ms": 12.736100004985929,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p233_p295_269.wav",
+      "label": "spoof",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-VC_5/p233_p295_269.wav",
+      "original_duration": 2.98,
+      "result": {
+        "status": "measured",
+        "score": 0.9954560995101929,
+        "model": "AASIST",
+        "rms": 0.03408176451921463,
+        "pipeline_ms": 12.60539999930188,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p343_257.wav",
+      "label": "real",
+      "source_url": "https://nii-yamagishilab.github.io/samples-xin/samples-asvspoof2019/sample-human/p343_257.wav",
+      "original_duration": 2.434375,
+      "result": {
+        "status": "measured",
+        "score": 0.020700398832559586,
+        "model": "AASIST",
+        "rms": 0.034398194402456284,
+        "pipeline_ms": 13.87300000351388,
+        "calibrated": false
+      }
+    }
+  ]
+}

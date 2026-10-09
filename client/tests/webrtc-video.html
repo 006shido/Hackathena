@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="UTF-8"><title>WebRTC Swap Transport Check</title></head>
+<body><h1>Recorded-media WebRTC swap check</h1><button id="run">Run streaming check</button><pre id="status">Ready; uses a prerecorded clip, no camera or microphone.</pre>
+<video id="input" src="/__webrtc/video.webm" muted loop playsinline style="width:320px"></video><video id="output" muted playsinline style="width:320px"></video>
+<script type="module">
+import {NeuralVideoPreview} from '/src/attack/neuralVideoPreview.ts';
+import {authService} from '/src/services/auth.ts';
+const status=document.querySelector('#status'),button=document.querySelector('#run'),input=document.querySelector('#input'),output=document.querySelector('#output');
+const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+button.onclick=async()=>{
+  button.disabled=true;const preview=new NeuralVideoPreview();let camera;
+  const fallback=new URLSearchParams(location.search).has('fallback');
+  try {
+    status.textContent='Signing in and opening recorded video...';
+    await authService.login('tester','tester123');
+    if(fallback)await fetch('/__webrtc/fail-offer',{method:'POST'});
+    await input.play();camera=input.captureStream().getVideoTracks()[0];
+    const started=performance.now();
+    const track=await preview.start(camera,await(await fetch('/__webrtc/source.jpg')).blob());
+    output.srcObject=new MediaStream([track]);await output.play();
+    status.textContent='Connected via '+preview.transport+'; checking frames...';
+    await wait(7000);
+    const transport=preview.transport,initialReady=preview.ready,initialChanged=preview.faceChanged,initialFPS=preview.fps;
+    if(transport!==(fallback?'http-fallback':'webrtc'))throw new Error('Unexpected transport: '+transport);
+    if(!initialReady||initialFPS<=0)throw new Error('No processed frames');
+    await preview.setSource(await(await fetch('/__webrtc/source-b.jpg')).blob());
+    await wait(5000);
+    const afterSource={ready:preview.ready,faceChanged:preview.faceChanged,fps:preview.fps,transport:preview.transport,stableTrack:output.srcObject.getVideoTracks()[0]===track};
+    if(!afterSource.ready||!afterSource.stableTrack)throw new Error('Source change did not preserve live output');
+    if(afterSource.transport!==transport)throw new Error('Source change unexpectedly switched transport');
+    preview.stop();const originalPreserved=camera.readyState==='live';
+    if(!originalPreserved)throw new Error('Original camera fixture track was stopped');
+    const result={passed:true,fallback,transport,initialReady,initialChanged,initialFPS,afterSource,originalPreserved,elapsedMs:performance.now()-started};
+    await fetch('/__webrtc/result',{method:'POST',body:JSON.stringify(result)});status.textContent=JSON.stringify(result,null,2);
+  }catch(error){status.textContent='FAIL: '+error.message;await fetch('/__webrtc/result',{method:'POST',body:JSON.stringify({passed:false,fallback,error:error.message})});}
+  finally{preview.stop();camera?.stop();input.pause();output.srcObject=null;button.disabled=false;}
+};
+</script></body></html>

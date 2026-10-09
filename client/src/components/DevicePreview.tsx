@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { Mic, MicOff, Video, VideoOff, AlertCircle, ArrowRight, User, Shield } from 'lucide-react';
+import { AlertCircle,ArrowRight,Mic,MicOff,User,Video,VideoOff } from 'lucide-react';
+import React,{ useEffect,useRef } from 'react';
 import { UserRole } from '../types/auth';
 
 interface DevicePreviewProps {
@@ -55,7 +55,7 @@ export const DevicePreview: React.FC<DevicePreviewProps> = ({
           video.pause();
           video.srcObject = null;
           video.load();
-        } catch (e) { }
+        } catch { }
       }
     };
   }, [stream, isCameraOff]);

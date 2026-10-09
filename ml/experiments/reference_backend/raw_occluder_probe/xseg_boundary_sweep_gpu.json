@@ -1,0 +1,250 @@
+{
+  "scope": "Two annotated lossless frames only. Threshold sweep is exploratory, not held-out validation or video runtime promotion.",
+  "alignment": "saved live VIDEO landmarks with reproduced baseline scores",
+  "model_sha256": "c4d1498b8a03b5fe2a3a5d2ef2a0402ab03bd51edaf5b2d8d5fb764702a97dd3",
+  "model_url": "https://huggingface.co/facefusion/models-3.1.0/blob/main/xseg_1.onnx",
+  "license_metadata": "GPL-3.0 per FaceFusion model metadata",
+  "records": [
+    {
+      "name": "clear_frame0",
+      "threshold": 0.1,
+      "hard": true,
+      "dilation_radius": 0,
+      "unknown_visible": true,
+      "inference_ms": 20.317700000305194,
+      "warm_inference_ms_median": 15.518100000917912,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786920785903931,
+          "target_similarity": 0.3429468274116516
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.533996045589447,
+          "target_similarity": 0.34462249279022217
+        }
+      },
+      "gpu_parity": {
+        "max_error": 2.917647361755371e-05,
+        "mean_error": 3.7005014519309043e-07
+      }
+    },
+    {
+      "name": "clear_frame0",
+      "threshold": 0.1,
+      "hard": true,
+      "dilation_radius": 3,
+      "unknown_visible": true,
+      "inference_ms": 20.317700000305194,
+      "warm_inference_ms_median": 15.518100000917912,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786920785903931,
+          "target_similarity": 0.3429468274116516
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.5550948977470398,
+          "target_similarity": 0.3364640474319458
+        }
+      },
+      "gpu_parity": {
+        "max_error": 2.917647361755371e-05,
+        "mean_error": 3.7005014519309043e-07
+      }
+    },
+    {
+      "name": "clear_frame0",
+      "threshold": 0.1,
+      "hard": true,
+      "dilation_radius": 7,
+      "unknown_visible": true,
+      "inference_ms": 20.317700000305194,
+      "warm_inference_ms_median": 15.518100000917912,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786920785903931,
+          "target_similarity": 0.3429468274116516
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.5733315944671631,
+          "target_similarity": 0.3317381739616394
+        }
+      },
+      "gpu_parity": {
+        "max_error": 2.917647361755371e-05,
+        "mean_error": 3.7005014519309043e-07
+      }
+    },
+    {
+      "name": "clear_frame0",
+      "threshold": 0.1,
+      "hard": true,
+      "dilation_radius": 11,
+      "unknown_visible": true,
+      "inference_ms": 20.317700000305194,
+      "warm_inference_ms_median": 15.518100000917912,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786920785903931,
+          "target_similarity": 0.3429468274116516
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.5762361288070679,
+          "target_similarity": 0.34064584970474243
+        }
+      },
+      "gpu_parity": {
+        "max_error": 2.917647361755371e-05,
+        "mean_error": 3.7005014519309043e-07
+      }
+    },
+    {
+      "name": "book_frame150",
+      "threshold": 0.1,
+      "hard": true,
+      "dilation_radius": 0,
+      "unknown_visible": true,
+      "inference_ms": 13.723700001719408,
+      "warm_inference_ms_median": 15.412699998705648,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5274490118026733,
+          "target_similarity": 0.4569459855556488
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.420134961605072,
+          "target_similarity": 0.5785800814628601
+        }
+      },
+      "book_changes": {
+        "baseline": {
+          "mae": 0.578181673243254,
+          "fraction_over8": 0.02786081549683128
+        },
+        "candidate": {
+          "mae": 0.0,
+          "fraction_over8": 0.0
+        }
+      },
+      "gpu_parity": {
+        "max_error": 1.341104507446289e-05,
+        "mean_error": 1.3752401173405815e-07
+      }
+    },
+    {
+      "name": "book_frame150",
+      "threshold": 0.1,
+      "hard": true,
+      "dilation_radius": 3,
+      "unknown_visible": true,
+      "inference_ms": 13.723700001719408,
+      "warm_inference_ms_median": 15.412699998705648,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5274490118026733,
+          "target_similarity": 0.4569459855556488
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.42559605836868286,
+          "target_similarity": 0.5398540496826172
+        }
+      },
+      "book_changes": {
+        "baseline": {
+          "mae": 0.578181673243254,
+          "fraction_over8": 0.02786081549683128
+        },
+        "candidate": {
+          "mae": 0.0,
+          "fraction_over8": 0.0
+        }
+      },
+      "gpu_parity": {
+        "max_error": 1.341104507446289e-05,
+        "mean_error": 1.3752401173405815e-07
+      }
+    },
+    {
+      "name": "book_frame150",
+      "threshold": 0.1,
+      "hard": true,
+      "dilation_radius": 7,
+      "unknown_visible": true,
+      "inference_ms": 13.723700001719408,
+      "warm_inference_ms_median": 15.412699998705648,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5274490118026733,
+          "target_similarity": 0.4569459855556488
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.4420625865459442,
+          "target_similarity": 0.516869068145752
+        }
+      },
+      "book_changes": {
+        "baseline": {
+          "mae": 0.578181673243254,
+          "fraction_over8": 0.02786081549683128
+        },
+        "candidate": {
+          "mae": 0.0,
+          "fraction_over8": 0.0
+        }
+      },
+      "gpu_parity": {
+        "max_error": 1.341104507446289e-05,
+        "mean_error": 1.3752401173405815e-07
+      }
+    },
+    {
+      "name": "book_frame150",
+      "threshold": 0.1,
+      "hard": true,
+      "dilation_radius": 11,
+      "unknown_visible": true,
+      "inference_ms": 13.723700001719408,
+      "warm_inference_ms_median": 15.412699998705648,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5274490118026733,
+          "target_similarity": 0.4569459855556488
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.4257030785083771,
+          "target_similarity": 0.49272942543029785
+        }
+      },
+      "book_changes": {
+        "baseline": {
+          "mae": 0.578181673243254,
+          "fraction_over8": 0.02786081549683128
+        },
+        "candidate": {
+          "mae": 0.0,
+          "fraction_over8": 0.0
+        }
+      },
+      "gpu_parity": {
+        "max_error": 1.341104507446289e-05,
+        "mean_error": 1.3752401173405815e-07
+      }
+    }
+  ],
+  "execution": "torch GPU"
+}

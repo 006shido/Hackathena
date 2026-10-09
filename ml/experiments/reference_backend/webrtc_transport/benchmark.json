@@ -1,0 +1,14 @@
+{
+  "scope": "Same-machine recorded face, actual RTP/DTLS and actual swap pipeline. Not a forwarded two-device latency benchmark.",
+  "http_requests": 20,
+  "http_roundtrip_median_ms": 108.1744500042987,
+  "http_processing_loop_fps": 9.250855542061595,
+  "webrtc_received_frames": 40,
+  "webrtc_received_fps": 11.527887259881231,
+  "webrtc_age_samples": 40,
+  "webrtc_frame_age_median_ms": 271.92899999499787,
+  "webrtc_frame_age_p95_ms": 308.96827999749786,
+  "telemetry_messages": 41,
+  "changed_frames": 41,
+  "pipeline_median_ms": 81.13779999257531
+}

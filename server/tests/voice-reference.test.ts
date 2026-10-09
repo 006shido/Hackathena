@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import {VoiceReference, normalizedSpeechBands} from '../../client/src/detection/voiceReference.ts';
+const reference=new VoiceReference();
+assert.equal(reference.observe([-5,-10,-15]),null);
+reference.start();
+for(let i=0;i<39;i++) assert.equal(reference.observe([-5,-10,-15]),null);
+assert.equal(reference.state,'capturing');
+reference.observe([-5,-10,-15]);assert.equal(reference.state,'ready');
+for(let i=0;i<20;i++) reference.observe([-5,-10,-15]);
+assert.equal(reference.observe([-5,-10,-15]),0);
+let changed=0;for(let i=0;i<20;i++)changed=reference.observe([-5,-25,-35])??0;
+assert.ok(changed>=80,'Sustained filtering must differ from a stable reference');
+reference.clearRecent();assert.equal(reference.observe([-5,-10,-15]),null);
+reference.start();assert.equal(reference.state,'capturing');
+assert.equal(reference.observe([NaN]),null);
+// Uniform gain changes should cancel in normalized band energies.
+const db=Float32Array.from({length:512},()=>-40);
+const quieter=Float32Array.from(db,value=>value-12);
+const first=normalizedSpeechBands(db,48000,1024),second=normalizedSpeechBands(quieter,48000,1024);
+assert.ok(first.every((value,i)=>Math.abs(value-second[i])<1e-6));
+console.log('Voice reference: clean stability, sustained changes, gain invariance and reset passed.');

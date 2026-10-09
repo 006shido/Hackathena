@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { AlertCircle, ArrowLeft, AlertTriangle, Shield, Activity, X } from 'lucide-react';
-import { User as UserType } from '../types/auth';
-import { useCall } from '../hooks/useCall';
-import { useVoiceDetection } from '../hooks/useVoiceDetection';
-import { RoomHeader } from '../components/RoomHeader';
-import { VideoTile } from '../components/VideoTile';
-import { CallControls } from '../components/CallControls';
-import { SecurityPanel } from '../components/SecurityPanel';
-import { AttackSimulator } from '../components/AttackSimulator';
+import { AlertCircle,AlertTriangle,ArrowLeft } from 'lucide-react';
+import React,{ useEffect,useRef,useState } from 'react';
 import { AIFaceSwapPanel } from '../components/AIFaceSwapPanel';
-import { DevicePreview } from '../components/DevicePreview';
+import { CallControls } from '../components/CallControls';
 import { CallFeedbackModal } from '../components/CallFeedbackModal';
+import { DevicePreview } from '../components/DevicePreview';
+import { RoomHeader } from '../components/RoomHeader';
+import { SecurityPanel } from '../components/SecurityPanel';
+import { VideoTile } from '../components/VideoTile';
+import { useCall } from '../hooks/useCall';
+import { useMediaDetection } from '../hooks/useMediaDetection';
+import { useVoiceDetection } from '../hooks/useVoiceDetection';
 import { mediaService } from '../services/media';
+import { User as UserType } from '../types/auth';
 
 interface CallPageProps {
   roomId: string;
@@ -59,7 +59,6 @@ export const CallPage: React.FC<CallPageProps> = ({
     activateCombinedAttack,
     resetAttack,
     setFacePreset,
-    setCustomFace,
     setVoicePreset,
     uploadGalleryFace,
     resetFaceSwapFace,
@@ -73,14 +72,15 @@ export const CallPage: React.FC<CallPageProps> = ({
     endCall,
   } = useCall(user, token);
 
-  // Autonomous real-time acoustic deepfake analysis on incoming peer audio stream
+  // Experimental acoustic diagnostics on incoming peer audio, separate from learned models.
   const voiceDetection = useVoiceDetection(
     remoteStream,
     !showDevicePreview && Boolean(remoteStream)
   );
 
-  // Deepfake alert triggered by autonomous classifier
+  // Audio anomaly alert triggered by the browser diagnostic heuristic.
   const isDeepfakeAlert = voiceDetection.status === 'deepfake';
+  const mediaDetection = useMediaDetection(remoteStream, token, !showDevicePreview && Boolean(remoteStream));
 
   useEffect(() => {
     initLocalMedia(true, true);
@@ -118,10 +118,6 @@ export const CallPage: React.FC<CallPageProps> = ({
     endCall();
     mediaService.stopAllMedia();
     setShowFeedbackModal(true);
-  };
-
-  const handleCancelEndCall = () => {
-    setShowEndCallSlider(false);
   };
 
   const handleCancelPreview = () => {
@@ -248,7 +244,7 @@ export const CallPage: React.FC<CallPageProps> = ({
                   subtitle={
                     isTester && attackState.mode !== 'none'
                       ? `[${attackState.mode.toUpperCase()}]`
-                      : 'You'
+                      : 'Your outgoing camera'
                   }
                 />
               </div>
@@ -292,7 +288,7 @@ export const CallPage: React.FC<CallPageProps> = ({
                 subtitle={
                   isTester && attackState.mode !== 'none'
                     ? `[${attackState.mode.toUpperCase()}]`
-                    : 'You'
+                    : 'Your outgoing camera'
                 }
               />
             )}
@@ -305,7 +301,7 @@ export const CallPage: React.FC<CallPageProps> = ({
                     <AlertTriangle className="h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="text-xs sm:text-sm font-bold">Deepfake Detected</h4>
+                    <h4 className="text-xs sm:text-sm font-bold">Audio Anomaly Detected</h4>
                     <p className="text-[11px] text-white/90">
                       Anomaly Score: {voiceDetection.anomalyScore}% — Synthetic audio harmonics detected
                     </p>
@@ -359,6 +355,8 @@ export const CallPage: React.FC<CallPageProps> = ({
         <div className="hidden lg:flex h-full shrink-0">
           {isSecurityPanelOpen && (
             <SecurityPanel
+              mediaDetection={mediaDetection}
+              hasIncomingPeer={Boolean(peerInfo)}
               peerAttackState={peerAttackState}
               voiceDetection={voiceDetection}
               isTester={isTester}
@@ -403,6 +401,8 @@ export const CallPage: React.FC<CallPageProps> = ({
             <div className="w-12 h-1 bg-white/20 rounded-full mx-auto my-2.5 shrink-0" />
             <div className="flex-1 overflow-y-auto min-h-0">
               <SecurityPanel
+                mediaDetection={mediaDetection}
+                hasIncomingPeer={Boolean(peerInfo)}
                 peerAttackState={peerAttackState}
                 voiceDetection={voiceDetection}
                 isTester={isTester}

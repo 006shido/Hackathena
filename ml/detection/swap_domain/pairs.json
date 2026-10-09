@@ -1,0 +1,7412 @@
+[
+  {
+    "partition": "train",
+    "source": "048800.jpg",
+    "target": "191023.jpg",
+    "source_identity": "3293",
+    "target_identity": "9255",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "038387.jpg",
+    "target": "025792.jpg",
+    "source_identity": "4316",
+    "target_identity": "2142",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "163338.jpg",
+    "target": "128279.jpg",
+    "source_identity": "2471",
+    "target_identity": "5136",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "train",
+    "source": "047066.jpg",
+    "target": "034216.jpg",
+    "source_identity": "2065",
+    "target_identity": "4887",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "079983.jpg",
+    "target": "095744.jpg",
+    "source_identity": "9958",
+    "target_identity": "2712",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "131748.jpg",
+    "target": "184789.jpg",
+    "source_identity": "4309",
+    "target_identity": "7360",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "110631.jpg",
+    "target": "146775.jpg",
+    "source_identity": "7944",
+    "target_identity": "8997",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "train",
+    "source": "164270.jpg",
+    "target": "113150.jpg",
+    "source_identity": "3843",
+    "target_identity": "7584",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "144306.jpg",
+    "target": "169354.jpg",
+    "source_identity": "6484",
+    "target_identity": "4834",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "123386.jpg",
+    "target": "159125.jpg",
+    "source_identity": "8021",
+    "target_identity": "2400",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "066106.jpg",
+    "target": "185941.jpg",
+    "source_identity": "3127",
+    "target_identity": "9799",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "178767.jpg",
+    "target": "156868.jpg",
+    "source_identity": "2283",
+    "target_identity": "6750",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "010239.jpg",
+    "target": "029869.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "train",
+    "source": "015955.jpg",
+    "target": "194952.jpg",
+    "source_identity": "2031",
+    "target_identity": "9256",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "093545.jpg",
+    "target": "013717.jpg",
+    "source_identity": "7659",
+    "target_identity": "5479",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "143081.jpg",
+    "target": "134375.jpg",
+    "source_identity": "844",
+    "target_identity": "2253",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "077821.jpg",
+    "target": "044069.jpg",
+    "source_identity": "5136",
+    "target_identity": "2966",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "192604.jpg",
+    "target": "109315.jpg",
+    "source_identity": "6843",
+    "target_identity": "4541",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "114941.jpg",
+    "target": "108765.jpg",
+    "source_identity": "6785",
+    "target_identity": "260",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "135189.jpg",
+    "target": "078247.jpg",
+    "source_identity": "9168",
+    "target_identity": "7660",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "train",
+    "source": "052941.jpg",
+    "target": "023147.jpg",
+    "source_identity": "2748",
+    "target_identity": "8058",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "001268.jpg",
+    "target": "166485.jpg",
+    "source_identity": "3721",
+    "target_identity": "4113",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "056192.jpg",
+    "target": "151665.jpg",
+    "source_identity": "5896",
+    "target_identity": "6736",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "035556.jpg",
+    "target": "052278.jpg",
+    "source_identity": "3982",
+    "target_identity": "2140",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "train",
+    "source": "138797.jpg",
+    "target": "182679.jpg",
+    "source_identity": "3603",
+    "target_identity": "9466",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "095415.jpg",
+    "target": "058046.jpg",
+    "source_identity": "7521",
+    "target_identity": "5031",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "007841.jpg",
+    "target": "192038.jpg",
+    "source_identity": "5088",
+    "target_identity": "6472",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "195906.jpg",
+    "target": "081852.jpg",
+    "source_identity": "5946",
+    "target_identity": "5180",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "train",
+    "source": "192953.jpg",
+    "target": "123408.jpg",
+    "source_identity": "8853",
+    "target_identity": "3579",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "018959.jpg",
+    "target": "080309.jpg",
+    "source_identity": "6509",
+    "target_identity": "8506",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "060292.jpg",
+    "target": "191223.jpg",
+    "source_identity": "9167",
+    "target_identity": "5886",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "098225.jpg",
+    "target": "092565.jpg",
+    "source_identity": "2735",
+    "target_identity": "4428",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "train",
+    "source": "149609.jpg",
+    "target": "138373.jpg",
+    "source_identity": "3625",
+    "target_identity": "3190",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "168843.jpg",
+    "target": "052087.jpg",
+    "source_identity": "1032",
+    "target_identity": "3171",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "173028.jpg",
+    "target": "179680.jpg",
+    "source_identity": "1461",
+    "target_identity": "1832",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "086851.jpg",
+    "target": "150258.jpg",
+    "source_identity": "7076",
+    "target_identity": "2170",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "108257.jpg",
+    "target": "071476.jpg",
+    "source_identity": "5288",
+    "target_identity": "597",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "111024.jpg",
+    "target": "105606.jpg",
+    "source_identity": "5240",
+    "target_identity": "3856",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "008679.jpg",
+    "target": "022148.jpg",
+    "source_identity": "10014",
+    "target_identity": "1946",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "train",
+    "source": "175853.jpg",
+    "target": "126488.jpg",
+    "source_identity": "3116",
+    "target_identity": "7051",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "143359.jpg",
+    "target": "067319.jpg",
+    "source_identity": "9862",
+    "target_identity": "6016",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "090854.jpg",
+    "target": "151910.jpg",
+    "source_identity": "7804",
+    "target_identity": "3760",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "127136.jpg",
+    "target": "194328.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "train",
+    "source": "108720.jpg",
+    "target": "077074.jpg",
+    "source_identity": "4029",
+    "target_identity": "1285",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "train",
+    "source": "076885.jpg",
+    "target": "071647.jpg",
+    "source_identity": "9628",
+    "target_identity": "8352",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "198816.jpg",
+    "target": "113518.jpg",
+    "source_identity": "7791",
+    "target_identity": "257",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "002382.jpg",
+    "target": "195834.jpg",
+    "source_identity": "1756",
+    "target_identity": "6748",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "114576.jpg",
+    "target": "194149.jpg",
+    "source_identity": "435",
+    "target_identity": "9463",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "086488.jpg",
+    "target": "082957.jpg",
+    "source_identity": "7425",
+    "target_identity": "912",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "081090.jpg",
+    "target": "196050.jpg",
+    "source_identity": "1670",
+    "target_identity": "6258",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "091685.jpg",
+    "target": "041655.jpg",
+    "source_identity": "7523",
+    "target_identity": "6952",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "074912.jpg",
+    "target": "155250.jpg",
+    "source_identity": "5344",
+    "target_identity": "8762",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "143008.jpg",
+    "target": "075611.jpg",
+    "source_identity": "2914",
+    "target_identity": "3626",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "180024.jpg",
+    "target": "052417.jpg",
+    "source_identity": "1018",
+    "target_identity": "1196",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "train",
+    "source": "125586.jpg",
+    "target": "051907.jpg",
+    "source_identity": "4383",
+    "target_identity": "1556",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "023488.jpg",
+    "target": "006330.jpg",
+    "source_identity": "6738",
+    "target_identity": "5806",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "101845.jpg",
+    "target": "025932.jpg",
+    "source_identity": "592",
+    "target_identity": "8773",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "train",
+    "source": "173526.jpg",
+    "target": "007336.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "train",
+    "source": "144369.jpg",
+    "target": "166258.jpg",
+    "source_identity": "4549",
+    "target_identity": "2272",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "071238.jpg",
+    "target": "003313.jpg",
+    "source_identity": "922",
+    "target_identity": "8570",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "030509.jpg",
+    "target": "072608.jpg",
+    "source_identity": "9895",
+    "target_identity": "3437",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "080520.jpg",
+    "target": "005492.jpg",
+    "source_identity": "2000",
+    "target_identity": "246",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "163664.jpg",
+    "target": "024785.jpg",
+    "source_identity": "2989",
+    "target_identity": "1242",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "150224.jpg",
+    "target": "046296.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "train",
+    "source": "135679.jpg",
+    "target": "184169.jpg",
+    "source_identity": "9336",
+    "target_identity": "8924",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "201873.jpg",
+    "target": "118367.jpg",
+    "source_identity": "9256",
+    "target_identity": "1454",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "025171.jpg",
+    "target": "141571.jpg",
+    "source_identity": "4092",
+    "target_identity": "7638",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "154780.jpg",
+    "target": "101016.jpg",
+    "source_identity": "7846",
+    "target_identity": "4394",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "079561.jpg",
+    "target": "137772.jpg",
+    "source_identity": "4197",
+    "target_identity": "4116",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "024798.jpg",
+    "target": "084290.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "train",
+    "source": "148895.jpg",
+    "target": "031382.jpg",
+    "source_identity": "3169",
+    "target_identity": "6450",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "026861.jpg",
+    "target": "156266.jpg",
+    "source_identity": "9160",
+    "target_identity": "3293",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "train",
+    "source": "023706.jpg",
+    "target": "060897.jpg",
+    "source_identity": "4730",
+    "target_identity": "6518",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "070129.jpg",
+    "target": "001918.jpg",
+    "source_identity": "8712",
+    "target_identity": "5955",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "066716.jpg",
+    "target": "110033.jpg",
+    "source_identity": "2212",
+    "target_identity": "507",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "006841.jpg",
+    "target": "142045.jpg",
+    "source_identity": "4590",
+    "target_identity": "1019",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "109534.jpg",
+    "target": "138108.jpg",
+    "source_identity": "3374",
+    "target_identity": "2434",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "133501.jpg",
+    "target": "179381.jpg",
+    "source_identity": "1242",
+    "target_identity": "4131",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "145490.jpg",
+    "target": "027320.jpg",
+    "source_identity": "8315",
+    "target_identity": "4268",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "085669.jpg",
+    "target": "179193.jpg",
+    "source_identity": "2935",
+    "target_identity": "2034",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "128019.jpg",
+    "target": "004271.jpg",
+    "source_identity": "5485",
+    "target_identity": "7023",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "196631.jpg",
+    "target": "026674.jpg",
+    "source_identity": "5373",
+    "target_identity": "7413",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "169087.jpg",
+    "target": "160933.jpg",
+    "source_identity": "2745",
+    "target_identity": "1339",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "048298.jpg",
+    "target": "061344.jpg",
+    "source_identity": "7740",
+    "target_identity": "7445",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "012161.jpg",
+    "target": "069609.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "train",
+    "source": "070598.jpg",
+    "target": "015776.jpg",
+    "source_identity": "7408",
+    "target_identity": "3906",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "171011.jpg",
+    "target": "006483.jpg",
+    "accepted": false,
+    "reason": "No face detected in image by MediaPipe FaceLandmarker"
+  },
+  {
+    "partition": "train",
+    "source": "132619.jpg",
+    "target": "178781.jpg",
+    "source_identity": "2518",
+    "target_identity": "365",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "090136.jpg",
+    "target": "189111.jpg",
+    "source_identity": "329",
+    "target_identity": "9244",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "014459.jpg",
+    "target": "033723.jpg",
+    "source_identity": "4542",
+    "target_identity": "6141",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "train",
+    "source": "095800.jpg",
+    "target": "019295.jpg",
+    "source_identity": "371",
+    "target_identity": "8353",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "102329.jpg",
+    "target": "171181.jpg",
+    "source_identity": "843",
+    "target_identity": "2177",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "188982.jpg",
+    "target": "089788.jpg",
+    "source_identity": "8984",
+    "target_identity": "7441",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "069704.jpg",
+    "target": "162940.jpg",
+    "source_identity": "3550",
+    "target_identity": "1498",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "143492.jpg",
+    "target": "036999.jpg",
+    "source_identity": "7231",
+    "target_identity": "2492",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "058667.jpg",
+    "target": "045149.jpg",
+    "source_identity": "2966",
+    "target_identity": "4053",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "033852.jpg",
+    "target": "185219.jpg",
+    "source_identity": "5565",
+    "target_identity": "5614",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "052167.jpg",
+    "target": "075885.jpg",
+    "source_identity": "155",
+    "target_identity": "7406",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "139791.jpg",
+    "target": "047709.jpg",
+    "source_identity": "7340",
+    "target_identity": "4463",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "047767.jpg",
+    "target": "099923.jpg",
+    "source_identity": "2662",
+    "target_identity": "9364",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "083397.jpg",
+    "target": "047914.jpg",
+    "source_identity": "535",
+    "target_identity": "8849",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "161462.jpg",
+    "target": "002701.jpg",
+    "source_identity": "3458",
+    "target_identity": "3920",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "150443.jpg",
+    "target": "198517.jpg",
+    "source_identity": "910",
+    "target_identity": "8146",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "100081.jpg",
+    "target": "187337.jpg",
+    "source_identity": "1786",
+    "target_identity": "7988",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "058978.jpg",
+    "target": "161574.jpg",
+    "source_identity": "444",
+    "target_identity": "502",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "149476.jpg",
+    "target": "153963.jpg",
+    "source_identity": "1727",
+    "target_identity": "8284",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "197648.jpg",
+    "target": "134995.jpg",
+    "source_identity": "5480",
+    "target_identity": "2355",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "150379.jpg",
+    "target": "098752.jpg",
+    "source_identity": "9935",
+    "target_identity": "8705",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "149789.jpg",
+    "target": "145245.jpg",
+    "source_identity": "9503",
+    "target_identity": "3787",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "130673.jpg",
+    "target": "005652.jpg",
+    "source_identity": "7534",
+    "target_identity": "4777",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "199185.jpg",
+    "target": "124240.jpg",
+    "source_identity": "9349",
+    "target_identity": "6214",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "132886.jpg",
+    "target": "134063.jpg",
+    "source_identity": "3339",
+    "target_identity": "6986",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "086699.jpg",
+    "target": "100786.jpg",
+    "source_identity": "7011",
+    "target_identity": "5225",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "094269.jpg",
+    "target": "013132.jpg",
+    "source_identity": "8845",
+    "target_identity": "3522",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "109042.jpg",
+    "target": "107327.jpg",
+    "source_identity": "5792",
+    "target_identity": "554",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "041172.jpg",
+    "target": "114316.jpg",
+    "source_identity": "5469",
+    "target_identity": "4704",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "064583.jpg",
+    "target": "043180.jpg",
+    "source_identity": "4143",
+    "target_identity": "6199",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "125785.jpg",
+    "target": "111369.jpg",
+    "source_identity": "2543",
+    "target_identity": "5048",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "train",
+    "source": "175300.jpg",
+    "target": "068025.jpg",
+    "source_identity": "4423",
+    "target_identity": "6672",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "033293.jpg",
+    "target": "037208.jpg",
+    "source_identity": "5861",
+    "target_identity": "9084",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "095374.jpg",
+    "target": "022379.jpg",
+    "source_identity": "5324",
+    "target_identity": "2661",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "006593.jpg",
+    "target": "057743.jpg",
+    "source_identity": "3893",
+    "target_identity": "3867",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "004594.jpg",
+    "target": "178702.jpg",
+    "source_identity": "9770",
+    "target_identity": "1162",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "080482.jpg",
+    "target": "094815.jpg",
+    "source_identity": "4215",
+    "target_identity": "8857",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "007849.jpg",
+    "target": "189717.jpg",
+    "source_identity": "6714",
+    "target_identity": "5162",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "train",
+    "source": "102480.jpg",
+    "target": "013813.jpg",
+    "source_identity": "1057",
+    "target_identity": "4205",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "009038.jpg",
+    "target": "189552.jpg",
+    "source_identity": "7541",
+    "target_identity": "4966",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "034916.jpg",
+    "target": "081513.jpg",
+    "source_identity": "1236",
+    "target_identity": "623",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "034520.jpg",
+    "target": "086144.jpg",
+    "source_identity": "5219",
+    "target_identity": "7906",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "136966.jpg",
+    "target": "022657.jpg",
+    "source_identity": "4782",
+    "target_identity": "7511",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "005321.jpg",
+    "target": "010872.jpg",
+    "source_identity": "1856",
+    "target_identity": "4839",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "083573.jpg",
+    "target": "201789.jpg",
+    "source_identity": "1451",
+    "target_identity": "6855",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "144058.jpg",
+    "target": "149184.jpg",
+    "accepted": false,
+    "reason": "No face detected in image by MediaPipe FaceLandmarker"
+  },
+  {
+    "partition": "train",
+    "source": "055692.jpg",
+    "target": "015342.jpg",
+    "accepted": false,
+    "reason": "No face detected in image by MediaPipe FaceLandmarker"
+  },
+  {
+    "partition": "train",
+    "source": "173497.jpg",
+    "target": "044559.jpg",
+    "source_identity": "1184",
+    "target_identity": "1676",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "164462.jpg",
+    "target": "011712.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "train",
+    "source": "165800.jpg",
+    "target": "117540.jpg",
+    "source_identity": "1254",
+    "target_identity": "8008",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "train",
+    "source": "124244.jpg",
+    "target": "088698.jpg",
+    "source_identity": "705",
+    "target_identity": "5395",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "166780.jpg",
+    "target": "073429.jpg",
+    "source_identity": "2884",
+    "target_identity": "6145",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "193871.jpg",
+    "target": "154090.jpg",
+    "source_identity": "7037",
+    "target_identity": "9681",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "009246.jpg",
+    "target": "038412.jpg",
+    "source_identity": "312",
+    "target_identity": "2288",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "141689.jpg",
+    "target": "165812.jpg",
+    "source_identity": "4855",
+    "target_identity": "685",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "142445.jpg",
+    "target": "037408.jpg",
+    "source_identity": "4124",
+    "target_identity": "7834",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "047944.jpg",
+    "target": "071423.jpg",
+    "source_identity": "4714",
+    "target_identity": "4574",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "train",
+    "source": "075578.jpg",
+    "target": "155317.jpg",
+    "source_identity": "7836",
+    "target_identity": "5196",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "085388.jpg",
+    "target": "011945.jpg",
+    "source_identity": "6238",
+    "target_identity": "8389",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "002020.jpg",
+    "target": "120971.jpg",
+    "source_identity": "7887",
+    "target_identity": "8887",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "150601.jpg",
+    "target": "190777.jpg",
+    "source_identity": "7637",
+    "target_identity": "7813",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "train",
+    "source": "109351.jpg",
+    "target": "054412.jpg",
+    "source_identity": "8000",
+    "target_identity": "6738",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "036479.jpg",
+    "target": "087391.jpg",
+    "source_identity": "5465",
+    "target_identity": "2334",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "083594.jpg",
+    "target": "007745.jpg",
+    "source_identity": "8910",
+    "target_identity": "9686",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "088641.jpg",
+    "target": "089679.jpg",
+    "source_identity": "6449",
+    "target_identity": "3191",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "train",
+    "source": "011392.jpg",
+    "target": "020332.jpg",
+    "source_identity": "8137",
+    "target_identity": "4739",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "054622.jpg",
+    "target": "117300.jpg",
+    "source_identity": "3714",
+    "target_identity": "9204",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "079728.jpg",
+    "target": "008197.jpg",
+    "source_identity": "1802",
+    "target_identity": "8674",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "train",
+    "source": "123892.jpg",
+    "target": "114651.jpg",
+    "source_identity": "1447",
+    "target_identity": "4566",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "149824.jpg",
+    "target": "166140.jpg",
+    "source_identity": "4486",
+    "target_identity": "2036",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "155728.jpg",
+    "target": "164153.jpg",
+    "source_identity": "1963",
+    "target_identity": "2985",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "045386.jpg",
+    "target": "092058.jpg",
+    "source_identity": "6064",
+    "target_identity": "7834",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "101075.jpg",
+    "target": "001548.jpg",
+    "source_identity": "4093",
+    "target_identity": "6124",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "107098.jpg",
+    "target": "056162.jpg",
+    "source_identity": "2383",
+    "target_identity": "4512",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "003712.jpg",
+    "target": "171070.jpg",
+    "source_identity": "5991",
+    "target_identity": "2931",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "080999.jpg",
+    "target": "126340.jpg",
+    "source_identity": "4172",
+    "target_identity": "920",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "087016.jpg",
+    "target": "075763.jpg",
+    "source_identity": "144",
+    "target_identity": "2413",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "100399.jpg",
+    "target": "154651.jpg",
+    "source_identity": "1780",
+    "target_identity": "7847",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "184880.jpg",
+    "target": "081309.jpg",
+    "source_identity": "10097",
+    "target_identity": "1567",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "157050.jpg",
+    "target": "187674.jpg",
+    "source_identity": "4308",
+    "target_identity": "9941",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "051730.jpg",
+    "target": "099682.jpg",
+    "source_identity": "7366",
+    "target_identity": "6943",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "055334.jpg",
+    "target": "040407.jpg",
+    "accepted": false,
+    "reason": "No face detected in image by MediaPipe FaceLandmarker"
+  },
+  {
+    "partition": "train",
+    "source": "081538.jpg",
+    "target": "079270.jpg",
+    "source_identity": "9052",
+    "target_identity": "4348",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "068424.jpg",
+    "target": "103993.jpg",
+    "source_identity": "6183",
+    "target_identity": "4353",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "040425.jpg",
+    "target": "117648.jpg",
+    "source_identity": "4604",
+    "target_identity": "3127",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "train",
+    "source": "138153.jpg",
+    "target": "181907.jpg",
+    "source_identity": "3501",
+    "target_identity": "2557",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "173795.jpg",
+    "target": "063456.jpg",
+    "source_identity": "2036",
+    "target_identity": "7523",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "039412.jpg",
+    "target": "020787.jpg",
+    "source_identity": "8780",
+    "target_identity": "9363",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "161187.jpg",
+    "target": "175365.jpg",
+    "source_identity": "3303",
+    "target_identity": "4592",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "025012.jpg",
+    "target": "003067.jpg",
+    "source_identity": "7001",
+    "target_identity": "4339",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "151739.jpg",
+    "target": "044142.jpg",
+    "source_identity": "5387",
+    "target_identity": "3992",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "154622.jpg",
+    "target": "111570.jpg",
+    "source_identity": "9975",
+    "target_identity": "9228",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "train",
+    "source": "120414.jpg",
+    "target": "083707.jpg",
+    "source_identity": "7803",
+    "target_identity": "8273",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "027420.jpg",
+    "target": "028336.jpg",
+    "source_identity": "1202",
+    "target_identity": "2724",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "177236.jpg",
+    "target": "018168.jpg",
+    "source_identity": "3362",
+    "target_identity": "2824",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "018352.jpg",
+    "target": "062343.jpg",
+    "source_identity": "8079",
+    "target_identity": "9119",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "149074.jpg",
+    "target": "193615.jpg",
+    "source_identity": "3509",
+    "target_identity": "6539",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "162967.jpg",
+    "target": "053469.jpg",
+    "source_identity": "1032",
+    "target_identity": "5883",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "101086.jpg",
+    "target": "182796.jpg",
+    "source_identity": "1778",
+    "target_identity": "5224",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "173981.jpg",
+    "target": "091734.jpg",
+    "source_identity": "1428",
+    "target_identity": "2443",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "022868.jpg",
+    "target": "026377.jpg",
+    "source_identity": "2663",
+    "target_identity": "6590",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "173256.jpg",
+    "target": "198741.jpg",
+    "accepted": false,
+    "reason": "No face detected in image by MediaPipe FaceLandmarker"
+  },
+  {
+    "partition": "train",
+    "source": "113804.jpg",
+    "target": "180248.jpg",
+    "source_identity": "4309",
+    "target_identity": "1185",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "040454.jpg",
+    "target": "194357.jpg",
+    "source_identity": "5619",
+    "target_identity": "9073",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "158320.jpg",
+    "target": "111609.jpg",
+    "source_identity": "4591",
+    "target_identity": "71",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "200877.jpg",
+    "target": "121193.jpg",
+    "source_identity": "6709",
+    "target_identity": "6082",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "train",
+    "source": "026281.jpg",
+    "target": "064796.jpg",
+    "source_identity": "8316",
+    "target_identity": "7008",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "161069.jpg",
+    "target": "013200.jpg",
+    "source_identity": "6845",
+    "target_identity": "4265",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "167923.jpg",
+    "target": "002583.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "train",
+    "source": "134065.jpg",
+    "target": "054838.jpg",
+    "source_identity": "6711",
+    "target_identity": "8867",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "086259.jpg",
+    "target": "191542.jpg",
+    "source_identity": "454",
+    "target_identity": "9603",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "057744.jpg",
+    "target": "096910.jpg",
+    "source_identity": "6114",
+    "target_identity": "7437",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "139368.jpg",
+    "target": "111682.jpg",
+    "source_identity": "599",
+    "target_identity": "7427",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "061662.jpg",
+    "target": "168772.jpg",
+    "source_identity": "1659",
+    "target_identity": "1325",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "014643.jpg",
+    "target": "143813.jpg",
+    "source_identity": "2043",
+    "target_identity": "1808",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "009940.jpg",
+    "target": "121433.jpg",
+    "source_identity": "6362",
+    "target_identity": "9998",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "126758.jpg",
+    "target": "028366.jpg",
+    "source_identity": "2812",
+    "target_identity": "8636",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "train",
+    "source": "123293.jpg",
+    "target": "200146.jpg",
+    "source_identity": "3954",
+    "target_identity": "5576",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "159609.jpg",
+    "target": "085393.jpg",
+    "source_identity": "8302",
+    "target_identity": "5896",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "196094.jpg",
+    "target": "055113.jpg",
+    "source_identity": "6734",
+    "target_identity": "2125",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "098854.jpg",
+    "target": "004972.jpg",
+    "source_identity": "7177",
+    "target_identity": "6201",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "176743.jpg",
+    "target": "068378.jpg",
+    "source_identity": "3155",
+    "target_identity": "5587",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "023950.jpg",
+    "target": "102994.jpg",
+    "source_identity": "4546",
+    "target_identity": "595",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "126689.jpg",
+    "target": "131870.jpg",
+    "source_identity": "9562",
+    "target_identity": "3254",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "146768.jpg",
+    "target": "101661.jpg",
+    "source_identity": "6845",
+    "target_identity": "80",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "018289.jpg",
+    "target": "006987.jpg",
+    "source_identity": "1737",
+    "target_identity": "3329",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "009824.jpg",
+    "target": "169030.jpg",
+    "source_identity": "8705",
+    "target_identity": "3759",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "197477.jpg",
+    "target": "058999.jpg",
+    "source_identity": "5506",
+    "target_identity": "7887",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "070242.jpg",
+    "target": "201996.jpg",
+    "source_identity": "8156",
+    "target_identity": "6973",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "191284.jpg",
+    "target": "192782.jpg",
+    "source_identity": "7376",
+    "target_identity": "9988",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "001302.jpg",
+    "target": "108000.jpg",
+    "source_identity": "2268",
+    "target_identity": "4326",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "train",
+    "source": "131841.jpg",
+    "target": "132482.jpg",
+    "source_identity": "10058",
+    "target_identity": "9436",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "029218.jpg",
+    "target": "081686.jpg",
+    "source_identity": "7141",
+    "target_identity": "5919",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "183237.jpg",
+    "target": "109762.jpg",
+    "source_identity": "8301",
+    "target_identity": "2703",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "135356.jpg",
+    "target": "084483.jpg",
+    "source_identity": "5142",
+    "target_identity": "1980",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "097399.jpg",
+    "target": "069471.jpg",
+    "source_identity": "132",
+    "target_identity": "7361",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "102424.jpg",
+    "target": "032772.jpg",
+    "source_identity": "3590",
+    "target_identity": "6065",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "091631.jpg",
+    "target": "090594.jpg",
+    "source_identity": "2883",
+    "target_identity": "8333",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "181324.jpg",
+    "target": "189954.jpg",
+    "source_identity": "2592",
+    "target_identity": "9583",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "097737.jpg",
+    "target": "136643.jpg",
+    "source_identity": "1273",
+    "target_identity": "2241",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "100622.jpg",
+    "target": "117216.jpg",
+    "source_identity": "88",
+    "target_identity": "1499",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "115976.jpg",
+    "target": "137577.jpg",
+    "source_identity": "9470",
+    "target_identity": "4535",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "036711.jpg",
+    "target": "179928.jpg",
+    "source_identity": "4529",
+    "target_identity": "715",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "024722.jpg",
+    "target": "040860.jpg",
+    "source_identity": "7381",
+    "target_identity": "9569",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "122209.jpg",
+    "target": "112341.jpg",
+    "source_identity": "4",
+    "target_identity": "5622",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "202298.jpg",
+    "target": "118606.jpg",
+    "source_identity": "9497",
+    "target_identity": "6776",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "108016.jpg",
+    "target": "036920.jpg",
+    "source_identity": "4594",
+    "target_identity": "5094",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "train",
+    "source": "064422.jpg",
+    "target": "194939.jpg",
+    "source_identity": "1020",
+    "target_identity": "9014",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "029241.jpg",
+    "target": "160871.jpg",
+    "source_identity": "1499",
+    "target_identity": "9188",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "016463.jpg",
+    "target": "052353.jpg",
+    "source_identity": "7056",
+    "target_identity": "8334",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "train",
+    "source": "110078.jpg",
+    "target": "105341.jpg",
+    "source_identity": "7511",
+    "target_identity": "3339",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "train",
+    "source": "145457.jpg",
+    "target": "067922.jpg",
+    "source_identity": "4027",
+    "target_identity": "824",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "003272.jpg",
+    "target": "081556.jpg",
+    "source_identity": "3159",
+    "target_identity": "8925",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "045033.jpg",
+    "target": "132006.jpg",
+    "source_identity": "1029",
+    "target_identity": "10111",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "002522.jpg",
+    "target": "035184.jpg",
+    "source_identity": "274",
+    "target_identity": "1662",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "train",
+    "source": "199375.jpg",
+    "target": "170761.jpg",
+    "source_identity": "6919",
+    "target_identity": "1908",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "007313.jpg",
+    "target": "109379.jpg",
+    "source_identity": "8761",
+    "target_identity": "7722",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "031808.jpg",
+    "target": "019076.jpg",
+    "source_identity": "2619",
+    "target_identity": "8601",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "018402.jpg",
+    "target": "084283.jpg",
+    "source_identity": "5890",
+    "target_identity": "781",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "055000.jpg",
+    "target": "030301.jpg",
+    "source_identity": "8864",
+    "target_identity": "6599",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "039778.jpg",
+    "target": "133367.jpg",
+    "source_identity": "6820",
+    "target_identity": "3649",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "150241.jpg",
+    "target": "080620.jpg",
+    "source_identity": "112",
+    "target_identity": "6055",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "137620.jpg",
+    "target": "064362.jpg",
+    "source_identity": "4203",
+    "target_identity": "530",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "000933.jpg",
+    "target": "089326.jpg",
+    "source_identity": "4412",
+    "target_identity": "10024",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "167885.jpg",
+    "target": "140658.jpg",
+    "source_identity": "3348",
+    "target_identity": "9860",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "train",
+    "source": "038271.jpg",
+    "target": "056890.jpg",
+    "source_identity": "5924",
+    "target_identity": "7115",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "057111.jpg",
+    "target": "065012.jpg",
+    "source_identity": "1867",
+    "target_identity": "224",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "train",
+    "source": "188564.jpg",
+    "target": "075684.jpg",
+    "source_identity": "9704",
+    "target_identity": "5406",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "112865.jpg",
+    "target": "181904.jpg",
+    "source_identity": "6835",
+    "target_identity": "4707",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "train",
+    "source": "174010.jpg",
+    "target": "100118.jpg",
+    "source_identity": "1302",
+    "target_identity": "3714",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "200794.jpg",
+    "target": "070988.jpg",
+    "source_identity": "5276",
+    "target_identity": "5879",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "163989.jpg",
+    "target": "004982.jpg",
+    "source_identity": "2365",
+    "target_identity": "1878",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "036145.jpg",
+    "target": "151200.jpg",
+    "source_identity": "5065",
+    "target_identity": "4469",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "train",
+    "source": "176595.jpg",
+    "target": "139349.jpg",
+    "source_identity": "604",
+    "target_identity": "7393",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "179455.jpg",
+    "target": "081297.jpg",
+    "accepted": false,
+    "reason": "A single visible face is required."
+  },
+  {
+    "partition": "train",
+    "source": "145480.jpg",
+    "target": "184999.jpg",
+    "source_identity": "9031",
+    "target_identity": "7088",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "053454.jpg",
+    "target": "088400.jpg",
+    "source_identity": "764",
+    "target_identity": "1898",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "train",
+    "source": "084062.jpg",
+    "target": "201060.jpg",
+    "source_identity": "6409",
+    "target_identity": "9073",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "119996.jpg",
+    "target": "190343.jpg",
+    "source_identity": "5124",
+    "target_identity": "7194",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "075008.jpg",
+    "target": "074352.jpg",
+    "source_identity": "4876",
+    "target_identity": "1883",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "143974.jpg",
+    "target": "153727.jpg",
+    "source_identity": "7399",
+    "target_identity": "6452",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "train",
+    "source": "046984.jpg",
+    "target": "159542.jpg",
+    "source_identity": "8230",
+    "target_identity": "5789",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "091241.jpg",
+    "target": "145514.jpg",
+    "source_identity": "545",
+    "target_identity": "9371",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "201055.jpg",
+    "target": "133650.jpg",
+    "source_identity": "6011",
+    "target_identity": "6446",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "129300.jpg",
+    "target": "005587.jpg",
+    "source_identity": "3910",
+    "target_identity": "3542",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "001704.jpg",
+    "target": "196742.jpg",
+    "source_identity": "1326",
+    "target_identity": "9964",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "021964.jpg",
+    "target": "142002.jpg",
+    "source_identity": "5345",
+    "target_identity": "8538",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "099549.jpg",
+    "target": "175651.jpg",
+    "source_identity": "4416",
+    "target_identity": "3770",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "001911.jpg",
+    "target": "193532.jpg",
+    "source_identity": "2313",
+    "target_identity": "9994",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "054478.jpg",
+    "target": "144100.jpg",
+    "source_identity": "4700",
+    "target_identity": "9441",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "065326.jpg",
+    "target": "081134.jpg",
+    "source_identity": "33",
+    "target_identity": "1397",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "094515.jpg",
+    "target": "063154.jpg",
+    "source_identity": "5126",
+    "target_identity": "10032",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "146467.jpg",
+    "target": "060958.jpg",
+    "source_identity": "2890",
+    "target_identity": "1224",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "081404.jpg",
+    "target": "012718.jpg",
+    "source_identity": "1125",
+    "target_identity": "5361",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "085002.jpg",
+    "target": "061353.jpg",
+    "source_identity": "8045",
+    "target_identity": "8952",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "028965.jpg",
+    "target": "122493.jpg",
+    "source_identity": "1012",
+    "target_identity": "4764",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "080183.jpg",
+    "target": "052932.jpg",
+    "source_identity": "10100",
+    "target_identity": "240",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "155920.jpg",
+    "target": "120102.jpg",
+    "source_identity": "1818",
+    "target_identity": "8451",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "train",
+    "source": "020554.jpg",
+    "target": "176383.jpg",
+    "source_identity": "8490",
+    "target_identity": "3140",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "176055.jpg",
+    "target": "159165.jpg",
+    "source_identity": "2087",
+    "target_identity": "9693",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "041869.jpg",
+    "target": "098404.jpg",
+    "source_identity": "623",
+    "target_identity": "362",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "074126.jpg",
+    "target": "183498.jpg",
+    "source_identity": "3616",
+    "target_identity": "5886",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "187178.jpg",
+    "target": "041029.jpg",
+    "source_identity": "9807",
+    "target_identity": "6251",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "170281.jpg",
+    "target": "077821.jpg",
+    "source_identity": "2726",
+    "target_identity": "5136",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "157553.jpg",
+    "target": "200957.jpg",
+    "source_identity": "3156",
+    "target_identity": "5033",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "025916.jpg",
+    "target": "199266.jpg",
+    "source_identity": "7221",
+    "target_identity": "9260",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "126501.jpg",
+    "target": "189482.jpg",
+    "source_identity": "8093",
+    "target_identity": "5030",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "106994.jpg",
+    "target": "008946.jpg",
+    "source_identity": "2872",
+    "target_identity": "7267",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "040514.jpg",
+    "target": "184368.jpg",
+    "source_identity": "2428",
+    "target_identity": "5301",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "133906.jpg",
+    "target": "174391.jpg",
+    "source_identity": "722",
+    "target_identity": "2180",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "110537.jpg",
+    "target": "067214.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "train",
+    "source": "070309.jpg",
+    "target": "109135.jpg",
+    "source_identity": "4603",
+    "target_identity": "8058",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "022170.jpg",
+    "target": "130376.jpg",
+    "source_identity": "5329",
+    "target_identity": "5587",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "110280.jpg",
+    "target": "008090.jpg",
+    "source_identity": "8203",
+    "target_identity": "2181",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "088895.jpg",
+    "target": "044574.jpg",
+    "source_identity": "2061",
+    "target_identity": "7906",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "033097.jpg",
+    "target": "171271.jpg",
+    "source_identity": "6838",
+    "target_identity": "2790",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "014073.jpg",
+    "target": "054191.jpg",
+    "source_identity": "3344",
+    "target_identity": "7267",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "061143.jpg",
+    "target": "202153.jpg",
+    "source_identity": "2692",
+    "target_identity": "7888",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "096889.jpg",
+    "target": "192542.jpg",
+    "source_identity": "2674",
+    "target_identity": "7170",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "122999.jpg",
+    "target": "113955.jpg",
+    "source_identity": "5534",
+    "target_identity": "4156",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "126471.jpg",
+    "target": "078695.jpg",
+    "source_identity": "7153",
+    "target_identity": "6395",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "082726.jpg",
+    "target": "063367.jpg",
+    "source_identity": "6878",
+    "target_identity": "4313",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "034808.jpg",
+    "target": "014927.jpg",
+    "source_identity": "1208",
+    "target_identity": "2853",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "145452.jpg",
+    "target": "202020.jpg",
+    "source_identity": "2667",
+    "target_identity": "8777",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "062736.jpg",
+    "target": "050460.jpg",
+    "source_identity": "9155",
+    "target_identity": "6260",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "train",
+    "source": "034020.jpg",
+    "target": "003218.jpg",
+    "source_identity": "5915",
+    "target_identity": "5704",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "train",
+    "source": "192148.jpg",
+    "target": "162733.jpg",
+    "source_identity": "8308",
+    "target_identity": "5094",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "162071.jpg",
+    "target": "015063.jpg",
+    "source_identity": "8973",
+    "target_identity": "4902",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "060617.jpg",
+    "target": "009584.jpg",
+    "source_identity": "766",
+    "target_identity": "1277",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "117415.jpg",
+    "target": "040123.jpg",
+    "source_identity": "2013",
+    "target_identity": "3689",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "108968.jpg",
+    "target": "092937.jpg",
+    "source_identity": "9373",
+    "target_identity": "3290",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "047846.jpg",
+    "target": "150880.jpg",
+    "source_identity": "8150",
+    "target_identity": "6282",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "082593.jpg",
+    "target": "163171.jpg",
+    "source_identity": "7222",
+    "target_identity": "3843",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "027522.jpg",
+    "target": "094982.jpg",
+    "source_identity": "322",
+    "target_identity": "2360",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "004695.jpg",
+    "target": "124573.jpg",
+    "source_identity": "8637",
+    "target_identity": "3284",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "053782.jpg",
+    "target": "125514.jpg",
+    "source_identity": "2728",
+    "target_identity": "8767",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "029381.jpg",
+    "target": "017883.jpg",
+    "source_identity": "2140",
+    "target_identity": "1116",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "014543.jpg",
+    "target": "125881.jpg",
+    "source_identity": "3238",
+    "target_identity": "3867",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "099078.jpg",
+    "target": "056690.jpg",
+    "source_identity": "6648",
+    "target_identity": "1764",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "043607.jpg",
+    "target": "201818.jpg",
+    "source_identity": "4939",
+    "target_identity": "7566",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "020130.jpg",
+    "target": "012854.jpg",
+    "source_identity": "4629",
+    "target_identity": "9608",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "199519.jpg",
+    "target": "173709.jpg",
+    "source_identity": "7620",
+    "target_identity": "2899",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "125814.jpg",
+    "target": "166706.jpg",
+    "source_identity": "966",
+    "target_identity": "3576",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "081878.jpg",
+    "target": "079376.jpg",
+    "source_identity": "1861",
+    "target_identity": "3628",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "train",
+    "source": "037183.jpg",
+    "target": "148846.jpg",
+    "source_identity": "24",
+    "target_identity": "3659",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "032828.jpg",
+    "target": "023962.jpg",
+    "source_identity": "3705",
+    "target_identity": "8029",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "train",
+    "source": "043562.jpg",
+    "target": "148337.jpg",
+    "source_identity": "5963",
+    "target_identity": "7338",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "001497.jpg",
+    "target": "092088.jpg",
+    "source_identity": "3431",
+    "target_identity": "2549",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "062240.jpg",
+    "target": "150185.jpg",
+    "source_identity": "4232",
+    "target_identity": "250",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "038637.jpg",
+    "target": "047347.jpg",
+    "source_identity": "4886",
+    "target_identity": "4484",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "068154.jpg",
+    "target": "109042.jpg",
+    "source_identity": "2880",
+    "target_identity": "5792",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "165072.jpg",
+    "target": "008865.jpg",
+    "source_identity": "4779",
+    "target_identity": "10106",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "167577.jpg",
+    "target": "110263.jpg",
+    "source_identity": "4733",
+    "target_identity": "2453",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "169810.jpg",
+    "target": "032154.jpg",
+    "source_identity": "4451",
+    "target_identity": "9539",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "143033.jpg",
+    "target": "085552.jpg",
+    "source_identity": "9052",
+    "target_identity": "534",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "154685.jpg",
+    "target": "060985.jpg",
+    "source_identity": "7844",
+    "target_identity": "958",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "046373.jpg",
+    "target": "093238.jpg",
+    "source_identity": "107",
+    "target_identity": "1375",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "193391.jpg",
+    "target": "022832.jpg",
+    "source_identity": "8110",
+    "target_identity": "8249",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "153131.jpg",
+    "target": "011661.jpg",
+    "source_identity": "9611",
+    "target_identity": "2881",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "127307.jpg",
+    "target": "119460.jpg",
+    "source_identity": "6220",
+    "target_identity": "4839",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "183759.jpg",
+    "target": "171523.jpg",
+    "source_identity": "6382",
+    "target_identity": "1964",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "train",
+    "source": "142652.jpg",
+    "target": "091008.jpg",
+    "source_identity": "1539",
+    "target_identity": "8250",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "193464.jpg",
+    "target": "183702.jpg",
+    "source_identity": "7360",
+    "target_identity": "8589",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "194607.jpg",
+    "target": "201163.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "train",
+    "source": "102793.jpg",
+    "target": "051000.jpg",
+    "source_identity": "3460",
+    "target_identity": "8278",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "076690.jpg",
+    "target": "046052.jpg",
+    "source_identity": "1898",
+    "target_identity": "2674",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "091286.jpg",
+    "target": "120958.jpg",
+    "source_identity": "4361",
+    "target_identity": "4104",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "091245.jpg",
+    "target": "120936.jpg",
+    "source_identity": "3681",
+    "target_identity": "9329",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "153043.jpg",
+    "target": "124202.jpg",
+    "source_identity": "7146",
+    "target_identity": "6536",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "193262.jpg",
+    "target": "067482.jpg",
+    "source_identity": "8734",
+    "target_identity": "198",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "023190.jpg",
+    "target": "111690.jpg",
+    "source_identity": "9303",
+    "target_identity": "7933",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "194041.jpg",
+    "target": "082442.jpg",
+    "source_identity": "5013",
+    "target_identity": "4570",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "151822.jpg",
+    "target": "111141.jpg",
+    "source_identity": "6659",
+    "target_identity": "2833",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "038439.jpg",
+    "target": "146831.jpg",
+    "source_identity": "1608",
+    "target_identity": "2508",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "149831.jpg",
+    "target": "061159.jpg",
+    "source_identity": "4753",
+    "target_identity": "6672",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "train",
+    "source": "135441.jpg",
+    "target": "004714.jpg",
+    "source_identity": "8113",
+    "target_identity": "3969",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "067549.jpg",
+    "target": "039059.jpg",
+    "source_identity": "2090",
+    "target_identity": "5115",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "172966.jpg",
+    "target": "197646.jpg",
+    "source_identity": "3116",
+    "target_identity": "7900",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "143978.jpg",
+    "target": "023081.jpg",
+    "source_identity": "8230",
+    "target_identity": "4415",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "067747.jpg",
+    "target": "001573.jpg",
+    "source_identity": "6310",
+    "target_identity": "4746",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "021290.jpg",
+    "target": "111609.jpg",
+    "source_identity": "3744",
+    "target_identity": "71",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "199880.jpg",
+    "target": "021323.jpg",
+    "source_identity": "5563",
+    "target_identity": "51",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "train",
+    "source": "154882.jpg",
+    "target": "196254.jpg",
+    "source_identity": "50",
+    "target_identity": "6257",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "028514.jpg",
+    "target": "186895.jpg",
+    "source_identity": "3542",
+    "target_identity": "5481",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "161026.jpg",
+    "target": "073572.jpg",
+    "source_identity": "4477",
+    "target_identity": "6430",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "068817.jpg",
+    "target": "145609.jpg",
+    "source_identity": "7207",
+    "target_identity": "5258",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "120695.jpg",
+    "target": "044684.jpg",
+    "source_identity": "8795",
+    "target_identity": "3504",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "161621.jpg",
+    "target": "060777.jpg",
+    "source_identity": "5107",
+    "target_identity": "1421",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "014643.jpg",
+    "target": "047630.jpg",
+    "source_identity": "2043",
+    "target_identity": "1545",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "100262.jpg",
+    "target": "060539.jpg",
+    "source_identity": "1573",
+    "target_identity": "5293",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "train",
+    "source": "039439.jpg",
+    "target": "009583.jpg",
+    "source_identity": "5649",
+    "target_identity": "6035",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "056283.jpg",
+    "target": "099142.jpg",
+    "source_identity": "1076",
+    "target_identity": "9007",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "074539.jpg",
+    "target": "175254.jpg",
+    "source_identity": "1904",
+    "target_identity": "1927",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "198104.jpg",
+    "target": "084067.jpg",
+    "source_identity": "8049",
+    "target_identity": "9935",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "train",
+    "source": "071631.jpg",
+    "target": "057943.jpg",
+    "source_identity": "9592",
+    "target_identity": "4357",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "089083.jpg",
+    "target": "198062.jpg",
+    "source_identity": "9517",
+    "target_identity": "7868",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "145762.jpg",
+    "target": "067707.jpg",
+    "source_identity": "2662",
+    "target_identity": "4719",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "train",
+    "source": "066957.jpg",
+    "target": "177948.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "train",
+    "source": "013967.jpg",
+    "target": "098689.jpg",
+    "source_identity": "5021",
+    "target_identity": "7656",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "094252.jpg",
+    "target": "077441.jpg",
+    "accepted": false,
+    "reason": "No face detected in image by MediaPipe FaceLandmarker"
+  },
+  {
+    "partition": "train",
+    "source": "061062.jpg",
+    "target": "114894.jpg",
+    "source_identity": "6755",
+    "target_identity": "9199",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "067262.jpg",
+    "target": "017370.jpg",
+    "source_identity": "4821",
+    "target_identity": "253",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "077967.jpg",
+    "target": "071501.jpg",
+    "source_identity": "10069",
+    "target_identity": "2783",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "155859.jpg",
+    "target": "042690.jpg",
+    "source_identity": "3151",
+    "target_identity": "415",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "102483.jpg",
+    "target": "154853.jpg",
+    "source_identity": "2392",
+    "target_identity": "1456",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "007354.jpg",
+    "target": "139732.jpg",
+    "source_identity": "3817",
+    "target_identity": "3457",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "129494.jpg",
+    "target": "184747.jpg",
+    "source_identity": "8526",
+    "target_identity": "7824",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "015326.jpg",
+    "target": "091590.jpg",
+    "source_identity": "5800",
+    "target_identity": "3310",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "137124.jpg",
+    "target": "033006.jpg",
+    "source_identity": "7904",
+    "target_identity": "4810",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "train",
+    "source": "174866.jpg",
+    "target": "143534.jpg",
+    "source_identity": "604",
+    "target_identity": "5154",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "042409.jpg",
+    "target": "093321.jpg",
+    "source_identity": "3670",
+    "target_identity": "2067",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "117578.jpg",
+    "target": "151490.jpg",
+    "source_identity": "5468",
+    "target_identity": "5961",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "161651.jpg",
+    "target": "164190.jpg",
+    "source_identity": "3468",
+    "target_identity": "2418",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "036880.jpg",
+    "target": "007652.jpg",
+    "source_identity": "3744",
+    "target_identity": "223",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "train",
+    "source": "081906.jpg",
+    "target": "133215.jpg",
+    "source_identity": "1108",
+    "target_identity": "4274",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "022276.jpg",
+    "target": "110948.jpg",
+    "source_identity": "9089",
+    "target_identity": "2330",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "084539.jpg",
+    "target": "032273.jpg",
+    "source_identity": "3795",
+    "target_identity": "2805",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "060694.jpg",
+    "target": "069820.jpg",
+    "source_identity": "5135",
+    "target_identity": "5468",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "182649.jpg",
+    "target": "189681.jpg",
+    "source_identity": "5872",
+    "target_identity": "9328",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "train",
+    "source": "168036.jpg",
+    "target": "106360.jpg",
+    "source_identity": "4669",
+    "target_identity": "1917",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "173878.jpg",
+    "target": "012526.jpg",
+    "source_identity": "870",
+    "target_identity": "7326",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "012622.jpg",
+    "target": "055920.jpg",
+    "source_identity": "3473",
+    "target_identity": "825",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "128609.jpg",
+    "target": "202169.jpg",
+    "source_identity": "5740",
+    "target_identity": "9600",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "train",
+    "source": "134061.jpg",
+    "target": "027339.jpg",
+    "source_identity": "5559",
+    "target_identity": "3871",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "199730.jpg",
+    "target": "026735.jpg",
+    "source_identity": "8673",
+    "target_identity": "8383",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "095428.jpg",
+    "target": "162645.jpg",
+    "source_identity": "375",
+    "target_identity": "4922",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "127907.jpg",
+    "target": "030507.jpg",
+    "source_identity": "2631",
+    "target_identity": "7287",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "072008.jpg",
+    "target": "162898.jpg",
+    "source_identity": "1629",
+    "target_identity": "4560",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "068474.jpg",
+    "target": "176737.jpg",
+    "source_identity": "2701",
+    "target_identity": "957",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "010954.jpg",
+    "target": "089148.jpg",
+    "source_identity": "9616",
+    "target_identity": "6137",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "002648.jpg",
+    "target": "034812.jpg",
+    "source_identity": "8391",
+    "target_identity": "1052",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "128429.jpg",
+    "target": "199683.jpg",
+    "source_identity": "3191",
+    "target_identity": "10108",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "train",
+    "source": "093545.jpg",
+    "target": "062981.jpg",
+    "source_identity": "7659",
+    "target_identity": "8550",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "109310.jpg",
+    "target": "006091.jpg",
+    "source_identity": "1752",
+    "target_identity": "565",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "166426.jpg",
+    "target": "012230.jpg",
+    "source_identity": "3409",
+    "target_identity": "3733",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "131055.jpg",
+    "target": "160604.jpg",
+    "source_identity": "8875",
+    "target_identity": "3949",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "083491.jpg",
+    "target": "032660.jpg",
+    "source_identity": "6484",
+    "target_identity": "962",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "045857.jpg",
+    "target": "160503.jpg",
+    "source_identity": "5629",
+    "target_identity": "5750",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "train",
+    "source": "110265.jpg",
+    "target": "013751.jpg",
+    "source_identity": "10093",
+    "target_identity": "2508",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "131810.jpg",
+    "target": "082150.jpg",
+    "accepted": false,
+    "reason": "No face detected in image by MediaPipe FaceLandmarker"
+  },
+  {
+    "partition": "train",
+    "source": "187638.jpg",
+    "target": "040292.jpg",
+    "source_identity": "8445",
+    "target_identity": "1691",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "093299.jpg",
+    "target": "000633.jpg",
+    "source_identity": "1925",
+    "target_identity": "9577",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "063113.jpg",
+    "target": "191332.jpg",
+    "source_identity": "5762",
+    "target_identity": "7886",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "025568.jpg",
+    "target": "196801.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "train",
+    "source": "178235.jpg",
+    "target": "001573.jpg",
+    "source_identity": "1529",
+    "target_identity": "4746",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "147163.jpg",
+    "target": "120238.jpg",
+    "source_identity": "375",
+    "target_identity": "638",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "006940.jpg",
+    "target": "148215.jpg",
+    "source_identity": "8521",
+    "target_identity": "2385",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "143780.jpg",
+    "target": "086935.jpg",
+    "source_identity": "2449",
+    "target_identity": "8833",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "train",
+    "source": "080154.jpg",
+    "target": "163171.jpg",
+    "source_identity": "8339",
+    "target_identity": "3843",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "train",
+    "source": "010447.jpg",
+    "target": "185436.jpg",
+    "source_identity": "1957",
+    "target_identity": "9349",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "061353.jpg",
+    "target": "164559.jpg",
+    "source_identity": "8952",
+    "target_identity": "2167",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "143780.jpg",
+    "target": "046449.jpg",
+    "source_identity": "2449",
+    "target_identity": "1296",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "014145.jpg",
+    "target": "029026.jpg",
+    "source_identity": "144",
+    "target_identity": "2447",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "046062.jpg",
+    "target": "068869.jpg",
+    "source_identity": "8508",
+    "target_identity": "7594",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "046811.jpg",
+    "target": "144214.jpg",
+    "source_identity": "2993",
+    "target_identity": "4415",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "156164.jpg",
+    "target": "127485.jpg",
+    "source_identity": "6624",
+    "target_identity": "1549",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "128824.jpg",
+    "target": "184580.jpg",
+    "source_identity": "7846",
+    "target_identity": "6857",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "019538.jpg",
+    "target": "017624.jpg",
+    "source_identity": "1766",
+    "target_identity": "2961",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "014497.jpg",
+    "target": "177078.jpg",
+    "source_identity": "5081",
+    "target_identity": "4812",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "train",
+    "source": "141834.jpg",
+    "target": "123862.jpg",
+    "source_identity": "5096",
+    "target_identity": "2509",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "055349.jpg",
+    "target": "024295.jpg",
+    "source_identity": "9646",
+    "target_identity": "8546",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "200805.jpg",
+    "target": "125087.jpg",
+    "source_identity": "7397",
+    "target_identity": "9486",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "train",
+    "source": "160705.jpg",
+    "target": "001042.jpg",
+    "source_identity": "943",
+    "target_identity": "10046",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "166843.jpg",
+    "target": "118481.jpg",
+    "source_identity": "947",
+    "target_identity": "4376",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "057068.jpg",
+    "target": "150905.jpg",
+    "source_identity": "5581",
+    "target_identity": "2820",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "024409.jpg",
+    "target": "116557.jpg",
+    "source_identity": "5469",
+    "target_identity": "4459",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "081516.jpg",
+    "target": "134393.jpg",
+    "source_identity": "4538",
+    "target_identity": "9837",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "041038.jpg",
+    "target": "116605.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "train",
+    "source": "053078.jpg",
+    "target": "017001.jpg",
+    "source_identity": "9636",
+    "target_identity": "3598",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "073339.jpg",
+    "target": "066057.jpg",
+    "source_identity": "9487",
+    "target_identity": "2979",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "066488.jpg",
+    "target": "150708.jpg",
+    "source_identity": "8133",
+    "target_identity": "2506",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "train",
+    "source": "076893.jpg",
+    "target": "015175.jpg",
+    "source_identity": "5525",
+    "target_identity": "7555",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "174607.jpg",
+    "target": "103650.jpg",
+    "source_identity": "842",
+    "target_identity": "6549",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "055997.jpg",
+    "target": "149055.jpg",
+    "source_identity": "1434",
+    "target_identity": "5558",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "094849.jpg",
+    "target": "071448.jpg",
+    "source_identity": "7832",
+    "target_identity": "90",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "096065.jpg",
+    "target": "043195.jpg",
+    "source_identity": "4630",
+    "target_identity": "9826",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "063912.jpg",
+    "target": "108928.jpg",
+    "source_identity": "8282",
+    "target_identity": "1985",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "077502.jpg",
+    "target": "193447.jpg",
+    "source_identity": "3061",
+    "target_identity": "9684",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "059289.jpg",
+    "target": "097756.jpg",
+    "source_identity": "1149",
+    "target_identity": "5562",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "052516.jpg",
+    "target": "115294.jpg",
+    "source_identity": "1996",
+    "target_identity": "1318",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "141987.jpg",
+    "target": "186321.jpg",
+    "source_identity": "7305",
+    "target_identity": "5467",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "125141.jpg",
+    "target": "069231.jpg",
+    "source_identity": "8357",
+    "target_identity": "5095",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "000520.jpg",
+    "target": "107071.jpg",
+    "source_identity": "4633",
+    "target_identity": "5166",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "013307.jpg",
+    "target": "168702.jpg",
+    "source_identity": "1244",
+    "target_identity": "1185",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "108552.jpg",
+    "target": "041179.jpg",
+    "source_identity": "6728",
+    "target_identity": "3898",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "116669.jpg",
+    "target": "130354.jpg",
+    "source_identity": "7786",
+    "target_identity": "5612",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "012223.jpg",
+    "target": "103440.jpg",
+    "source_identity": "5871",
+    "target_identity": "8764",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "train",
+    "source": "089105.jpg",
+    "target": "046497.jpg",
+    "source_identity": "2570",
+    "target_identity": "5782",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "114971.jpg",
+    "target": "086413.jpg",
+    "source_identity": "4697",
+    "target_identity": "8175",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "139553.jpg",
+    "target": "018343.jpg",
+    "source_identity": "1041",
+    "target_identity": "6255",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "191611.jpg",
+    "target": "084654.jpg",
+    "source_identity": "7831",
+    "target_identity": "4792",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "197128.jpg",
+    "target": "104085.jpg",
+    "source_identity": "9194",
+    "target_identity": "5712",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "032473.jpg",
+    "target": "152210.jpg",
+    "accepted": false,
+    "reason": "A single visible face is required."
+  },
+  {
+    "partition": "train",
+    "source": "139699.jpg",
+    "target": "061413.jpg",
+    "source_identity": "5145",
+    "target_identity": "7810",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "124262.jpg",
+    "target": "051588.jpg",
+    "source_identity": "6987",
+    "target_identity": "2633",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "train",
+    "source": "152111.jpg",
+    "target": "135802.jpg",
+    "source_identity": "6096",
+    "target_identity": "4199",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "053262.jpg",
+    "target": "076139.jpg",
+    "source_identity": "7818",
+    "target_identity": "2470",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "029152.jpg",
+    "target": "063335.jpg",
+    "source_identity": "4220",
+    "target_identity": "2794",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "train",
+    "source": "016870.jpg",
+    "target": "121320.jpg",
+    "source_identity": "3063",
+    "target_identity": "5046",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "071939.jpg",
+    "target": "062234.jpg",
+    "source_identity": "8504",
+    "target_identity": "9346",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "092928.jpg",
+    "target": "076622.jpg",
+    "source_identity": "4231",
+    "target_identity": "8991",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "081035.jpg",
+    "target": "191390.jpg",
+    "source_identity": "180",
+    "target_identity": "8789",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "106573.jpg",
+    "target": "165710.jpg",
+    "source_identity": "7369",
+    "target_identity": "2985",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "train",
+    "source": "134510.jpg",
+    "target": "145402.jpg",
+    "source_identity": "3715",
+    "target_identity": "4138",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "063867.jpg",
+    "target": "038599.jpg",
+    "source_identity": "5505",
+    "target_identity": "4013",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "064551.jpg",
+    "target": "051548.jpg",
+    "source_identity": "10117",
+    "target_identity": "6325",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "train",
+    "source": "142507.jpg",
+    "target": "190854.jpg",
+    "source_identity": "3138",
+    "target_identity": "7707",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "178685.jpg",
+    "target": "013657.jpg",
+    "source_identity": "1689",
+    "target_identity": "4730",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "085076.jpg",
+    "target": "023682.jpg",
+    "source_identity": "7061",
+    "target_identity": "8320",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "092906.jpg",
+    "target": "155647.jpg",
+    "source_identity": "3386",
+    "target_identity": "771",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "181241.jpg",
+    "target": "196704.jpg",
+    "source_identity": "720",
+    "target_identity": "5665",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "031319.jpg",
+    "target": "068289.jpg",
+    "source_identity": "8509",
+    "target_identity": "6853",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "train",
+    "source": "040829.jpg",
+    "target": "080934.jpg",
+    "source_identity": "6955",
+    "target_identity": "1592",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "train",
+    "source": "105565.jpg",
+    "target": "110111.jpg",
+    "source_identity": "3171",
+    "target_identity": "368",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "train",
+    "source": "183213.jpg",
+    "target": "043338.jpg",
+    "source_identity": "5301",
+    "target_identity": "5733",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "train",
+    "source": "110681.jpg",
+    "target": "170297.jpg",
+    "source_identity": "9182",
+    "target_identity": "737",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "train",
+    "source": "021666.jpg",
+    "target": "007618.jpg",
+    "source_identity": "7013",
+    "target_identity": "1442",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "train",
+    "source": "092270.jpg",
+    "target": "133702.jpg",
+    "source_identity": "3856",
+    "target_identity": "7052",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "train",
+    "source": "056195.jpg",
+    "target": "095488.jpg",
+    "source_identity": "5200",
+    "target_identity": "7751",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "193840.jpg",
+    "target": "146694.jpg",
+    "source_identity": "8931",
+    "target_identity": "4819",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "train",
+    "source": "137299.jpg",
+    "target": "074315.jpg",
+    "source_identity": "2371",
+    "target_identity": "7520",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "145755.jpg",
+    "target": "132344.jpg",
+    "source_identity": "1985",
+    "target_identity": "8682",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "177063.jpg",
+    "target": "082697.jpg",
+    "source_identity": "3859",
+    "target_identity": "5073",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "train",
+    "source": "156291.jpg",
+    "target": "144021.jpg",
+    "source_identity": "5693",
+    "target_identity": "4879",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "train",
+    "source": "094826.jpg",
+    "target": "117283.jpg",
+    "source_identity": "985",
+    "target_identity": "6983",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "068192.jpg",
+    "target": "118946.jpg",
+    "source_identity": "2335",
+    "target_identity": "5673",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "train",
+    "source": "151273.jpg",
+    "target": "157691.jpg",
+    "source_identity": "1429",
+    "target_identity": "7339",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "train",
+    "source": "027287.jpg",
+    "target": "135139.jpg",
+    "source_identity": "9677",
+    "target_identity": "5240",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "train",
+    "source": "035603.jpg",
+    "target": "098463.jpg",
+    "source_identity": "4332",
+    "target_identity": "2522",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "141386.jpg",
+    "target": "156582.jpg",
+    "source_identity": "6468",
+    "target_identity": "6905",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "train",
+    "source": "135020.jpg",
+    "target": "199739.jpg",
+    "source_identity": "9160",
+    "target_identity": "7573",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "train",
+    "source": "152895.jpg",
+    "target": "088535.jpg",
+    "source_identity": "10067",
+    "target_identity": "4563",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "train",
+    "source": "141033.jpg",
+    "target": "017383.jpg",
+    "source_identity": "10110",
+    "target_identity": "8471",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "train",
+    "source": "068487.jpg",
+    "target": "170707.jpg",
+    "source_identity": "5844",
+    "target_identity": "1184",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "train",
+    "source": "187152.jpg",
+    "target": "113972.jpg",
+    "source_identity": "5091",
+    "target_identity": "9167",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "calibration",
+    "source": "169811.jpg",
+    "target": "134031.jpg",
+    "source_identity": "261",
+    "target_identity": "5504",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "calibration",
+    "source": "023674.jpg",
+    "target": "058912.jpg",
+    "source_identity": "1377",
+    "target_identity": "7337",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "calibration",
+    "source": "072045.jpg",
+    "target": "103131.jpg",
+    "source_identity": "9648",
+    "target_identity": "1358",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "calibration",
+    "source": "004650.jpg",
+    "target": "011799.jpg",
+    "source_identity": "9513",
+    "target_identity": "7350",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "calibration",
+    "source": "131616.jpg",
+    "target": "058571.jpg",
+    "source_identity": "3353",
+    "target_identity": "272",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "calibration",
+    "source": "020396.jpg",
+    "target": "075926.jpg",
+    "source_identity": "41",
+    "target_identity": "7184",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "calibration",
+    "source": "148338.jpg",
+    "target": "129502.jpg",
+    "source_identity": "1056",
+    "target_identity": "9959",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "calibration",
+    "source": "037633.jpg",
+    "target": "177691.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "calibration",
+    "source": "157680.jpg",
+    "target": "169528.jpg",
+    "source_identity": "5899",
+    "target_identity": "261",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "calibration",
+    "source": "010088.jpg",
+    "target": "077252.jpg",
+    "source_identity": "5653",
+    "target_identity": "897",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "calibration",
+    "source": "072337.jpg",
+    "target": "188311.jpg",
+    "source_identity": "7861",
+    "target_identity": "10154",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "calibration",
+    "source": "130302.jpg",
+    "target": "061537.jpg",
+    "source_identity": "6818",
+    "target_identity": "6341",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "calibration",
+    "source": "070262.jpg",
+    "target": "101503.jpg",
+    "source_identity": "5847",
+    "target_identity": "5609",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "calibration",
+    "source": "188637.jpg",
+    "target": "004775.jpg",
+    "source_identity": "8234",
+    "target_identity": "3147",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "calibration",
+    "source": "189786.jpg",
+    "target": "141683.jpg",
+    "source_identity": "6837",
+    "target_identity": "4449",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "calibration",
+    "source": "064404.jpg",
+    "target": "148481.jpg",
+    "source_identity": "1352",
+    "target_identity": "5014",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "calibration",
+    "source": "085426.jpg",
+    "target": "151950.jpg",
+    "source_identity": "7719",
+    "target_identity": "1862",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "calibration",
+    "source": "011755.jpg",
+    "target": "166558.jpg",
+    "source_identity": "5368",
+    "target_identity": "1042",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "calibration",
+    "source": "036312.jpg",
+    "target": "093026.jpg",
+    "source_identity": "570",
+    "target_identity": "6729",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "calibration",
+    "source": "180849.jpg",
+    "target": "027900.jpg",
+    "source_identity": "1967",
+    "target_identity": "1812",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "calibration",
+    "source": "092867.jpg",
+    "target": "081001.jpg",
+    "source_identity": "1995",
+    "target_identity": "5688",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "calibration",
+    "source": "179661.jpg",
+    "target": "141196.jpg",
+    "source_identity": "376",
+    "target_identity": "3492",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "calibration",
+    "source": "154758.jpg",
+    "target": "036638.jpg",
+    "source_identity": "8684",
+    "target_identity": "8742",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "calibration",
+    "source": "131338.jpg",
+    "target": "092135.jpg",
+    "source_identity": "7219",
+    "target_identity": "8742",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "calibration",
+    "source": "095076.jpg",
+    "target": "172143.jpg",
+    "source_identity": "10026",
+    "target_identity": "2765",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "calibration",
+    "source": "150684.jpg",
+    "target": "137821.jpg",
+    "source_identity": "64",
+    "target_identity": "206",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "calibration",
+    "source": "144255.jpg",
+    "target": "117907.jpg",
+    "source_identity": "9042",
+    "target_identity": "9281",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "calibration",
+    "source": "022308.jpg",
+    "target": "052847.jpg",
+    "source_identity": "3422",
+    "target_identity": "1113",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "calibration",
+    "source": "050064.jpg",
+    "target": "055722.jpg",
+    "source_identity": "2545",
+    "target_identity": "790",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "calibration",
+    "source": "076472.jpg",
+    "target": "170546.jpg",
+    "source_identity": "10051",
+    "target_identity": "3924",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "calibration",
+    "source": "137556.jpg",
+    "target": "019114.jpg",
+    "source_identity": "9689",
+    "target_identity": "6722",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "calibration",
+    "source": "154863.jpg",
+    "target": "063135.jpg",
+    "source_identity": "10136",
+    "target_identity": "2545",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "calibration",
+    "source": "035743.jpg",
+    "target": "160542.jpg",
+    "source_identity": "8848",
+    "target_identity": "5763",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "calibration",
+    "source": "130358.jpg",
+    "target": "041929.jpg",
+    "source_identity": "3936",
+    "target_identity": "5869",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "calibration",
+    "source": "139551.jpg",
+    "target": "102507.jpg",
+    "source_identity": "2276",
+    "target_identity": "9205",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "calibration",
+    "source": "097744.jpg",
+    "target": "068565.jpg",
+    "source_identity": "724",
+    "target_identity": "1526",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "calibration",
+    "source": "075104.jpg",
+    "target": "140110.jpg",
+    "source_identity": "946",
+    "target_identity": "6091",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "calibration",
+    "source": "089553.jpg",
+    "target": "200533.jpg",
+    "source_identity": "10122",
+    "target_identity": "7823",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "calibration",
+    "source": "179752.jpg",
+    "target": "095303.jpg",
+    "source_identity": "1469",
+    "target_identity": "8494",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "calibration",
+    "source": "139795.jpg",
+    "target": "023834.jpg",
+    "source_identity": "8922",
+    "target_identity": "7021",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "calibration",
+    "source": "134972.jpg",
+    "target": "041703.jpg",
+    "source_identity": "3671",
+    "target_identity": "3914",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "calibration",
+    "source": "060307.jpg",
+    "target": "192979.jpg",
+    "source_identity": "5905",
+    "target_identity": "7823",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "calibration",
+    "source": "083301.jpg",
+    "target": "022300.jpg",
+    "source_identity": "3988",
+    "target_identity": "1069",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "calibration",
+    "source": "109992.jpg",
+    "target": "192812.jpg",
+    "source_identity": "5348",
+    "target_identity": "7607",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "calibration",
+    "source": "084355.jpg",
+    "target": "090851.jpg",
+    "source_identity": "1200",
+    "target_identity": "621",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "calibration",
+    "source": "192965.jpg",
+    "target": "125774.jpg",
+    "source_identity": "8459",
+    "target_identity": "6396",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "calibration",
+    "source": "133566.jpg",
+    "target": "141488.jpg",
+    "source_identity": "5037",
+    "target_identity": "8343",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "calibration",
+    "source": "073469.jpg",
+    "target": "094697.jpg",
+    "source_identity": "9802",
+    "target_identity": "5652",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "calibration",
+    "source": "178931.jpg",
+    "target": "104670.jpg",
+    "source_identity": "327",
+    "target_identity": "731",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "calibration",
+    "source": "115240.jpg",
+    "target": "179368.jpg",
+    "source_identity": "167",
+    "target_identity": "1117",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "calibration",
+    "source": "009262.jpg",
+    "target": "181540.jpg",
+    "source_identity": "587",
+    "target_identity": "1506",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "calibration",
+    "source": "017950.jpg",
+    "target": "027491.jpg",
+    "source_identity": "1973",
+    "target_identity": "6264",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "calibration",
+    "source": "028780.jpg",
+    "target": "142853.jpg",
+    "source_identity": "1948",
+    "target_identity": "113",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "calibration",
+    "source": "173970.jpg",
+    "target": "064404.jpg",
+    "source_identity": "3445",
+    "target_identity": "1352",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "calibration",
+    "source": "160441.jpg",
+    "target": "190366.jpg",
+    "source_identity": "6475",
+    "target_identity": "8520",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "calibration",
+    "source": "027304.jpg",
+    "target": "160717.jpg",
+    "source_identity": "6127",
+    "target_identity": "7702",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "calibration",
+    "source": "042898.jpg",
+    "target": "030818.jpg",
+    "source_identity": "9552",
+    "target_identity": "1834",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "calibration",
+    "source": "135637.jpg",
+    "target": "152524.jpg",
+    "source_identity": "7383",
+    "target_identity": "70",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "calibration",
+    "source": "022792.jpg",
+    "target": "182456.jpg",
+    "source_identity": "7098",
+    "target_identity": "4144",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "calibration",
+    "source": "084244.jpg",
+    "target": "194415.jpg",
+    "source_identity": "58",
+    "target_identity": "6047",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "calibration",
+    "source": "093036.jpg",
+    "target": "122604.jpg",
+    "source_identity": "9435",
+    "target_identity": "8711",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "calibration",
+    "source": "149213.jpg",
+    "target": "023244.jpg",
+    "source_identity": "8051",
+    "target_identity": "6138",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "calibration",
+    "source": "000592.jpg",
+    "target": "192228.jpg",
+    "source_identity": "4411",
+    "target_identity": "8569",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "calibration",
+    "source": "052908.jpg",
+    "target": "002690.jpg",
+    "source_identity": "1643",
+    "target_identity": "9366",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "calibration",
+    "source": "064951.jpg",
+    "target": "031877.jpg",
+    "source_identity": "3188",
+    "target_identity": "6224",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "calibration",
+    "source": "012898.jpg",
+    "target": "134299.jpg",
+    "source_identity": "328",
+    "target_identity": "4112",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "calibration",
+    "source": "078169.jpg",
+    "target": "128649.jpg",
+    "source_identity": "7626",
+    "target_identity": "8240",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "calibration",
+    "source": "170986.jpg",
+    "target": "196328.jpg",
+    "accepted": false,
+    "reason": "A single visible face is required."
+  },
+  {
+    "partition": "calibration",
+    "source": "163057.jpg",
+    "target": "186369.jpg",
+    "source_identity": "2860",
+    "target_identity": "8736",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "calibration",
+    "source": "011864.jpg",
+    "target": "131475.jpg",
+    "source_identity": "5025",
+    "target_identity": "587",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "calibration",
+    "source": "033338.jpg",
+    "target": "201517.jpg",
+    "accepted": false,
+    "reason": "No face detected in image by MediaPipe FaceLandmarker"
+  },
+  {
+    "partition": "calibration",
+    "source": "188084.jpg",
+    "target": "149961.jpg",
+    "source_identity": "9163",
+    "target_identity": "9201",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "calibration",
+    "source": "138394.jpg",
+    "target": "178998.jpg",
+    "source_identity": "293",
+    "target_identity": "4261",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "calibration",
+    "source": "194687.jpg",
+    "target": "158192.jpg",
+    "source_identity": "6837",
+    "target_identity": "1231",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "calibration",
+    "source": "057928.jpg",
+    "target": "155695.jpg",
+    "source_identity": "1112",
+    "target_identity": "8472",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "calibration",
+    "source": "108626.jpg",
+    "target": "157251.jpg",
+    "source_identity": "2602",
+    "target_identity": "2339",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "calibration",
+    "source": "127680.jpg",
+    "target": "160255.jpg",
+    "source_identity": "292",
+    "target_identity": "6453",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "calibration",
+    "source": "010791.jpg",
+    "target": "200451.jpg",
+    "source_identity": "8173",
+    "target_identity": "5987",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "calibration",
+    "source": "102395.jpg",
+    "target": "077076.jpg",
+    "source_identity": "3677",
+    "target_identity": "3401",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "calibration",
+    "source": "024866.jpg",
+    "target": "038275.jpg",
+    "source_identity": "3335",
+    "target_identity": "9442",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "calibration",
+    "source": "153600.jpg",
+    "target": "130403.jpg",
+    "source_identity": "9915",
+    "target_identity": "6529",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "calibration",
+    "source": "044344.jpg",
+    "target": "180842.jpg",
+    "source_identity": "3277",
+    "target_identity": "854",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "calibration",
+    "source": "076458.jpg",
+    "target": "086204.jpg",
+    "source_identity": "6037",
+    "target_identity": "4019",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "calibration",
+    "source": "012005.jpg",
+    "target": "141133.jpg",
+    "source_identity": "4822",
+    "target_identity": "878",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "calibration",
+    "source": "174023.jpg",
+    "target": "197491.jpg",
+    "source_identity": "4442",
+    "target_identity": "7488",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "calibration",
+    "source": "109733.jpg",
+    "target": "117044.jpg",
+    "source_identity": "1505",
+    "target_identity": "667",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "calibration",
+    "source": "005996.jpg",
+    "target": "134168.jpg",
+    "source_identity": "4726",
+    "target_identity": "9972",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "calibration",
+    "source": "183242.jpg",
+    "target": "003243.jpg",
+    "source_identity": "6710",
+    "target_identity": "8920",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "calibration",
+    "source": "030292.jpg",
+    "target": "035005.jpg",
+    "source_identity": "5265",
+    "target_identity": "9783",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "calibration",
+    "source": "153530.jpg",
+    "target": "037885.jpg",
+    "source_identity": "7955",
+    "target_identity": "8885",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "calibration",
+    "source": "175781.jpg",
+    "target": "006389.jpg",
+    "source_identity": "317",
+    "target_identity": "1738",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "calibration",
+    "source": "011967.jpg",
+    "target": "023570.jpg",
+    "source_identity": "974",
+    "target_identity": "7386",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "calibration",
+    "source": "072297.jpg",
+    "target": "086379.jpg",
+    "source_identity": "2727",
+    "target_identity": "292",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "calibration",
+    "source": "012340.jpg",
+    "target": "162629.jpg",
+    "source_identity": "8028",
+    "target_identity": "2197",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "calibration",
+    "source": "082365.jpg",
+    "target": "130683.jpg",
+    "source_identity": "7377",
+    "target_identity": "6784",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "calibration",
+    "source": "119509.jpg",
+    "target": "139034.jpg",
+    "source_identity": "4354",
+    "target_identity": "757",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "calibration",
+    "source": "121509.jpg",
+    "target": "085681.jpg",
+    "source_identity": "9117",
+    "target_identity": "2620",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "calibration",
+    "source": "052079.jpg",
+    "target": "126952.jpg",
+    "source_identity": "8044",
+    "target_identity": "8524",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "calibration",
+    "source": "093447.jpg",
+    "target": "183321.jpg",
+    "source_identity": "4572",
+    "target_identity": "6824",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "calibration",
+    "source": "010186.jpg",
+    "target": "170016.jpg",
+    "source_identity": "9383",
+    "target_identity": "3978",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "calibration",
+    "source": "111010.jpg",
+    "target": "062235.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "calibration",
+    "source": "115847.jpg",
+    "target": "087450.jpg",
+    "source_identity": "4573",
+    "target_identity": "9321",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "calibration",
+    "source": "055797.jpg",
+    "target": "076595.jpg",
+    "source_identity": "7829",
+    "target_identity": "5578",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "calibration",
+    "source": "071399.jpg",
+    "target": "020026.jpg",
+    "source_identity": "5092",
+    "target_identity": "7219",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "calibration",
+    "source": "011764.jpg",
+    "target": "201505.jpg",
+    "source_identity": "1374",
+    "target_identity": "7010",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "calibration",
+    "source": "157134.jpg",
+    "target": "194332.jpg",
+    "source_identity": "339",
+    "target_identity": "8480",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "calibration",
+    "source": "122582.jpg",
+    "target": "038527.jpg",
+    "source_identity": "403",
+    "target_identity": "5428",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "calibration",
+    "source": "098479.jpg",
+    "target": "014283.jpg",
+    "source_identity": "2545",
+    "target_identity": "5014",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "calibration",
+    "source": "147960.jpg",
+    "target": "034958.jpg",
+    "source_identity": "2875",
+    "target_identity": "1207",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "calibration",
+    "source": "152424.jpg",
+    "target": "088869.jpg",
+    "source_identity": "536",
+    "target_identity": "1056",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "calibration",
+    "source": "066186.jpg",
+    "target": "074886.jpg",
+    "source_identity": "878",
+    "target_identity": "6890",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "calibration",
+    "source": "088098.jpg",
+    "target": "155777.jpg",
+    "source_identity": "687",
+    "target_identity": "8226",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "calibration",
+    "source": "003029.jpg",
+    "target": "122355.jpg",
+    "source_identity": "3",
+    "target_identity": "714",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "calibration",
+    "source": "193415.jpg",
+    "target": "164321.jpg",
+    "source_identity": "6813",
+    "target_identity": "2500",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "calibration",
+    "source": "077819.jpg",
+    "target": "059786.jpg",
+    "source_identity": "6198",
+    "target_identity": "3933",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "calibration",
+    "source": "063086.jpg",
+    "target": "187510.jpg",
+    "source_identity": "8292",
+    "target_identity": "6964",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "calibration",
+    "source": "070964.jpg",
+    "target": "134041.jpg",
+    "source_identity": "7098",
+    "target_identity": "5193",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "calibration",
+    "source": "032176.jpg",
+    "target": "180643.jpg",
+    "source_identity": "6529",
+    "target_identity": "1235",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "calibration",
+    "source": "029646.jpg",
+    "target": "112710.jpg",
+    "source_identity": "9915",
+    "target_identity": "3434",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "calibration",
+    "source": "145314.jpg",
+    "target": "134294.jpg",
+    "source_identity": "1358",
+    "target_identity": "5996",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "calibration",
+    "source": "200923.jpg",
+    "target": "015860.jpg",
+    "source_identity": "8577",
+    "target_identity": "9672",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "calibration",
+    "source": "093731.jpg",
+    "target": "085996.jpg",
+    "source_identity": "8458",
+    "target_identity": "956",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "calibration",
+    "source": "160558.jpg",
+    "target": "193359.jpg",
+    "source_identity": "972",
+    "target_identity": "5431",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "calibration",
+    "source": "012310.jpg",
+    "target": "118421.jpg",
+    "source_identity": "3174",
+    "target_identity": "1104",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "calibration",
+    "source": "158449.jpg",
+    "target": "170986.jpg",
+    "source_identity": "9959",
+    "target_identity": "1740",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "calibration",
+    "source": "094134.jpg",
+    "target": "064003.jpg",
+    "source_identity": "528",
+    "target_identity": "5722",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "calibration",
+    "source": "090349.jpg",
+    "target": "061537.jpg",
+    "source_identity": "1995",
+    "target_identity": "6341",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "calibration",
+    "source": "160256.jpg",
+    "target": "093190.jpg",
+    "source_identity": "174",
+    "target_identity": "3201",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "calibration",
+    "source": "152391.jpg",
+    "target": "008427.jpg",
+    "source_identity": "4258",
+    "target_identity": "3060",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "calibration",
+    "source": "133479.jpg",
+    "target": "177975.jpg",
+    "source_identity": "1693",
+    "target_identity": "3595",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "calibration",
+    "source": "055816.jpg",
+    "target": "194288.jpg",
+    "source_identity": "8915",
+    "target_identity": "8415",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "calibration",
+    "source": "059573.jpg",
+    "target": "008412.jpg",
+    "source_identity": "3591",
+    "target_identity": "6781",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "calibration",
+    "source": "163411.jpg",
+    "target": "193852.jpg",
+    "source_identity": "840",
+    "target_identity": "10059",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "calibration",
+    "source": "009688.jpg",
+    "target": "099813.jpg",
+    "source_identity": "8933",
+    "target_identity": "7802",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "calibration",
+    "source": "073616.jpg",
+    "target": "028743.jpg",
+    "source_identity": "9205",
+    "target_identity": "6574",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "calibration",
+    "source": "095578.jpg",
+    "target": "038383.jpg",
+    "source_identity": "9783",
+    "target_identity": "8433",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "calibration",
+    "source": "003016.jpg",
+    "target": "105623.jpg",
+    "source_identity": "6612",
+    "target_identity": "9805",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "calibration",
+    "source": "177164.jpg",
+    "target": "047170.jpg",
+    "source_identity": "3595",
+    "target_identity": "8843",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "calibration",
+    "source": "011887.jpg",
+    "target": "012613.jpg",
+    "source_identity": "2767",
+    "target_identity": "7442",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "calibration",
+    "source": "201517.jpg",
+    "target": "098841.jpg",
+    "source_identity": "8525",
+    "target_identity": "8515",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "calibration",
+    "source": "054271.jpg",
+    "target": "008354.jpg",
+    "source_identity": "9968",
+    "target_identity": "3334",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "calibration",
+    "source": "118900.jpg",
+    "target": "161840.jpg",
+    "source_identity": "3277",
+    "target_identity": "6686",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "calibration",
+    "source": "022975.jpg",
+    "target": "134279.jpg",
+    "source_identity": "7551",
+    "target_identity": "9781",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "calibration",
+    "source": "098526.jpg",
+    "target": "137866.jpg",
+    "source_identity": "2458",
+    "target_identity": "1367",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "calibration",
+    "source": "149504.jpg",
+    "target": "000461.jpg",
+    "source_identity": "4586",
+    "target_identity": "7385",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "calibration",
+    "source": "020025.jpg",
+    "target": "193415.jpg",
+    "source_identity": "6361",
+    "target_identity": "6813",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "calibration",
+    "source": "159440.jpg",
+    "target": "084805.jpg",
+    "source_identity": "4721",
+    "target_identity": "1223",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "calibration",
+    "source": "114395.jpg",
+    "target": "124832.jpg",
+    "source_identity": "9245",
+    "target_identity": "10009",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "calibration",
+    "source": "084105.jpg",
+    "target": "000928.jpg",
+    "source_identity": "7861",
+    "target_identity": "3448",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "calibration",
+    "source": "036451.jpg",
+    "target": "017862.jpg",
+    "source_identity": "7184",
+    "target_identity": "5193",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "calibration",
+    "source": "082331.jpg",
+    "target": "125518.jpg",
+    "source_identity": "6671",
+    "target_identity": "7017",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "calibration",
+    "source": "111010.jpg",
+    "target": "097811.jpg",
+    "source_identity": "5054",
+    "target_identity": "5213",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "calibration",
+    "source": "011443.jpg",
+    "target": "020326.jpg",
+    "source_identity": "2671",
+    "target_identity": "639",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "calibration",
+    "source": "160986.jpg",
+    "target": "103850.jpg",
+    "source_identity": "6471",
+    "target_identity": "5970",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "test",
+    "source": "014935.jpg",
+    "target": "166760.jpg",
+    "source_identity": "2529",
+    "target_identity": "625",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "test",
+    "source": "017406.jpg",
+    "target": "065130.jpg",
+    "source_identity": "6588",
+    "target_identity": "6089",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "test",
+    "source": "151206.jpg",
+    "target": "189813.jpg",
+    "source_identity": "7187",
+    "target_identity": "5535",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "test",
+    "source": "038712.jpg",
+    "target": "150476.jpg",
+    "source_identity": "1553",
+    "target_identity": "9150",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "test",
+    "source": "157305.jpg",
+    "target": "015763.jpg",
+    "source_identity": "9464",
+    "target_identity": "8261",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "test",
+    "source": "133018.jpg",
+    "target": "000541.jpg",
+    "source_identity": "741",
+    "target_identity": "2818",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "test",
+    "source": "080634.jpg",
+    "target": "168578.jpg",
+    "source_identity": "873",
+    "target_identity": "2685",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "test",
+    "source": "143309.jpg",
+    "target": "110727.jpg",
+    "source_identity": "3617",
+    "target_identity": "8791",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "test",
+    "source": "148826.jpg",
+    "target": "045567.jpg",
+    "source_identity": "1396",
+    "target_identity": "6006",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "test",
+    "source": "077170.jpg",
+    "target": "050158.jpg",
+    "source_identity": "4988",
+    "target_identity": "4073",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "test",
+    "source": "145996.jpg",
+    "target": "039070.jpg",
+    "source_identity": "7182",
+    "target_identity": "5669",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "test",
+    "source": "056946.jpg",
+    "target": "094629.jpg",
+    "source_identity": "9446",
+    "target_identity": "2533",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "test",
+    "source": "089392.jpg",
+    "target": "179569.jpg",
+    "source_identity": "9112",
+    "target_identity": "2496",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "test",
+    "source": "188886.jpg",
+    "target": "045222.jpg",
+    "source_identity": "8309",
+    "target_identity": "4509",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "test",
+    "source": "175123.jpg",
+    "target": "134019.jpg",
+    "source_identity": "3182",
+    "target_identity": "665",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "test",
+    "source": "133035.jpg",
+    "target": "084034.jpg",
+    "source_identity": "2196",
+    "target_identity": "8166",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "test",
+    "source": "010973.jpg",
+    "target": "139921.jpg",
+    "source_identity": "4319",
+    "target_identity": "6400",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "test",
+    "source": "177125.jpg",
+    "target": "018786.jpg",
+    "source_identity": "1881",
+    "target_identity": "2891",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "test",
+    "source": "003163.jpg",
+    "target": "118209.jpg",
+    "source_identity": "290",
+    "target_identity": "7422",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "test",
+    "source": "010419.jpg",
+    "target": "183260.jpg",
+    "source_identity": "6791",
+    "target_identity": "9060",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "test",
+    "source": "075872.jpg",
+    "target": "184108.jpg",
+    "source_identity": "5788",
+    "target_identity": "9472",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "test",
+    "source": "001177.jpg",
+    "target": "122227.jpg",
+    "source_identity": "741",
+    "target_identity": "1245",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "test",
+    "source": "139433.jpg",
+    "target": "108211.jpg",
+    "source_identity": "2193",
+    "target_identity": "1741",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "test",
+    "source": "109356.jpg",
+    "target": "167777.jpg",
+    "source_identity": "5933",
+    "target_identity": "4370",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "test",
+    "source": "042508.jpg",
+    "target": "061891.jpg",
+    "source_identity": "7182",
+    "target_identity": "4988",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "test",
+    "source": "161959.jpg",
+    "target": "183669.jpg",
+    "source_identity": "4892",
+    "target_identity": "7497",
+    "accepted": true,
+    "quality": 82
+  },
+  {
+    "partition": "test",
+    "source": "173320.jpg",
+    "target": "103373.jpg",
+    "source_identity": "3611",
+    "target_identity": "9951",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "test",
+    "source": "032381.jpg",
+    "target": "063486.jpg",
+    "source_identity": "3077",
+    "target_identity": "361",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "test",
+    "source": "100793.jpg",
+    "target": "147472.jpg",
+    "source_identity": "5069",
+    "target_identity": "1414",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "test",
+    "source": "141095.jpg",
+    "target": "077608.jpg",
+    "source_identity": "4226",
+    "target_identity": "1734",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "test",
+    "source": "145890.jpg",
+    "target": "051831.jpg",
+    "source_identity": "5173",
+    "target_identity": "1724",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "test",
+    "source": "181858.jpg",
+    "target": "180215.jpg",
+    "source_identity": "3132",
+    "target_identity": "3799",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "test",
+    "source": "154074.jpg",
+    "target": "025911.jpg",
+    "source_identity": "6001",
+    "target_identity": "7422",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "test",
+    "source": "175428.jpg",
+    "target": "105189.jpg",
+    "source_identity": "1006",
+    "target_identity": "3790",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "test",
+    "source": "065487.jpg",
+    "target": "011888.jpg",
+    "source_identity": "4891",
+    "target_identity": "1804",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "test",
+    "source": "076781.jpg",
+    "target": "072735.jpg",
+    "source_identity": "1724",
+    "target_identity": "2282",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "test",
+    "source": "138202.jpg",
+    "target": "178804.jpg",
+    "source_identity": "760",
+    "target_identity": "533",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "test",
+    "source": "051262.jpg",
+    "target": "016024.jpg",
+    "source_identity": "142",
+    "target_identity": "538",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "test",
+    "source": "189196.jpg",
+    "target": "002798.jpg",
+    "source_identity": "8381",
+    "target_identity": "4593",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "test",
+    "source": "030526.jpg",
+    "target": "077608.jpg",
+    "source_identity": "6841",
+    "target_identity": "1734",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "test",
+    "source": "074854.jpg",
+    "target": "099762.jpg",
+    "source_identity": "644",
+    "target_identity": "5777",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "test",
+    "source": "119947.jpg",
+    "target": "054093.jpg",
+    "source_identity": "4747",
+    "target_identity": "4578",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "test",
+    "source": "157655.jpg",
+    "target": "064255.jpg",
+    "source_identity": "8478",
+    "target_identity": "11",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "test",
+    "source": "083766.jpg",
+    "target": "129908.jpg",
+    "source_identity": "2856",
+    "target_identity": "1739",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "test",
+    "source": "072111.jpg",
+    "target": "084314.jpg",
+    "source_identity": "8710",
+    "target_identity": "9668",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "test",
+    "source": "053267.jpg",
+    "target": "161859.jpg",
+    "source_identity": "8060",
+    "target_identity": "8371",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "test",
+    "source": "048685.jpg",
+    "target": "079540.jpg",
+    "source_identity": "10156",
+    "target_identity": "344",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "test",
+    "source": "097246.jpg",
+    "target": "012058.jpg",
+    "source_identity": "2282",
+    "target_identity": "8434",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "test",
+    "source": "154039.jpg",
+    "target": "011098.jpg",
+    "source_identity": "6319",
+    "target_identity": "5295",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "test",
+    "source": "050797.jpg",
+    "target": "072859.jpg",
+    "source_identity": "3900",
+    "target_identity": "8141",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "test",
+    "source": "114679.jpg",
+    "target": "119990.jpg",
+    "source_identity": "5179",
+    "target_identity": "7665",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "test",
+    "source": "126456.jpg",
+    "target": "082206.jpg",
+    "source_identity": "4356",
+    "target_identity": "5642",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "test",
+    "source": "117684.jpg",
+    "target": "045430.jpg",
+    "source_identity": "5706",
+    "target_identity": "3337",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "test",
+    "source": "163635.jpg",
+    "target": "035432.jpg",
+    "source_identity": "4706",
+    "target_identity": "3656",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "test",
+    "source": "039025.jpg",
+    "target": "192455.jpg",
+    "source_identity": "141",
+    "target_identity": "7639",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "test",
+    "source": "031006.jpg",
+    "target": "029975.jpg",
+    "source_identity": "8552",
+    "target_identity": "5177",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "test",
+    "source": "124383.jpg",
+    "target": "018876.jpg",
+    "source_identity": "8567",
+    "target_identity": "9004",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "test",
+    "source": "115379.jpg",
+    "target": "143507.jpg",
+    "source_identity": "6218",
+    "target_identity": "8670",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "test",
+    "source": "119956.jpg",
+    "target": "137362.jpg",
+    "source_identity": "5415",
+    "target_identity": "863",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "test",
+    "source": "012504.jpg",
+    "target": "067056.jpg",
+    "source_identity": "5631",
+    "target_identity": "2925",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "test",
+    "source": "154457.jpg",
+    "target": "122397.jpg",
+    "source_identity": "8166",
+    "target_identity": "4695",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "test",
+    "source": "086613.jpg",
+    "target": "004017.jpg",
+    "source_identity": "10140",
+    "target_identity": "3095",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "test",
+    "source": "025902.jpg",
+    "target": "076076.jpg",
+    "source_identity": "8424",
+    "target_identity": "7956",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "test",
+    "source": "040919.jpg",
+    "target": "176513.jpg",
+    "source_identity": "8069",
+    "target_identity": "1952",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "test",
+    "source": "187015.jpg",
+    "target": "114420.jpg",
+    "source_identity": "5893",
+    "target_identity": "10150",
+    "accepted": true,
+    "quality": 88
+  },
+  {
+    "partition": "test",
+    "source": "013876.jpg",
+    "target": "035179.jpg",
+    "source_identity": "4065",
+    "target_identity": "3463",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "test",
+    "source": "192393.jpg",
+    "target": "034745.jpg",
+    "source_identity": "5691",
+    "target_identity": "2574",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "test",
+    "source": "102227.jpg",
+    "target": "024122.jpg",
+    "source_identity": "8329",
+    "target_identity": "8930",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "test",
+    "source": "019795.jpg",
+    "target": "186745.jpg",
+    "source_identity": "5423",
+    "target_identity": "9392",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "test",
+    "source": "134472.jpg",
+    "target": "070530.jpg",
+    "source_identity": "9172",
+    "target_identity": "5967",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "test",
+    "source": "092497.jpg",
+    "target": "037351.jpg",
+    "source_identity": "1372",
+    "target_identity": "6501",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "test",
+    "source": "026185.jpg",
+    "target": "135459.jpg",
+    "source_identity": "6012",
+    "target_identity": "8031",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "test",
+    "source": "150104.jpg",
+    "target": "071579.jpg",
+    "source_identity": "7227",
+    "target_identity": "2227",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "test",
+    "source": "064038.jpg",
+    "target": "049378.jpg",
+    "source_identity": "3766",
+    "target_identity": "8908",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "test",
+    "source": "064251.jpg",
+    "target": "129426.jpg",
+    "source_identity": "6316",
+    "target_identity": "7768",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "test",
+    "source": "049733.jpg",
+    "target": "064955.jpg",
+    "source_identity": "5093",
+    "target_identity": "3964",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "test",
+    "source": "129121.jpg",
+    "target": "012297.jpg",
+    "source_identity": "3314",
+    "target_identity": "8159",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "test",
+    "source": "034890.jpg",
+    "target": "121733.jpg",
+    "source_identity": "3298",
+    "target_identity": "5149",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "test",
+    "source": "185613.jpg",
+    "target": "120208.jpg",
+    "source_identity": "9992",
+    "target_identity": "1840",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "test",
+    "source": "176207.jpg",
+    "target": "000620.jpg",
+    "source_identity": "2045",
+    "target_identity": "4090",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "test",
+    "source": "202184.jpg",
+    "target": "146211.jpg",
+    "source_identity": "5691",
+    "target_identity": "6647",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "test",
+    "source": "125819.jpg",
+    "target": "158801.jpg",
+    "source_identity": "1225",
+    "target_identity": "7107",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "test",
+    "source": "019795.jpg",
+    "target": "003402.jpg",
+    "source_identity": "5423",
+    "target_identity": "1225",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "test",
+    "source": "201180.jpg",
+    "target": "066886.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "test",
+    "source": "029343.jpg",
+    "target": "132186.jpg",
+    "source_identity": "3990",
+    "target_identity": "8763",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "test",
+    "source": "119581.jpg",
+    "target": "030987.jpg",
+    "source_identity": "1718",
+    "target_identity": "7909",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "test",
+    "source": "130014.jpg",
+    "target": "062250.jpg",
+    "source_identity": "7142",
+    "target_identity": "1158",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "test",
+    "source": "027521.jpg",
+    "target": "168729.jpg",
+    "source_identity": "3880",
+    "target_identity": "2681",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "test",
+    "source": "001732.jpg",
+    "target": "066569.jpg",
+    "source_identity": "4152",
+    "target_identity": "3095",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "test",
+    "source": "110336.jpg",
+    "target": "170648.jpg",
+    "source_identity": "2603",
+    "target_identity": "1157",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "test",
+    "source": "029172.jpg",
+    "target": "162595.jpg",
+    "source_identity": "2024",
+    "target_identity": "1911",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "test",
+    "source": "197598.jpg",
+    "target": "112227.jpg",
+    "source_identity": "8101",
+    "target_identity": "9254",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "test",
+    "source": "070632.jpg",
+    "target": "035028.jpg",
+    "source_identity": "2038",
+    "target_identity": "220",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "test",
+    "source": "157621.jpg",
+    "target": "008233.jpg",
+    "source_identity": "7728",
+    "target_identity": "9894",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "test",
+    "source": "186407.jpg",
+    "target": "109544.jpg",
+    "source_identity": "5298",
+    "target_identity": "10156",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "test",
+    "source": "157809.jpg",
+    "target": "074402.jpg",
+    "source_identity": "837",
+    "target_identity": "5188",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "test",
+    "source": "141383.jpg",
+    "target": "117296.jpg",
+    "source_identity": "8708",
+    "target_identity": "2510",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "test",
+    "source": "034138.jpg",
+    "target": "191014.jpg",
+    "source_identity": "5371",
+    "target_identity": "5169",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "test",
+    "source": "136529.jpg",
+    "target": "125332.jpg",
+    "source_identity": "5956",
+    "target_identity": "9365",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "test",
+    "source": "166155.jpg",
+    "target": "118543.jpg",
+    "source_identity": "4699",
+    "target_identity": "719",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "test",
+    "source": "008398.jpg",
+    "target": "103964.jpg",
+    "source_identity": "9224",
+    "target_identity": "69",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "test",
+    "source": "190167.jpg",
+    "target": "192990.jpg",
+    "source_identity": "5997",
+    "target_identity": "6084",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "test",
+    "source": "130017.jpg",
+    "target": "195582.jpg",
+    "source_identity": "1074",
+    "target_identity": "7269",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "test",
+    "source": "006718.jpg",
+    "target": "006814.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "test",
+    "source": "159278.jpg",
+    "target": "189419.jpg",
+    "source_identity": "4807",
+    "target_identity": "8731",
+    "accepted": true,
+    "quality": 78
+  },
+  {
+    "partition": "test",
+    "source": "034841.jpg",
+    "target": "037818.jpg",
+    "source_identity": "4382",
+    "target_identity": "8988",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "test",
+    "source": "058140.jpg",
+    "target": "039061.jpg",
+    "source_identity": "3170",
+    "target_identity": "1260",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "test",
+    "source": "092463.jpg",
+    "target": "024410.jpg",
+    "source_identity": "5472",
+    "target_identity": "2826",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "test",
+    "source": "191250.jpg",
+    "target": "067504.jpg",
+    "source_identity": "8633",
+    "target_identity": "7732",
+    "accepted": true,
+    "quality": 76
+  },
+  {
+    "partition": "test",
+    "source": "199092.jpg",
+    "target": "137211.jpg",
+    "source_identity": "6196",
+    "target_identity": "6607",
+    "accepted": true,
+    "quality": 73
+  },
+  {
+    "partition": "test",
+    "source": "110306.jpg",
+    "target": "160184.jpg",
+    "source_identity": "9181",
+    "target_identity": "6777",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "test",
+    "source": "017453.jpg",
+    "target": "026358.jpg",
+    "source_identity": "31",
+    "target_identity": "3122",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "test",
+    "source": "122105.jpg",
+    "target": "035133.jpg",
+    "source_identity": "2938",
+    "target_identity": "3960",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "test",
+    "source": "071173.jpg",
+    "target": "061455.jpg",
+    "source_identity": "1701",
+    "target_identity": "8434",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "test",
+    "source": "193130.jpg",
+    "target": "054093.jpg",
+    "source_identity": "9129",
+    "target_identity": "4578",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "test",
+    "source": "082208.jpg",
+    "target": "022015.jpg",
+    "source_identity": "289",
+    "target_identity": "3596",
+    "accepted": true,
+    "quality": 81
+  },
+  {
+    "partition": "test",
+    "source": "188211.jpg",
+    "target": "002134.jpg",
+    "source_identity": "5168",
+    "target_identity": "3400",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "test",
+    "source": "150173.jpg",
+    "target": "088218.jpg",
+    "source_identity": "2244",
+    "target_identity": "5394",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "test",
+    "source": "001920.jpg",
+    "target": "173916.jpg",
+    "source_identity": "9990",
+    "target_identity": "1229",
+    "accepted": true,
+    "quality": 80
+  },
+  {
+    "partition": "test",
+    "source": "173689.jpg",
+    "target": "139343.jpg",
+    "source_identity": "4389",
+    "target_identity": "4306",
+    "accepted": true,
+    "quality": 74
+  },
+  {
+    "partition": "test",
+    "source": "006834.jpg",
+    "target": "095281.jpg",
+    "source_identity": "8438",
+    "target_identity": "1197",
+    "accepted": true,
+    "quality": 77
+  },
+  {
+    "partition": "test",
+    "source": "095047.jpg",
+    "target": "133069.jpg",
+    "source_identity": "6841",
+    "target_identity": "7532",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "test",
+    "source": "201998.jpg",
+    "target": "022998.jpg",
+    "source_identity": "7362",
+    "target_identity": "6730",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "test",
+    "source": "084974.jpg",
+    "target": "090747.jpg",
+    "source_identity": "5415",
+    "target_identity": "3736",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "test",
+    "source": "188713.jpg",
+    "target": "019139.jpg",
+    "source_identity": "6795",
+    "target_identity": "8893",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "test",
+    "source": "094719.jpg",
+    "target": "166859.jpg",
+    "source_identity": "7015",
+    "target_identity": "4213",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "test",
+    "source": "109721.jpg",
+    "target": "166526.jpg",
+    "source_identity": "9691",
+    "target_identity": "776",
+    "accepted": true,
+    "quality": 72
+  },
+  {
+    "partition": "test",
+    "source": "087683.jpg",
+    "target": "136116.jpg",
+    "source_identity": "9479",
+    "target_identity": "294",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "test",
+    "source": "097749.jpg",
+    "target": "119437.jpg",
+    "source_identity": "4751",
+    "target_identity": "10156",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "test",
+    "source": "009811.jpg",
+    "target": "005496.jpg",
+    "accepted": false,
+    "reason": "swap guard rejected"
+  },
+  {
+    "partition": "test",
+    "source": "174452.jpg",
+    "target": "068819.jpg",
+    "source_identity": "4653",
+    "target_identity": "1267",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "test",
+    "source": "201495.jpg",
+    "target": "055851.jpg",
+    "source_identity": "7200",
+    "target_identity": "5662",
+    "accepted": true,
+    "quality": 85
+  },
+  {
+    "partition": "test",
+    "source": "073472.jpg",
+    "target": "069467.jpg",
+    "source_identity": "8327",
+    "target_identity": "2691",
+    "accepted": true,
+    "quality": 83
+  },
+  {
+    "partition": "test",
+    "source": "048979.jpg",
+    "target": "134632.jpg",
+    "source_identity": "2552",
+    "target_identity": "3970",
+    "accepted": true,
+    "quality": 86
+  },
+  {
+    "partition": "test",
+    "source": "200981.jpg",
+    "target": "024101.jpg",
+    "source_identity": "5550",
+    "target_identity": "10095",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "test",
+    "source": "092159.jpg",
+    "target": "111248.jpg",
+    "source_identity": "4290",
+    "target_identity": "3912",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "test",
+    "source": "077097.jpg",
+    "target": "101872.jpg",
+    "source_identity": "2093",
+    "target_identity": "6522",
+    "accepted": true,
+    "quality": 71
+  },
+  {
+    "partition": "test",
+    "source": "185590.jpg",
+    "target": "055560.jpg",
+    "source_identity": "6567",
+    "target_identity": "8141",
+    "accepted": true,
+    "quality": 70
+  },
+  {
+    "partition": "test",
+    "source": "131629.jpg",
+    "target": "039587.jpg",
+    "source_identity": "1096",
+    "target_identity": "9259",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "test",
+    "source": "010956.jpg",
+    "target": "146822.jpg",
+    "source_identity": "1225",
+    "target_identity": "6791",
+    "accepted": true,
+    "quality": 84
+  },
+  {
+    "partition": "test",
+    "source": "195633.jpg",
+    "target": "033966.jpg",
+    "source_identity": "5820",
+    "target_identity": "9911",
+    "accepted": true,
+    "quality": 79
+  },
+  {
+    "partition": "test",
+    "source": "185908.jpg",
+    "target": "068016.jpg",
+    "source_identity": "10062",
+    "target_identity": "8128",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "test",
+    "source": "105705.jpg",
+    "target": "135981.jpg",
+    "source_identity": "3766",
+    "target_identity": "2446",
+    "accepted": true,
+    "quality": 87
+  },
+  {
+    "partition": "test",
+    "source": "010873.jpg",
+    "target": "166489.jpg",
+    "source_identity": "792",
+    "target_identity": "849",
+    "accepted": true,
+    "quality": 92
+  },
+  {
+    "partition": "test",
+    "source": "149533.jpg",
+    "target": "051019.jpg",
+    "source_identity": "9390",
+    "target_identity": "2755",
+    "accepted": true,
+    "quality": 89
+  },
+  {
+    "partition": "test",
+    "source": "201322.jpg",
+    "target": "087941.jpg",
+    "source_identity": "9292",
+    "target_identity": "3010",
+    "accepted": true,
+    "quality": 93
+  },
+  {
+    "partition": "test",
+    "source": "130300.jpg",
+    "target": "157841.jpg",
+    "source_identity": "4691",
+    "target_identity": "2218",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "test",
+    "source": "019840.jpg",
+    "target": "040048.jpg",
+    "source_identity": "1179",
+    "target_identity": "7610",
+    "accepted": true,
+    "quality": 94
+  },
+  {
+    "partition": "test",
+    "source": "149887.jpg",
+    "target": "027008.jpg",
+    "source_identity": "4436",
+    "target_identity": "7587",
+    "accepted": true,
+    "quality": 75
+  },
+  {
+    "partition": "test",
+    "source": "072711.jpg",
+    "target": "138700.jpg",
+    "accepted": false,
+    "reason": "A single visible face is required."
+  },
+  {
+    "partition": "test",
+    "source": "028556.jpg",
+    "target": "019834.jpg",
+    "source_identity": "6218",
+    "target_identity": "3130",
+    "accepted": true,
+    "quality": 95
+  },
+  {
+    "partition": "test",
+    "source": "104897.jpg",
+    "target": "102032.jpg",
+    "source_identity": "8832",
+    "target_identity": "4568",
+    "accepted": true,
+    "quality": 90
+  },
+  {
+    "partition": "test",
+    "source": "153803.jpg",
+    "target": "057232.jpg",
+    "source_identity": "1770",
+    "target_identity": "823",
+    "accepted": true,
+    "quality": 91
+  },
+  {
+    "partition": "test",
+    "source": "079131.jpg",
+    "target": "162859.jpg",
+    "source_identity": "1489",
+    "target_identity": "1485",
+    "accepted": true,
+    "quality": 81
+  }
+]

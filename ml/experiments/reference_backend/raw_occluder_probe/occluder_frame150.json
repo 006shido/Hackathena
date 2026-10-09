@@ -1,0 +1,26 @@
+{
+  "frame": 150,
+  "polygon": [
+    [
+      110,
+      110
+    ],
+    [
+      232,
+      120
+    ],
+    [
+      222,
+      203
+    ],
+    [
+      104,
+      190
+    ]
+  ],
+  "erosion_kernel": 9,
+  "interior_pixels": 8363,
+  "mean_absolute_rgb_difference": 0.5781816840171814,
+  "fraction_over_8_rgb_levels": 0.02786081549683128,
+  "scope": "Manual occluder annotation on lossless inference panels; exact pixel differences, not automatic segmentation."
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "file": "ml\\experiments\\reference_backend\\videos\\speech.wav",
+    "sample_rate": 16000,
+    "samples": 54400,
+    "result": {
+      "status": "measured",
+      "score": 0.022626569494605064,
+      "model": "AASIST",
+      "rms": 0.12241654843091965,
+      "pipeline_ms": 15978.666599999997,
+      "calibrated": false
+    }
+  },
+  {
+    "file": "ml\\experiments\\reference_backend\\browser_speech_call\\clean.wav",
+    "sample_rate": 48000,
+    "samples": 212992,
+    "result": {
+      "status": "measured",
+      "score": 0.9989616870880127,
+      "model": "AASIST",
+      "rms": 0.12049555778503418,
+      "pipeline_ms": 19.834599996102042,
+      "calibrated": false
+    }
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "scope": "Learned acoustic detector for the three production DSP presets. Not a general synthetic-speech detector. Candidate chosen using calibration only.",
+  "threshold": 0.9940633177757263,
+  "calibration_detected": 168,
+  "validation": {
+    "test": {
+      "natural": 93,
+      "changed": 75,
+      "false_positives": 7,
+      "detected": 63
+    },
+    "browser_test": {
+      "natural": 5,
+      "changed": 9,
+      "false_positives": 0,
+      "detected": 6
+    }
+  },
+  "external_call": [
+    {
+      "name": "clean",
+      "score": 1.1259682651143521e-05
+    },
+    {
+      "name": "robotic-vocoder",
+      "score": 0.9993282556533813
+    },
+    {
+      "name": "deep-pitch-neural",
+      "score": 0.9983491897583008
+    },
+    {
+      "name": "synthetic-clone",
+      "score": 0.9878796935081482
+    }
+  ],
+  "passed_local_gate": false,
+  "validated_for_live_calls": false,
+  "sha256": "953546d1f9d1b1fa0d2b8b1828fc5319ed24c0fc00ed20aff851a9ef4253546a"
+}

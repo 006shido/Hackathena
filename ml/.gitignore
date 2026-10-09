@@ -1,0 +1,10 @@
+# Machine-local demo builds, logs and generated credentials.
+/experiments/reference_backend/local_preview/
+# Downloaded detector weights, sample media and generated training tensors.
+/detection/assets/*.pth
+/detection/audio_samples/*.wav
+/detection/swap_domain/*.pt
+/detection/swap_domain_finetune/*.pt
+/detection/swap_domain_finetune/*.npy
+/detection/swap_domain_robust/*.pt
+/runtime_webrtc/

@@ -1,0 +1,47 @@
+<!doctype html><html><body><h1>Recorded speech call-domain collection</h1><button id="run">Collect production voice pipeline recordings</button><pre id="status">Ready</pre>
+<script type="module">
+import {VoiceTransformationPipeline} from '/src/attack/voiceTransformation.ts';
+document.querySelector('#run').onclick=async()=>{
+ document.querySelector('#run').disabled=true;
+ const status=document.querySelector('#status');const clips=await(await fetch('/dataset/manifest')).json();
+ const inputCtx=new AudioContext();const receiveCtx=new AudioContext({sampleRate:16000});await inputCtx.resume();await receiveCtx.resume();
+ await receiveCtx.audioWorklet.addModule('/receiver-pcm-worklet.js');
+ const destination=inputCtx.createMediaStreamDestination();const original=destination.stream.getAudioTracks()[0];
+ const outgoing=new RTCPeerConnection(),incoming=new RTCPeerConnection();
+ const pendingIncoming=[],pendingOutgoing=[];
+ outgoing.onicecandidate=e=>{if(e.candidate){if(incoming.remoteDescription)void incoming.addIceCandidate(e.candidate);else pendingIncoming.push(e.candidate);}};incoming.onicecandidate=e=>{if(e.candidate){if(outgoing.remoteDescription)void outgoing.addIceCandidate(e.candidate);else pendingOutgoing.push(e.candidate);}};
+ const remote=new Promise(resolve=>{incoming.ontrack=e=>resolve(new MediaStream([e.track]));});
+ const sender=outgoing.addTrack(original,destination.stream);
+ await outgoing.setLocalDescription(await outgoing.createOffer());await incoming.setRemoteDescription(outgoing.localDescription);await incoming.setLocalDescription(await incoming.createAnswer());await outgoing.setRemoteDescription(incoming.localDescription);
+ for(const candidate of pendingIncoming)await incoming.addIceCandidate(candidate);for(const candidate of pendingOutgoing)await outgoing.addIceCandidate(candidate);
+ const stream=await remote;const audio=document.createElement('audio');audio.muted=true;audio.srcObject=stream;await audio.play();
+ for(let count=0;incoming.connectionState!=='connected'&&count<100;count++)await new Promise(resolve=>setTimeout(resolve,50));
+ if(incoming.connectionState!=='connected')throw new Error('Loopback transport did not connect');
+ const receiver=receiveCtx.createMediaStreamSource(stream);const mute=receiveCtx.createGain();mute.gain.value=0;mute.connect(receiveCtx.destination);
+ const pipeline=new VoiceTransformationPipeline();const changed=await pipeline.start(original,'robotic-vocoder');
+ let completed=0;
+ try {
+  for(const clip of clips){
+   const audio=await inputCtx.decodeAudioData(await(await fetch(`/dataset/natural/${clip.file}`)).arrayBuffer());
+   const presets=clip.withEffects?['clean','robotic-vocoder','deep-pitch-neural','synthetic-clone']:['clean'];
+   for(const preset of presets){
+    status.textContent=`${completed+1}: ${clip.speaker} ${preset} (${incoming.connectionState}, input ${inputCtx.state}, receive ${receiveCtx.state})`;
+    if(preset!=='clean')pipeline.setPreset(preset);
+    await sender.replaceTrack(preset==='clean'?original:changed);
+    // Allow track replacement to settle before starting fresh waveform collection.
+    await new Promise(resolve=>setTimeout(resolve,200));
+    const recorder=new AudioWorkletNode(receiveCtx,'receiver-pcm',{processorOptions:{segmentFrames:64600}});
+    const recording=new Promise((resolve,reject)=>{const timeout=setTimeout(()=>reject(new Error('PCM capture timeout')),10000);recorder.port.onmessage=e=>{clearTimeout(timeout);resolve(e.data);};});
+    const source=inputCtx.createBufferSource();source.buffer=audio;source.loop=true;source.connect(destination);
+    receiver.connect(recorder);recorder.connect(mute);source.start();
+    const pcm=await recording;source.stop();source.disconnect();receiver.disconnect(recorder);recorder.disconnect();recorder.port.onmessage=null;
+    const samples=new Float32Array(pcm);const rms=Math.sqrt(samples.reduce((sum,value)=>sum+value*value,0)/samples.length);
+    if(!Number.isFinite(rms)||rms<.0001)throw new Error(`No received speech: RMS ${rms}, transport ${incoming.connectionState}`);
+    const response=await fetch('/dataset/record',{method:'POST',headers:{'X-Clip':clip.file,'X-Preset':preset},body:pcm});if(!response.ok)throw new Error('Recording save failed');completed++;
+   }
+  }
+  status.textContent=`Complete: ${completed} recorded call segments saved. No microphone or camera used.`;
+ }catch(error){status.textContent=`FAILED: ${error.message}`;throw error;}
+ finally{pipeline.stop();outgoing.close();incoming.close();original.stop();receiver.disconnect();mute.disconnect();await inputCtx.close();await receiveCtx.close();}
+};
+</script></body></html>

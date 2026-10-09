@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
 import {
-  Shield,
-  Video,
-  Lock,
-  ArrowRight,
-  Check,
-  ChevronDown,
-  ChevronUp,
-  Cpu,
-  Eye,
-  Mic,
-  ExternalLink,
-  Sparkles,
+ArrowRight,
+ChevronDown,
+ChevronUp,
+Cpu,
+ExternalLink,
+Eye,
+Lock,
+Mic,
+Video
 } from 'lucide-react';
+import React,{ useState } from 'react';
 
 interface HomePageProps {
   onNavigate: (mode?: 'signin' | 'signup') => void;
@@ -48,7 +45,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   const faqs = [
     {
       q: 'How does DeepTrace detect deepfakes in real-time?',
-      a: 'DeepTrace runs an in-browser neural pipeline using MediaPipe and WebGL. It tracks 478 3D facial landmarks to spot subtle warping, edge feathering discrepancies, and unnatural blink rates. Simultaneously, a spectral acoustic analyzer scans 48kHz audio for vocoder harmonic frequencies and synthetic voice clone signatures.',
+      a: 'The research demo samples received video and audio for independent server-side model analysis when enabled. Browser audio diagnostics run separately. Scores are experimental: compression, blur and other changes can cause false alarms, and a low score does not prove authenticity.',
     },
     {
       q: 'Do I need to install software, drivers, or browser extensions?',
@@ -56,7 +53,7 @@ export const HomePage: React.FC<HomePageProps> = ({
     },
     {
       q: 'Are our video calls recorded or saved on your servers?',
-      a: 'Never. All media is encrypted end-to-end via DTLS-SRTP and flows directly peer-to-peer between participants. Our servers only coordinate the initial WebRTC signaling handshake — zero video or audio frames ever touch or reside on our servers.',
+      a: 'WebRTC encrypts call transport. Enabled research face swapping and detection send sampled frames and audio segments to the application server for inference. The live analysis routes do not record those samples, but this mode is not an entirely browser-local service.',
     },
     {
       q: 'What is the Attack Simulation mode for testers?',
@@ -133,7 +130,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           {/* Direct, Honest Description */}
           <p className="max-w-2xl mx-auto text-base sm:text-lg text-zinc-600 leading-relaxed mb-8 font-normal">
-            DeepTrace protects peer-to-peer video meetings by spotting synthetic face swaps and cloned voices before they fool you. Runs entirely in your browser with zero latency and zero cloud recordings.
+            Test face swaps and voice effects in a WebRTC call, then inspect received video and audio with experimental model analysis. Detection accuracy and cross-network connectivity still require validation.
           </p>
 
           {/* Interactive Room Launcher Box */}
@@ -208,15 +205,15 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <div className="font-mono text-xs font-bold text-zinc-400 mb-3">02</div>
                 <h3 className="text-sm font-semibold text-zinc-900 mb-1.5">Passive real-time check</h3>
                 <p className="text-xs text-zinc-600 leading-relaxed">
-                  DeepTrace's lightweight MediaPipe and WebGL models inspect facial landmark geometry and audio spectrum frequencies at 60 FPS.
+                  The receiver samples incoming video and audio for enabled research models, alongside browser audio diagnostics.
                 </p>
               </div>
 
               <div className="p-5 rounded-xl border border-zinc-200/80 bg-zinc-50/50">
                 <div className="font-mono text-xs font-bold text-zinc-400 mb-3">03</div>
-                <h3 className="text-sm font-semibold text-zinc-900 mb-1.5">Immediate alert on spoofing</h3>
+                <h3 className="text-sm font-semibold text-zinc-900 mb-1.5">Inspect experimental evidence</h3>
                 <p className="text-xs text-zinc-600 leading-relaxed">
-                  If an identity mismatch, face boundary splice, or synthetic voice tone is detected, you receive an immediate alert banner and chime.
+                  Review independent model measurements separately from changes reported by the tester. These measurements do not certify real or fake media.
                 </p>
               </div>
             </div>
@@ -238,20 +235,20 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="p-5 rounded-xl border border-zinc-200 bg-white">
               <div className="flex items-center gap-2 mb-2">
                 <Eye className="h-4 w-4 text-zinc-800" />
-                <h3 className="text-sm font-semibold text-zinc-900">478-Point Facial Landmark Mesh</h3>
+                <h3 className="text-sm font-semibold text-zinc-900">Received Face Analysis</h3>
               </div>
               <p className="text-xs text-zinc-600 leading-relaxed">
-                Tracks full cheek curvature, eyelid movement, lip motion, and nose bridge geometry to detect generative face replacement and perimeter warping.
+                An enabled Xception research detector analyzes received face pixels independently of tester controls. Blur and compression can produce false alarms.
               </p>
             </div>
 
             <div className="p-5 rounded-xl border border-zinc-200 bg-white">
               <div className="flex items-center gap-2 mb-2">
                 <Mic className="h-4 w-4 text-zinc-800" />
-                <h3 className="text-sm font-semibold text-zinc-900">Spectral Voice Clone Detection</h3>
+                <h3 className="text-sm font-semibold text-zinc-900">Received Voice Analysis</h3>
               </div>
               <p className="text-xs text-zinc-600 leading-relaxed">
-                Analyzes acoustic spectrum modulation on live audio streams, separating natural human speech harmonics from neural voice clones and robotic vocoders.
+                AASIST research analysis and browser spectral diagnostics inspect incoming audio. Voice effects are simulations; reliable live-call clone detection is not yet validated.
               </p>
             </div>
 
@@ -261,7 +258,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <h3 className="text-sm font-semibold text-zinc-900">End-to-End WebRTC Privacy</h3>
               </div>
               <p className="text-xs text-zinc-600 leading-relaxed">
-                Direct browser-to-browser media connection. No video frames or audio streams pass through or are saved on any central recording database.
+                WebRTC carries the call. Enabled research analysis sends sampled received frames and audio segments to the application server for inference.
               </p>
             </div>
 

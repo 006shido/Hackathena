@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
 import {
-  ShieldAlert,
-  Video,
-  LogOut,
-  ArrowRight,
-  Shield,
-  User as UserIcon,
-  Cpu,
-  Sparkles,
+ArrowRight,
+Cpu,
+LogOut,
+Shield,
+ShieldAlert,
+Video
 } from 'lucide-react';
+import React,{ useState } from 'react';
 import { User as UserType } from '../types/auth';
+import { generateRoomId,getGreeting } from '../utils/dashboard';
 
 interface TesterDashboardProps {
   user: UserType;
@@ -26,22 +25,8 @@ export const TesterDashboard: React.FC<TesterDashboardProps> = ({
 }) => {
   const [inputRoomId, setInputRoomId] = useState('');
 
-  const [greeting, setGreeting] = useState('Welcome');
-  useEffect(() => {
-    const hour = new Date().getHours();
-    if (hour < 12) setGreeting('Good morning');
-    else if (hour < 18) setGreeting('Good afternoon');
-    else setGreeting('Good evening');
-  }, []);
+  const [greeting] = useState(getGreeting);
 
-  const generateRoomId = () => {
-    const letters = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
-    const l1 = letters[Math.floor(Math.random() * letters.length)];
-    const l2 = letters[Math.floor(Math.random() * letters.length)];
-    const l3 = letters[Math.floor(Math.random() * letters.length)];
-    const num = Math.floor(100 + Math.random() * 900);
-    return `${l1}${l2}${l3}-${num}`;
-  };
 
   const handleCreateTestCall = () => {
     const newRoomId = generateRoomId();

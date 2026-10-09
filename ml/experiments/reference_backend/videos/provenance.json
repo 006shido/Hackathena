@@ -1,0 +1,14 @@
+{
+  "david": {
+    "frames": 770,
+    "fps": 25.0,
+    "sha256": "4bbe69b7d097379af4d7ad128f02692820dc57a6d8275ea2b9e7eef4399a3e61",
+    "source": "https://github.com/opencv/opencv_extra/tree/4.x/testdata/cv/tracking/david"
+  },
+  "faceocc2": {
+    "frames": 812,
+    "fps": 25.0,
+    "sha256": "5ffedeca4fb3acfd65e6f6aa71f016f748628727be1e24914fde2198b42089c5",
+    "source": "https://github.com/opencv/opencv_extra/tree/4.x/testdata/cv/tracking/faceocc2"
+  }
+}

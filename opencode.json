@@ -1,0 +1,55 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "ollama/qwen3-coder:30b-65k",
+  "lsp": true,
+
+  "permission": {
+    "read": "allow",
+    "lsp": "allow",
+    "edit": "allow",
+    "write": "allow",
+    "bash": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "todowrite": "allow"
+  },
+
+  "agent": {
+    "build": {
+      "mode": "primary",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "list": "allow",
+        "lsp": "allow",
+        "todowrite": "allow"
+      }
+    }
+  },
+
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": {
+        "baseURL": "http://localhost:11434/v1",
+        "timeout": 1800000,
+        "headerTimeout": 1800000,
+        "chunkTimeout": 1800000
+      },
+      "models": {
+        "qwen3-coder:30b-65k": {
+          "name": "Qwen3-Coder 30B",
+          "limit": {
+            "context": 65536,
+            "output": 65536
+          }
+        }
+      }
+    }
+  }
+}

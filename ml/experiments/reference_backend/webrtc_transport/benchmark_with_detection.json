@@ -1,0 +1,46 @@
+{
+  "scope": "Same-machine recorded face, actual RTP/DTLS and actual swap pipeline. Not a forwarded two-device latency benchmark.",
+  "http_requests": 20,
+  "http_roundtrip_median_ms": 107.10219999600668,
+  "http_processing_loop_fps": 9.580771774534528,
+  "webrtc_received_frames": 40,
+  "webrtc_received_fps": 11.300652021533743,
+  "webrtc_age_samples": 40,
+  "webrtc_frame_age_median_ms": 270.86455000244314,
+  "webrtc_frame_age_p95_ms": 311.57357000629406,
+  "telemetry_messages": 41,
+  "changed_frames": 41,
+  "pipeline_median_ms": 81.79319999180734,
+  "concurrent_detection": [
+    {
+      "kind": "video",
+      "http_status": 200,
+      "status": "measured"
+    },
+    {
+      "kind": "audio",
+      "http_status": 200,
+      "status": "measured"
+    },
+    {
+      "kind": "video",
+      "http_status": 200,
+      "status": "measured"
+    },
+    {
+      "kind": "audio",
+      "http_status": 200,
+      "status": "measured"
+    },
+    {
+      "kind": "video",
+      "http_status": 200,
+      "status": "measured"
+    },
+    {
+      "kind": "audio",
+      "http_status": 200,
+      "status": "measured"
+    }
+  ]
+}

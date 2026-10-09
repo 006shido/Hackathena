@@ -1,0 +1,4353 @@
+{
+  "scope": "Small reused curated showcase, new speaker-disjoint split and unseen-method test. DSP training augmentations approximate the browser graph. Not full corpus or live-device validation.",
+  "threshold": 0.5839534497261047,
+  "records": [
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9884403944015503
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9853522181510925
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_5",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9934681057929993
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_5",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.8789100050926208
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_6",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.999390721321106
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_6",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9955125451087952
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.95500648021698
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9878756403923035
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9848560690879822
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.975052535533905
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "raw",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.9880470037460327
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "opus",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.9926736950874329
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9828389286994934
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9889726042747498
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9834306240081787
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9861847758293152
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9774762988090515
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9895277619361877
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9977121353149414
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p226_c0022.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9922565221786499
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p226_247.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "train",
+      "label": 0,
+      "score": 0.008653695695102215
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p226_247.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "train",
+      "label": 0,
+      "score": 0.03367730975151062
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p226_247.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "train",
+      "label": 1,
+      "score": 0.8278585076332092
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p226_247.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "train",
+      "label": 1,
+      "score": 0.5136897563934326
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p226_247.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "train",
+      "label": 1,
+      "score": 0.4419400095939636
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p226_247.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "train",
+      "label": 0,
+      "score": 0.19332686066627502
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p226_247.wav",
+      "speakers": [
+        "p226"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "train",
+      "label": 0,
+      "score": 0.020409587770700455
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p226_p281_394.wav",
+      "speakers": [
+        "p226",
+        "p281"
+      ],
+      "method": "sample-VC_2",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.5658328533172607
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p226_p281_394.wav",
+      "speakers": [
+        "p226",
+        "p281"
+      ],
+      "method": "sample-VC_2",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.3891535997390747
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p226_p281_394.wav",
+      "speakers": [
+        "p226",
+        "p281"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.2865122854709625
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p226_p281_394.wav",
+      "speakers": [
+        "p226",
+        "p281"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.17442452907562256
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p226_p281_394.wav",
+      "speakers": [
+        "p226",
+        "p281"
+      ],
+      "method": "sample-VC_5",
+      "variant": "raw",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.09812748432159424
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p226_p281_394.wav",
+      "speakers": [
+        "p226",
+        "p281"
+      ],
+      "method": "sample-VC_5",
+      "variant": "opus",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.31449514627456665
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p281_394.wav",
+      "speakers": [
+        "p281"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "train",
+      "label": 0,
+      "score": 0.013713899999856949
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p281_394.wav",
+      "speakers": [
+        "p281"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "train",
+      "label": 0,
+      "score": 0.26738834381103516
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p281_394.wav",
+      "speakers": [
+        "p281"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "train",
+      "label": 1,
+      "score": 0.9940220713615417
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p281_394.wav",
+      "speakers": [
+        "p281"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "train",
+      "label": 1,
+      "score": 0.5999327898025513
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p281_394.wav",
+      "speakers": [
+        "p281"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "train",
+      "label": 1,
+      "score": 0.9992270469665527
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p281_394.wav",
+      "speakers": [
+        "p281"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "train",
+      "label": 0,
+      "score": 0.06803081929683685
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p281_394.wav",
+      "speakers": [
+        "p281"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "train",
+      "label": 0,
+      "score": 0.11613835394382477
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9955744743347168
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9463139772415161
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_5",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9995772242546082
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_5",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9923827052116394
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_6",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.999529242515564
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_6",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.998846173286438
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9940524697303772
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9930582046508789
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9949995279312134
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.997767448425293
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "raw",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.9997370839118958
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "opus",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.9982240796089172
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.997844934463501
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9987626075744629
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9988945126533508
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9983355402946472
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9914899468421936
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9598183631896973
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.5584571957588196
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p232_c0033.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.6340831518173218
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p232_258.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "train",
+      "label": 0,
+      "score": 0.014476914890110493
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p232_258.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "train",
+      "label": 0,
+      "score": 0.19920951128005981
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p232_258.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "train",
+      "label": 1,
+      "score": 0.9863197207450867
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p232_258.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "train",
+      "label": 1,
+      "score": 0.8752962350845337
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p232_258.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "train",
+      "label": 1,
+      "score": 0.9996629953384399
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p232_258.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "train",
+      "label": 0,
+      "score": 0.37464165687561035
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p232_258.wav",
+      "speakers": [
+        "p232"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "train",
+      "label": 0,
+      "score": 0.06217319145798683
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p232_p360_305.wav",
+      "speakers": [
+        "p232",
+        "p360"
+      ],
+      "method": "sample-VC_2",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9234893918037415
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p232_p360_305.wav",
+      "speakers": [
+        "p232",
+        "p360"
+      ],
+      "method": "sample-VC_2",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9149361848831177
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p232_p360_305.wav",
+      "speakers": [
+        "p232",
+        "p360"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9822441935539246
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p232_p360_305.wav",
+      "speakers": [
+        "p232",
+        "p360"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.8277024030685425
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p232_p360_305.wav",
+      "speakers": [
+        "p232",
+        "p360"
+      ],
+      "method": "sample-VC_5",
+      "variant": "raw",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.4767879545688629
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p232_p360_305.wav",
+      "speakers": [
+        "p232",
+        "p360"
+      ],
+      "method": "sample-VC_5",
+      "variant": "opus",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.14103668928146362
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p360_305.wav",
+      "speakers": [
+        "p360"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "train",
+      "label": 0,
+      "score": 0.03241684287786484
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p360_305.wav",
+      "speakers": [
+        "p360"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "train",
+      "label": 0,
+      "score": 0.07319578528404236
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p360_305.wav",
+      "speakers": [
+        "p360"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "train",
+      "label": 1,
+      "score": 0.977111279964447
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p360_305.wav",
+      "speakers": [
+        "p360"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "train",
+      "label": 1,
+      "score": 0.909005880355835
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p360_305.wav",
+      "speakers": [
+        "p360"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "train",
+      "label": 1,
+      "score": 0.952163815498352
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p360_305.wav",
+      "speakers": [
+        "p360"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "train",
+      "label": 0,
+      "score": 0.17132866382598877
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p360_305.wav",
+      "speakers": [
+        "p360"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "train",
+      "label": 0,
+      "score": 0.02765255980193615
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9949400424957275
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9143804907798767
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_5",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9967876672744751
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_5",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9860710501670837
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_6",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9999618530273438
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_6",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9988468885421753
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9742138981819153
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9978556036949158
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9957329630851746
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9988521337509155
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "raw",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.9988264441490173
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "opus",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.996073842048645
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9982017278671265
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9993526339530945
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9991142153739929
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9966721534729004
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9824068546295166
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.978873610496521
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.4941849708557129
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p280_c0012.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9964675903320312
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p280_237.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "train",
+      "label": 0,
+      "score": 0.010760258883237839
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p280_237.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "train",
+      "label": 0,
+      "score": 0.0743236169219017
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p280_237.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "train",
+      "label": 1,
+      "score": 0.9941146969795227
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p280_237.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "train",
+      "label": 1,
+      "score": 0.7369688153266907
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p280_237.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "train",
+      "label": 1,
+      "score": 0.9991419315338135
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p280_237.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "train",
+      "label": 0,
+      "score": 0.07126621156930923
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p280_237.wav",
+      "speakers": [
+        "p280"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "train",
+      "label": 0,
+      "score": 0.03474913910031319
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p280_p231_234.wav",
+      "speakers": [
+        "p231",
+        "p280"
+      ],
+      "method": "sample-VC_2",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.5762214064598083
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p280_p231_234.wav",
+      "speakers": [
+        "p231",
+        "p280"
+      ],
+      "method": "sample-VC_2",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.18674591183662415
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p280_p231_234.wav",
+      "speakers": [
+        "p231",
+        "p280"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9987008571624756
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p280_p231_234.wav",
+      "speakers": [
+        "p231",
+        "p280"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.5344942808151245
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p280_p231_234.wav",
+      "speakers": [
+        "p231",
+        "p280"
+      ],
+      "method": "sample-VC_5",
+      "variant": "raw",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.7232641577720642
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p280_p231_234.wav",
+      "speakers": [
+        "p231",
+        "p280"
+      ],
+      "method": "sample-VC_5",
+      "variant": "opus",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.39630913734436035
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p231_234.wav",
+      "speakers": [
+        "p231"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "train",
+      "label": 0,
+      "score": 0.02873963676393032
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p231_234.wav",
+      "speakers": [
+        "p231"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "train",
+      "label": 0,
+      "score": 0.17728811502456665
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p231_234.wav",
+      "speakers": [
+        "p231"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "train",
+      "label": 1,
+      "score": 0.9949256181716919
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p231_234.wav",
+      "speakers": [
+        "p231"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "train",
+      "label": 1,
+      "score": 0.8226779103279114
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p231_234.wav",
+      "speakers": [
+        "p231"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "train",
+      "label": 1,
+      "score": 0.9984851479530334
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p231_234.wav",
+      "speakers": [
+        "p231"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "train",
+      "label": 0,
+      "score": 0.11118462681770325
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p231_234.wav",
+      "speakers": [
+        "p231"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "train",
+      "label": 0,
+      "score": 0.17535357177257538
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.993747353553772
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9993568062782288
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_5",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9995794892311096
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_5",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9761897921562195
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_6",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9999572038650513
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_6",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9996839761734009
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9978427886962891
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.999381422996521
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9991773962974548
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9988528490066528
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "raw",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.9994738698005676
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "opus",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.9975730776786804
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9997662901878357
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9995587468147278
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9996298551559448
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.999691367149353
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9970738887786865
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9996356964111328
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.993643045425415
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p300_c0019.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.5030085444450378
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p300_244.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "train",
+      "label": 0,
+      "score": 0.24026603996753693
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p300_244.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "train",
+      "label": 0,
+      "score": 0.1899949610233307
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p300_244.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "train",
+      "label": 1,
+      "score": 0.9982590079307556
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p300_244.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "train",
+      "label": 1,
+      "score": 0.9194331169128418
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p300_244.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "train",
+      "label": 1,
+      "score": 0.9627793431282043
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p300_244.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "train",
+      "label": 0,
+      "score": 0.1589655876159668
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p300_244.wav",
+      "speakers": [
+        "p300"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "train",
+      "label": 0,
+      "score": 0.1797371804714203
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p300_p231_234.wav",
+      "speakers": [
+        "p231",
+        "p300"
+      ],
+      "method": "sample-VC_2",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9659314155578613
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p300_p231_234.wav",
+      "speakers": [
+        "p231",
+        "p300"
+      ],
+      "method": "sample-VC_2",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.6324746608734131
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p300_p231_234.wav",
+      "speakers": [
+        "p231",
+        "p300"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.996100902557373
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p300_p231_234.wav",
+      "speakers": [
+        "p231",
+        "p300"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.7211333513259888
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p300_p231_234.wav",
+      "speakers": [
+        "p231",
+        "p300"
+      ],
+      "method": "sample-VC_5",
+      "variant": "raw",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.2009708732366562
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p300_p231_234.wav",
+      "speakers": [
+        "p231",
+        "p300"
+      ],
+      "method": "sample-VC_5",
+      "variant": "opus",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.22307023406028748
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9988632202148438
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9990307092666626
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_5",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.998688280582428
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_5",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9971761703491211
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_6",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9999738931655884
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_6",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9998248219490051
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9983189702033997
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9961501359939575
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.999616265296936
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9969485402107239
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9998842477798462
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9992982149124146
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9998219609260559
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9997792840003967
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9999041557312012
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9983116388320923
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9955456256866455
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9918124675750732
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9971789121627808
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p317_c0019.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9881306886672974
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p317_244.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 0,
+      "score": 0.006428922060877085
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p317_244.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 0,
+      "score": 0.027132321149110794
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p317_244.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9994786381721497
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p317_244.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.8464338183403015
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p317_244.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.8638214468955994
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p317_244.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "calibration",
+      "label": 0,
+      "score": 0.048543013632297516
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p317_244.wav",
+      "speakers": [
+        "p317"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "calibration",
+      "label": 0,
+      "score": 0.006854296661913395
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p317_p228_227.wav",
+      "speakers": [
+        "p228",
+        "p317"
+      ],
+      "method": "sample-VC_2",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.3640315532684326
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p317_p228_227.wav",
+      "speakers": [
+        "p228",
+        "p317"
+      ],
+      "method": "sample-VC_2",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.328628271818161
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p317_p228_227.wav",
+      "speakers": [
+        "p228",
+        "p317"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.42255255579948425
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p317_p228_227.wav",
+      "speakers": [
+        "p228",
+        "p317"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.8619648814201355
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p317_p228_227.wav",
+      "speakers": [
+        "p228",
+        "p317"
+      ],
+      "method": "sample-VC_5",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.010843195021152496
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p317_p228_227.wav",
+      "speakers": [
+        "p228",
+        "p317"
+      ],
+      "method": "sample-VC_5",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.02892182767391205
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p228_227.wav",
+      "speakers": [
+        "p228"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "train",
+      "label": 0,
+      "score": 0.0015077248681336641
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p228_227.wav",
+      "speakers": [
+        "p228"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "train",
+      "label": 0,
+      "score": 0.08602433651685715
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p228_227.wav",
+      "speakers": [
+        "p228"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "train",
+      "label": 1,
+      "score": 0.9981746673583984
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p228_227.wav",
+      "speakers": [
+        "p228"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "train",
+      "label": 1,
+      "score": 0.4274228513240814
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p228_227.wav",
+      "speakers": [
+        "p228"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "train",
+      "label": 1,
+      "score": 0.7483612298965454
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p228_227.wav",
+      "speakers": [
+        "p228"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "train",
+      "label": 0,
+      "score": 0.034698184579610825
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p228_227.wav",
+      "speakers": [
+        "p228"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "train",
+      "label": 0,
+      "score": 0.1103360578417778
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9983470439910889
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.9818133115768433
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_5",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9927548766136169
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_5",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.567322850227356
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_6",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9998685121536255
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_6",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.998712420463562
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9950960278511047
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.9747284054756165
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9991864562034607
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.8174567818641663
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9995548129081726
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.9971831440925598
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9988370537757874
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.9975244402885437
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9956555366516113
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.989933431148529
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9985010623931885
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.9864652156829834
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9743247628211975
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p326_c0034.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.7974434494972229
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p326_259.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "test",
+      "label": 0,
+      "score": 0.015947017818689346
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p326_259.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "test",
+      "label": 0,
+      "score": 0.1810368299484253
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p326_259.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "test",
+      "label": 1,
+      "score": 0.9979567527770996
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p326_259.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "test",
+      "label": 1,
+      "score": 0.5790210366249084
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p326_259.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "test",
+      "label": 1,
+      "score": 0.9811978936195374
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p326_259.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "test",
+      "label": 0,
+      "score": 0.029352301731705666
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p326_259.wav",
+      "speakers": [
+        "p326"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "test",
+      "label": 0,
+      "score": 0.12170989066362381
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p326_p256_225.wav",
+      "speakers": [
+        "p256",
+        "p326"
+      ],
+      "method": "sample-VC_2",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.35580873489379883
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p326_p256_225.wav",
+      "speakers": [
+        "p256",
+        "p326"
+      ],
+      "method": "sample-VC_2",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.2879507541656494
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p326_p256_225.wav",
+      "speakers": [
+        "p256",
+        "p326"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.6604246497154236
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p326_p256_225.wav",
+      "speakers": [
+        "p256",
+        "p326"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.38240846991539
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p326_p256_225.wav",
+      "speakers": [
+        "p256",
+        "p326"
+      ],
+      "method": "sample-VC_5",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.43791908025741577
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p326_p256_225.wav",
+      "speakers": [
+        "p256",
+        "p326"
+      ],
+      "method": "sample-VC_5",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.24113482236862183
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p256_225.wav",
+      "speakers": [
+        "p256"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "train",
+      "label": 0,
+      "score": 0.0049020457081496716
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p256_225.wav",
+      "speakers": [
+        "p256"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "train",
+      "label": 0,
+      "score": 0.02729872241616249
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p256_225.wav",
+      "speakers": [
+        "p256"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "train",
+      "label": 1,
+      "score": 0.9823936223983765
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p256_225.wav",
+      "speakers": [
+        "p256"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "train",
+      "label": 1,
+      "score": 0.8862982392311096
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p256_225.wav",
+      "speakers": [
+        "p256"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "train",
+      "label": 1,
+      "score": 0.7029653787612915
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p256_225.wav",
+      "speakers": [
+        "p256"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "train",
+      "label": 0,
+      "score": 0.0876958817243576
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p256_225.wav",
+      "speakers": [
+        "p256"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "train",
+      "label": 0,
+      "score": 0.012482273392379284
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9896050691604614
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9976155757904053
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_5",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9991745352745056
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_5",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9441995620727539
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_6",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9994844198226929
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_6",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9973015785217285
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.8252540826797485
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9659543037414551
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9991230368614197
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9538173675537109
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9890894293785095
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.998281717300415
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9969011545181274
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9970658421516418
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9952881336212158
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9990580677986145
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9971049427986145
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9982233643531799
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9994244575500488
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p274_c0023.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9925729036331177
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p274_248.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 0,
+      "score": 0.026149248704314232
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p274_248.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 0,
+      "score": 0.5248825550079346
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p274_248.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9955205917358398
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p274_248.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9700987935066223
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p274_248.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9242825508117676
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p274_248.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "calibration",
+      "label": 0,
+      "score": 0.5739534497261047
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p274_248.wav",
+      "speakers": [
+        "p274"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "calibration",
+      "label": 0,
+      "score": 0.1961916983127594
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p274_p256_225.wav",
+      "speakers": [
+        "p256",
+        "p274"
+      ],
+      "method": "sample-VC_2",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.8366301655769348
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p274_p256_225.wav",
+      "speakers": [
+        "p256",
+        "p274"
+      ],
+      "method": "sample-VC_2",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.8382542133331299
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p274_p256_225.wav",
+      "speakers": [
+        "p256",
+        "p274"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.9654526114463806
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p274_p256_225.wav",
+      "speakers": [
+        "p256",
+        "p274"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.7639199495315552
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p274_p256_225.wav",
+      "speakers": [
+        "p256",
+        "p274"
+      ],
+      "method": "sample-VC_5",
+      "variant": "raw",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.3907851576805115
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p274_p256_225.wav",
+      "speakers": [
+        "p256",
+        "p274"
+      ],
+      "method": "sample-VC_5",
+      "variant": "opus",
+      "split": "calibration",
+      "label": 1,
+      "score": 0.2296576052904129
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9979522228240967
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9990742206573486
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_5",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9999467134475708
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_5",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9896071553230286
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_6",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9997507929801941
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_6",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9994731545448303
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9980958104133606
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9992961883544922
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9993366599082947
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.998968243598938
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "raw",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.9970189332962036
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "opus",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.9996224641799927
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9985361099243164
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9992514252662659
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.999060332775116
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9993987083435059
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9968242645263672
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9985278844833374
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9944462776184082
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p252_c0021.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9994568228721619
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p252_246.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "train",
+      "label": 0,
+      "score": 0.12327641248703003
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p252_246.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "train",
+      "label": 0,
+      "score": 0.048768121749162674
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p252_246.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "train",
+      "label": 1,
+      "score": 0.9760909676551819
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p252_246.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "train",
+      "label": 1,
+      "score": 0.500554621219635
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p252_246.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "train",
+      "label": 1,
+      "score": 0.10293939709663391
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p252_246.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "train",
+      "label": 0,
+      "score": 0.1620263308286667
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p252_246.wav",
+      "speakers": [
+        "p252"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "train",
+      "label": 0,
+      "score": 0.02709340490400791
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p252_p363_301.wav",
+      "speakers": [
+        "p252",
+        "p363"
+      ],
+      "method": "sample-VC_2",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9006297588348389
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p252_p363_301.wav",
+      "speakers": [
+        "p252",
+        "p363"
+      ],
+      "method": "sample-VC_2",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.5200791358947754
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p252_p363_301.wav",
+      "speakers": [
+        "p252",
+        "p363"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9987761378288269
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p252_p363_301.wav",
+      "speakers": [
+        "p252",
+        "p363"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.8752408623695374
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p252_p363_301.wav",
+      "speakers": [
+        "p252",
+        "p363"
+      ],
+      "method": "sample-VC_5",
+      "variant": "raw",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.7629138231277466
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p252_p363_301.wav",
+      "speakers": [
+        "p252",
+        "p363"
+      ],
+      "method": "sample-VC_5",
+      "variant": "opus",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.2895200848579407
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p295_269.wav",
+      "speakers": [
+        "p295"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "train",
+      "label": 0,
+      "score": 0.21846620738506317
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p295_269.wav",
+      "speakers": [
+        "p295"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "train",
+      "label": 0,
+      "score": 0.05415302515029907
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p295_269.wav",
+      "speakers": [
+        "p295"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "train",
+      "label": 1,
+      "score": 0.99904865026474
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p295_269.wav",
+      "speakers": [
+        "p295"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "train",
+      "label": 1,
+      "score": 0.8522210717201233
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p295_269.wav",
+      "speakers": [
+        "p295"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "train",
+      "label": 1,
+      "score": 0.9975195527076721
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p295_269.wav",
+      "speakers": [
+        "p295"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "train",
+      "label": 0,
+      "score": 0.08872014284133911
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p295_269.wav",
+      "speakers": [
+        "p295"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "train",
+      "label": 0,
+      "score": 0.08290953934192657
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9140867590904236
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9918600916862488
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_5",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.966772735118866
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_5",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9069486260414124
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_6",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9996587038040161
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_6",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9994884729385376
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9482172727584839
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.994503378868103
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9407967925071716
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9893752336502075
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "raw",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.9703845977783203
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "opus",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.9966530203819275
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9808197617530823
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9981749057769775
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9901684522628784
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9927266836166382
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.8811272382736206
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9936256408691406
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.994583785533905
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p266_c0017.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.9849337935447693
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p266_242.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "train",
+      "label": 0,
+      "score": 0.05076621100306511
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p266_242.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "train",
+      "label": 0,
+      "score": 0.02948152832686901
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p266_242.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "train",
+      "label": 1,
+      "score": 0.9880643486976624
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p266_242.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "train",
+      "label": 1,
+      "score": 0.28936606645584106
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p266_242.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "train",
+      "label": 1,
+      "score": 0.9908236265182495
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p266_242.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "train",
+      "label": 0,
+      "score": 0.009890636429190636
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p266_242.wav",
+      "speakers": [
+        "p266"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "train",
+      "label": 0,
+      "score": 0.00662469957023859
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p266_p343_257.wav",
+      "speakers": [
+        "p266",
+        "p343"
+      ],
+      "method": "sample-VC_2",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9442682266235352
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p266_p343_257.wav",
+      "speakers": [
+        "p266",
+        "p343"
+      ],
+      "method": "sample-VC_2",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.8860592246055603
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p266_p343_257.wav",
+      "speakers": [
+        "p266",
+        "p343"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "raw",
+      "split": "train",
+      "label": 1,
+      "score": 0.9711123108863831
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p266_p343_257.wav",
+      "speakers": [
+        "p266",
+        "p343"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "opus",
+      "split": "train",
+      "label": 1,
+      "score": 0.768499493598938
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p266_p343_257.wav",
+      "speakers": [
+        "p266",
+        "p343"
+      ],
+      "method": "sample-VC_5",
+      "variant": "raw",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.9562190771102905
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p266_p343_257.wav",
+      "speakers": [
+        "p266",
+        "p343"
+      ],
+      "method": "sample-VC_5",
+      "variant": "opus",
+      "split": "method_test",
+      "label": 1,
+      "score": 0.7267962098121643
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p363_301.wav",
+      "speakers": [
+        "p363"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "train",
+      "label": 0,
+      "score": 0.041049350053071976
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p363_301.wav",
+      "speakers": [
+        "p363"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "train",
+      "label": 0,
+      "score": 0.2034478634595871
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p363_301.wav",
+      "speakers": [
+        "p363"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "train",
+      "label": 1,
+      "score": 0.9938475489616394
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p363_301.wav",
+      "speakers": [
+        "p363"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "train",
+      "label": 1,
+      "score": 0.63004070520401
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p363_301.wav",
+      "speakers": [
+        "p363"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "train",
+      "label": 1,
+      "score": 0.994633674621582
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p363_301.wav",
+      "speakers": [
+        "p363"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "train",
+      "label": 0,
+      "score": 0.06282175332307816
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p363_301.wav",
+      "speakers": [
+        "p363"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "train",
+      "label": 0,
+      "score": 0.07026572525501251
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9913689494132996
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_3_new__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_3_new",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.998247504234314
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_5",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9959547519683838
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_5__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_5",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.9057615399360657
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_6",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9999163150787354
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_6__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_6",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.999861478805542
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9612258076667786
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_7_new__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_7_new",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.9961369633674622
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9949585795402527
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_8_new__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_8_new",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.9898558855056763
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9942207336425781
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_9_16k__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_9_16k",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.999768078327179
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9929775595664978
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_1__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_VC_1",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.9989020824432373
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9993636012077332
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_2_new__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_VC_2_new",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.9931443929672241
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9936815500259399
+    },
+    {
+      "file": "samples-asvspoof2019__sample-SS_VC_3__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-SS_VC_3",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.9925772547721863
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9851827025413513
+    },
+    {
+      "file": "samples-asvspoof2019__sample-US_1_R__p233_c0026.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-US_1_R",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.9708809852600098
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p233_252.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "test",
+      "label": 0,
+      "score": 0.0007019893964752555
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p233_252.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "test",
+      "label": 0,
+      "score": 0.022462816908955574
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p233_252.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "test",
+      "label": 1,
+      "score": 0.9665617942810059
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p233_252.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "test",
+      "label": 1,
+      "score": 0.7460042834281921
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p233_252.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "test",
+      "label": 1,
+      "score": 0.6605201959609985
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p233_252.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "test",
+      "label": 0,
+      "score": 0.0659535825252533
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p233_252.wav",
+      "speakers": [
+        "p233"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "test",
+      "label": 0,
+      "score": 0.011492721736431122
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p233_p295_269.wav",
+      "speakers": [
+        "p233",
+        "p295"
+      ],
+      "method": "sample-VC_2",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9955537915229797
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_2__p233_p295_269.wav",
+      "speakers": [
+        "p233",
+        "p295"
+      ],
+      "method": "sample-VC_2",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.5986405611038208
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p233_p295_269.wav",
+      "speakers": [
+        "p233",
+        "p295"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9822642207145691
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_3_new__p233_p295_269.wav",
+      "speakers": [
+        "p233",
+        "p295"
+      ],
+      "method": "sample-VC_3_new",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.9699629545211792
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p233_p295_269.wav",
+      "speakers": [
+        "p233",
+        "p295"
+      ],
+      "method": "sample-VC_5",
+      "variant": "raw",
+      "split": "test",
+      "label": 1,
+      "score": 0.9869536757469177
+    },
+    {
+      "file": "samples-asvspoof2019__sample-VC_5__p233_p295_269.wav",
+      "speakers": [
+        "p233",
+        "p295"
+      ],
+      "method": "sample-VC_5",
+      "variant": "opus",
+      "split": "test",
+      "label": 1,
+      "score": 0.7178076505661011
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p343_257.wav",
+      "speakers": [
+        "p343"
+      ],
+      "method": "sample-human",
+      "variant": "raw",
+      "split": "train",
+      "label": 0,
+      "score": 0.17515067756175995
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p343_257.wav",
+      "speakers": [
+        "p343"
+      ],
+      "method": "sample-human",
+      "variant": "opus",
+      "split": "train",
+      "label": 0,
+      "score": 0.08836226165294647
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p343_257.wav",
+      "speakers": [
+        "p343"
+      ],
+      "method": "sample-human",
+      "variant": "deep",
+      "split": "train",
+      "label": 1,
+      "score": 0.9898636937141418
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p343_257.wav",
+      "speakers": [
+        "p343"
+      ],
+      "method": "sample-human",
+      "variant": "robotic",
+      "split": "train",
+      "label": 1,
+      "score": 0.7937502861022949
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p343_257.wav",
+      "speakers": [
+        "p343"
+      ],
+      "method": "sample-human",
+      "variant": "synthetic",
+      "split": "train",
+      "label": 1,
+      "score": 0.9949736595153809
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p343_257.wav",
+      "speakers": [
+        "p343"
+      ],
+      "method": "sample-human",
+      "variant": "benign_gain",
+      "split": "train",
+      "label": 0,
+      "score": 0.09478527307510376
+    },
+    {
+      "file": "samples-asvspoof2019__sample-human__p343_257.wav",
+      "speakers": [
+        "p343"
+      ],
+      "method": "sample-human",
+      "variant": "benign_lowpass",
+      "split": "train",
+      "label": 0,
+      "score": 0.03223830834031105
+    }
+  ],
+  "test": {
+    "real": 8,
+    "spoof_or_dsp": 58,
+    "false_positives": 0,
+    "detected": 51,
+    "real_median": 0.02590755932033062,
+    "fake_median": 0.9906511902809143
+  },
+  "method_test": {
+    "real": 0,
+    "spoof_or_dsp": 24,
+    "false_positives": 0,
+    "detected": 16,
+    "real_median": null,
+    "fake_median": 0.9633018374443054
+  },
+  "external_received_call": [
+    {
+      "name": "clean",
+      "score": 0.9993197917938232,
+      "above_threshold": true
+    },
+    {
+      "name": "robotic-vocoder",
+      "score": 0.9999996423721313,
+      "above_threshold": true
+    },
+    {
+      "name": "deep-pitch-neural",
+      "score": 0.9970019459724426,
+      "above_threshold": true
+    },
+    {
+      "name": "synthetic-clone",
+      "score": 0.9999990463256836,
+      "above_threshold": true
+    }
+  ],
+  "seconds": 50.88844037055969,
+  "passed_local_gate": false,
+  "validated_for_live_calls": false
+}

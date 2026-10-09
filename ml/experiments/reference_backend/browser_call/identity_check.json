@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "scores": {
+    "remote-a": {
+      "source-a": 0.5858825445175171,
+      "source-b": 0.046347007155418396,
+      "target": 0.2945672571659088
+    },
+    "remote-b": {
+      "source-a": 0.08417841792106628,
+      "source-b": 0.7648800611495972,
+      "target": 0.3607461452484131
+    },
+    "remote-restored": {
+      "source-a": 0.11410430073738098,
+      "source-b": 0.24903778731822968,
+      "target": 0.8877238035202026
+    }
+  },
+  "scope": "Three received snapshots, original target ID from clip frame zero; independent of the generator, same scorer as the identity guard. Not an all-frame identity or speech test."
+}

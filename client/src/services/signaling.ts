@@ -1,6 +1,6 @@
-import { io, Socket } from 'socket.io-client';
-import { ParticipantInfo } from '../types/call';
+import { io,Socket } from 'socket.io-client';
 import { AttackMode } from '../types/attack';
+import { ParticipantInfo } from '../types/call';
 
 export interface RoomJoinedData {
   roomId: string;
@@ -53,16 +53,9 @@ class SignalingService {
     return this.socket;
   }
 
-  public setListeners(listeners: SignalingEvents) {
-    this.listeners = { ...this.listeners, ...listeners };
-  }
 
   private setupListeners() {
     if (!this.socket) return;
-
-    this.socket.on('connect', () => {
-      console.log('[Signaling] Connected to server, socketId:', this.socket?.id);
-    });
 
     this.socket.on('connect_error', (err) => {
       console.error('[Signaling] Connection error:', err.message);
@@ -70,27 +63,22 @@ class SignalingService {
     });
 
     this.socket.on('room-joined', (data: RoomJoinedData) => {
-      console.log('[Signaling] room-joined:', data);
       this.listeners.onRoomJoined?.(data);
     });
 
     this.socket.on('peer-joined', (data: PeerJoinedData) => {
-      console.log('[Signaling] peer-joined:', data);
       this.listeners.onPeerJoined?.(data);
     });
 
     this.socket.on('peer-left', (data: { socketId: string; username?: string }) => {
-      console.log('[Signaling] peer-left:', data);
       this.listeners.onPeerLeft?.(data);
     });
 
     this.socket.on('webrtc-offer', (data: { senderId: string; sdp: RTCSessionDescriptionInit }) => {
-      console.log('[Signaling] webrtc-offer received from', data.senderId);
       this.listeners.onOffer?.(data);
     });
 
     this.socket.on('webrtc-answer', (data: { senderId: string; sdp: RTCSessionDescriptionInit }) => {
-      console.log('[Signaling] webrtc-answer received from', data.senderId);
       this.listeners.onAnswer?.(data);
     });
 
@@ -104,7 +92,6 @@ class SignalingService {
     });
 
     this.socket.on('peer-attack-state', (data: { senderId: string; attackMode: AttackMode; faceSwap: boolean; voiceTransform: boolean }) => {
-      console.log('[Signaling] peer-attack-state:', data);
       this.listeners.onPeerAttackState?.(data);
     });
 
@@ -114,7 +101,6 @@ class SignalingService {
     });
 
     this.socket.on('disconnect', (reason: string) => {
-      console.log('[Signaling] Disconnected:', reason);
       this.listeners.onDisconnect?.(reason);
     });
   }
@@ -163,9 +149,6 @@ class SignalingService {
     }
   }
 
-  public getSocketId(): string | undefined {
-    return this.socket?.id;
-  }
 }
 
 export const signalingService = new SignalingService();

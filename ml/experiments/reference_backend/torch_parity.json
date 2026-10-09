@@ -1,0 +1,23 @@
+{
+  "parity_cases": [
+    {
+      "case": 0,
+      "max_absolute_error": 5.0008296966552734e-05,
+      "mean_absolute_error": 5.503017746377736e-06
+    },
+    {
+      "case": 1,
+      "max_absolute_error": 5.8025121688842773e-05,
+      "mean_absolute_error": 5.725289156544022e-06
+    },
+    {
+      "case": 2,
+      "max_absolute_error": 5.2481889724731445e-05,
+      "mean_absolute_error": 5.517355475603836e-06
+    }
+  ],
+  "fp32": true,
+  "swap_with_transfers_ms_median": 58.81829999998445,
+  "swap_with_transfers_ms_p95": 77.10502000009001,
+  "scope": "Swap graph and transfers; excludes detection, recognition, compositing and network."
+}

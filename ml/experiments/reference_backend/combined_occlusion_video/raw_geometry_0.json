@@ -1,0 +1,36 @@
+{
+  "face_detected": true,
+  "changed_pixels": 7345,
+  "lowlight_retry": false,
+  "occlusion_mask_ms": 48.097300008521415,
+  "occlusion_restored_pixels": 842,
+  "occlusion_stabilized_pixels": 0,
+  "semantic_hair_override_pixels": 3360,
+  "key_landmarks_5pts": [
+    [
+      141.0146942138672,
+      91.08551788330078
+    ],
+    [
+      176.31614685058594,
+      93.38533020019531
+    ],
+    [
+      156.364990234375,
+      123.86882019042969
+    ],
+    [
+      142.8248291015625,
+      130.54776000976562
+    ],
+    [
+      171.50559997558594,
+      131.50167846679688
+    ]
+  ],
+  "identity_accepted": true,
+  "source_similarity": 0.5684101581573486,
+  "target_similarity": 0.3476888835430145,
+  "pipeline_ms": 208.6663999943994,
+  "face_changed": true
+}

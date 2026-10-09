@@ -1,0 +1,28 @@
+{
+  "face": {
+    "repository": "https://github.com/SCLBD/DeepfakeBench",
+    "commit": "6bc3ea01cdc768b17bd37b5e0eca85ecdfb10472",
+    "release": "v1.0.1",
+    "license": "CC-BY-NC-4.0; see upstream third-party notices",
+    "adaptation": "Removed training registry import/decorator only; architecture unchanged"
+  },
+  "audio": {
+    "repository": "https://github.com/clovaai/aasist",
+    "commit": "a04c9863f63d44471dde8a6abcb3b082b07cd1d1",
+    "license": "MIT",
+    "training": "ASVspoof2019 LA"
+  },
+  "sha256": {
+    "AASIST.conf": "c25023331685027cce90e1b9a0d2df10aa04b2a27d9b27d5afa36e6815b0fe76",
+    "AASIST.LICENSE": "da2e79b8592d166ef505224300968b80ebe1e4c217c43b94a5ec627d81cd4142",
+    "AASIST.NOTICE": "70edb07f04ddc88e7155d6e826495e5ef99c3b1f0bd4e1b7fa35897b3854dbd0",
+    "AASIST.pth": "51d2d9cf0738172f61e2a384ec50a54a55363240f67c971ed55a92435bc1a1c0",
+    "aasist_upstream.py": "9e0d3e80937dd0577beea7883098465a479da23a198ebc0d712abcc59b0bec50",
+    "DeepfakeBench.LICENSE": "44ac394fae2ed10bbbe021936425043e6b7bc9f91014d42f3dd9f1c0803d31d1",
+    "xception_best.pth": "dd61186f9ac8e99aae85982cae338b555dfaeef042f6b699e5a55cae3998ba47",
+    "xception_config_upstream.yaml": "66157eaadb0736adea7c42e1e0bf65254160b90810a231fb1efdc73240188837",
+    "xception_detector_upstream.txt": "da1321a1650af93b78e60f98312ac59931a870b32de8ec6ef66043b33428d567",
+    "xception_inference.py": "d0cc802d85545a38bca7001f856051d61668c8f94934c20d412f4cfa4ef84c8c",
+    "xception_upstream.py": "e308fc295c21b1928ce5b4844e0d1d6bf68d672fbcae403528f0469b1a6963fd"
+  }
+}

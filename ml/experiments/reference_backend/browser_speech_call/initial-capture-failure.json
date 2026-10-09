@@ -1,0 +1,14 @@
+{
+  "scope": "Recorded speech, production voice pipeline and actual loopback WebRTC. Not full UI, microphone, cross-computer connectivity or speech-recognition accuracy.",
+  "measurements": {
+    "clean": {
+      "rms": 0,
+      "peak": 0,
+      "clippedRatio": 0,
+      "samples": 212992
+    }
+  },
+  "checks": {},
+  "passed": false,
+  "error": "Error: clean: received speech is non-silent"
+}

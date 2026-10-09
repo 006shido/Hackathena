@@ -1,0 +1,421 @@
+{
+  "scope": "12 previously inspected held-out photo pairs and one speech clip with DSP variants. NOT independent benchmark validation. MediaPipe square crops differ from upstream landmark crops. No true TTS/voice-clone evaluation set.",
+  "face_count": 12,
+  "face_real_mean": 0.24859215272590518,
+  "face_fake_mean": 0.6490007061511278,
+  "face_auc": 0.8611111111111112,
+  "false_positives_at_uncalibrated_half": 2,
+  "true_positives_at_uncalibrated_half": 9,
+  "face": [
+    {
+      "index": 0,
+      "real": {
+        "status": "measured",
+        "score": 0.1354365199804306,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          12,
+          63,
+          148,
+          199
+        ],
+        "pipeline_ms": 17329.498999999487,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9406421184539795,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          12,
+          63,
+          148,
+          199
+        ],
+        "pipeline_ms": 9.892500005662441,
+        "calibrated": false
+      },
+      "pixels_changed": true
+    },
+    {
+      "index": 1,
+      "real": {
+        "status": "measured",
+        "score": 0.05536317080259323,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          20,
+          68,
+          145,
+          192
+        ],
+        "pipeline_ms": 17.79270000406541,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.2611885070800781,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          20,
+          68,
+          145,
+          192
+        ],
+        "pipeline_ms": 6.269100005738437,
+        "calibrated": false
+      },
+      "pixels_changed": true
+    },
+    {
+      "index": 2,
+      "real": {
+        "status": "measured",
+        "score": 0.557772696018219,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          20,
+          65,
+          155,
+          200
+        ],
+        "pipeline_ms": 18.41269999567885,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.8645147681236267,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          20,
+          65,
+          155,
+          200
+        ],
+        "pipeline_ms": 7.413599989376962,
+        "calibrated": false
+      },
+      "pixels_changed": true
+    },
+    {
+      "index": 3,
+      "real": {
+        "status": "measured",
+        "score": 0.04012935236096382,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          32,
+          66,
+          168,
+          201
+        ],
+        "pipeline_ms": 17.688399995677173,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.7505093216896057,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          32,
+          66,
+          168,
+          201
+        ],
+        "pipeline_ms": 6.7955999984405935,
+        "calibrated": false
+      },
+      "pixels_changed": true
+    },
+    {
+      "index": 4,
+      "real": {
+        "status": "measured",
+        "score": 0.02882816642522812,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          21,
+          65,
+          158,
+          202
+        ],
+        "pipeline_ms": 17.672700007096864,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.5684851408004761,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          21,
+          65,
+          158,
+          202
+        ],
+        "pipeline_ms": 7.171300007030368,
+        "calibrated": false
+      },
+      "pixels_changed": true
+    },
+    {
+      "index": 5,
+      "real": {
+        "status": "measured",
+        "score": 0.8131701350212097,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          34,
+          65,
+          160,
+          191
+        ],
+        "pipeline_ms": 18.4408000059193,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.997875452041626,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          34,
+          65,
+          160,
+          191
+        ],
+        "pipeline_ms": 6.3479999953415245,
+        "calibrated": false
+      },
+      "pixels_changed": true
+    },
+    {
+      "index": 6,
+      "real": {
+        "status": "measured",
+        "score": 0.030788211151957512,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          23,
+          67,
+          161,
+          205
+        ],
+        "pipeline_ms": 17.554100006236695,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.1078382357954979,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          23,
+          67,
+          161,
+          205
+        ],
+        "pipeline_ms": 6.561499991221353,
+        "calibrated": false
+      },
+      "pixels_changed": true
+    },
+    {
+      "index": 7,
+      "real": {
+        "status": "measured",
+        "score": 0.444143682718277,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          43,
+          61,
+          178,
+          196
+        ],
+        "pipeline_ms": 17.981099997996353,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.7153483033180237,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          43,
+          61,
+          178,
+          196
+        ],
+        "pipeline_ms": 6.536400003824383,
+        "calibrated": false
+      },
+      "pixels_changed": true
+    },
+    {
+      "index": 8,
+      "real": {
+        "status": "measured",
+        "score": 0.18007445335388184,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          20,
+          64,
+          157,
+          201
+        ],
+        "pipeline_ms": 19.606300003943034,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.6242563724517822,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          20,
+          64,
+          157,
+          201
+        ],
+        "pipeline_ms": 6.380799997714348,
+        "calibrated": false
+      },
+      "pixels_changed": true
+    },
+    {
+      "index": 9,
+      "real": {
+        "status": "measured",
+        "score": 0.07569491118192673,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          17,
+          64,
+          153,
+          200
+        ],
+        "pipeline_ms": 19.543100002920255,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.6441720128059387,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          17,
+          64,
+          153,
+          200
+        ],
+        "pipeline_ms": 6.645100002060644,
+        "calibrated": false
+      },
+      "pixels_changed": true
+    },
+    {
+      "index": 10,
+      "real": {
+        "status": "measured",
+        "score": 0.15089698135852814,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          61,
+          144,
+          209
+        ],
+        "pipeline_ms": 17.95490000222344,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.3539555072784424,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          61,
+          144,
+          209
+        ],
+        "pipeline_ms": 6.554899999173358,
+        "calibrated": false
+      },
+      "pixels_changed": true
+    },
+    {
+      "index": 11,
+      "real": {
+        "status": "measured",
+        "score": 0.4708075523376465,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          38,
+          66,
+          162,
+          190
+        ],
+        "pipeline_ms": 16.811599998618476,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9592227339744568,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          38,
+          66,
+          162,
+          190
+        ],
+        "pipeline_ms": 7.197800005087629,
+        "calibrated": false
+      },
+      "pixels_changed": true
+    }
+  ],
+  "audio": [
+    {
+      "name": "clean",
+      "ground_truth": "recorded natural speech",
+      "result": {
+        "status": "measured",
+        "score": 0.9989616870880127,
+        "model": "AASIST",
+        "rms": 0.12049555778503418,
+        "pipeline_ms": 315.90739999955986,
+        "calibrated": false
+      }
+    },
+    {
+      "name": "robotic-vocoder",
+      "ground_truth": "DSP-modified speech, not neural TTS",
+      "result": {
+        "status": "measured",
+        "score": 0.9999979734420776,
+        "model": "AASIST",
+        "rms": 0.05350847914814949,
+        "pipeline_ms": 16.943099995842203,
+        "calibrated": false
+      }
+    },
+    {
+      "name": "deep-pitch-neural",
+      "ground_truth": "DSP-modified speech, not neural TTS",
+      "result": {
+        "status": "measured",
+        "score": 0.9986611604690552,
+        "model": "AASIST",
+        "rms": 0.3664141297340393,
+        "pipeline_ms": 14.994099998148158,
+        "calibrated": false
+      }
+    },
+    {
+      "name": "synthetic-clone",
+      "ground_truth": "DSP-modified speech, not neural TTS",
+      "result": {
+        "status": "measured",
+        "score": 0.9999958276748657,
+        "model": "AASIST",
+        "rms": 0.16902509331703186,
+        "pipeline_ms": 13.118400005623698,
+        "calibrated": false
+      }
+    }
+  ]
+}

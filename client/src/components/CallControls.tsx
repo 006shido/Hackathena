@@ -1,17 +1,17 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
 import {
-  Mic,
-  MicOff,
-  Video,
-  VideoOff,
-  ScreenShare,
-  PhoneOff,
-  ShieldAlert,
-  Activity,
-  ChevronsRight,
-  Check,
-  X,
+Activity,
+Check,
+ChevronsRight,
+Mic,
+MicOff,
+PhoneOff,
+ScreenShare,
+ShieldAlert,
+Video,
+VideoOff,
+X,
 } from 'lucide-react';
+import React,{ useCallback,useEffect,useRef,useState } from 'react';
 
 interface CallControlsProps {
   isMicMuted: boolean;
@@ -56,12 +56,17 @@ export const CallControls: React.FC<CallControlsProps> = ({
   const [internalSliderActive, setInternalSliderActive] = useState(false);
   const isSlider = externalSliderActive !== undefined ? externalSliderActive : internalSliderActive;
 
-  const setSlider = (val: boolean) => {
+  const setSlider = useCallback((val: boolean) => {
     setInternalSliderActive(val);
     onToggleSlider?.(val);
-  };
+  }, [onToggleSlider]);
 
   const [isCompleted, setIsCompleted] = useState(false);
+  const [previousSlider, setPreviousSlider] = useState(isSlider);
+  if (previousSlider !== isSlider) {
+    setPreviousSlider(isSlider);
+    if (isSlider) setIsCompleted(false);
+  }
 
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -108,7 +113,6 @@ export const CallControls: React.FC<CallControlsProps> = ({
 
   useEffect(() => {
     if (isSlider) {
-      setIsCompleted(false);
       resetSliderVisuals(false);
 
       const timer = setTimeout(() => {
@@ -150,7 +154,7 @@ export const CallControls: React.FC<CallControlsProps> = ({
       window.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('pointerdown', handlePointerDownOutside);
     };
-  }, [isSlider, isCompleted]);
+  }, [isSlider, isCompleted, setSlider]);
 
   // Direct GPU pointer drag
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {

@@ -1,5 +1,7 @@
 # DeepTrace 🛡️ — Secure 1-to-1 Video Calling with Attack Simulation
 
+**Complete research setup:** [GETTING_STARTED.md](GETTING_STARTED.md) covers frontend, backend, Phase 6G, live face swapping, and face/audio anomaly detection. Model downloads have separate [research terms](MODEL_NOTICES.md).
+
 **DeepTrace** is a modern, browser-based, peer-to-peer 1-to-1 video calling application built for hackathon security demonstrations. It features role-based access control and an isolated **Attack Simulator** that enables authorized testers to inject simulated deepfake facial manipulations and synthetic voice transformations directly into outgoing WebRTC streams in real time.
 
 The application architecture includes designated integration points for a future multi-modal AI deepfake detection pipeline (Voice + Face + Lip-Sync analysis).
@@ -206,3 +208,6 @@ node test_runner.mjs
 - ✓ Server-Side Rejection of Unauthorized User Attack Simulations
 - ✓ Rejection of 3rd Participant with `"This room is full."`
 - ✓ Participant Disconnect & Room Cleanup
+# Research release setup
+
+For the complete frontend/backend/Phase 6G/live face-swap/anomaly-detection stack, follow [GETTING_STARTED.md](GETTING_STARTED.md). Downloaded models have separate [research restrictions and notices](MODEL_NOTICES.md).

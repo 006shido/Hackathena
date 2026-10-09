@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
 import {
-  Video,
-  Plus,
-  LogOut,
-  ArrowRight,
-  User as UserIcon,
+ArrowRight,
+LogOut,
+Plus,
+User as UserIcon,
+Video,
 } from 'lucide-react';
+import React,{ useState } from 'react';
 import { User as UserType } from '../types/auth';
+import { generateRoomId,getGreeting } from '../utils/dashboard';
 
 interface UserDashboardProps {
   user: UserType;
@@ -21,22 +22,8 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({
 }) => {
   const [inputRoomId, setInputRoomId] = useState('');
 
-  const [greeting, setGreeting] = useState('Good morning');
-  useEffect(() => {
-    const hour = new Date().getHours();
-    if (hour < 12) setGreeting('Good morning');
-    else if (hour < 18) setGreeting('Good afternoon');
-    else setGreeting('Good evening');
-  }, []);
+  const [greeting] = useState(getGreeting);
 
-  const generateRoomId = () => {
-    const letters = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
-    const l1 = letters[Math.floor(Math.random() * letters.length)];
-    const l2 = letters[Math.floor(Math.random() * letters.length)];
-    const l3 = letters[Math.floor(Math.random() * letters.length)];
-    const num = Math.floor(100 + Math.random() * 900);
-    return `${l1}${l2}${l3}-${num}`;
-  };
 
   const handleCreateCall = () => {
     const newRoomId = generateRoomId();

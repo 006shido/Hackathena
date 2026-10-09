@@ -62,17 +62,5 @@ class RoomManager {
         }
         return removed;
     }
-    getOtherParticipant(roomId, currentSocketId) {
-        const normalizedId = roomId.toUpperCase().trim();
-        const room = this.rooms.get(normalizedId);
-        if (!room)
-            return null;
-        for (const [socketId, participant] of room.participants.entries()) {
-            if (socketId !== currentSocketId) {
-                return participant;
-            }
-        }
-        return null;
-    }
 }
 export const roomManager = new RoomManager();

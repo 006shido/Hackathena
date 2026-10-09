@@ -5,6 +5,7 @@ import cors from 'cors';
 import { authenticateUser, generateToken, verifyToken } from './auth.js';
 import { roomManager } from './rooms.js';
 import { mlRouter } from './ml.js';
+import { validateAttackStatus } from './attackStatus.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
@@ -12,6 +13,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const server = http.createServer(app);
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 5001;
+const HOST = process.env.HOST || '0.0.0.0';
 app.use(cors({
     origin: '*',
     methods: ['GET', 'POST'],
@@ -20,7 +22,9 @@ app.use(express.json());
 // ML Inference Proxy Route (Phase 6G Neural Pipeline)
 app.use('/api/ml', mlRouter);
 // Serve production frontend assets if client/dist exists
-const clientDistPath = path.resolve(__dirname, '../../client/dist');
+const clientDistPath = process.env.CLIENT_DIST_PATH
+    ? path.resolve(process.env.CLIENT_DIST_PATH)
+    : path.resolve(__dirname, '../../client/dist');
 app.use(express.static(clientDistPath, {
     setHeaders: (res, filePath) => {
         if (filePath.endsWith('.wasm')) {
@@ -33,6 +37,26 @@ app.use(express.static(clientDistPath, {
     },
 }));
 // Auth Route: Login
+app.post('/api/auth/demo', (req, res) => {
+    const address = req.socket.remoteAddress;
+    const localAddress = address === '127.0.0.1' || address === '::1' || address === '::ffff:127.0.0.1';
+    const host = req.get('host') || '';
+    const localHost = /^(localhost|127\.0\.0\.1)(:\d+)?$/.test(host);
+    const origin = req.get('origin');
+    if (process.env.LOCAL_DEMO_LOGIN !== '1' || !localAddress || !localHost ||
+        (origin && origin !== `http://${host}`) || req.get('x-forwarded-host') || req.get('x-forwarded-for')) {
+        return res.status(403).json({ error: 'One-click demo login is available only on localhost. Use your demo password on forwarded links.' });
+    }
+    const username = req.body?.username;
+    if (username !== 'user' && username !== 'tester') {
+        return res.status(400).json({ error: 'Select the user or tester demo account.' });
+    }
+    const password = username === 'tester' ? process.env.DEMO_TESTER_PASSWORD : process.env.DEMO_USER_PASSWORD;
+    const user = authenticateUser(username, password || (username === 'tester' ? 'tester123' : 'user123'));
+    if (!user)
+        return res.status(401).json({ error: 'Demo account unavailable.' });
+    return res.json({ token: generateToken(user), user });
+});
 app.post('/api/auth/login', (req, res) => {
     const { username, password } = req.body || {};
     if (!username || !password) {
@@ -163,6 +187,12 @@ io.on('connection', (socket) => {
             },
             peers: existingParticipants,
         });
+        for (const participant of existingParticipants) {
+            const peer = io.sockets.sockets.get(participant.socketId);
+            const latest = peer?.data.attackStates?.[normalizedRoomId];
+            if (latest)
+                socket.emit('peer-attack-state', { ...latest, senderId: participant.socketId, timestamp: Date.now() });
+        }
         // Notify the other participant in the room
         socket.to(normalizedRoomId).emit('peer-joined', {
             socketId: socket.id,
@@ -229,21 +259,24 @@ io.on('connection', (socket) => {
             });
             return;
         }
-        const normalizedRoomId = payload.roomId?.toUpperCase().trim();
-        if (!normalizedRoomId)
+        const validated = validateAttackStatus(payload, currentUser.role, socket.rooms);
+        if ('error' in validated) {
+            socket.emit('attack-error', { message: validated.error });
             return;
+        }
+        const { roomId: normalizedRoomId, ...state } = validated.state;
+        socket.data.attackStates ??= {};
+        socket.data.attackStates[normalizedRoomId] = state;
         console.log(`[Audit Log] TESTER "${currentUser.username}" activated attack simulation in ${normalizedRoomId}: mode=${payload.attackMode}`);
         // Broadcast simulation state to room for DeepTrace analysis integration
         socket.to(normalizedRoomId).emit('peer-attack-state', {
             senderId: socket.id,
-            attackMode: payload.attackMode,
-            faceSwap: payload.faceSwap,
-            voiceTransform: payload.voiceTransform,
+            ...state,
             timestamp: Date.now(),
         });
         socket.emit('attack-simulation-ack', {
             status: 'active',
-            mode: payload.attackMode,
+            mode: state.attackMode,
             timestamp: Date.now(),
         });
     });
@@ -252,9 +285,12 @@ io.on('connection', (socket) => {
         if (roomId) {
             const normalizedRoomId = roomId.toUpperCase().trim();
             socket.leave(normalizedRoomId);
+            if (socket.data.attackStates)
+                delete socket.data.attackStates[normalizedRoomId];
             socket.to(normalizedRoomId).emit('peer-left', { socketId: socket.id, username: currentUser.username });
         }
         const removedRooms = roomManager.removeParticipant(socket.id);
+        socket.data.attackStates = {};
         for (const item of removedRooms) {
             socket.to(item.roomId).emit('peer-left', { socketId: socket.id, username: currentUser.username });
         }
@@ -287,6 +323,6 @@ app.get('*', (req, res, next) => {
         }
     });
 });
-server.listen(PORT, () => {
-    console.log(`[DeepTrace Server] Listening on http://localhost:${PORT}`);
+server.listen(PORT, HOST, () => {
+    console.log(`[DeepTrace Server] Listening on http://${HOST}:${PORT}`);
 });

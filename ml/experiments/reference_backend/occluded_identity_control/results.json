@@ -1,0 +1,1047 @@
+{
+  "scope": "20 held-out cross-ID photo pairs with identical synthetic textured foreground. Positives are true source photos, negatives true target photos; not generated-swap quality, threshold calibration or real-object segmentation.",
+  "aggregate": [
+    {
+      "occluded_fraction": 0,
+      "count": 20,
+      "known_source_acceptance": 1.0,
+      "known_target_acceptance": 0.0,
+      "mean_source_similarity": 1.0000000774860383,
+      "mean_target_similarity": 0.0171229618601501
+    },
+    {
+      "occluded_fraction": 0.2,
+      "count": 20,
+      "known_source_acceptance": 1.0,
+      "known_target_acceptance": 0.0,
+      "mean_source_similarity": 0.8625908136367798,
+      "mean_target_similarity": 0.05827607419341803
+    },
+    {
+      "occluded_fraction": 0.35,
+      "count": 20,
+      "known_source_acceptance": 1.0,
+      "known_target_acceptance": 0.0,
+      "mean_source_similarity": 0.6426820680499077,
+      "mean_target_similarity": 0.1141092989128083
+    },
+    {
+      "occluded_fraction": 0.5,
+      "count": 20,
+      "known_source_acceptance": 0.7,
+      "known_target_acceptance": 0.0,
+      "mean_source_similarity": 0.4450791507959366,
+      "mean_target_similarity": 0.28817281052470206
+    },
+    {
+      "occluded_fraction": 0.65,
+      "count": 20,
+      "known_source_acceptance": 0.0,
+      "known_target_acceptance": 0.0,
+      "mean_source_similarity": 0.1613537322729826,
+      "mean_target_similarity": 0.5596434026956558
+    }
+  ],
+  "records": [
+    {
+      "pair": 0,
+      "source": "161339.jpg",
+      "target": "073827.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0,
+      "shared_foreground_target_similarity": 0.012969272211194038,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 0,
+      "source": "161339.jpg",
+      "target": "073827.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.9005312919616699,
+      "shared_foreground_target_similarity": -0.015848420560359955,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 0,
+      "source": "161339.jpg",
+      "target": "073827.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.7537311911582947,
+      "shared_foreground_target_similarity": 0.0663139671087265,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 0,
+      "source": "161339.jpg",
+      "target": "073827.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.5361289978027344,
+      "shared_foreground_target_similarity": 0.2811906337738037,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 0,
+      "source": "161339.jpg",
+      "target": "073827.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.09644564986228943,
+      "shared_foreground_target_similarity": 0.5555737018585205,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 1,
+      "source": "044683.jpg",
+      "target": "198680.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.000000238418579,
+      "shared_foreground_target_similarity": -0.1405390501022339,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 1,
+      "source": "044683.jpg",
+      "target": "198680.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.9015280604362488,
+      "shared_foreground_target_similarity": 0.018864259123802185,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 1,
+      "source": "044683.jpg",
+      "target": "198680.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.5696925520896912,
+      "shared_foreground_target_similarity": 0.06760656833648682,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 1,
+      "source": "044683.jpg",
+      "target": "198680.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.2592398524284363,
+      "shared_foreground_target_similarity": 0.42816799879074097,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 1,
+      "source": "044683.jpg",
+      "target": "198680.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.006014395505189896,
+      "shared_foreground_target_similarity": 0.7974706888198853,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 2,
+      "source": "098436.jpg",
+      "target": "159095.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0,
+      "shared_foreground_target_similarity": -0.14652255177497864,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 2,
+      "source": "098436.jpg",
+      "target": "159095.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.7882609367370605,
+      "shared_foreground_target_similarity": 0.021314062178134918,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 2,
+      "source": "098436.jpg",
+      "target": "159095.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.6637331247329712,
+      "shared_foreground_target_similarity": 0.2085927426815033,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 2,
+      "source": "098436.jpg",
+      "target": "159095.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.4842938184738159,
+      "shared_foreground_target_similarity": 0.49392396211624146,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 2,
+      "source": "098436.jpg",
+      "target": "159095.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.08542333543300629,
+      "shared_foreground_target_similarity": 0.7570010423660278,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 3,
+      "source": "196450.jpg",
+      "target": "183223.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0000001192092896,
+      "shared_foreground_target_similarity": 0.12772230803966522,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 3,
+      "source": "196450.jpg",
+      "target": "183223.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.8486285209655762,
+      "shared_foreground_target_similarity": 0.13186949491500854,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 3,
+      "source": "196450.jpg",
+      "target": "183223.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.5245376229286194,
+      "shared_foreground_target_similarity": 0.2697722911834717,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 3,
+      "source": "196450.jpg",
+      "target": "183223.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.2894764542579651,
+      "shared_foreground_target_similarity": 0.384834885597229,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 3,
+      "source": "196450.jpg",
+      "target": "183223.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.10047734528779984,
+      "shared_foreground_target_similarity": 0.5157150030136108,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 4,
+      "source": "064577.jpg",
+      "target": "012442.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0000001192092896,
+      "shared_foreground_target_similarity": -0.008475184440612793,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 4,
+      "source": "064577.jpg",
+      "target": "012442.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.8969123959541321,
+      "shared_foreground_target_similarity": 0.05192470923066139,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 4,
+      "source": "064577.jpg",
+      "target": "012442.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.5594797134399414,
+      "shared_foreground_target_similarity": 0.12060797214508057,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 4,
+      "source": "064577.jpg",
+      "target": "012442.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.4431602358818054,
+      "shared_foreground_target_similarity": 0.24712607264518738,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 4,
+      "source": "064577.jpg",
+      "target": "012442.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.21430453658103943,
+      "shared_foreground_target_similarity": 0.6240183115005493,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 5,
+      "source": "173948.jpg",
+      "target": "063363.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0000001192092896,
+      "shared_foreground_target_similarity": -0.13097281754016876,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 5,
+      "source": "173948.jpg",
+      "target": "063363.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.7248337864875793,
+      "shared_foreground_target_similarity": -0.13417679071426392,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 5,
+      "source": "173948.jpg",
+      "target": "063363.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.6443467140197754,
+      "shared_foreground_target_similarity": -0.024251602590084076,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 5,
+      "source": "173948.jpg",
+      "target": "063363.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.4439919590950012,
+      "shared_foreground_target_similarity": 0.1084434986114502,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 5,
+      "source": "173948.jpg",
+      "target": "063363.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.14498382806777954,
+      "shared_foreground_target_similarity": 0.5027036666870117,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 6,
+      "source": "198874.jpg",
+      "target": "146160.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0000001192092896,
+      "shared_foreground_target_similarity": 0.15516488254070282,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 6,
+      "source": "198874.jpg",
+      "target": "146160.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.9083061814308167,
+      "shared_foreground_target_similarity": 0.1713535636663437,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 6,
+      "source": "198874.jpg",
+      "target": "146160.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.6759676933288574,
+      "shared_foreground_target_similarity": 0.13999085128307343,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 6,
+      "source": "198874.jpg",
+      "target": "146160.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.4838124215602875,
+      "shared_foreground_target_similarity": 0.31501322984695435,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 6,
+      "source": "198874.jpg",
+      "target": "146160.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.3022145628929138,
+      "shared_foreground_target_similarity": 0.38600826263427734,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 7,
+      "source": "016195.jpg",
+      "target": "037498.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0,
+      "shared_foreground_target_similarity": 0.04634256660938263,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 7,
+      "source": "016195.jpg",
+      "target": "037498.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.8706200122833252,
+      "shared_foreground_target_similarity": 0.05781130492687225,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 7,
+      "source": "016195.jpg",
+      "target": "037498.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.5917873978614807,
+      "shared_foreground_target_similarity": 0.1887209713459015,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 7,
+      "source": "016195.jpg",
+      "target": "037498.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.3391695022583008,
+      "shared_foreground_target_similarity": 0.4707827866077423,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 7,
+      "source": "016195.jpg",
+      "target": "037498.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.04703528806567192,
+      "shared_foreground_target_similarity": 0.5723145008087158,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 8,
+      "source": "034801.jpg",
+      "target": "051568.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0000001192092896,
+      "shared_foreground_target_similarity": 0.09673645347356796,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 8,
+      "source": "034801.jpg",
+      "target": "051568.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.8816322684288025,
+      "shared_foreground_target_similarity": 0.055861495435237885,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 8,
+      "source": "034801.jpg",
+      "target": "051568.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.670628547668457,
+      "shared_foreground_target_similarity": 0.07854709774255753,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 8,
+      "source": "034801.jpg",
+      "target": "051568.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.451224148273468,
+      "shared_foreground_target_similarity": 0.2577347159385681,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 8,
+      "source": "034801.jpg",
+      "target": "051568.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.17734986543655396,
+      "shared_foreground_target_similarity": 0.5400252342224121,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 9,
+      "source": "017289.jpg",
+      "target": "122662.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0000001192092896,
+      "shared_foreground_target_similarity": 0.1221824586391449,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 9,
+      "source": "017289.jpg",
+      "target": "122662.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.9157837629318237,
+      "shared_foreground_target_similarity": 0.12045782804489136,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 9,
+      "source": "017289.jpg",
+      "target": "122662.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.7532947063446045,
+      "shared_foreground_target_similarity": 0.17105485498905182,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 9,
+      "source": "017289.jpg",
+      "target": "122662.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.5274560451507568,
+      "shared_foreground_target_similarity": 0.285214364528656,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 9,
+      "source": "017289.jpg",
+      "target": "122662.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.2808939516544342,
+      "shared_foreground_target_similarity": 0.4899919331073761,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 10,
+      "source": "084403.jpg",
+      "target": "011300.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0,
+      "shared_foreground_target_similarity": 0.019009090960025787,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 10,
+      "source": "084403.jpg",
+      "target": "011300.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.869860053062439,
+      "shared_foreground_target_similarity": 0.18495585024356842,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 10,
+      "source": "084403.jpg",
+      "target": "011300.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.5649019479751587,
+      "shared_foreground_target_similarity": 0.23116081953048706,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 10,
+      "source": "084403.jpg",
+      "target": "011300.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.3612624704837799,
+      "shared_foreground_target_similarity": 0.4527643322944641,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 10,
+      "source": "084403.jpg",
+      "target": "011300.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.18566712737083435,
+      "shared_foreground_target_similarity": 0.6585012078285217,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 11,
+      "source": "045740.jpg",
+      "target": "015628.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0,
+      "shared_foreground_target_similarity": 0.06213025376200676,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 11,
+      "source": "045740.jpg",
+      "target": "015628.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.8566688299179077,
+      "shared_foreground_target_similarity": 0.11021357774734497,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 11,
+      "source": "045740.jpg",
+      "target": "015628.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.6519232988357544,
+      "shared_foreground_target_similarity": 0.26635825634002686,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 11,
+      "source": "045740.jpg",
+      "target": "015628.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.33061808347702026,
+      "shared_foreground_target_similarity": 0.44772210717201233,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 11,
+      "source": "045740.jpg",
+      "target": "015628.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.21897469460964203,
+      "shared_foreground_target_similarity": 0.7113395929336548,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 12,
+      "source": "019956.jpg",
+      "target": "098547.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0,
+      "shared_foreground_target_similarity": 0.07510585337877274,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 12,
+      "source": "019956.jpg",
+      "target": "098547.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.9425022602081299,
+      "shared_foreground_target_similarity": 0.11812521517276764,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 12,
+      "source": "019956.jpg",
+      "target": "098547.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.8013689517974854,
+      "shared_foreground_target_similarity": 0.13085591793060303,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 12,
+      "source": "019956.jpg",
+      "target": "098547.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.5233008861541748,
+      "shared_foreground_target_similarity": 0.2972056269645691,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 12,
+      "source": "019956.jpg",
+      "target": "098547.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.05853428691625595,
+      "shared_foreground_target_similarity": 0.6194181442260742,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 13,
+      "source": "170210.jpg",
+      "target": "019244.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0,
+      "shared_foreground_target_similarity": 0.0899055153131485,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 13,
+      "source": "170210.jpg",
+      "target": "019244.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.9263288974761963,
+      "shared_foreground_target_similarity": 0.17070096731185913,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 13,
+      "source": "170210.jpg",
+      "target": "019244.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.7409080266952515,
+      "shared_foreground_target_similarity": 0.2285119593143463,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 13,
+      "source": "170210.jpg",
+      "target": "019244.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.46289512515068054,
+      "shared_foreground_target_similarity": 0.2044990211725235,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 13,
+      "source": "170210.jpg",
+      "target": "019244.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.1033463180065155,
+      "shared_foreground_target_similarity": 0.491736501455307,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 14,
+      "source": "014999.jpg",
+      "target": "058775.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0000001192092896,
+      "shared_foreground_target_similarity": 0.016571171581745148,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 14,
+      "source": "014999.jpg",
+      "target": "058775.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.6498220562934875,
+      "shared_foreground_target_similarity": 0.06807306408882141,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 14,
+      "source": "014999.jpg",
+      "target": "058775.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.39588823914527893,
+      "shared_foreground_target_similarity": 0.004612020216882229,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 14,
+      "source": "014999.jpg",
+      "target": "058775.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.3223084509372711,
+      "shared_foreground_target_similarity": 0.17849382758140564,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 14,
+      "source": "014999.jpg",
+      "target": "058775.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.11851377040147781,
+      "shared_foreground_target_similarity": 0.5005379915237427,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 15,
+      "source": "005820.jpg",
+      "target": "172495.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0000001192092896,
+      "shared_foreground_target_similarity": 0.04556472599506378,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 15,
+      "source": "005820.jpg",
+      "target": "172495.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.9144865274429321,
+      "shared_foreground_target_similarity": 0.08453039824962616,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 15,
+      "source": "005820.jpg",
+      "target": "172495.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.7311608791351318,
+      "shared_foreground_target_similarity": 0.09707993268966675,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 15,
+      "source": "005820.jpg",
+      "target": "172495.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.5989432334899902,
+      "shared_foreground_target_similarity": 0.32569390535354614,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 15,
+      "source": "005820.jpg",
+      "target": "172495.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.29350945353507996,
+      "shared_foreground_target_similarity": 0.5556746125221252,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 16,
+      "source": "067205.jpg",
+      "target": "124252.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.000000238418579,
+      "shared_foreground_target_similarity": -0.16050051152706146,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 16,
+      "source": "067205.jpg",
+      "target": "124252.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.8545753359794617,
+      "shared_foreground_target_similarity": -0.12979255616664886,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 16,
+      "source": "067205.jpg",
+      "target": "124252.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.5886932611465454,
+      "shared_foreground_target_similarity": -0.04373098909854889,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 16,
+      "source": "067205.jpg",
+      "target": "124252.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.5405422449111938,
+      "shared_foreground_target_similarity": 0.09919525682926178,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 16,
+      "source": "067205.jpg",
+      "target": "124252.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.2828443646430969,
+      "shared_foreground_target_similarity": 0.42501693964004517,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 17,
+      "source": "121382.jpg",
+      "target": "068802.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0,
+      "shared_foreground_target_similarity": 0.046022139489650726,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 17,
+      "source": "121382.jpg",
+      "target": "068802.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.807018518447876,
+      "shared_foreground_target_similarity": 0.020378097891807556,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 17,
+      "source": "121382.jpg",
+      "target": "068802.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.676476001739502,
+      "shared_foreground_target_similarity": 0.08389954268932343,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 17,
+      "source": "121382.jpg",
+      "target": "068802.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.4942834973335266,
+      "shared_foreground_target_similarity": 0.2889317274093628,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 17,
+      "source": "121382.jpg",
+      "target": "068802.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.18757767975330353,
+      "shared_foreground_target_similarity": 0.5039212703704834,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 18,
+      "source": "190640.jpg",
+      "target": "034379.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0000001192092896,
+      "shared_foreground_target_similarity": -0.10354790091514587,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 18,
+      "source": "190640.jpg",
+      "target": "034379.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.8899712562561035,
+      "shared_foreground_target_similarity": -0.09228134155273438,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 18,
+      "source": "190640.jpg",
+      "target": "034379.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.5776541829109192,
+      "shared_foreground_target_similarity": -0.12402795255184174,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 18,
+      "source": "190640.jpg",
+      "target": "034379.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.4377366304397583,
+      "shared_foreground_target_similarity": 0.030951499938964844,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 18,
+      "source": "190640.jpg",
+      "target": "034379.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.15606603026390076,
+      "shared_foreground_target_similarity": 0.46059340238571167,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 19,
+      "source": "134525.jpg",
+      "target": "044861.jpg",
+      "occluded_fraction": 0,
+      "known_source_similarity": 1.0,
+      "shared_foreground_target_similarity": 0.11759056150913239,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 19,
+      "source": "134525.jpg",
+      "target": "044861.jpg",
+      "occluded_fraction": 0.2,
+      "known_source_similarity": 0.9035453200340271,
+      "shared_foreground_target_similarity": 0.15118670463562012,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 19,
+      "source": "134525.jpg",
+      "target": "044861.jpg",
+      "occluded_fraction": 0.35,
+      "known_source_similarity": 0.7174673080444336,
+      "shared_foreground_target_similarity": 0.1205107569694519,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 19,
+      "source": "134525.jpg",
+      "target": "044861.jpg",
+      "occluded_fraction": 0.5,
+      "known_source_similarity": 0.5717389583587646,
+      "shared_foreground_target_similarity": 0.16556675732135773,
+      "known_source_accepted": true,
+      "known_target_accepted": false
+    },
+    {
+      "pair": 19,
+      "source": "134525.jpg",
+      "target": "044861.jpg",
+      "occluded_fraction": 0.65,
+      "known_source_similarity": 0.16689816117286682,
+      "shared_foreground_target_similarity": 0.5253060460090637,
+      "known_source_accepted": false,
+      "known_target_accepted": false
+    }
+  ]
+}

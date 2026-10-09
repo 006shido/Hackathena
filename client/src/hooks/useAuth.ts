@@ -1,8 +1,16 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback,useEffect,useState } from 'react';
 import { flushSync } from 'react-dom';
-import { User, AuthState } from '../types/auth';
 import { authService } from '../services/auth';
+import { AuthState,User } from '../types/auth';
 
+function commitWithTransition(commit: () => void): void {
+  const doc = document as unknown as { startViewTransition?: (callback: () => void) => void };
+  if (typeof doc.startViewTransition === 'function') {
+    doc.startViewTransition(() => flushSync(commit));
+  } else {
+    commit();
+  }
+}
 export function useAuth() {
   const [state, setState] = useState<AuthState>({
     user: authService.getUser(),
@@ -72,16 +80,7 @@ export function useAuth() {
           });
         };
 
-        const doc = document as unknown as { startViewTransition?: (cb: () => void) => void };
-        if (typeof doc.startViewTransition === 'function') {
-          doc.startViewTransition(() => {
-            flushSync(() => {
-              commitState();
-            });
-          });
-        } else {
-          commitState();
-        }
+        commitWithTransition(commitState);
 
         return data.user;
       } catch (err: unknown) {
@@ -117,16 +116,7 @@ export function useAuth() {
           });
         };
 
-        const doc = document as unknown as { startViewTransition?: (cb: () => void) => void };
-        if (typeof doc.startViewTransition === 'function') {
-          doc.startViewTransition(() => {
-            flushSync(() => {
-              commitState();
-            });
-          });
-        } else {
-          commitState();
-        }
+        commitWithTransition(commitState);
 
         return data.user;
       } catch (err: unknown) {
@@ -149,16 +139,7 @@ export function useAuth() {
       });
     };
 
-    const doc = document as unknown as { startViewTransition?: (cb: () => void) => void };
-    if (typeof doc.startViewTransition === 'function') {
-      doc.startViewTransition(() => {
-        flushSync(() => {
-          commitState();
-        });
-      });
-    } else {
-      commitState();
-    }
+    commitWithTransition(commitState);
   }, []);
 
   return {

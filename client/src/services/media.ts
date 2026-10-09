@@ -117,7 +117,7 @@ export const mediaService = {
         osc.start();
         audioTrack = dst.stream.getAudioTracks()[0] || null;
       }
-    } catch (_) {}
+    } catch {}
 
     const tracks: MediaStreamTrack[] = [];
     if (videoTrack) tracks.push(videoTrack);
@@ -144,7 +144,7 @@ export const mediaService = {
             try {
               track.enabled = false;
               track.stop();
-            } catch (e) {}
+            } catch {}
           });
         }
         return true;
@@ -374,15 +374,15 @@ export const mediaService = {
                 try {
                   track.enabled = false;
                   track.stop();
-                } catch (e) {}
+                } catch {}
               });
             }
             vid.pause();
             vid.srcObject = null;
             vid.load();
-          } catch (e) {}
+          } catch {}
         });
-      } catch (e) {}
+      } catch {}
     }
 
     // 2. Stop all globally registered individual tracks
@@ -403,9 +403,9 @@ export const mediaService = {
           try {
             track.enabled = false;
             track.stop();
-          } catch (e) {}
+          } catch {}
         });
-      } catch (e) {}
+      } catch {}
     });
     activeStreams.clear();
   },

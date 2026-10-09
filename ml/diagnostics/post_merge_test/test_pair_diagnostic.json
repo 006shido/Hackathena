@@ -1,0 +1,29 @@
+{
+  "source_path": "client/public/samples/celeba/081968.jpg",
+  "target_path": "client/public/samples/celeba/037827.jpg",
+  "output_paths": {
+    "composite": "ml\\diagnostics\\post_merge_test\\test_pair_composite.png",
+    "swap": "ml\\diagnostics\\post_merge_test\\test_pair_swap.png",
+    "mask": "ml\\diagnostics\\post_merge_test\\test_pair_mask.png",
+    "aligned_source": "ml\\diagnostics\\post_merge_test\\test_pair_aligned_source.png",
+    "grid": "ml\\diagnostics\\post_merge_test\\test_pair_comparison_grid.png",
+    "diagnostic": "ml\\diagnostics\\post_merge_test\\test_pair_diagnostic.json"
+  },
+  "metrics": {
+    "A_cosine_source_composite": 0.10400743037462234,
+    "B_cosine_target_composite": 0.2699934244155884,
+    "C_cosine_source_target": -0.07305347174406052,
+    "D_cosine_source_swap": 0.16485227644443512,
+    "A_minus_C_gain": 0.17706090211868286,
+    "D_minus_C_gain": 0.23790574818849564,
+    "mask_mean": 0.485482728247549,
+    "face_redetected": true,
+    "landmark_error_px": 1.0096086263656616
+  },
+  "performance": {
+    "network_latency_ms": 761.3523006439209,
+    "total_pipeline_latency_ms": 1468.414068222046,
+    "device": "cuda",
+    "vram_alloc_mb": 663.2421875
+  }
+}

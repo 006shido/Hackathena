@@ -15,10 +15,20 @@ export default defineConfig({
       '/api': {
         target: 'http://localhost:5001',
         changeOrigin: true,
+        configure: (proxy) => {
+          proxy.on('error', () => {
+            // Prevent unhandled proxy errors from crashing Vite
+          });
+        },
       },
       '/socket.io': {
         target: 'http://localhost:5001',
         ws: true,
+        configure: (proxy) => {
+          proxy.on('error', () => {
+            // Prevent unhandled WebSocket disconnect errors from crashing Vite
+          });
+        },
       },
     },
   },

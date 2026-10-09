@@ -1,0 +1,49 @@
+{
+  "scope": "Fine-tuned Xception on this swapper/photo domain. Same identity-disjoint test as linear-head experiment, reused comparison; blind/video confirmation still required. No audio validation or live promotion.",
+  "benign_degradation_training": true,
+  "threshold": 0.7697742448577881,
+  "test_pairs": 150,
+  "test_auc": 0.9826222222222222,
+  "test_false_positives": 5,
+  "test_true_positives": 134,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5994867326021195,
+      "calibration_loss": 0.21456219196128842,
+      "calibration_auc": 0.9784666666666667
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.48702803322300314,
+      "calibration_loss": 0.2114769922234837,
+      "calibration_auc": 0.9886222222222222
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.438170829705894,
+      "calibration_loss": 0.14485363118746486,
+      "calibration_auc": 0.9918222222222223
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.37816421800979877,
+      "calibration_loss": 0.2146591289456068,
+      "calibration_auc": 0.9926666666666667
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.3466642963658087,
+      "calibration_loss": 0.23044933481980734,
+      "calibration_auc": 0.9941333333333333
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.39330453690723516,
+      "calibration_loss": 0.15351706182178382,
+      "calibration_auc": 0.9950666666666667
+    }
+  ],
+  "elapsed_seconds": 81.96682119369507,
+  "live_promoted": false
+}

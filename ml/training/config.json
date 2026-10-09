@@ -1,0 +1,21 @@
+{
+  "dataset_root": "ml/data/celeba",
+  "images_dir": "img_align_celeba",
+  "identity_file": "identity_CelebA.txt",
+  "image_size": 128,
+  "train_split": 0.85,
+  "validation_split": 0.15,
+  "random_seed": 42,
+  "same_identity_probability": 0.5,
+  "minimum_images_per_identity": 2,
+  "mask_feather_radius": 5,
+  "landmark_detector": "mediapipe",
+  "landmark_model_path": "client/public/models/face_landmarker.task",
+  "min_face_detection_confidence": 0.5,
+  "arcface_checkpoint_path": "ml/models/weights/ms1mv2_iresnet50.pth",
+  "base_channels": 64,
+  "bottleneck_channels": 512,
+  "embedding_dim": 512,
+  "blur_kernel_size": 9,
+  "blur_sigma": 3.0
+}

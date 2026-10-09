@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { User as UserIcon, Lock, Eye, EyeOff, ArrowRight, AlertCircle, Users, Check, Loader2, UserPlus } from 'lucide-react';
+import { AlertCircle,ArrowRight,Check,Eye,EyeOff,Loader2,Lock,User as UserIcon,UserPlus,Users } from 'lucide-react';
+import React,{ useState } from 'react';
 
 interface LoginFormProps {
   onLogin: (
@@ -17,6 +17,7 @@ interface LoginFormProps {
   loading?: boolean;
   onExitingChange?: (isExiting: boolean) => void;
   initialMode?: 'signin' | 'signup';
+  initialDemoRole?: 'user' | 'tester';
 }
 
 export const LoginForm: React.FC<LoginFormProps> = ({
@@ -26,20 +27,22 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   loading: externalLoading = false,
   onExitingChange,
   initialMode = 'signin',
+  initialDemoRole,
 }) => {
   const [mode, setMode] = useState<'signin' | 'signup'>(initialMode);
   const [fullName, setFullName] = useState('');
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState(initialDemoRole || '');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [localError, setLocalError] = useState<string | null>(null);
+  const demoPasswordRequired = import.meta.env.VITE_DEMO_PASSWORD_REQUIRED === 'true';
+  const forwardedDemo = demoPasswordRequired && !['localhost', '127.0.0.1'].includes(window.location.hostname);
 
-  // Sync mode if initialMode changes from parent navigation
-  useEffect(() => {
-    if (initialMode) {
-      setMode(initialMode);
-    }
-  }, [initialMode]);
+  const [previousInitialMode, setPreviousInitialMode] = useState(initialMode);
+  if (previousInitialMode !== initialMode) {
+    setPreviousInitialMode(initialMode);
+    setMode(initialMode);
+  }
 
   // Status progression: idle -> submitting -> success
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
@@ -105,6 +108,19 @@ export const LoginForm: React.FC<LoginFormProps> = ({
 
   const handleQuickDemo = async (u: string, p: string, action: 'user-demo' | 'tester-demo') => {
     setUsername(u);
+    setMode('signin');
+    if (demoPasswordRequired && ['localhost', '127.0.0.1'].includes(window.location.hostname)) {
+      await executeAuthFlow(u, '__LOCAL_DEMO__', action, false);
+      return;
+    }
+    if (demoPasswordRequired) {
+      if (!password.trim()) {
+        setLocalError(`Enter the generated ${u} password from demo-access.local.txt, then click ${u === 'tester' ? 'Tester' : 'User'} Demo again or Sign in.`);
+        return;
+      }
+      await executeAuthFlow(u, password.trim(), action, false);
+      return;
+    }
     setPassword(p);
     await executeAuthFlow(u, p, action, false);
   };
@@ -113,6 +129,9 @@ export const LoginForm: React.FC<LoginFormProps> = ({
 
   return (
     <div className="w-full max-w-[400px] mx-auto">
+      {forwardedDemo && <div className="mb-4 rounded-xl border border-blue-200 bg-blue-50 p-3 text-sm text-blue-900" role="note">
+        Public demo links require a password. Select User or Tester and enter that account’s generated password from demo-access.local.txt on the host computer. The localhost one-click login and default passwords do not work here.
+      </div>}
 
       {/* Dynamic Title with Smooth Transition */}
       <div className="mb-5 sm:mb-7 lg:mb-8 animate-cascade-2 transition-all duration-200">
@@ -249,7 +268,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
           <div className="w-full border-t border-slate-200" />
         </div>
         <div className="relative flex justify-center text-xs">
-          <span className="bg-white px-3 text-slate-400 font-medium">or continue with instant demo</span>
+          <span className="bg-white px-3 text-slate-400 font-medium">{demoPasswordRequired ? 'choose demo role with your password' : 'or continue with instant demo'}</span>
         </div>
       </div>
 

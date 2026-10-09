@@ -1,17 +1,17 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
-import { User } from '../types/auth';
-import { CallStatus, ParticipantInfo } from '../types/call';
-import { AttackMode, AttackState, FaceBlendConfig, DEFAULT_FACE_BLEND_CONFIG } from '../types/attack';
-import { signalingService } from '../services/signaling';
-import { mediaService, MediaAccessResult } from '../services/media';
-import { useWebRTC } from './useWebRTC';
+import { useCallback,useEffect,useLayoutEffect,useRef,useState } from 'react';
 import {
-  FaceSimulationPipeline,
-  FacePreset,
-  GalleryFaceValidationResult,
-  FaceSwapTelemetry,
+FacePreset,
+FaceSimulationPipeline,
+FaceSwapTelemetry,
+GalleryFaceValidationResult,
 } from '../attack/faceSimulation';
-import { VoiceTransformationPipeline, VoicePreset } from '../attack/voiceTransformation';
+import { VoicePreset,VoiceTransformationPipeline } from '../attack/voiceTransformation';
+import { MediaAccessResult,mediaService } from '../services/media';
+import { signalingService } from '../services/signaling';
+import { AttackMode,AttackState,DEFAULT_FACE_BLEND_CONFIG,FaceBlendConfig } from '../types/attack';
+import { User } from '../types/auth';
+import { CallStatus,ParticipantInfo } from '../types/call';
+import { useWebRTC } from './useWebRTC';
 
 export function useCall(user: User | null, token: string | null) {
   const [roomId, setRoomId] = useState<string>('');
@@ -37,11 +37,26 @@ export function useCall(user: User | null, token: string | null) {
   });
 
   const [selectedFacePreview, setSelectedFacePreview] = useState<string | null>('/synthetic_face_avatar.jpg');
+  const attackStateRef = useRef(attackState);
+  useLayoutEffect(() => { attackStateRef.current = attackState; }, [attackState]);
+  const screenSharingRef = useRef(isScreenSharing);
+  useLayoutEffect(() => { screenSharingRef.current = isScreenSharing; }, [isScreenSharing]);
   const [selectedFaceName, setSelectedFaceName] = useState<string>('Marcus (Neural Clone)');
   const [faceSwapTelemetry, setFaceSwapTelemetry] = useState<FaceSwapTelemetry | undefined>(undefined);
+  const [previousFaceSwap, setPreviousFaceSwap] = useState(attackState.faceSwap);
+  if (previousFaceSwap !== attackState.faceSwap) {
+    setPreviousFaceSwap(attackState.faceSwap);
+    setFaceSwapTelemetry(undefined);
+  }
   const [faceBlendConfig, setFaceBlendConfig] = useState<FaceBlendConfig>({
     ...DEFAULT_FACE_BLEND_CONFIG,
   });
+
+  // Pipelines
+  const facePipelineRef = useRef<FaceSimulationPipeline | null>(null);
+  const facePresetRef = useRef<FacePreset>('neural-clone');
+  const voicePipelineRef = useRef<VoiceTransformationPipeline | null>(null);
+  const [isVoiceMonitoring, setIsVoiceMonitoring] = useState<boolean>(false);
 
   const updateFaceBlendConfig = useCallback((newConfig: Partial<FaceBlendConfig>) => {
     setFaceBlendConfig((prev) => {
@@ -66,11 +81,6 @@ export function useCall(user: User | null, token: string | null) {
     voiceTransform: false,
   });
 
-  // Pipelines
-  const facePipelineRef = useRef<FaceSimulationPipeline | null>(null);
-  const facePresetRef = useRef<FacePreset>('neural-clone');
-  const voicePipelineRef = useRef<VoiceTransformationPipeline | null>(null);
-  const [isVoiceMonitoring, setIsVoiceMonitoring] = useState<boolean>(false);
 
   // Keep references to original tracks & stream
   const localStreamRef = useRef<MediaStream | null>(null);
@@ -81,7 +91,6 @@ export function useCall(user: User | null, token: string | null) {
   const isCallEndedRef = useRef<boolean>(false);
 
   const {
-    pcRef,
     remoteStream,
     connectionState,
     iceState,
@@ -108,14 +117,14 @@ export function useCall(user: User | null, token: string | null) {
       try {
         originalVideoTrackRef.current.enabled = false;
         originalVideoTrackRef.current.stop();
-      } catch (e) {}
+      } catch {}
       originalVideoTrackRef.current = null;
     }
     if (originalAudioTrackRef.current) {
       try {
         originalAudioTrackRef.current.enabled = false;
         originalAudioTrackRef.current.stop();
-      } catch (e) {}
+      } catch {}
       originalAudioTrackRef.current = null;
     }
 
@@ -164,13 +173,17 @@ export function useCall(user: User | null, token: string | null) {
 
     const cleanRoomId = targetRoomId.toUpperCase().trim();
     setRoomId(cleanRoomId);
+    setPeerAttackState({ active: false, mode: 'none', faceSwap: false, voiceTransform: false });
     setErrorMessage(null);
     setCallStatus('joining');
 
     // Connect to signaling server with auth token
     signalingService.connect(token, {
       onRoomJoined: (data) => {
-        console.log('[useCall] Joined room:', data.roomId, 'Peers already in room:', data.peers.length);
+        if (user?.role === 'tester') {
+          const current = attackStateRef.current;
+          signalingService.sendAttackUpdate(data.roomId, current.faceSwap && !screenSharingRef.current, current.voiceTransform, current.mode);
+        }
         const activeLocalStream = localStreamRef.current || localStream;
         
         if (data.peers.length > 0) {
@@ -178,7 +191,6 @@ export function useCall(user: User | null, token: string | null) {
           setPeerInfo(data.peers[0]);
           setCallStatus('connected');
           createPeerConnection(data.roomId, activeLocalStream, true);
-          console.log('[useCall] Initialized receiver peer connection, awaiting offer from host...');
         } else {
           // First in room: waiting for someone to join. Do not pre-gather ICE candidates into the void
           setCallStatus('waiting');
@@ -187,7 +199,6 @@ export function useCall(user: User | null, token: string | null) {
       },
 
       onPeerJoined: (peer) => {
-        console.log('[useCall] Peer joined room, initiating fresh WebRTC offer:', peer);
         const activeLocalStream = localStreamRef.current || localStream;
         setPeerInfo(peer);
         setCallStatus('connected');
@@ -197,8 +208,7 @@ export function useCall(user: User | null, token: string | null) {
         makeOffer(cleanRoomId, activeLocalStream);
       },
 
-      onPeerLeft: (data) => {
-        console.log('[useCall] Peer left:', data);
+      onPeerLeft: () => {
         setPeerInfo(null);
         setCallStatus('waiting');
         cleanupPeerConnection();
@@ -212,14 +222,12 @@ export function useCall(user: User | null, token: string | null) {
       },
 
       onOffer: async ({ sdp }) => {
-        console.log('[useCall] Received WebRTC offer from peer');
         setCallStatus('connected');
         const activeLocalStream = localStreamRef.current || localStream;
         await handleOffer(cleanRoomId, sdp, activeLocalStream);
       },
 
       onAnswer: async ({ sdp }) => {
-        console.log('[useCall] Received WebRTC answer from peer');
         await handleAnswer(sdp);
       },
 
@@ -234,7 +242,6 @@ export function useCall(user: User | null, token: string | null) {
       },
 
       onPeerAttackState: (data) => {
-        console.log('[useCall] Remote peer attack status updated:', data);
         setPeerAttackState({
           active: data.attackMode !== 'none',
           mode: data.attackMode,
@@ -248,6 +255,7 @@ export function useCall(user: User | null, token: string | null) {
       },
 
       onDisconnect: (reason) => {
+        setPeerAttackState({ active: false, mode: 'none', faceSwap: false, voiceTransform: false });
         if (callStatus !== 'ended') {
           console.warn('[useCall] Signaling disconnected:', reason);
         }
@@ -255,7 +263,7 @@ export function useCall(user: User | null, token: string | null) {
     });
 
     signalingService.joinRoom(cleanRoomId);
-  }, [token, localStream, createPeerConnection, makeOffer, handleOffer, handleAnswer, handleIceCandidate, cleanupPeerConnection, callStatus]);
+  }, [token, user?.role, localStream, createPeerConnection, makeOffer, handleOffer, handleAnswer, handleIceCandidate, cleanupPeerConnection, callStatus]);
 
   // Controls: Toggle Microphone
   const toggleMic = useCallback(async () => {
@@ -345,39 +353,65 @@ export function useCall(user: User | null, token: string | null) {
 
   // Controls: Screen Share
   const toggleScreenShare = useCallback(async () => {
-    if (isScreenSharing) {
-      // Revert back to original video track
+    const publishVideo = async (track: MediaStreamTrack) => {
+      await replaceVideoTrack(track);
+      if (localStreamRef.current) {
+        const updated = new MediaStream([...localStreamRef.current.getAudioTracks(), track]);
+        localStreamRef.current = updated;
+        setLocalStream(updated);
+      }
+    };
+    const restoreCamera = async () => {
+      if (isCallEndedRef.current) return;
       if (screenStreamRef.current) {
         mediaService.stopStream(screenStreamRef.current);
         screenStreamRef.current = null;
       }
       setIsScreenSharing(false);
-
-      const activeVideoTrack = attackState.faceSwap && facePipelineRef.current
-        ? facePipelineRef.current.start(originalVideoTrackRef.current!)
-        : originalVideoTrackRef.current;
-
-      if (activeVideoTrack) {
-        await replaceVideoTrack(activeVideoTrack);
+      screenSharingRef.current = false;
+      const current = attackStateRef.current;
+      let activeVideoTrack = originalVideoTrackRef.current;
+      let faceRestored = false;
+      if (current.faceSwap && activeVideoTrack) {
+        if (!facePipelineRef.current) facePipelineRef.current = new FaceSimulationPipeline();
+        try {
+          activeVideoTrack = await facePipelineRef.current.start(activeVideoTrack, facePresetRef.current);
+          faceRestored = true;
+        } catch (error) {
+          facePipelineRef.current.stop();
+          const mode = current.voiceTransform ? 'voice' : 'none';
+          setAttackState((previous) => ({ ...previous, faceSwap: false, mode }));
+          setErrorMessage(error instanceof Error ? error.message : 'Could not restore face simulation.');
+        }
       }
+      if (isCallEndedRef.current) { facePipelineRef.current?.stop(); return; }
+      if (activeVideoTrack) await publishVideo(activeVideoTrack);
+      if (isTester) {
+        const mode = faceRestored ? (current.voiceTransform ? 'combined' : 'face') : (current.voiceTransform ? 'voice' : 'none');
+        signalingService.sendAttackUpdate(roomId, faceRestored, current.voiceTransform, mode);
+      }
+    };
+    if (isScreenSharing) {
+      await restoreCamera();
     } else {
       const screenStream = await mediaService.getScreenMedia();
       if (screenStream) {
         screenStreamRef.current = screenStream;
         const screenTrack = screenStream.getVideoTracks()[0];
-        
         screenTrack.onended = () => {
-          setIsScreenSharing(false);
-          if (originalVideoTrackRef.current) {
-            replaceVideoTrack(originalVideoTrackRef.current);
-          }
+          void restoreCamera().catch(error => setErrorMessage(error instanceof Error ? error.message : 'Could not restore camera.'));
         };
-
+        await publishVideo(screenTrack);
+        facePipelineRef.current?.stop();
         setIsScreenSharing(true);
-        await replaceVideoTrack(screenTrack);
+        screenSharingRef.current = true;
+        if (isTester) {
+          const current = attackStateRef.current;
+          signalingService.sendAttackUpdate(roomId, false, current.voiceTransform, current.voiceTransform ? 'voice' : 'none');
+        }
       }
     }
-  }, [isScreenSharing, attackState.faceSwap, replaceVideoTrack]);
+  }, [isScreenSharing, isTester, roomId, replaceVideoTrack]);
 
   // ==========================================
   // TESTER ONLY ATTACK SIMULATION METHODS
@@ -393,6 +427,13 @@ export function useCall(user: User | null, token: string | null) {
     const nextState = enable !== undefined ? enable : !attackState.faceSwap;
     const currentVideoTrack = originalVideoTrackRef.current;
 
+    if (isScreenSharing) {
+      setAttackState(previous => ({ ...previous, faceSwap: nextState,
+        mode: nextState ? (previous.voiceTransform ? 'combined' : 'face') : (previous.voiceTransform ? 'voice' : 'none') }));
+      signalingService.sendAttackUpdate(roomId, false, attackState.voiceTransform, attackState.voiceTransform ? 'voice' : 'none');
+      return;
+    }
+
     if (nextState) {
       if (!currentVideoTrack) {
         setErrorMessage('Cannot activate Face Simulation: Camera track not available.');
@@ -405,7 +446,13 @@ export function useCall(user: User | null, token: string | null) {
       facePipelineRef.current.setBlendConfig(faceBlendConfig);
 
       const currentPreset = facePresetRef.current;
-      const syntheticTrack = facePipelineRef.current.start(currentVideoTrack, currentPreset);
+      let syntheticTrack: MediaStreamTrack;
+      try {
+        syntheticTrack = await facePipelineRef.current.start(currentVideoTrack, currentPreset);
+      } catch (error) {
+        setErrorMessage(error instanceof Error ? error.message : 'Could not start face swap.');
+        return;
+      }
       await replaceVideoTrack(syntheticTrack);
 
       if (localStreamRef.current) {
@@ -448,7 +495,7 @@ export function useCall(user: User | null, token: string | null) {
 
       signalingService.sendAttackUpdate(roomId, false, attackState.voiceTransform, newMode);
     }
-  }, [isTester, attackState.faceSwap, attackState.voiceTransform, attackState.facePreset, roomId, replaceVideoTrack]);
+  }, [isTester, isScreenSharing, attackState.faceSwap, attackState.voiceTransform, faceBlendConfig, roomId, replaceVideoTrack]);
 
   const toggleVoiceMonitor = useCallback((enable?: boolean) => {
     setIsVoiceMonitoring((prev) => {
@@ -498,7 +545,7 @@ export function useCall(user: User | null, token: string | null) {
         mode: newMode,
       }));
 
-      signalingService.sendAttackUpdate(roomId, attackState.faceSwap, true, newMode);
+      signalingService.sendAttackUpdate(roomId, attackState.faceSwap && !isScreenSharing, true, newMode);
     } else {
       // Disable voice transformation
       if (voicePipelineRef.current) {
@@ -522,9 +569,9 @@ export function useCall(user: User | null, token: string | null) {
         mode: newMode,
       }));
 
-      signalingService.sendAttackUpdate(roomId, attackState.faceSwap, false, newMode);
+      signalingService.sendAttackUpdate(roomId, attackState.faceSwap && !isScreenSharing, false, newMode);
     }
-  }, [isTester, attackState.faceSwap, attackState.voiceTransform, attackState.voicePreset, roomId, replaceAudioTrack]);
+  }, [isTester, isScreenSharing, attackState.faceSwap, attackState.voiceTransform, attackState.voicePreset, roomId, replaceAudioTrack]);
 
   const activateCombinedAttack = useCallback(async () => {
     if (!isTester) {
@@ -536,13 +583,19 @@ export function useCall(user: User | null, token: string | null) {
     const currentVideoTrack = originalVideoTrackRef.current;
     const currentAudioTrack = originalAudioTrackRef.current;
 
-    let activeVideo = currentVideoTrack;
-    if (currentVideoTrack) {
+    let activeVideo = isScreenSharing ? screenStreamRef.current?.getVideoTracks()[0] : currentVideoTrack;
+    if (currentVideoTrack && !isScreenSharing) {
       if (!facePipelineRef.current) {
         facePipelineRef.current = new FaceSimulationPipeline();
       }
       const currentPreset = facePresetRef.current;
-      const syntheticTrack = facePipelineRef.current.start(currentVideoTrack, currentPreset);
+      let syntheticTrack: MediaStreamTrack;
+      try {
+        syntheticTrack = await facePipelineRef.current.start(currentVideoTrack, currentPreset);
+      } catch (error) {
+        setErrorMessage(error instanceof Error ? error.message : 'Could not start face swap.');
+        return;
+      }
       await replaceVideoTrack(syntheticTrack);
       activeVideo = syntheticTrack;
     }
@@ -570,8 +623,8 @@ export function useCall(user: User | null, token: string | null) {
       mode: 'combined',
     }));
 
-    signalingService.sendAttackUpdate(roomId, true, true, 'combined');
-  }, [isTester, attackState.voicePreset, roomId, replaceVideoTrack, replaceAudioTrack]);
+    signalingService.sendAttackUpdate(roomId, !isScreenSharing, true, isScreenSharing ? 'voice' : 'combined');
+  }, [isTester, isScreenSharing, attackState.voicePreset, roomId, replaceVideoTrack, replaceAudioTrack]);
 
   const resetAttack = useCallback(async () => {
     if (!isTester) return;
@@ -583,15 +636,16 @@ export function useCall(user: User | null, token: string | null) {
       voicePipelineRef.current.stop();
     }
 
-    if (originalVideoTrackRef.current) {
-      await replaceVideoTrack(originalVideoTrackRef.current);
+    const restoredVideo = isScreenSharing ? screenStreamRef.current?.getVideoTracks()[0] : originalVideoTrackRef.current;
+    if (restoredVideo) {
+      await replaceVideoTrack(restoredVideo);
     }
     if (originalAudioTrackRef.current) {
       await replaceAudioTrack(originalAudioTrackRef.current);
     }
 
-    if (originalAudioTrackRef.current && originalVideoTrackRef.current) {
-      const restoredStream = new MediaStream([originalAudioTrackRef.current, originalVideoTrackRef.current]);
+    if (originalAudioTrackRef.current && restoredVideo) {
+      const restoredStream = new MediaStream([originalAudioTrackRef.current, restoredVideo]);
       localStreamRef.current = restoredStream;
       setLocalStream(restoredStream);
     }
@@ -604,7 +658,7 @@ export function useCall(user: User | null, token: string | null) {
     }));
 
     signalingService.sendAttackUpdate(roomId, false, false, 'none');
-  }, [isTester, roomId, replaceVideoTrack, replaceAudioTrack]);
+  }, [isTester, isScreenSharing, roomId, replaceVideoTrack, replaceAudioTrack]);
 
   const setFacePreset = useCallback((preset: FacePreset) => {
     facePresetRef.current = preset;
@@ -623,7 +677,9 @@ export function useCall(user: User | null, token: string | null) {
     }
 
     if (facePipelineRef.current) {
-      facePipelineRef.current.setPreset(preset);
+      void facePipelineRef.current.setPreset(preset).catch((error: unknown) => {
+        setErrorMessage(error instanceof Error ? error.message : 'Could not load the selected face.');
+      });
     }
   }, []);
 
@@ -660,7 +716,6 @@ export function useCall(user: User | null, token: string | null) {
   // Periodic telemetry poll when face swap is active
   useEffect(() => {
     if (!attackState.faceSwap) {
-      setFaceSwapTelemetry(undefined);
       return;
     }
     const interval = setInterval(() => {
@@ -671,14 +726,7 @@ export function useCall(user: User | null, token: string | null) {
     return () => clearInterval(interval);
   }, [attackState.faceSwap]);
 
-  const setCustomFace = useCallback((dataUrl: string) => {
-    setAttackState((prev) => ({ ...prev, facePreset: 'custom-upload' }));
-    if (facePipelineRef.current) {
-      facePipelineRef.current.setCustomAvatar(dataUrl);
-    }
-  }, []);
-
-  const setVoicePreset = useCallback((preset: 'robotic-vocoder' | 'deep-pitch-neural' | 'synthetic-clone') => {
+const setVoicePreset = useCallback((preset: 'robotic-vocoder' | 'deep-pitch-neural' | 'synthetic-clone') => {
     setAttackState((prev) => ({ ...prev, voicePreset: preset }));
     if (voicePipelineRef.current && attackState.voiceTransform) {
       voicePipelineRef.current.setPreset(preset);
@@ -701,14 +749,14 @@ export function useCall(user: User | null, token: string | null) {
       try {
         originalVideoTrackRef.current.enabled = false;
         originalVideoTrackRef.current.stop();
-      } catch (e) {}
+      } catch {}
       originalVideoTrackRef.current = null;
     }
     if (originalAudioTrackRef.current) {
       try {
         originalAudioTrackRef.current.enabled = false;
         originalAudioTrackRef.current.stop();
-      } catch (e) {}
+      } catch {}
       originalAudioTrackRef.current = null;
     }
 
@@ -716,9 +764,6 @@ export function useCall(user: User | null, token: string | null) {
     if (localStreamRef.current) {
       mediaService.stopStream(localStreamRef.current);
       localStreamRef.current = null;
-    }
-    if (localStream) {
-      mediaService.stopStream(localStream);
     }
     setLocalStream(null);
 
@@ -786,14 +831,14 @@ export function useCall(user: User | null, token: string | null) {
         try {
           originalVideoTrackRef.current.enabled = false;
           originalVideoTrackRef.current.stop();
-        } catch (e) {}
+        } catch {}
         originalVideoTrackRef.current = null;
       }
       if (originalAudioTrackRef.current) {
         try {
           originalAudioTrackRef.current.enabled = false;
           originalAudioTrackRef.current.stop();
-        } catch (e) {}
+        } catch {}
         originalAudioTrackRef.current = null;
       }
       if (localStreamRef.current) {
@@ -812,7 +857,7 @@ export function useCall(user: User | null, token: string | null) {
       signalingService.disconnect();
       mediaService.stopAllMedia();
     };
-  }, []);
+  }, [cleanupPeerConnection]);
 
 
   return {
@@ -841,13 +886,12 @@ export function useCall(user: User | null, token: string | null) {
     activateCombinedAttack,
     resetAttack,
     setFacePreset,
-    setCustomFace,
     setVoicePreset,
     uploadGalleryFace,
     resetFaceSwapFace,
     selectedFacePreview,
     selectedFaceName,
-    faceSwapTelemetry,
+    faceSwapTelemetry: attackState.faceSwap ? faceSwapTelemetry : undefined,
     faceBlendConfig,
     updateFaceBlendConfig,
     isVoiceMonitoring,

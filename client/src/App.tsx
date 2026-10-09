@@ -1,39 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import { lazy,Suspense,useState } from 'react';
 import { flushSync } from 'react-dom';
+import { LoadingScreen } from './components/LoadingScreen';
 import { useAuth } from './hooks/useAuth';
 import { HomePage } from './pages/Home';
 import { LoginPage } from './pages/Login';
-import { UserDashboard } from './pages/UserDashboard';
 import { TesterDashboard } from './pages/TesterDashboard';
-import { CallPage } from './pages/Call';
+import { UserDashboard } from './pages/UserDashboard';
 import { mediaService } from './services/media';
-import { LoadingScreen } from './components/LoadingScreen';
-import { Phase6GTestPanel } from './components/Phase6GTestPanel';
+
+const CallPage = lazy(() => import('./pages/Call').then(module => ({ default: module.CallPage })));
+const Phase6GTestPanel = lazy(() => import('./components/Phase6GTestPanel').then(module => ({ default: module.Phase6GTestPanel })));
 
 export function App() {
-  const { user, token, isAuthenticated, loading, error, login, register, logout } = useAuth();
-  const [showPhase6GTest, setShowPhase6GTest] = useState<boolean>(false);
-  const [authView, setAuthView] = useState<'home' | 'login'>('home');
-  const [authMode, setAuthMode] = useState<'signin' | 'signup'>('signin');
+  return <Suspense fallback={<LoadingScreen message="Loading DeepTrace..." />}><AppContent /></Suspense>;
+}
 
-  // Check URL query parameters for direct room join (e.g. ?room=ABC-123), explicit login/signup, or ?test=phase6g
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const roomParam = params.get('room');
-    if (roomParam) {
-      setActiveRoomId(roomParam.toUpperCase());
-      setAuthView('login');
-    } else if (params.get('signup') === 'true') {
-      setAuthMode('signup');
-      setAuthView('login');
-    } else if (params.get('login') === 'true') {
-      setAuthMode('signin');
-      setAuthView('login');
-    }
-    if (params.get('test') === 'phase6g') {
-      setShowPhase6GTest(true);
-    }
-  }, []);
+function AppContent() {
+  const { user, token, isAuthenticated, loading, error, login, register, logout } = useAuth();
+  const [initialParams] = useState(() => new URLSearchParams(window.location.search));
+  const [showPhase6GTest, setShowPhase6GTest] = useState(initialParams.get('test') === 'phase6g');
+  const [authView, setAuthView] = useState<'home' | 'login'>(
+    initialParams.get('room') || initialParams.get('signup') === 'true' || initialParams.get('login') === 'true' ? 'login' : 'home'
+  );
+  const [authMode, setAuthMode] = useState<'signin' | 'signup'>(
+    !initialParams.get('room') && initialParams.get('signup') === 'true' ? 'signup' : 'signin'
+  );
+  const [demoRole, setDemoRole] = useState<'user' | 'tester' | undefined>();
+  const [activeRoomId, setActiveRoomId] = useState<string | null>(initialParams.get('room')?.toUpperCase() || null);
 
   const transitionView = (callback: () => void, direction: 'forward' | 'back' = 'forward') => {
     document.documentElement.dataset.navDirection = direction;
@@ -114,6 +107,7 @@ export function App() {
     mediaService.stopAllMedia();
     logout();
     transitionView(() => {
+      setActiveRoomId(null);
       setAuthView('home');
       setAuthMode('signin');
     }, 'back');
@@ -137,6 +131,7 @@ export function App() {
           onLogin={login}
           onRegister={register}
           initialMode={authMode}
+          initialDemoRole={demoRole}
           error={error}
           onBackToHome={() => transitionView(() => setAuthView('home'), 'back')}
           onOpenPhase6GTest={handleOpenPhase6GTest}
@@ -148,15 +143,21 @@ export function App() {
       <HomePage
         onNavigate={(mode = 'signin') =>
           transitionView(() => {
+            setDemoRole(undefined);
             setAuthMode(mode);
             setAuthView('login');
           }, 'forward')
         }
         onQuickDemo={async (role) => {
-          if (role === 'tester') {
-            await login('tester', 'tester123');
-          } else {
-            await login('user', 'user123');
+          const passwordRequired = import.meta.env.VITE_DEMO_PASSWORD_REQUIRED === 'true';
+          if (passwordRequired && !['localhost', '127.0.0.1'].includes(window.location.hostname)) {
+            transitionView(() => { setDemoRole(role); setAuthMode('signin'); setAuthView('login'); });
+            return;
+          }
+          try {
+            await login(role, passwordRequired ? '__LOCAL_DEMO__' : role === 'tester' ? 'tester123' : 'user123');
+          } catch {
+            transitionView(() => { setAuthMode('signin'); setAuthView('login'); });
           }
         }}
       />

@@ -1,0 +1,43 @@
+{
+  "newly_swapped_frames": [
+    21,
+    23,
+    42,
+    44,
+    47,
+    48,
+    52,
+    444,
+    473,
+    480,
+    553,
+    554,
+    570,
+    572,
+    575,
+    577,
+    594,
+    601,
+    695,
+    696
+  ],
+  "newly_fallback_frames": [
+    33,
+    39,
+    319,
+    344,
+    347,
+    350,
+    714,
+    715,
+    716,
+    717,
+    718
+  ],
+  "columns": [
+    "original",
+    "baseline output",
+    "candidate output"
+  ],
+  "scope": "Selected frames where swap/fallback decisions differ; encoded comparison videos, not a perceptual quality pass."
+}

@@ -1,0 +1,530 @@
+{
+  "source": "https://openslr.trmal.net/resources/31/dev-clean-2.tar.gz",
+  "source_page": "https://www.openslr.org/31/",
+  "license": "CC BY 4.0",
+  "archive_md5": "6d7ab67ac6a1d2c993d050e16d61080d",
+  "archive_sha256": "176ec501490eced2d6c1f89f4f0ddc7dfe799e649e5322f8ba49fe3ff50c8012",
+  "selection": "First four utterances per speaker in archive order",
+  "records": [
+    {
+      "file": "5694-64038-0000.flac",
+      "speaker": "librispeech-5694",
+      "sha256": "c0cf765503cfa888a759069ea8299a125972ddea709710835c5f4e2c44a6a188"
+    },
+    {
+      "file": "5694-64038-0001.flac",
+      "speaker": "librispeech-5694",
+      "sha256": "516a135f567b9ea824220da62909ab56b7f4451bd6f3e785503c773f7af0be02"
+    },
+    {
+      "file": "5694-64038-0002.flac",
+      "speaker": "librispeech-5694",
+      "sha256": "8d52681047ac7ce30c1978084b2e402a712de0021dd661dc20cd80fe9c3c034f"
+    },
+    {
+      "file": "5694-64038-0003.flac",
+      "speaker": "librispeech-5694",
+      "sha256": "3c4591874aeceb37bcf6f8519fa01bb8b48f9e610c6d31ac25d234e8723ec415"
+    },
+    {
+      "file": "3000-15664-0000.flac",
+      "speaker": "librispeech-3000",
+      "sha256": "9eeff067c5e377fb25bae2ef4ddf19a36d9f6edab9b9fd39352039fe327b56f3"
+    },
+    {
+      "file": "3000-15664-0001.flac",
+      "speaker": "librispeech-3000",
+      "sha256": "db69c748c206a158b8289b4cc8f45a32d6ac841ba0e1280bab752f816575eda1"
+    },
+    {
+      "file": "3000-15664-0002.flac",
+      "speaker": "librispeech-3000",
+      "sha256": "b0ab4266b79d8b4e2e0cf14847408e032f3a00ebc7d69958174f4005fbf50d77"
+    },
+    {
+      "file": "3000-15664-0003.flac",
+      "speaker": "librispeech-3000",
+      "sha256": "8c8c0f6abc527b89e7e39a2deeea4432b325abc2ec41a8f84f7d97efa9215a07"
+    },
+    {
+      "file": "7850-286674-0000.flac",
+      "speaker": "librispeech-7850",
+      "sha256": "c59cf2e70b3d0f1f21bad4da424d1af733f4454caa11c19b8b2bef98a81f5ef8"
+    },
+    {
+      "file": "7850-286674-0001.flac",
+      "speaker": "librispeech-7850",
+      "sha256": "5bcc7ae14874513823e88fe6850246793383b75758a667ca65236a728305a6e4"
+    },
+    {
+      "file": "7850-286674-0002.flac",
+      "speaker": "librispeech-7850",
+      "sha256": "0f1a8747ba54604a2a656aa8c5e90264d1ae5d842ad77d959bc31b89fa930635"
+    },
+    {
+      "file": "7850-286674-0003.flac",
+      "speaker": "librispeech-7850",
+      "sha256": "bdeb6f781315595a95012ac84194826ad7cba60ab2381889b467d733d0814755"
+    },
+    {
+      "file": "84-121550-0000.flac",
+      "speaker": "librispeech-84",
+      "sha256": "dbd3048279d25cb4adaa25e246db50ffa01b7714e6f091691abe908027951daf"
+    },
+    {
+      "file": "84-121550-0001.flac",
+      "speaker": "librispeech-84",
+      "sha256": "247e369979ea804e60027e88710bfa4e8ab1b8f651a355c524715ba7861e6686"
+    },
+    {
+      "file": "84-121550-0002.flac",
+      "speaker": "librispeech-84",
+      "sha256": "5b0f7043f218db93d39fa5462df911c790daf2800c628e34aecd30ebdb7d7602"
+    },
+    {
+      "file": "84-121550-0003.flac",
+      "speaker": "librispeech-84",
+      "sha256": "c55986a6daae05d71d0a5589d1ce3c3a19bd80ada49e9c1aa8f0db4a16f0a958"
+    },
+    {
+      "file": "7976-110523-0000.flac",
+      "speaker": "librispeech-7976",
+      "sha256": "34d01fbe28d340065726a8eec93dc4d2f6116847d0f041b52c92cd4d86f1a9ec"
+    },
+    {
+      "file": "7976-110523-0001.flac",
+      "speaker": "librispeech-7976",
+      "sha256": "5b65e1d1fe5b50b48cbc18d2f08973ba45da9fc704b8ae5b16690c5020a29bc5"
+    },
+    {
+      "file": "7976-110523-0002.flac",
+      "speaker": "librispeech-7976",
+      "sha256": "a52f290029c6b49762965df7f122d5e5ebc0a00dbba9c90436114059b746c4ae"
+    },
+    {
+      "file": "7976-110523-0003.flac",
+      "speaker": "librispeech-7976",
+      "sha256": "2f085fea132c4ff41a81cb88df3cc76ac1bea2461dc9293999d94208af0f50d4"
+    },
+    {
+      "file": "5895-34622-0000.flac",
+      "speaker": "librispeech-5895",
+      "sha256": "326a9ffccf25d45e2e1f68393a27da172b677fa1e3558f4e2b5f076188db0279"
+    },
+    {
+      "file": "5895-34622-0001.flac",
+      "speaker": "librispeech-5895",
+      "sha256": "b87fd978bbe6ce9a63c841965aac54eced4f626e3b76ed6e378d5bc1044280ac"
+    },
+    {
+      "file": "5895-34622-0002.flac",
+      "speaker": "librispeech-5895",
+      "sha256": "cfc49cc7d1fab5f1f723f5746bb707ac2e447bc9aafe62dbe707b6a2fad93ff7"
+    },
+    {
+      "file": "5895-34622-0003.flac",
+      "speaker": "librispeech-5895",
+      "sha256": "9e18de26ad97ad32e03a30c51aad5fbec5ef25622543671297a6d7a5875cb339"
+    },
+    {
+      "file": "6241-61946-0000.flac",
+      "speaker": "librispeech-6241",
+      "sha256": "799919027c14f647e2c620ce7acda114d573730d5aeced841eab7ec6975a914e"
+    },
+    {
+      "file": "6241-61946-0001.flac",
+      "speaker": "librispeech-6241",
+      "sha256": "79de84e5722a043c3266eda176e3da475393ab5456c18abf27f703324ee9ef45"
+    },
+    {
+      "file": "6241-61946-0002.flac",
+      "speaker": "librispeech-6241",
+      "sha256": "82a45983d1a81d6cda86afc0cb99adf482af0d308f4a9c688b2453865cc8dbe4"
+    },
+    {
+      "file": "6241-61946-0003.flac",
+      "speaker": "librispeech-6241",
+      "sha256": "5f0e5467328d140c088bb606f1ba02a9cc750f82cbe6757321b1f3f49aa2b9bc"
+    },
+    {
+      "file": "1462-170142-0000.flac",
+      "speaker": "librispeech-1462",
+      "sha256": "08c17c6a59de702386a5c79b49b9d8f7fce1870b2d89b68607523f11d07b61ce"
+    },
+    {
+      "file": "1462-170142-0001.flac",
+      "speaker": "librispeech-1462",
+      "sha256": "82cfd1a08ce7d0d807c75cdc8ee245eebc82fa013ae53f295903ee92f9004ef9"
+    },
+    {
+      "file": "1462-170142-0002.flac",
+      "speaker": "librispeech-1462",
+      "sha256": "dbc441b62de949f9fafdb9912167b19f9038224144849cfceefc642d73b26fda"
+    },
+    {
+      "file": "1462-170142-0003.flac",
+      "speaker": "librispeech-1462",
+      "sha256": "ea11aead7b56ad79778c4f3fab70f0e84774d7c4ae32cfd89f2a0ddaf9d6f729"
+    },
+    {
+      "file": "3536-23268-0000.flac",
+      "speaker": "librispeech-3536",
+      "sha256": "1608b339566e5503b7da1907925d4f0ea08a2d1fe1ee41152060e7b5d09e5bbf"
+    },
+    {
+      "file": "3536-23268-0001.flac",
+      "speaker": "librispeech-3536",
+      "sha256": "786503c38d7699a31899685e005b35d175ddde03228d206acad516b273669611"
+    },
+    {
+      "file": "3536-23268-0002.flac",
+      "speaker": "librispeech-3536",
+      "sha256": "ea9e1d7055994d7ff7e0bd441e495704a959b3edac64a8be83fcf3938c6ab4bb"
+    },
+    {
+      "file": "3536-23268-0003.flac",
+      "speaker": "librispeech-3536",
+      "sha256": "e989838c90af61e630d675c66a9308f637565739a06c1eb6ac592cc0147ca8b0"
+    },
+    {
+      "file": "6319-57405-0000.flac",
+      "speaker": "librispeech-6319",
+      "sha256": "9a9675d31b8efcc3377910fa1aa86ae9eda393cb3c05025fa1473c0ee5bf0f89"
+    },
+    {
+      "file": "6319-57405-0001.flac",
+      "speaker": "librispeech-6319",
+      "sha256": "3ff2a98a6bdac8144dd2b0effd3c149abe1f96acb63a26b5a836d3fb6066f546"
+    },
+    {
+      "file": "6319-57405-0002.flac",
+      "speaker": "librispeech-6319",
+      "sha256": "a9e843e500247ea991a274f1da648506ecfe9e731e3d17a32448e2e1dadfaa91"
+    },
+    {
+      "file": "6319-57405-0003.flac",
+      "speaker": "librispeech-6319",
+      "sha256": "76702df3a3a9caef0cfc9145d622047ceee315767e93b4903d791881043283e1"
+    },
+    {
+      "file": "2035-147961-0000.flac",
+      "speaker": "librispeech-2035",
+      "sha256": "00c1223f6c696a3b9d322326529a8ccc4806262a1e6b342c5a768c089ce672ed"
+    },
+    {
+      "file": "2035-147961-0001.flac",
+      "speaker": "librispeech-2035",
+      "sha256": "abeead797fc0bdd47c12dc1ff3e9aed9e2c9287b44f6b40bc52332659f1c1f46"
+    },
+    {
+      "file": "2035-147961-0002.flac",
+      "speaker": "librispeech-2035",
+      "sha256": "52bab8b06062158d3cd2d901a3bea5a80d14e627f6a4d4066ea489702b208dc3"
+    },
+    {
+      "file": "2035-147961-0003.flac",
+      "speaker": "librispeech-2035",
+      "sha256": "ab93853fa914ccef96199e07b7cb85a09861b73b73c49eb2ec9b627b6c53d855"
+    },
+    {
+      "file": "5338-24640-0000.flac",
+      "speaker": "librispeech-5338",
+      "sha256": "1e4b8e19baab4580b3aa9c360a92e028827ed7f4f0f6cf459e2d09bfc337b06e"
+    },
+    {
+      "file": "5338-24640-0001.flac",
+      "speaker": "librispeech-5338",
+      "sha256": "10c1332242637b6456b1b9d14868a12234208f94f7598254c97bb8edc8a4a931"
+    },
+    {
+      "file": "5338-24640-0002.flac",
+      "speaker": "librispeech-5338",
+      "sha256": "d6ac249c65c6eb3475b958c8078eee8645ddb7c21707abb3094d9b66098b67b6"
+    },
+    {
+      "file": "5338-24640-0003.flac",
+      "speaker": "librispeech-5338",
+      "sha256": "74dfa4988d7df69b592e14af6f8829ab95e31eb93112034eb225469adde9be0b"
+    },
+    {
+      "file": "1988-24833-0000.flac",
+      "speaker": "librispeech-1988",
+      "sha256": "6a15f3242eceb9c42417e5a57575ddf341dcf944474bd9ba9e6d10f514873d52"
+    },
+    {
+      "file": "1988-24833-0001.flac",
+      "speaker": "librispeech-1988",
+      "sha256": "398a08d40b5acb32981fd1f2e20a60b305c6881d04b69d1e0e87401ba47fb374"
+    },
+    {
+      "file": "1988-24833-0002.flac",
+      "speaker": "librispeech-1988",
+      "sha256": "3a3c01934be0164f615f1004c36b0cc6ea2f1f664119f44e3c4390e96d9ebfa3"
+    },
+    {
+      "file": "1988-24833-0003.flac",
+      "speaker": "librispeech-1988",
+      "sha256": "f4dbb337cc258b39797f104e68f3ef1c110bf48b06aab6de89bc6958737e4da2"
+    },
+    {
+      "file": "8842-304647-0000.flac",
+      "speaker": "librispeech-8842",
+      "sha256": "37757af3c90b911c76d143af4521f908839cda4a3b6a8786b5fb3a6d8cf9b2cc"
+    },
+    {
+      "file": "8842-304647-0001.flac",
+      "speaker": "librispeech-8842",
+      "sha256": "3a976006a14a0f4f1633f09b64ca530d039def17d89c720287d18d65bc28c079"
+    },
+    {
+      "file": "8842-304647-0002.flac",
+      "speaker": "librispeech-8842",
+      "sha256": "ae843da338d2a39605973051d72578cde1f5cbc73e4cca60f455974724ba9c67"
+    },
+    {
+      "file": "8842-304647-0003.flac",
+      "speaker": "librispeech-8842",
+      "sha256": "73ce814b5fbbd9c88b57f7f57728b42fe039f8f193a6a9344479e94bc22769e8"
+    },
+    {
+      "file": "1272-141231-0000.flac",
+      "speaker": "librispeech-1272",
+      "sha256": "adb240047a1e0732c96b029b7dbd7c81a17c853cbd30aec0ee0d9c4e59fe720a"
+    },
+    {
+      "file": "1272-141231-0001.flac",
+      "speaker": "librispeech-1272",
+      "sha256": "5ec33d1ae2a06430ddd4faa6090673f7dbb09f71405ce401a08301eedb313275"
+    },
+    {
+      "file": "1272-141231-0002.flac",
+      "speaker": "librispeech-1272",
+      "sha256": "9a490059a63cd2f92fbc8c447135ed87f97ed36ee53714987b01c8ac7c33dec4"
+    },
+    {
+      "file": "1272-141231-0003.flac",
+      "speaker": "librispeech-1272",
+      "sha256": "da658227a61fdfefa7a54ad9bb4614a7da33e335358e5b3620ddcf7c93c3e77f"
+    },
+    {
+      "file": "1993-147964-0000.flac",
+      "speaker": "librispeech-1993",
+      "sha256": "b90879ba30dc9a4ed1fb9669a315a7eab8b7c2365afa44e3b9b92d0d925624d3"
+    },
+    {
+      "file": "1993-147964-0001.flac",
+      "speaker": "librispeech-1993",
+      "sha256": "f4e864c07fc358cdd40925d03f2b251d923d048e2f385e36710903d2f852e8a6"
+    },
+    {
+      "file": "1993-147964-0002.flac",
+      "speaker": "librispeech-1993",
+      "sha256": "f5b989660819a077a9766dfa4a446f5149e647d6ab91341b3af8f3d2614d0077"
+    },
+    {
+      "file": "1993-147964-0003.flac",
+      "speaker": "librispeech-1993",
+      "sha256": "4867a7ae1a8909dc22b3f19c8c610403afaa1ffe61cac814e154c193602df723"
+    },
+    {
+      "file": "2428-83699-0000.flac",
+      "speaker": "librispeech-2428",
+      "sha256": "dbdfe7afcc75aa9229e7f888a060a909931215062aa7a87a3c2adccb6af35d2a"
+    },
+    {
+      "file": "2428-83699-0001.flac",
+      "speaker": "librispeech-2428",
+      "sha256": "9fae10361c9efd93631407f833a5940914ed18906d2a41818ea7dc73f6ea2219"
+    },
+    {
+      "file": "2428-83699-0002.flac",
+      "speaker": "librispeech-2428",
+      "sha256": "1cc0becc0a0b0bf091d41b3c6d7b2852338d96b0afa127808a9b17c61acf369b"
+    },
+    {
+      "file": "2428-83699-0003.flac",
+      "speaker": "librispeech-2428",
+      "sha256": "b21a68f5c0f122b2d17e11d848f91c6bf0788435999ca153b37973e7f8498869"
+    },
+    {
+      "file": "2803-161169-0000.flac",
+      "speaker": "librispeech-2803",
+      "sha256": "a700277deb6fb3fc1d7ddfcdf48f88f30ec32e81f99d2183f06c9b960e81ca1c"
+    },
+    {
+      "file": "2803-161169-0001.flac",
+      "speaker": "librispeech-2803",
+      "sha256": "30b7ed1189ca2268621364aa629da6748ac4f941adbd3704b21b3dfc6105b5b1"
+    },
+    {
+      "file": "2803-161169-0002.flac",
+      "speaker": "librispeech-2803",
+      "sha256": "d05778efbfca7b87cf81b154eca136461382b92f2bf1bd8aed252d8a9d92f25b"
+    },
+    {
+      "file": "2803-161169-0003.flac",
+      "speaker": "librispeech-2803",
+      "sha256": "010f8f7ba22c52631bc99507459b47264d37f9b92f37ef2e9b0e1ceae0baa2cb"
+    },
+    {
+      "file": "8297-275156-0000.flac",
+      "speaker": "librispeech-8297",
+      "sha256": "739897cc382b4f6ab0e813607a44ee932fd7e6655d130c011028b7fb3c1e8c24"
+    },
+    {
+      "file": "8297-275156-0001.flac",
+      "speaker": "librispeech-8297",
+      "sha256": "e488957bc427fa0db62ee62ed3ceefbcec71f4b99b95cd7a4b6abeb392a962e9"
+    },
+    {
+      "file": "8297-275156-0002.flac",
+      "speaker": "librispeech-8297",
+      "sha256": "a571b4140b78ade97659aa8293c98a62a23b77fb7eccbba7f90d65f1bcaa2fce"
+    },
+    {
+      "file": "8297-275156-0003.flac",
+      "speaker": "librispeech-8297",
+      "sha256": "423ca5da06bdc1c44768e1585f73c449eaaf6a3d2d6e943032c32ad06b2387b6"
+    },
+    {
+      "file": "6295-244435-0000.flac",
+      "speaker": "librispeech-6295",
+      "sha256": "584835bd337d293cc811f3d346c6d681716534634f36b477e8115bdb269ad177"
+    },
+    {
+      "file": "6295-244435-0001.flac",
+      "speaker": "librispeech-6295",
+      "sha256": "fd1c766546d427730866e37146b25b156522f5d5cfae65d4ecd831a9c4af266d"
+    },
+    {
+      "file": "6295-244435-0002.flac",
+      "speaker": "librispeech-6295",
+      "sha256": "3b151044ecf96c0412839a203efdfda21027ada7651ba311ce67224af42f9770"
+    },
+    {
+      "file": "6295-244435-0003.flac",
+      "speaker": "librispeech-6295",
+      "sha256": "2887a536f5879bf1aa28c49720f18f8ad2f6c221496664832c1d241226f7031c"
+    },
+    {
+      "file": "3576-138058-0000.flac",
+      "speaker": "librispeech-3576",
+      "sha256": "f4247837be6caf9dd06ba62280042a31b7ab98ee0646d68d94b85af0e31cd52f"
+    },
+    {
+      "file": "3576-138058-0001.flac",
+      "speaker": "librispeech-3576",
+      "sha256": "ff26d3cdb1bb6684edc022c9b9d2b161baf375f4ee0590f12d8050aa80a2d447"
+    },
+    {
+      "file": "3576-138058-0002.flac",
+      "speaker": "librispeech-3576",
+      "sha256": "9a804942e8d20a70c23c1dde060b0ffc8832d19db056f407fa74d4267fb5dfaa"
+    },
+    {
+      "file": "3576-138058-0003.flac",
+      "speaker": "librispeech-3576",
+      "sha256": "e0ae498d17b39bdec6c6eadf7555df715d0d228a47f54653b842c014d48e0ffc"
+    },
+    {
+      "file": "2412-153948-0000.flac",
+      "speaker": "librispeech-2412",
+      "sha256": "47ced4dfe4fc60d8335cd37fb80d632039731679004d6568bf7430f007630b3a"
+    },
+    {
+      "file": "2412-153948-0001.flac",
+      "speaker": "librispeech-2412",
+      "sha256": "1c30c00e02453220bc8118b5a77a3f8613289e7629826f681c5eeb8ad63000fc"
+    },
+    {
+      "file": "2412-153948-0002.flac",
+      "speaker": "librispeech-2412",
+      "sha256": "313ed23d7e5d79340259e68d8cc1425610aaf1829719a13e5e1082284a2bbf7a"
+    },
+    {
+      "file": "2412-153948-0003.flac",
+      "speaker": "librispeech-2412",
+      "sha256": "ecdc1903dd77ffac9dc6f49103689b8fbc42639885c96ca68ac13dd18cbc57a6"
+    },
+    {
+      "file": "251-118436-0000.flac",
+      "speaker": "librispeech-251",
+      "sha256": "8a8a2f34930ea37432f1cc1082061cd889eceed949b3c13a79cbdc10a96f99e0"
+    },
+    {
+      "file": "251-118436-0001.flac",
+      "speaker": "librispeech-251",
+      "sha256": "3a179746f8333af93ef925b2108d53cbee8b12d5976e69bc633d1e6167b4e679"
+    },
+    {
+      "file": "251-118436-0002.flac",
+      "speaker": "librispeech-251",
+      "sha256": "d5e4ce91236c75b32b0f3e5ccc1d6ce2792ff2b20aedd95e172f329de8b164d5"
+    },
+    {
+      "file": "251-118436-0003.flac",
+      "speaker": "librispeech-251",
+      "sha256": "2d6377ec7f350c09fb947aa1fc6ef3a07d477c0914bb0e901cd15f6f3e23cc03"
+    },
+    {
+      "file": "777-126732-0000.flac",
+      "speaker": "librispeech-777",
+      "sha256": "6dfb2d28b03b4f6d0039a187545349cdec13afad0bf5ba734cc8e4c6c536ac4a"
+    },
+    {
+      "file": "777-126732-0001.flac",
+      "speaker": "librispeech-777",
+      "sha256": "4dee5919f6566aa791a3c863b70c46b262409e39131058861b0ef00e2bbf0777"
+    },
+    {
+      "file": "777-126732-0002.flac",
+      "speaker": "librispeech-777",
+      "sha256": "810af64e7584b35c6e51c663bebfd139f551168fac60ffc163566941775ed1a0"
+    },
+    {
+      "file": "777-126732-0003.flac",
+      "speaker": "librispeech-777",
+      "sha256": "906ee074b72e20c502526890bfdba26a246803c52e2779317b498224c8e65cc9"
+    },
+    {
+      "file": "174-168635-0000.flac",
+      "speaker": "librispeech-174",
+      "sha256": "dbb765967c6a51c8e794fb0098240b1e070c6b1bf0594b218570631604aab38f"
+    },
+    {
+      "file": "174-168635-0001.flac",
+      "speaker": "librispeech-174",
+      "sha256": "eb74f4c862ef5ce58006a967ec30d857264e746e447f75d6dd3a7fe56c698fcf"
+    },
+    {
+      "file": "174-168635-0002.flac",
+      "speaker": "librispeech-174",
+      "sha256": "9c6364899ed0575aa99d76a8a1834b7b7405acb3abcb6a4e263ed5803a2e7db2"
+    },
+    {
+      "file": "174-168635-0003.flac",
+      "speaker": "librispeech-174",
+      "sha256": "f544cd4916a947b7f0002dc8d6e956dfd4ca4d22c9d3f24ab93d9e33b53f04db"
+    },
+    {
+      "file": "3752-4944-0000.flac",
+      "speaker": "librispeech-3752",
+      "sha256": "98bac3595753e97a2c8eebbdffebdb69d71a71f09cade3ba6dc412e6ed025b5c"
+    },
+    {
+      "file": "3752-4944-0001.flac",
+      "speaker": "librispeech-3752",
+      "sha256": "348ed488c71f270d67f174a39653cc5b73396ef10b36fe9653be93511d7f2b35"
+    },
+    {
+      "file": "3752-4944-0002.flac",
+      "speaker": "librispeech-3752",
+      "sha256": "4484bc3c7c930325dcd0693adea45f5d5209ab02f01c9a608fbac68286cd83f7"
+    },
+    {
+      "file": "3752-4944-0003.flac",
+      "speaker": "librispeech-3752",
+      "sha256": "0395729caec32e974c1b9b5483dcc8ce0c2dad76f663f3bd1c8f0bc3e37181ab"
+    }
+  ]
+}

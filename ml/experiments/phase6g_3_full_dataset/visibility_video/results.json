@@ -1,0 +1,432 @@
+{
+  "synthetic_motion": true,
+  "limitation": "Synthetic translation/rotation is not a real expression or occlusion video test.",
+  "correspondence": "visibility",
+  "checkpoint": "ml\\experiments\\phase6g_3_full_dataset\\visibility_pilot\\latest_model.pt",
+  "frames": 60,
+  "face_detection_rate": 100.0,
+  "warm_pipeline_ms_median": 47.67369999899529,
+  "warm_pipeline_ms_p95": 52.52259000008053,
+  "records": [
+    {
+      "face_detected": true,
+      "changed_pixels": 11854,
+      "pipeline_ms": 1087.6642000002903,
+      "frame": 0,
+      "output_delta_mean": null
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11857,
+      "pipeline_ms": 46.76809999727993,
+      "frame": 1,
+      "output_delta_mean": 1.3179998625571248
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11897,
+      "pipeline_ms": 46.93799999949988,
+      "frame": 2,
+      "output_delta_mean": 1.3656667697488232
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11985,
+      "pipeline_ms": 49.91349999909289,
+      "frame": 3,
+      "output_delta_mean": 1.3136102807270729
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11948,
+      "pipeline_ms": 46.57260000021779,
+      "frame": 4,
+      "output_delta_mean": 1.2709772188434183
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11868,
+      "pipeline_ms": 50.27619999964372,
+      "frame": 5,
+      "output_delta_mean": 1.2099439920283133
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11925,
+      "pipeline_ms": 47.60909999822616,
+      "frame": 6,
+      "output_delta_mean": 1.1136308971583686
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11890,
+      "pipeline_ms": 51.47529999885592,
+      "frame": 7,
+      "output_delta_mean": 1.0584561729031372
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11888,
+      "pipeline_ms": 46.06849999981932,
+      "frame": 8,
+      "output_delta_mean": 0.9316823007937326
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11899,
+      "pipeline_ms": 50.33180000100401,
+      "frame": 9,
+      "output_delta_mean": 0.8521715974298182
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11906,
+      "pipeline_ms": 45.064099998853635,
+      "frame": 10,
+      "output_delta_mean": 0.7117479297666908
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11916,
+      "pipeline_ms": 45.168000000558095,
+      "frame": 11,
+      "output_delta_mean": 0.6150396866302443
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11897,
+      "pipeline_ms": 50.37580000134767,
+      "frame": 12,
+      "output_delta_mean": 0.56276844311583
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11888,
+      "pipeline_ms": 56.863600002543535,
+      "frame": 13,
+      "output_delta_mean": 0.5174896058825551
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11873,
+      "pipeline_ms": 48.0117999977665,
+      "frame": 14,
+      "output_delta_mean": 0.5871989142012851
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11900,
+      "pipeline_ms": 47.9899000019941,
+      "frame": 15,
+      "output_delta_mean": 0.6718894959282549
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11871,
+      "pipeline_ms": 49.19339999833028,
+      "frame": 16,
+      "output_delta_mean": 0.8125279180840463
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11868,
+      "pipeline_ms": 50.314299998717615,
+      "frame": 17,
+      "output_delta_mean": 0.9184620142253376
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11887,
+      "pipeline_ms": 48.71669999920414,
+      "frame": 18,
+      "output_delta_mean": 1.0115709720647357
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11911,
+      "pipeline_ms": 48.088600000482984,
+      "frame": 19,
+      "output_delta_mean": 1.128655121465141
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11893,
+      "pipeline_ms": 46.12280000219471,
+      "frame": 20,
+      "output_delta_mean": 1.1759870116482838
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11883,
+      "pipeline_ms": 53.08639999930165,
+      "frame": 21,
+      "output_delta_mean": 1.1964230491701886
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11904,
+      "pipeline_ms": 52.09409999952186,
+      "frame": 22,
+      "output_delta_mean": 1.2875133147785451
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11879,
+      "pipeline_ms": 49.32669999834616,
+      "frame": 23,
+      "output_delta_mean": 1.262713465965708
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11847,
+      "pipeline_ms": 52.49309999999241,
+      "frame": 24,
+      "output_delta_mean": 1.2527746280452188
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11862,
+      "pipeline_ms": 47.02289999841014,
+      "frame": 25,
+      "output_delta_mean": 1.2462632718276467
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11859,
+      "pipeline_ms": 42.32400000182679,
+      "frame": 26,
+      "output_delta_mean": 1.2662869807236368
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11859,
+      "pipeline_ms": 48.06350000217208,
+      "frame": 27,
+      "output_delta_mean": 1.2139727863106897
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11836,
+      "pipeline_ms": 43.77759999988484,
+      "frame": 28,
+      "output_delta_mean": 1.1613579356080128
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11858,
+      "pipeline_ms": 46.230500000092434,
+      "frame": 29,
+      "output_delta_mean": 1.1173160842524825
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11826,
+      "pipeline_ms": 52.78800000087358,
+      "frame": 30,
+      "output_delta_mean": 1.1175566092842661
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11805,
+      "pipeline_ms": 45.46409999966272,
+      "frame": 31,
+      "output_delta_mean": 1.1243514414321547
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11809,
+      "pipeline_ms": 49.150499999086605,
+      "frame": 32,
+      "output_delta_mean": 0.9855942686320998
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11795,
+      "pipeline_ms": 45.25329999887617,
+      "frame": 33,
+      "output_delta_mean": 1.05555269216232
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11791,
+      "pipeline_ms": 51.43590000079712,
+      "frame": 34,
+      "output_delta_mean": 1.0259852936123424
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11811,
+      "pipeline_ms": 47.23019999801181,
+      "frame": 35,
+      "output_delta_mean": 0.9601759268803903
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11816,
+      "pipeline_ms": 50.72419999851263,
+      "frame": 36,
+      "output_delta_mean": 0.9899065388447926
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11844,
+      "pipeline_ms": 45.36319999897387,
+      "frame": 37,
+      "output_delta_mean": 0.9618166512043432
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11856,
+      "pipeline_ms": 47.139899998001056,
+      "frame": 38,
+      "output_delta_mean": 1.0194138061368243
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11874,
+      "pipeline_ms": 47.61570000118809,
+      "frame": 39,
+      "output_delta_mean": 1.0269216232003573
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11840,
+      "pipeline_ms": 50.41999999957625,
+      "frame": 40,
+      "output_delta_mean": 1.0928254819090815
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11839,
+      "pipeline_ms": 45.72149999876274,
+      "frame": 41,
+      "output_delta_mean": 1.1412998659931965
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11816,
+      "pipeline_ms": 48.434200001793215,
+      "frame": 42,
+      "output_delta_mean": 1.2014311239391129
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11839,
+      "pipeline_ms": 46.27800000162097,
+      "frame": 43,
+      "output_delta_mean": 1.205597361096794
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11840,
+      "pipeline_ms": 47.35419999997248,
+      "frame": 44,
+      "output_delta_mean": 1.2217211284060063
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11868,
+      "pipeline_ms": 47.62900000059744,
+      "frame": 45,
+      "output_delta_mean": 1.2215149640930487
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11876,
+      "pipeline_ms": 48.2828000021982,
+      "frame": 46,
+      "output_delta_mean": 1.1992320379342336
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11903,
+      "pipeline_ms": 47.715599997900426,
+      "frame": 47,
+      "output_delta_mean": 1.160730852489434
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11884,
+      "pipeline_ms": 45.90180000013788,
+      "frame": 48,
+      "output_delta_mean": 1.13702195649933
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11867,
+      "pipeline_ms": 47.679200000857236,
+      "frame": 49,
+      "output_delta_mean": 1.0050424354877503
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11870,
+      "pipeline_ms": 42.678000001615146,
+      "frame": 50,
+      "output_delta_mean": 0.8916950142596983
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11873,
+      "pipeline_ms": 45.748599997750716,
+      "frame": 51,
+      "output_delta_mean": 0.8098649623750129
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11923,
+      "pipeline_ms": 46.205900001950795,
+      "frame": 52,
+      "output_delta_mean": 0.7276827131223585
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11924,
+      "pipeline_ms": 44.79860000355984,
+      "frame": 53,
+      "output_delta_mean": 0.6942411435247225
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11908,
+      "pipeline_ms": 46.84159999669646,
+      "frame": 54,
+      "output_delta_mean": 0.6763392090162527
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11896,
+      "pipeline_ms": 46.252200001617894,
+      "frame": 55,
+      "output_delta_mean": 0.6795519362265059
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11863,
+      "pipeline_ms": 52.03419999816106,
+      "frame": 56,
+      "output_delta_mean": 0.7387898154829399
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11859,
+      "pipeline_ms": 47.67369999899529,
+      "frame": 57,
+      "output_delta_mean": 0.8154657595436896
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11885,
+      "pipeline_ms": 51.68570000023465,
+      "frame": 58,
+      "output_delta_mean": 0.8940744940384153
+    },
+    {
+      "face_detected": true,
+      "changed_pixels": 11889,
+      "pipeline_ms": 51.30920000010519,
+      "frame": 59,
+      "output_delta_mean": 0.9714891935539292
+    }
+  ]
+}

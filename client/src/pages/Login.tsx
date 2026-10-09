@@ -14,9 +14,11 @@ interface LoginPageProps {
     onVerified?: () => Promise<void> | void
   ) => Promise<any>;
   loading?: boolean;
+  error?: string | null;
   onOpenPhase6GTest?: () => void;
   onBackToHome?: () => void;
   initialMode?: 'signin' | 'signup';
+  initialDemoRole?: 'user' | 'tester';
 }
 
 export const LoginPage: React.FC<LoginPageProps> = ({
@@ -27,6 +29,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
   onOpenPhase6GTest,
   onBackToHome,
   initialMode = 'signin',
+  initialDemoRole,
 }) => {
   return (
     <div className="min-h-[100dvh] w-full flex bg-white text-slate-900 font-sans selection:bg-blue-100 overflow-x-hidden">
@@ -61,6 +64,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
             onLogin={onLogin}
             onRegister={onRegister}
             initialMode={initialMode}
+            initialDemoRole={initialDemoRole}
             loading={loading}
             error={error}
           />

@@ -1,5 +1,6 @@
-import React from 'react';
-import { Shield, Activity, AlertTriangle, Eye, Mic, Radio, X } from 'lucide-react';
+import { Activity,AlertTriangle,Eye,Mic,Radio,Shield,X } from 'lucide-react';
+import React,{ useEffect,useState } from 'react';
+import type { MediaMeasurement } from '../hooks/useMediaDetection';
 import { AttackMode } from '../types/attack';
 import { VoiceDetectionState } from '../types/detection';
 import { AudioSpectrumVisualizer } from './AudioSpectrumVisualizer';
@@ -12,22 +13,36 @@ interface SecurityPanelProps {
     voiceTransform: boolean;
   };
   voiceDetection?: VoiceDetectionState;
+  mediaDetection?: { video: MediaMeasurement | null; audio: MediaMeasurement | null };
   isTester?: boolean;
+  hasIncomingPeer?: boolean;
   onClose?: () => void;
 }
 
 export const SecurityPanel: React.FC<SecurityPanelProps> = ({
   peerAttackState,
   voiceDetection,
-  isTester = false,
+  mediaDetection,
+  hasIncomingPeer = true,
   onClose,
 }) => {
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => { const timer = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(timer); }, []);
   const isVoiceDeepfake = voiceDetection?.status === 'deepfake';
   const isSuspicious = voiceDetection?.status === 'suspicious';
   const isHuman = voiceDetection?.status === 'human';
 
   const anomalyScore = voiceDetection?.anomalyScore || 0;
   const confidence = voiceDetection?.confidence || 0;
+  const hasVoiceSample = Boolean(voiceDetection?.hasAudio && voiceDetection?.isVoiceActive && confidence > 0);
+  const reportedFaceChange = Boolean(peerAttackState?.active && peerAttackState.faceSwap);
+  const measurementText = (measurement: MediaMeasurement | null | undefined) => {
+    if (!hasIncomingPeer) return 'Waiting for a peer to join';
+    if (!measurement) return 'Independent face anomaly score unavailable';
+    if (measurement.receivedAt && now - measurement.receivedAt > 12000) return 'Waiting for a fresh measurement';
+    if (typeof measurement.score === 'number' && Number.isFinite(measurement.score)) return `Model output: ${(measurement.score * 100).toFixed(1)} / 100`;
+    return measurement.reason || (measurement.status === 'busy' ? 'Waiting for GPU' : 'Waiting for a usable sample');
+  };
 
   return (
     <aside className="w-full lg:w-84 shrink-0 flex flex-col h-full bg-[#16181f] border-l border-white/10 p-4 overflow-y-auto overflow-x-hidden select-none text-slate-100 font-sans">
@@ -45,7 +60,7 @@ export const SecurityPanel: React.FC<SecurityPanelProps> = ({
           </div>
           <div>
             <h2 className="text-sm font-bold text-white tracking-tight">Security Monitor</h2>
-            <p className="text-[11px] text-slate-400">Autonomous deepfake analysis</p>
+            <p className="text-[11px] text-slate-400">Incoming audio and video status</p>
           </div>
         </div>
 
@@ -73,11 +88,11 @@ export const SecurityPanel: React.FC<SecurityPanelProps> = ({
               }`}
             />
             {isVoiceDeepfake
-              ? 'Deepfake'
+              ? 'Audio anomaly'
               : isSuspicious
               ? 'Suspicious'
               : isHuman
-              ? 'Verified'
+              ? 'Low audio anomaly'
               : 'Listening'}
           </span>
 
@@ -93,7 +108,31 @@ export const SecurityPanel: React.FC<SecurityPanelProps> = ({
         </div>
       </div>
 
-      {/* Voice Risk Score Card */}
+        {/* These signals are reported by the tester, not inferred from pixels. */}
+        <div className="mt-3 p-3 rounded-xl bg-white/5 border border-white/10 shrink-0">
+          <h3 className="text-xs font-semibold text-slate-200">Tester-reported changes</h3>
+          <div className="mt-2 space-y-1 text-xs text-slate-400" aria-live="polite">
+            <p>Video: {peerAttackState?.active && peerAttackState.faceSwap ? 'Face change active' : 'No face change reported'}</p>
+            <p>Audio: {peerAttackState?.active && peerAttackState.voiceTransform ? 'Voice transform active' : 'No voice transform reported'}</p>
+          </div>
+        </div>
+
+      <div className={`mt-3.5 p-4 rounded-2xl border shrink-0 ${reportedFaceChange ? 'bg-amber-500/10 border-amber-500/30' : 'bg-white/5 border-white/10'}`} aria-live="polite">
+        <div className="flex items-center gap-1.5 text-xs text-slate-200 font-semibold">
+          <Eye className="h-4 w-4 text-blue-400" />
+          <span>Face Anomaly Analysis</span>
+        </div>
+        <p className="mt-2 text-sm font-semibold">{measurementText(mediaDetection?.video)}</p>
+        <p className="mt-2 text-[11px] text-slate-400">{mediaDetection?.video ? 'Experimental analysis of received face pixels. Uncalibrated output; blur and compression can cause false alarms. This does not certify real or fake.' : 'Independent face anomaly score unavailable. Receiver model analysis must be enabled in the research launcher.'}</p>
+      </div>
+
+      {mediaDetection?.audio && <div className="mt-3.5 p-4 rounded-2xl border bg-white/5 border-white/10" aria-live="polite">
+        <h3 className="text-xs font-semibold">Learned Voice Spoof Analysis</h3>
+        <p className="mt-2 text-sm font-semibold">{measurementText(mediaDetection.audio)}</p>
+        <p className="mt-2 text-[11px] text-slate-400">AASIST analyzes received audio independently of tester controls. Experimental output; call codecs can cause false alarms. This does not certify real or fake.</p>
+      </div>}
+
+        {/* Voice Risk Score Card */}
       <div
         className={`mt-3.5 p-4 rounded-2xl border transition-all shrink-0 ${
           isVoiceDeepfake
@@ -108,7 +147,7 @@ export const SecurityPanel: React.FC<SecurityPanelProps> = ({
             <Activity className={`h-4 w-4 ${isVoiceDeepfake ? 'text-red-400' : 'text-blue-400'}`} />
             <span>Voice Anomaly Index</span>
           </div>
-          <span className="text-[11px] text-slate-400">{confidence}% confidence</span>
+          <span className="text-[11px] text-slate-400">{hasVoiceSample ? 'Experimental audio score' : 'No speech measurement'}</span>
         </div>
 
         <div className="flex items-baseline gap-2 mb-2">
@@ -123,10 +162,10 @@ export const SecurityPanel: React.FC<SecurityPanelProps> = ({
                 : 'text-slate-400'
             }`}
           >
-            {anomalyScore}%
+            {hasVoiceSample ? `${anomalyScore}%` : '—'}
           </span>
           <span className="text-xs font-medium text-slate-400">
-            {isVoiceDeepfake ? 'Critical Risk' : isSuspicious ? 'Suspicious' : isHuman ? 'Natural Human' : 'Baseline'}
+            {!hasVoiceSample ? 'Waiting for speech' : isVoiceDeepfake ? 'Strong audio anomaly' : isSuspicious ? 'Suspicious' : isHuman ? 'Low audio anomaly' : 'Analyzing'}
           </span>
         </div>
 
@@ -136,7 +175,7 @@ export const SecurityPanel: React.FC<SecurityPanelProps> = ({
             className={`h-full transition-all duration-300 rounded-full ${
               isVoiceDeepfake ? 'bg-red-500' : isSuspicious ? 'bg-amber-500' : 'bg-emerald-500'
             }`}
-            style={{ width: `${Math.max(4, anomalyScore)}%` }}
+            style={{ width: `${hasVoiceSample ? anomalyScore : 0}%` }}
           />
         </div>
 
@@ -166,7 +205,7 @@ export const SecurityPanel: React.FC<SecurityPanelProps> = ({
             </div>
           ) : (
             <span className="text-[11px] text-slate-400">
-              {isHuman ? 'Natural acoustic harmonics verified' : 'Sampling incoming audio stream...'}
+              {isHuman ? 'No strong audio anomaly in the current sample' : 'Sampling incoming audio stream...'}
             </span>
           )}
         </div>
@@ -206,7 +245,7 @@ export const SecurityPanel: React.FC<SecurityPanelProps> = ({
                   voiceDetection.metrics.carrierHarmonicDetected ? 'text-red-400' : 'text-emerald-400'
                 }`}
               >
-                {voiceDetection.metrics.carrierHarmonicDetected ? 'Detected' : 'Clean'}
+                {!hasVoiceSample ? 'Waiting for speech' : voiceDetection.metrics.carrierHarmonicDetected ? 'Detected' : 'Not detected'}
               </span>
             </div>
 
@@ -217,7 +256,7 @@ export const SecurityPanel: React.FC<SecurityPanelProps> = ({
                   voiceDetection.metrics.bandpassResonanceDetected ? 'text-red-400' : 'text-slate-200'
                 }`}
               >
-                {voiceDetection.metrics.bandpassResonanceDetected ? 'Synthetic' : 'Natural'}
+                {!hasVoiceSample ? 'Waiting for speech' : voiceDetection.metrics.bandpassResonanceDetected ? 'Detected' : 'Not detected'}
               </span>
             </div>
 
@@ -230,7 +269,7 @@ export const SecurityPanel: React.FC<SecurityPanelProps> = ({
               >
                 {voiceDetection.metrics.harmonicPeakRatio > 0
                   ? `${voiceDetection.metrics.harmonicPeakRatio}x`
-                  : 'Nominal'}
+                  : 'Waiting for speech'}
               </span>
             </div>
           </div>
@@ -255,7 +294,7 @@ export const SecurityPanel: React.FC<SecurityPanelProps> = ({
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-2 text-xs font-semibold text-slate-200">
                 <Mic className={`h-3.5 w-3.5 ${isVoiceDeepfake ? 'text-red-400' : 'text-blue-400'}`} />
-                <span>Voice Verification</span>
+                <span>Audio Anomaly Analysis</span>
               </span>
               <span
                 className={`text-[10px] px-2 py-0.5 rounded-full font-semibold ${
@@ -264,31 +303,31 @@ export const SecurityPanel: React.FC<SecurityPanelProps> = ({
                     : 'bg-emerald-500/20 text-emerald-400'
                 }`}
               >
-                {isVoiceDeepfake ? 'Alert' : 'Active'}
+                {!voiceDetection?.hasAudio ? 'No incoming audio' : hasVoiceSample ? (isVoiceDeepfake ? 'Alert' : 'Analyzing') : 'Waiting'}
               </span>
             </div>
           </div>
 
           <div
             className={`p-3 rounded-xl border transition-all ${
-              peerAttackState?.faceSwap
+              peerAttackState?.active && peerAttackState.faceSwap
                 ? 'bg-red-500/10 border-red-500/30'
                 : 'bg-white/5 border-white/10'
             }`}
           >
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-2 text-xs font-semibold text-slate-200">
-                <Eye className={`h-3.5 w-3.5 ${peerAttackState?.faceSwap ? 'text-red-400' : 'text-slate-400'}`} />
-                <span>Face Landmark Analysis</span>
+                <Eye className={`h-3.5 w-3.5 ${peerAttackState?.active && peerAttackState.faceSwap ? 'text-red-400' : 'text-slate-400'}`} />
+                <span>Reported Face Change</span>
               </span>
               <span
                 className={`text-[10px] px-2 py-0.5 rounded-full font-semibold ${
-                  peerAttackState?.faceSwap
+                  peerAttackState?.active && peerAttackState.faceSwap
                     ? 'bg-red-500 text-white'
                     : 'bg-white/10 text-slate-400'
                 }`}
               >
-                {peerAttackState?.faceSwap ? 'Alert' : 'Standby'}
+                {peerAttackState?.active && peerAttackState.faceSwap ? 'Active' : 'Standby'}
               </span>
             </div>
           </div>
@@ -296,7 +335,7 @@ export const SecurityPanel: React.FC<SecurityPanelProps> = ({
       </div>
 
       <div className="pt-3 mt-3 border-t border-white/10 text-[10px] text-slate-400 text-center shrink-0">
-        DeepTrace Defense Engine • Real-time Protection
+        DeepTrace • Incoming signal monitoring
       </div>
     </aside>
   );

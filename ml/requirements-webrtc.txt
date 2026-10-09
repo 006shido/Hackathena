@@ -1,0 +1,2 @@
+# Isolated optional runtime for WebRTC inference; no changes to trained weights.
+aiortc==1.14.0

@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "fallback": false,
+  "transport": "webrtc",
+  "initialReady": true,
+  "initialChanged": true,
+  "initialFPS": 6.70208418471566,
+  "afterSource": {
+    "ready": true,
+    "faceChanged": true,
+    "fps": 6.184352606259633,
+    "transport": "webrtc",
+    "stableTrack": true
+  },
+  "originalPreserved": true,
+  "elapsedMs": 25403.40000000596
+}

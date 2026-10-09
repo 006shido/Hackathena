@@ -1,0 +1,38 @@
+{
+  "scope": "One utterance recorded through production DSP presets and actual loopback WebRTC; replayed through browser MediaStream analyser. Same clean utterance captures reference and is reused for comparison. Not independent speakers, microphones, unseen speech or cross-device validation.",
+  "results": [
+    {
+      "clip": "clean",
+      "median": 2,
+      "p95": 7,
+      "settled_mean": 1.5
+    },
+    {
+      "clip": "robotic-vocoder",
+      "median": 22,
+      "p95": 28,
+      "settled_mean": 18.5
+    },
+    {
+      "clip": "deep-pitch-neural",
+      "median": 9,
+      "p95": 35,
+      "settled_mean": 5.0
+    },
+    {
+      "clip": "synthetic-clone",
+      "median": 16,
+      "p95": 25,
+      "settled_mean": 16.5
+    },
+    {
+      "clip": "clean-return",
+      "median": 7,
+      "p95": 17,
+      "settled_mean": 2.0
+    }
+  ],
+  "learned_model_clean_call_raw_output": 0.9989591836929321,
+  "learned_model_usable_score": null,
+  "remaining_limits": "Deep preset separation is weak; reference deviation is not an authenticity probability. An already-filtered reference or different speaker/device can invalidate interpretation."
+}

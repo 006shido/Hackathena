@@ -1,0 +1,20 @@
+{
+  "epochs": 1,
+  "batch_size": 4,
+  "training_images": 172111,
+  "validation_images": 30488,
+  "total_dataset_images": 202599,
+  "training_identities": 8650,
+  "validation_identities": 1527,
+  "identity_overlap": 0,
+  "validation_seed": 137,
+  "initialization": "C:\\files\\forgitclone\\Hackathena\\ml\\experiments\\phase6g_2_identity_margin\\checkpoints\\best_model.pt",
+  "lr": 1e-05,
+  "self_reconstruction_fraction": 0.2,
+  "margin": 0.2,
+  "margin_weight": 10,
+  "reconstruction_weight": 5,
+  "val_interval": 5,
+  "val_pairs": 10,
+  "max_steps": 6
+}

@@ -15,10 +15,11 @@
  * - Automatic graceful degradation: unaltered webcam frame if face is lost
  */
 
-import { FacePreset, FaceBlendConfig } from '../types/attack';
-import { FaceSwapEngine, GalleryFaceValidationResult, FaceSwapTelemetry } from './faceSwapEngine';
+import { FaceBlendConfig,FacePreset } from '../types/attack';
+import { FaceSwapEngine,FaceSwapTelemetry,GalleryFaceValidationResult } from './faceSwapEngine';
+import { NeuralVideoPreview } from './neuralVideoPreview';
 
-export type { FacePreset, FaceBlendConfig, GalleryFaceValidationResult, FaceSwapTelemetry };
+export type { FaceBlendConfig,FacePreset,FaceSwapTelemetry,GalleryFaceValidationResult };
 
 export interface LandmarkPoint {
   x: number;
@@ -32,12 +33,13 @@ export class FaceSimulationPipeline {
   private videoEl: HTMLVideoElement;
   private active = false;
   private animFrameId: number | null = null;
-  private originalTrack: MediaStreamTrack | null = null;
   private outputStream: MediaStream | null = null;
   private preset: FacePreset = 'neural-clone';
 
   // AI Face Swap Engine (MediaPipe + WebGL GPU)
   private engine: FaceSwapEngine;
+  private neuralPreview = import.meta.env.VITE_ENABLE_NEURAL_VIDEO_PREVIEW === 'true' ? new NeuralVideoPreview() : null;
+  private sourceBlob: Blob | null = null;
 
   constructor() {
     this.canvas = document.createElement('canvas');
@@ -74,21 +76,12 @@ export class FaceSimulationPipeline {
     const res = await this.engine.loadGalleryImage(file);
     if (res.success) {
       this.preset = 'custom-upload';
+      this.sourceBlob = file;
+      if (this.neuralPreview && this.active) await this.neuralPreview.setSource(file);
     }
     return res;
   }
 
-  /**
-   * Compatibility method for dataUrl
-   */
-  public setCustomAvatar(dataUrl: string): void {
-    fetch(dataUrl)
-      .then((res) => res.blob())
-      .then((blob) => {
-        this.loadGalleryImage(blob);
-      })
-      .catch((err) => console.warn('[FaceSimulationPipeline] Error converting dataUrl to blob:', err));
-  }
 
   /**
    * Resets face swap back to clean default
@@ -96,6 +89,8 @@ export class FaceSimulationPipeline {
   public async resetFace(): Promise<void> {
     await this.engine.resetFace();
     this.preset = 'neural-clone';
+    this.sourceBlob = null;
+    if (this.neuralPreview && this.active) await this.setPreset('neural-clone');
   }
 
   public async setPreset(preset: FacePreset): Promise<void> {
@@ -110,6 +105,12 @@ export class FaceSimulationPipeline {
 
     if (presetMap[preset]) {
       await this.engine.loadPresetSource(preset, presetMap[preset].src, presetMap[preset].name);
+      if (this.neuralPreview) {
+        const response = await fetch(presetMap[preset].src);
+        if (!response.ok) throw new Error('Could not load the selected source face.');
+        this.sourceBlob = await response.blob();
+        if (this.active) await this.neuralPreview.setSource(this.sourceBlob);
+      }
     }
   }
 
@@ -122,6 +123,13 @@ export class FaceSimulationPipeline {
   }
 
   public getTelemetry(): FaceSwapTelemetry {
+    if (this.neuralPreview) {
+      const detected = this.active && this.neuralPreview.faceDetected;
+      return { ...this.engine.getTelemetry(), fps: this.active ? this.neuralPreview.fps : 0,
+        modelLoaded: this.neuralPreview.ready, landmarksDetected: detected,
+        landmarksCount: detected ? 478 : 0, lightingAdapted: false,
+        skinToneMatched: false, blendMode: this.active ? (this.neuralPreview.faceChanged ? (this.neuralPreview.transport === 'webrtc' ? 'WebRTC neural preview' : 'HTTP neural preview') : 'Camera fallback') : 'Suspended' };
+    }
     return this.engine.getTelemetry();
   }
 
@@ -137,8 +145,15 @@ export class FaceSimulationPipeline {
    * Starts the face manipulation pipeline by intercepting the webcam track,
    * routing it through the hidden canvas, and capturing the stream.
    */
-  public start(originalTrack: MediaStreamTrack, preset: FacePreset = 'neural-clone'): MediaStreamTrack {
-    this.originalTrack = originalTrack;
+  public async start(originalTrack: MediaStreamTrack, preset: FacePreset = 'neural-clone'): Promise<MediaStreamTrack> {
+    if (this.neuralPreview) {
+      this.active = false;
+      if (!this.sourceBlob) await this.setPreset(preset);
+      if (!this.sourceBlob) throw new Error('Select a source face before starting neural video.');
+      const track = await this.neuralPreview.start(originalTrack, this.sourceBlob);
+      this.active = true;
+      return track;
+    }
     this.preset = preset;
     this.active = true;
 
@@ -190,7 +205,7 @@ export class FaceSimulationPipeline {
 
       // 2. Optional secondary HUD overlays for test modes
       if (this.preset === 'biometric-mask') {
-        this.drawBiometricTelemetry(width, height);
+        this.drawBiometricTelemetry(height);
       } else if (this.preset === 'cyber-filter') {
         this.drawCyberOverlay(width, height);
       }
@@ -202,7 +217,7 @@ export class FaceSimulationPipeline {
     this.animFrameId = requestAnimationFrame(this.renderLoop);
   };
 
-  private drawBiometricTelemetry(width: number, height: number) {
+  private drawBiometricTelemetry(height: number) {
     this.ctx.save();
     this.ctx.fillStyle = 'rgba(52, 168, 83, 0.85)';
     this.ctx.font = '500 11px monospace';
@@ -225,6 +240,7 @@ export class FaceSimulationPipeline {
    */
   public stop(): void {
     this.active = false;
+    this.neuralPreview?.stop();
     if (this.animFrameId !== null) {
       cancelAnimationFrame(this.animFrameId);
       this.animFrameId = null;
@@ -234,14 +250,14 @@ export class FaceSimulationPipeline {
         try {
           track.enabled = false;
           track.stop();
-        } catch (e) {}
+        } catch {}
       });
       this.outputStream = null;
     }
     if (this.videoEl) {
       try {
         this.videoEl.pause();
-      } catch (e) {}
+      } catch {}
     }
     this.engine.resetTracking();
   }
@@ -255,9 +271,8 @@ export class FaceSimulationPipeline {
       try {
         this.videoEl.pause();
         this.videoEl.srcObject = null;
-      } catch (e) {}
+      } catch {}
     }
-    this.originalTrack = null;
     this.engine.release();
   }
 }

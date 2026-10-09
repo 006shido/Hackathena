@@ -1,0 +1,6320 @@
+{
+  "scope": "Two previously inspected natural-video clips, correlated frames sampled every12, actual receiver-like independently detected crops and encoded comparison panels. Benign blur test uses reused photo holdout. Not a blind/cross-device benchmark.",
+  "threshold": 0.7697742448577881,
+  "video_real_frames": 115,
+  "video_false_positives": 12,
+  "video_swapped_frames": 112,
+  "video_true_positives": 67,
+  "benign_blur": {
+    "0": {
+      "count": 50,
+      "false_positives": 2
+    },
+    "1": {
+      "count": 50,
+      "false_positives": 12
+    },
+    "2": {
+      "count": 49,
+      "false_positives": 2
+    }
+  },
+  "records": [
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 0,
+      "real": {
+        "status": "measured",
+        "score": 0.00012366949522402138,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          101,
+          51,
+          218,
+          168
+        ],
+        "pipeline_ms": 23721.96119998989,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.11580590903759003,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          100,
+          50,
+          219,
+          169
+        ],
+        "pipeline_ms": 97.48070000205189,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 12,
+      "real": {
+        "status": "measured",
+        "score": 0.0018019773997366428,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          102,
+          50,
+          216,
+          164
+        ],
+        "pipeline_ms": 82.80970000487287,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.908882737159729,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          101,
+          49,
+          216,
+          164
+        ],
+        "pipeline_ms": 89.44989999872632,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 24,
+      "real": {
+        "status": "measured",
+        "score": 0.0013269451446831226,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          95,
+          47,
+          212,
+          163
+        ],
+        "pipeline_ms": 85.8719999960158,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.7499395608901978,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          95,
+          46,
+          211,
+          163
+        ],
+        "pipeline_ms": 104.26450001250487,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 36,
+      "real": {
+        "status": "measured",
+        "score": 0.000914867443498224,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          89,
+          49,
+          204,
+          165
+        ],
+        "pipeline_ms": 85.83120000548661,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9586722254753113,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          89,
+          48,
+          206,
+          165
+        ],
+        "pipeline_ms": 84.160400001565,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 48,
+      "real": {
+        "status": "measured",
+        "score": 0.0029833123553544283,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          81,
+          47,
+          200,
+          166
+        ],
+        "pipeline_ms": 85.31850000144914,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9955819249153137,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          81,
+          46,
+          200,
+          166
+        ],
+        "pipeline_ms": 97.87789999973029,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 60,
+      "real": {
+        "status": "measured",
+        "score": 0.00038214176311157644,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          85,
+          42,
+          206,
+          163
+        ],
+        "pipeline_ms": 91.78010000323411,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.37636086344718933,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          86,
+          42,
+          206,
+          162
+        ],
+        "pipeline_ms": 94.9893999932101,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 72,
+      "real": {
+        "status": "measured",
+        "score": 0.027310959994792938,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          108,
+          42,
+          224,
+          158
+        ],
+        "pipeline_ms": 87.0924000046216,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9787383675575256,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          107,
+          41,
+          224,
+          158
+        ],
+        "pipeline_ms": 87.93390000937507,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 84,
+      "real": {
+        "status": "measured",
+        "score": 0.012791579589247704,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          110,
+          52,
+          210,
+          152
+        ],
+        "pipeline_ms": 83.40620000672061,
+        "calibrated": false
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 96,
+      "real": {
+        "status": "measured",
+        "score": 0.0010810928652063012,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          103,
+          49,
+          213,
+          159
+        ],
+        "pipeline_ms": 85.26989999518264,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.8240586519241333,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          101,
+          48,
+          213,
+          160
+        ],
+        "pipeline_ms": 89.35370000835974,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 108,
+      "real": {
+        "status": "measured",
+        "score": 0.000706880702637136,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          108,
+          48,
+          218,
+          159
+        ],
+        "pipeline_ms": 91.95289999479428,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9952021837234497,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          106,
+          46,
+          219,
+          159
+        ],
+        "pipeline_ms": 100.86949999094941,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 120,
+      "real": {
+        "status": "measured",
+        "score": 0.007140097673982382,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          104,
+          47,
+          215,
+          158
+        ],
+        "pipeline_ms": 85.71769999980461,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9719359278678894,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          103,
+          46,
+          215,
+          158
+        ],
+        "pipeline_ms": 90.59290000004694,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 132,
+      "real": {
+        "status": "measured",
+        "score": 0.0723336860537529,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          110,
+          52,
+          208,
+          150
+        ],
+        "pipeline_ms": 83.84410000871867,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.7666512727737427,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          108,
+          51,
+          209,
+          152
+        ],
+        "pipeline_ms": 90.60319999116473,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 144,
+      "real": {
+        "status": "measured",
+        "score": 0.000855052494443953,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          118,
+          54,
+          207,
+          142
+        ],
+        "pipeline_ms": 84.79409999563359,
+        "calibrated": false
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 156,
+      "real": {
+        "status": "measured",
+        "score": 0.0017829446587711573,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          117,
+          58,
+          204,
+          144
+        ],
+        "pipeline_ms": 88.362499998766,
+        "calibrated": false
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 168,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 180,
+      "real": {
+        "status": "measured",
+        "score": 0.051449548453092575,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          111,
+          54,
+          208,
+          150
+        ],
+        "pipeline_ms": 89.23340000910684,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9897744655609131,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          109,
+          54,
+          206,
+          151
+        ],
+        "pipeline_ms": 70.51200000569224,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 192,
+      "real": {
+        "status": "measured",
+        "score": 0.0011648406507447362,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          103,
+          48,
+          217,
+          162
+        ],
+        "pipeline_ms": 98.88659999705851,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.2687399983406067,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          102,
+          49,
+          215,
+          162
+        ],
+        "pipeline_ms": 90.62570000241976,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 204,
+      "real": {
+        "status": "measured",
+        "score": 0.0010972991585731506,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          102,
+          48,
+          216,
+          162
+        ],
+        "pipeline_ms": 83.08189999661408,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.8625054359436035,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          101,
+          47,
+          215,
+          162
+        ],
+        "pipeline_ms": 89.06569999817293,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 216,
+      "real": {
+        "status": "measured",
+        "score": 0.0009618954500183463,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          110,
+          49,
+          221,
+          160
+        ],
+        "pipeline_ms": 82.68510000198148,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.8055148124694824,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          108,
+          46,
+          221,
+          160
+        ],
+        "pipeline_ms": 75.32230000651907,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 228,
+      "real": {
+        "status": "measured",
+        "score": 0.0018639704212546349,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          110,
+          45,
+          222,
+          158
+        ],
+        "pipeline_ms": 80.508800005191,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.8257266879081726,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          109,
+          45,
+          222,
+          158
+        ],
+        "pipeline_ms": 86.43099998880643,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 240,
+      "real": {
+        "status": "measured",
+        "score": 0.08521473407745361,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          108,
+          45,
+          218,
+          154
+        ],
+        "pipeline_ms": 98.23200000391807,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.8890005946159363,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          107,
+          45,
+          217,
+          154
+        ],
+        "pipeline_ms": 89.47739998984616,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 252,
+      "real": {
+        "status": "measured",
+        "score": 0.029809974133968353,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          104,
+          47,
+          207,
+          151
+        ],
+        "pipeline_ms": 83.56959999946412,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9606935381889343,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          103,
+          45,
+          210,
+          152
+        ],
+        "pipeline_ms": 73.7957999954233,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 264,
+      "real": {
+        "status": "measured",
+        "score": 0.10108575224876404,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          102,
+          46,
+          208,
+          152
+        ],
+        "pipeline_ms": 98.97839999757707,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.6614434123039246,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          102,
+          46,
+          210,
+          154
+        ],
+        "pipeline_ms": 99.26560000167228,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 276,
+      "real": {
+        "status": "measured",
+        "score": 0.10850565880537033,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          103,
+          47,
+          209,
+          153
+        ],
+        "pipeline_ms": 90.48450000409503,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.8734334111213684,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          101,
+          44,
+          210,
+          153
+        ],
+        "pipeline_ms": 85.26130000245757,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 288,
+      "real": {
+        "status": "measured",
+        "score": 0.004472149070352316,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          106,
+          48,
+          213,
+          155
+        ],
+        "pipeline_ms": 88.48690000013448,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9645572900772095,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          104,
+          46,
+          213,
+          155
+        ],
+        "pipeline_ms": 91.59900000668131,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 300,
+      "real": {
+        "status": "measured",
+        "score": 0.00036684793303720653,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          100,
+          51,
+          208,
+          159
+        ],
+        "pipeline_ms": 90.52620000147726,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.6349054574966431,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          99,
+          49,
+          209,
+          159
+        ],
+        "pipeline_ms": 97.69989999767859,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 312,
+      "real": {
+        "status": "measured",
+        "score": 0.0009577153250575066,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          93,
+          49,
+          204,
+          160
+        ],
+        "pipeline_ms": 89.14830000139773,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.5101079940795898,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          91,
+          48,
+          204,
+          161
+        ],
+        "pipeline_ms": 94.72870000172406,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 324,
+      "real": {
+        "status": "measured",
+        "score": 0.001607627491466701,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          70,
+          50,
+          182,
+          162
+        ],
+        "pipeline_ms": 99.44890000042506,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9923410415649414,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          71,
+          50,
+          181,
+          161
+        ],
+        "pipeline_ms": 89.70310000586323,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 336,
+      "real": {
+        "status": "measured",
+        "score": 0.02529158443212509,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          65,
+          54,
+          172,
+          161
+        ],
+        "pipeline_ms": 87.18870001030155,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9783461689949036,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          66,
+          55,
+          171,
+          160
+        ],
+        "pipeline_ms": 98.2567999890307,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 348,
+      "real": {
+        "status": "measured",
+        "score": 0.0693712830543518,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          60,
+          55,
+          165,
+          160
+        ],
+        "pipeline_ms": 82.851600003778,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9563692212104797,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          62,
+          57,
+          164,
+          160
+        ],
+        "pipeline_ms": 90.09560001140926,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 360,
+      "real": {
+        "status": "measured",
+        "score": 0.06401772797107697,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          67,
+          52,
+          172,
+          158
+        ],
+        "pipeline_ms": 83.78909999737516,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9991864562034607,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          68,
+          54,
+          171,
+          157
+        ],
+        "pipeline_ms": 66.55660000978969,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 372,
+      "real": {
+        "status": "measured",
+        "score": 0.08351990580558777,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          101,
+          49,
+          202,
+          150
+        ],
+        "pipeline_ms": 95.91370000271127,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.7651922702789307,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          101,
+          48,
+          203,
+          150
+        ],
+        "pipeline_ms": 92.86710000014864,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 384,
+      "real": {
+        "status": "measured",
+        "score": 0.0028189807198941708,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          124,
+          47,
+          227,
+          150
+        ],
+        "pipeline_ms": 86.74329999485053,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.7651178240776062,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          123,
+          47,
+          227,
+          150
+        ],
+        "pipeline_ms": 97.31389999797102,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 396,
+      "real": {
+        "status": "measured",
+        "score": 0.06917459517717361,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          67,
+          51,
+          170,
+          154
+        ],
+        "pipeline_ms": 93.72089999669697,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.990978479385376,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          70,
+          54,
+          170,
+          154
+        ],
+        "pipeline_ms": 86.51729999110103,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 408,
+      "real": {
+        "status": "measured",
+        "score": 0.10969842225313187,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          57,
+          63,
+          155,
+          162
+        ],
+        "pipeline_ms": 85.68180000293069,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9781345129013062,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          57,
+          63,
+          155,
+          161
+        ],
+        "pipeline_ms": 94.65489999274723,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 420,
+      "real": {
+        "status": "measured",
+        "score": 0.029501790180802345,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          63,
+          74,
+          152,
+          162
+        ],
+        "pipeline_ms": 89.58529999654274,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.8092816472053528,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          55,
+          67,
+          152,
+          163
+        ],
+        "pipeline_ms": 90.16300000075717,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 432,
+      "real": {
+        "status": "measured",
+        "score": 0.08178377896547318,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          55,
+          58,
+          160,
+          164
+        ],
+        "pipeline_ms": 87.15450001182035,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9829221963882446,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          55,
+          59,
+          160,
+          164
+        ],
+        "pipeline_ms": 93.40890000748914,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 444,
+      "real": {
+        "status": "measured",
+        "score": 0.04311151057481766,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          54,
+          62,
+          157,
+          165
+        ],
+        "pipeline_ms": 87.04919999581762,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9987102746963501,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          53,
+          62,
+          157,
+          166
+        ],
+        "pipeline_ms": 109.48430000280496,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 456,
+      "real": {
+        "status": "measured",
+        "score": 0.05151403322815895,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          61,
+          71,
+          154,
+          165
+        ],
+        "pipeline_ms": 89.1230999986874,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9951935410499573,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          59,
+          68,
+          154,
+          163
+        ],
+        "pipeline_ms": 88.01170000515413,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 468,
+      "real": {
+        "status": "measured",
+        "score": 0.007461554370820522,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          64,
+          76,
+          153,
+          165
+        ],
+        "pipeline_ms": 88.91209999273997,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.5380165576934814,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          61,
+          73,
+          152,
+          163
+        ],
+        "pipeline_ms": 90.63940000487491,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 480,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.5678228139877319,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          65,
+          81,
+          149,
+          165
+        ],
+        "pipeline_ms": 117.854999989504,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 492,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 504,
+      "real": {
+        "status": "measured",
+        "score": 0.17599983513355255,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          64,
+          74,
+          157,
+          166
+        ],
+        "pipeline_ms": 96.22419999504928,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9225303530693054,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          62,
+          70,
+          159,
+          167
+        ],
+        "pipeline_ms": 91.03299998969305,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 516,
+      "real": {
+        "status": "measured",
+        "score": 0.06559022516012192,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          66,
+          63,
+          167,
+          165
+        ],
+        "pipeline_ms": 92.38230000482872,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.990406334400177,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          65,
+          64,
+          166,
+          165
+        ],
+        "pipeline_ms": 91.89619999960996,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 528,
+      "real": {
+        "status": "measured",
+        "score": 0.001696066465228796,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          76,
+          62,
+          180,
+          166
+        ],
+        "pipeline_ms": 92.1509000036167,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9910105466842651,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          75,
+          61,
+          180,
+          166
+        ],
+        "pipeline_ms": 95.11660000134725,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 540,
+      "real": {
+        "status": "measured",
+        "score": 0.00124272087123245,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          89,
+          61,
+          197,
+          170
+        ],
+        "pipeline_ms": 89.93220000411384,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9570388197898865,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          88,
+          61,
+          197,
+          169
+        ],
+        "pipeline_ms": 90.08009999524802,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 552,
+      "real": {
+        "status": "measured",
+        "score": 0.00030256551690399647,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          95,
+          63,
+          203,
+          172
+        ],
+        "pipeline_ms": 87.58219999435823,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9687444567680359,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          93,
+          62,
+          204,
+          173
+        ],
+        "pipeline_ms": 84.36589999473654,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 564,
+      "real": {
+        "status": "measured",
+        "score": 0.0018010203493759036,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          112,
+          74,
+          214,
+          176
+        ],
+        "pipeline_ms": 89.32669999194331,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.5154959559440613,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          113,
+          75,
+          212,
+          174
+        ],
+        "pipeline_ms": 96.09620000992436,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 576,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 588,
+      "real": {
+        "status": "measured",
+        "score": 0.0005390008445829153,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          112,
+          74,
+          216,
+          179
+        ],
+        "pipeline_ms": 92.084399992018,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.948881983757019,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          113,
+          75,
+          215,
+          177
+        ],
+        "pipeline_ms": 96.90869999758434,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 600,
+      "real": {
+        "status": "measured",
+        "score": 0.0011583267478272319,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          115,
+          79,
+          215,
+          179
+        ],
+        "pipeline_ms": 91.33579999615904,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.06169871985912323,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          115,
+          79,
+          214,
+          178
+        ],
+        "pipeline_ms": 92.47699999832548,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 612,
+      "real": {
+        "status": "measured",
+        "score": 0.0018746111309155822,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          112,
+          77,
+          215,
+          180
+        ],
+        "pipeline_ms": 93.0110000044806,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9395431876182556,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          113,
+          78,
+          215,
+          180
+        ],
+        "pipeline_ms": 91.04050000314601,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 624,
+      "real": {
+        "status": "measured",
+        "score": 0.002955930307507515,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          115,
+          80,
+          215,
+          180
+        ],
+        "pipeline_ms": 90.58299999742303,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.875348687171936,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          115,
+          80,
+          216,
+          181
+        ],
+        "pipeline_ms": 93.92299999308307,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 636,
+      "real": {
+        "status": "measured",
+        "score": 0.0050463429652154446,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          118,
+          77,
+          220,
+          180
+        ],
+        "pipeline_ms": 88.06929999263957,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.4926295876502991,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          116,
+          75,
+          220,
+          180
+        ],
+        "pipeline_ms": 86.21959999436513,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 648,
+      "real": {
+        "status": "measured",
+        "score": 0.21059083938598633,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          107,
+          78,
+          210,
+          181
+        ],
+        "pipeline_ms": 94.74190000037197,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9891226887702942,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          107,
+          76,
+          212,
+          180
+        ],
+        "pipeline_ms": 92.12050000496674,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 660,
+      "real": {
+        "status": "measured",
+        "score": 0.008756986819207668,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          109,
+          83,
+          213,
+          187
+        ],
+        "pipeline_ms": 101.14729999622796,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.3089345097541809,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          111,
+          87,
+          211,
+          187
+        ],
+        "pipeline_ms": 89.41720001166686,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 672,
+      "real": {
+        "status": "measured",
+        "score": 0.08031687885522842,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          108,
+          85,
+          209,
+          186
+        ],
+        "pipeline_ms": 90.75460000894964,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.6451122760772705,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          110,
+          87,
+          207,
+          184
+        ],
+        "pipeline_ms": 88.62199999566656,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 684,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 696,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 708,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 720,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 732,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 744,
+      "real": {
+        "status": "measured",
+        "score": 0.005097070708870888,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          108,
+          82,
+          209,
+          183
+        ],
+        "pipeline_ms": 89.54840000660624,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.7968371510505676,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          109,
+          82,
+          208,
+          181
+        ],
+        "pipeline_ms": 96.64309999789111,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 756,
+      "real": {
+        "status": "measured",
+        "score": 0.025259774178266525,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          109,
+          77,
+          213,
+          181
+        ],
+        "pipeline_ms": 89.97010000166483,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9815531969070435,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          109,
+          77,
+          212,
+          179
+        ],
+        "pipeline_ms": 93.73670000059064,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 768,
+      "real": {
+        "status": "measured",
+        "score": 0.0005215366254560649,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          105,
+          67,
+          217,
+          180
+        ],
+        "pipeline_ms": 86.3002999976743,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.8502025604248047,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          105,
+          68,
+          216,
+          179
+        ],
+        "pipeline_ms": 93.23050000239164,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 780,
+      "real": {
+        "status": "measured",
+        "score": 0.000507109216414392,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          103,
+          67,
+          217,
+          181
+        ],
+        "pipeline_ms": 95.79769999254495,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9934741854667664,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          102,
+          67,
+          216,
+          181
+        ],
+        "pipeline_ms": 91.28199999395292,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 792,
+      "real": {
+        "status": "measured",
+        "score": 0.00035670699435286224,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          101,
+          69,
+          212,
+          181
+        ],
+        "pipeline_ms": 94.24900000158232,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9551464319229126,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          101,
+          70,
+          212,
+          181
+        ],
+        "pipeline_ms": 91.53370000422001,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "current_baseline_occlusion_video",
+      "index": 804,
+      "real": {
+        "status": "measured",
+        "score": 0.003331001615151763,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          101,
+          72,
+          210,
+          182
+        ],
+        "pipeline_ms": 89.94130000064615,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9592735171318054,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          100,
+          72,
+          210,
+          182
+        ],
+        "pipeline_ms": 91.23040000849869,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 0,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 12,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 24,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.21181146800518036,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          120,
+          82,
+          197,
+          159
+        ],
+        "pipeline_ms": 98.05269999196753,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 36,
+      "real": {
+        "status": "measured",
+        "score": 0.11811446398496628,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          145,
+          59,
+          229,
+          143
+        ],
+        "pipeline_ms": 89.42630000819918,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.11210975795984268,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          148,
+          63,
+          228,
+          143
+        ],
+        "pipeline_ms": 95.910099989851,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 48,
+      "real": {
+        "status": "measured",
+        "score": 0.1418592482805252,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          108,
+          70,
+          188,
+          151
+        ],
+        "pipeline_ms": 89.60929999011569,
+        "calibrated": false
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 60,
+      "real": {
+        "status": "measured",
+        "score": 0.08647455275058746,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          134,
+          68,
+          221,
+          155
+        ],
+        "pipeline_ms": 95.64439998939633,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.07940934598445892,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          133,
+          70,
+          221,
+          157
+        ],
+        "pipeline_ms": 86.41720000014175,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 72,
+      "real": {
+        "status": "measured",
+        "score": 0.045248351991176605,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          137,
+          63,
+          223,
+          149
+        ],
+        "pipeline_ms": 88.64999999059364,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.08832944184541702,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          136,
+          64,
+          221,
+          149
+        ],
+        "pipeline_ms": 108.53530000895262,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 84,
+      "real": {
+        "status": "measured",
+        "score": 0.0674981102347374,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          122,
+          65,
+          207,
+          151
+        ],
+        "pipeline_ms": 94.42509998916648,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.1226041242480278,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          121,
+          67,
+          206,
+          152
+        ],
+        "pipeline_ms": 92.64630000689067,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 96,
+      "real": {
+        "status": "measured",
+        "score": 0.05648914724588394,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          143,
+          62,
+          230,
+          148
+        ],
+        "pipeline_ms": 90.11889999965206,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.09415628015995026,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          144,
+          62,
+          231,
+          149
+        ],
+        "pipeline_ms": 85.25879999797326,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 108,
+      "real": {
+        "status": "measured",
+        "score": 0.14438289403915405,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          141,
+          73,
+          222,
+          155
+        ],
+        "pipeline_ms": 84.00370000163093,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.17336148023605347,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          141,
+          75,
+          221,
+          155
+        ],
+        "pipeline_ms": 86.82119999139104,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 120,
+      "real": {
+        "status": "measured",
+        "score": 0.05306684225797653,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          128,
+          76,
+          212,
+          159
+        ],
+        "pipeline_ms": 87.94150000903755,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.07587770372629166,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          129,
+          75,
+          214,
+          160
+        ],
+        "pipeline_ms": 87.10249999421649,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 132,
+      "real": {
+        "status": "measured",
+        "score": 0.05844658240675926,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          153,
+          66,
+          242,
+          156
+        ],
+        "pipeline_ms": 90.6472000060603,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.07852130383253098,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          150,
+          65,
+          243,
+          157
+        ],
+        "pipeline_ms": 92.52680001372937,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 144,
+      "real": {
+        "status": "measured",
+        "score": 0.06840970367193222,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          132,
+          58,
+          220,
+          146
+        ],
+        "pipeline_ms": 83.84359999035951,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.06227952614426613,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          134,
+          58,
+          220,
+          144
+        ],
+        "pipeline_ms": 81.31549999234267,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 156,
+      "real": {
+        "status": "measured",
+        "score": 0.06872837990522385,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          126,
+          59,
+          217,
+          150
+        ],
+        "pipeline_ms": 92.6772999955574,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.11878640949726105,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          128,
+          60,
+          217,
+          149
+        ],
+        "pipeline_ms": 89.27810000022873,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 168,
+      "real": {
+        "status": "measured",
+        "score": 0.012129970826208591,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          123,
+          48,
+          224,
+          150
+        ],
+        "pipeline_ms": 89.05870000307914,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.12149090319871902,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          123,
+          50,
+          222,
+          149
+        ],
+        "pipeline_ms": 96.89639999123756,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 180,
+      "real": {
+        "status": "measured",
+        "score": 0.01060559507459402,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          130,
+          47,
+          220,
+          137
+        ],
+        "pipeline_ms": 87.69179999944754,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.025777187198400497,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          131,
+          47,
+          222,
+          138
+        ],
+        "pipeline_ms": 95.33809999993537,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 192,
+      "real": {
+        "status": "measured",
+        "score": 0.0349515937268734,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          106,
+          55,
+          187,
+          136
+        ],
+        "pipeline_ms": 84.83199999318458,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.2523403763771057,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          108,
+          55,
+          187,
+          135
+        ],
+        "pipeline_ms": 90.32260000822134,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 204,
+      "real": {
+        "status": "measured",
+        "score": 0.05067046731710434,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          143,
+          47,
+          228,
+          132
+        ],
+        "pipeline_ms": 96.44939999270719,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.0722317174077034,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          144,
+          49,
+          227,
+          132
+        ],
+        "pipeline_ms": 89.42580000439193,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 216,
+      "real": {
+        "status": "measured",
+        "score": 0.007872541435062885,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          134,
+          57,
+          228,
+          151
+        ],
+        "pipeline_ms": 91.32120000140276,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.008912925608456135,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          134,
+          56,
+          230,
+          152
+        ],
+        "pipeline_ms": 116.44009999872651,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 228,
+      "real": {
+        "status": "measured",
+        "score": 0.0009768422460183501,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          138,
+          61,
+          245,
+          168
+        ],
+        "pipeline_ms": 89.98249999422114,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.314934104681015,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          138,
+          61,
+          245,
+          168
+        ],
+        "pipeline_ms": 87.51900000788737,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 240,
+      "real": {
+        "status": "measured",
+        "score": 0.29738032817840576,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          154,
+          74,
+          246,
+          165
+        ],
+        "pipeline_ms": 88.01419999508653,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.17826613783836365,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          154,
+          74,
+          247,
+          166
+        ],
+        "pipeline_ms": 83.15040000888985,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 252,
+      "real": {
+        "status": "measured",
+        "score": 0.6881817579269409,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          153,
+          66,
+          253,
+          167
+        ],
+        "pipeline_ms": 85.75159999600146,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.21226775646209717,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          153,
+          67,
+          254,
+          167
+        ],
+        "pipeline_ms": 86.16739998979028,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 264,
+      "real": {
+        "status": "measured",
+        "score": 0.007035153452306986,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          152,
+          67,
+          257,
+          172
+        ],
+        "pipeline_ms": 85.1498999982141,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.29433101415634155,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          151,
+          68,
+          256,
+          173
+        ],
+        "pipeline_ms": 86.75439999205992,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 276,
+      "real": {
+        "status": "measured",
+        "score": 0.0014044598210602999,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          143,
+          58,
+          244,
+          159
+        ],
+        "pipeline_ms": 81.77499999874271,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.6182225346565247,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          144,
+          59,
+          244,
+          159
+        ],
+        "pipeline_ms": 104.44889999052975,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 288,
+      "real": {
+        "status": "measured",
+        "score": 0.014965519309043884,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          106,
+          61,
+          212,
+          167
+        ],
+        "pipeline_ms": 91.4661000133492,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9071715474128723,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          106,
+          62,
+          211,
+          167
+        ],
+        "pipeline_ms": 86.47949999431148,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 300,
+      "real": {
+        "status": "measured",
+        "score": 0.0001330545055679977,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          94,
+          56,
+          207,
+          169
+        ],
+        "pipeline_ms": 93.26490000239573,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.24476750195026398,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          94,
+          56,
+          207,
+          168
+        ],
+        "pipeline_ms": 93.99910000502132,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 312,
+      "real": {
+        "status": "measured",
+        "score": 0.008403182029724121,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          47,
+          61,
+          159,
+          173
+        ],
+        "pipeline_ms": 92.62899999157526,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9046794176101685,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          47,
+          61,
+          160,
+          173
+        ],
+        "pipeline_ms": 91.94500000739936,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 324,
+      "real": {
+        "status": "measured",
+        "score": 0.002605709945783019,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          69,
+          66,
+          169,
+          166
+        ],
+        "pipeline_ms": 86.60179999424145,
+        "calibrated": false
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 336,
+      "real": {
+        "status": "measured",
+        "score": 0.05574691295623779,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          119,
+          49,
+          229,
+          159
+        ],
+        "pipeline_ms": 89.76190000248607,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9310562014579773,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          119,
+          50,
+          229,
+          160
+        ],
+        "pipeline_ms": 77.97350001055747,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 348,
+      "real": {
+        "status": "measured",
+        "score": 0.1310614049434662,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          114,
+          44,
+          225,
+          155
+        ],
+        "pipeline_ms": 96.45309999177698,
+        "calibrated": false
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 360,
+      "real": {
+        "status": "measured",
+        "score": 0.09697674959897995,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          132,
+          46,
+          230,
+          144
+        ],
+        "pipeline_ms": 90.56589999818243,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.41629382967948914,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          131,
+          47,
+          229,
+          145
+        ],
+        "pipeline_ms": 97.63869999733288,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 372,
+      "real": {
+        "status": "measured",
+        "score": 0.0992875024676323,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          112,
+          42,
+          200,
+          130
+        ],
+        "pipeline_ms": 95.5956999969203,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9426814913749695,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          115,
+          45,
+          199,
+          128
+        ],
+        "pipeline_ms": 94.8937999928603,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 384,
+      "real": {
+        "status": "measured",
+        "score": 0.9111753106117249,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          126,
+          49,
+          210,
+          133
+        ],
+        "pipeline_ms": 90.56359999522101,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9424902200698853,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          129,
+          52,
+          209,
+          133
+        ],
+        "pipeline_ms": 89.01689999038354,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 396,
+      "real": {
+        "status": "measured",
+        "score": 0.6174178719520569,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          159,
+          40,
+          237,
+          119
+        ],
+        "pipeline_ms": 88.19629999925382,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9532679319381714,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          159,
+          42,
+          237,
+          120
+        ],
+        "pipeline_ms": 89.77379999123514,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 408,
+      "real": {
+        "status": "measured",
+        "score": 0.5283464193344116,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          148,
+          56,
+          225,
+          133
+        ],
+        "pipeline_ms": 95.18560000287835,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9411939978599548,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          148,
+          58,
+          222,
+          132
+        ],
+        "pipeline_ms": 110.52780000318307,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 420,
+      "real": {
+        "status": "measured",
+        "score": 0.10900074243545532,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          156,
+          73,
+          224,
+          142
+        ],
+        "pipeline_ms": 100.58220000064466,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9533059597015381,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          156,
+          75,
+          222,
+          141
+        ],
+        "pipeline_ms": 98.33730000536889,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 432,
+      "real": {
+        "status": "measured",
+        "score": 0.0322205051779747,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          126,
+          57,
+          195,
+          126
+        ],
+        "pipeline_ms": 83.26729999680538,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.26342856884002686,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          127,
+          59,
+          194,
+          126
+        ],
+        "pipeline_ms": 83.91499999561347,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 444,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 456,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 468,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 480,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 492,
+      "real": {
+        "status": "measured",
+        "score": 0.97337806224823,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          135,
+          53,
+          199,
+          118
+        ],
+        "pipeline_ms": 80.99889999721199,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9325210452079773,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          137,
+          53,
+          202,
+          117
+        ],
+        "pipeline_ms": 82.94789999490604,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 504,
+      "real": {
+        "status": "measured",
+        "score": 0.5515248775482178,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          135,
+          41,
+          209,
+          115
+        ],
+        "pipeline_ms": 83.31440000620205,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.7309511303901672,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          135,
+          43,
+          208,
+          116
+        ],
+        "pipeline_ms": 85.00949999142904,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 516,
+      "real": {
+        "status": "measured",
+        "score": 0.4824296534061432,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          143,
+          54,
+          215,
+          126
+        ],
+        "pipeline_ms": 84.38499999465421,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.5134580731391907,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          145,
+          55,
+          215,
+          125
+        ],
+        "pipeline_ms": 86.43239999946672,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 528,
+      "real": {
+        "status": "measured",
+        "score": 0.49446070194244385,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          133,
+          57,
+          211,
+          136
+        ],
+        "pipeline_ms": 84.32280000124592,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9320407509803772,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          133,
+          58,
+          209,
+          135
+        ],
+        "pipeline_ms": 76.33129999157973,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 540,
+      "real": {
+        "status": "measured",
+        "score": 0.11229601502418518,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          137,
+          39,
+          227,
+          130
+        ],
+        "pipeline_ms": 84.44139998755418,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9477068185806274,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          139,
+          40,
+          227,
+          128
+        ],
+        "pipeline_ms": 88.18859999882989,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 552,
+      "real": {
+        "status": "measured",
+        "score": 0.11818641424179077,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          117,
+          39,
+          198,
+          119
+        ],
+        "pipeline_ms": 85.80139999685343,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9155973792076111,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          118,
+          39,
+          197,
+          119
+        ],
+        "pipeline_ms": 85.44209999672603,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 564,
+      "real": {
+        "status": "measured",
+        "score": 0.4244256317615509,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          136,
+          39,
+          216,
+          119
+        ],
+        "pipeline_ms": 84.39180000277702,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9278092384338379,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          136,
+          40,
+          215,
+          119
+        ],
+        "pipeline_ms": 86.4412000082666,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 576,
+      "real": {
+        "status": "measured",
+        "score": 0.22349946200847626,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          123,
+          55,
+          201,
+          134
+        ],
+        "pipeline_ms": 83.5771999991266,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.8603709936141968,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          122,
+          54,
+          202,
+          134
+        ],
+        "pipeline_ms": 78.6013000033563,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 588,
+      "real": {
+        "status": "measured",
+        "score": 0.6310927867889404,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          124,
+          58,
+          195,
+          129
+        ],
+        "pipeline_ms": 86.139799997909,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9724366664886475,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          123,
+          59,
+          194,
+          131
+        ],
+        "pipeline_ms": 89.88260000478476,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 600,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.32345303893089294,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          146,
+          51,
+          219,
+          125
+        ],
+        "pipeline_ms": 88.27520000340883,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 612,
+      "real": {
+        "status": "measured",
+        "score": 0.9684246778488159,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          142,
+          51,
+          215,
+          124
+        ],
+        "pipeline_ms": 86.91830000316259,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9968668818473816,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          142,
+          51,
+          215,
+          124
+        ],
+        "pipeline_ms": 87.78060000622645,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 624,
+      "real": {
+        "status": "measured",
+        "score": 0.9975826740264893,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          130,
+          67,
+          204,
+          141
+        ],
+        "pipeline_ms": 81.57939999364316,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9870721697807312,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          131,
+          68,
+          203,
+          140
+        ],
+        "pipeline_ms": 82.94170000590384,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 636,
+      "real": {
+        "status": "measured",
+        "score": 0.9982668161392212,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          145,
+          53,
+          217,
+          125
+        ],
+        "pipeline_ms": 82.52329999231733,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9709600210189819,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          145,
+          53,
+          216,
+          125
+        ],
+        "pipeline_ms": 92.03179999894928,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 648,
+      "real": {
+        "status": "measured",
+        "score": 0.9638094305992126,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          115,
+          58,
+          185,
+          129
+        ],
+        "pipeline_ms": 83.29000000958331,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9715087413787842,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          115,
+          59,
+          184,
+          128
+        ],
+        "pipeline_ms": 83.79360000253655,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 660,
+      "real": {
+        "status": "measured",
+        "score": 0.543133020401001,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          163,
+          79,
+          232,
+          148
+        ],
+        "pipeline_ms": 91.74329999950714,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.992351233959198,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          162,
+          80,
+          232,
+          149
+        ],
+        "pipeline_ms": 83.6830999905942,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 672,
+      "real": {
+        "status": "measured",
+        "score": 0.9156152009963989,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          137,
+          76,
+          204,
+          144
+        ],
+        "pipeline_ms": 82.28769998822827,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9743407368659973,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          136,
+          76,
+          205,
+          145
+        ],
+        "pipeline_ms": 82.63370000349823,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 684,
+      "real": {
+        "status": "measured",
+        "score": 0.9931789636611938,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          157,
+          78,
+          231,
+          152
+        ],
+        "pipeline_ms": 81.29059999191668,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9669002294540405,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          156,
+          79,
+          230,
+          154
+        ],
+        "pipeline_ms": 86.52419999998529,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 696,
+      "real": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      },
+      "swapped": null,
+      "swap_applied": false
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 708,
+      "real": {
+        "status": "measured",
+        "score": 0.1379345804452896,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          150,
+          69,
+          231,
+          150
+        ],
+        "pipeline_ms": 82.27120000810828,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.8829881548881531,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          154,
+          71,
+          230,
+          147
+        ],
+        "pipeline_ms": 83.64399999845773,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 720,
+      "real": {
+        "status": "measured",
+        "score": 0.03196648508310318,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          166,
+          62,
+          242,
+          139
+        ],
+        "pipeline_ms": 83.09830000507645,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.7800981402397156,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          170,
+          65,
+          240,
+          135
+        ],
+        "pipeline_ms": 83.43730001070071,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 732,
+      "real": {
+        "status": "measured",
+        "score": 0.9817913770675659,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          136,
+          62,
+          213,
+          139
+        ],
+        "pipeline_ms": 82.3549000051571,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.7653530240058899,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          139,
+          64,
+          212,
+          138
+        ],
+        "pipeline_ms": 82.96379999956116,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 744,
+      "real": {
+        "status": "measured",
+        "score": 0.9033563733100891,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          153,
+          64,
+          223,
+          134
+        ],
+        "pipeline_ms": 82.4583000066923,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9015644192695618,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          154,
+          65,
+          221,
+          132
+        ],
+        "pipeline_ms": 88.39930000249296,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 756,
+      "real": {
+        "status": "measured",
+        "score": 0.9748191237449646,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          148,
+          71,
+          217,
+          140
+        ],
+        "pipeline_ms": 82.1620999922743,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.8977159261703491,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          149,
+          71,
+          217,
+          139
+        ],
+        "pipeline_ms": 82.98820001073182,
+        "calibrated": false
+      },
+      "swap_applied": true
+    },
+    {
+      "video": "guarded_david_video",
+      "index": 768,
+      "real": {
+        "status": "measured",
+        "score": 0.9623679518699646,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          116,
+          67,
+          192,
+          143
+        ],
+        "pipeline_ms": 84.71749999444,
+        "calibrated": false
+      },
+      "swapped": {
+        "status": "measured",
+        "score": 0.9767448306083679,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          116,
+          68,
+          192,
+          144
+        ],
+        "pipeline_ms": 80.11670000269078,
+        "calibrated": false
+      },
+      "swap_applied": true
+    }
+  ],
+  "blur_records": [
+    {
+      "file": "166760.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.028960024937987328,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          18,
+          63,
+          152,
+          198
+        ],
+        "pipeline_ms": 82.41850000922568,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "166760.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.43820053339004517,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          18,
+          63,
+          153,
+          198
+        ],
+        "pipeline_ms": 85.43479999934789,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "166760.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5617116689682007,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          20,
+          64,
+          152,
+          195
+        ],
+        "pipeline_ms": 83.1532000011066,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "065130.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 3.475776611594483e-05,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          60,
+          151,
+          212
+        ],
+        "pipeline_ms": 84.90859999437816,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "065130.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.03899931535124779,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          59,
+          151,
+          212
+        ],
+        "pipeline_ms": 82.80139999988023,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "065130.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.43872493505477905,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          59,
+          150,
+          210
+        ],
+        "pipeline_ms": 84.25299999362323,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "189813.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.0026989204343408346,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          28,
+          62,
+          168,
+          202
+        ],
+        "pipeline_ms": 83.63789999566507,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "189813.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.6809277534484863,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          28,
+          62,
+          168,
+          203
+        ],
+        "pipeline_ms": 86.36709999700543,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "189813.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.615395724773407,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          27,
+          61,
+          168,
+          202
+        ],
+        "pipeline_ms": 84.03310000721831,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "150476.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.0030441004782915115,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          5,
+          64,
+          141,
+          200
+        ],
+        "pipeline_ms": 82.99100000294857,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "150476.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.6944414377212524,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          4,
+          64,
+          139,
+          199
+        ],
+        "pipeline_ms": 84.68859999265987,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "150476.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.49283185601234436,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          4,
+          63,
+          139,
+          197
+        ],
+        "pipeline_ms": 81.55079999414738,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "015763.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.043817903846502304,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          20,
+          63,
+          152,
+          195
+        ],
+        "pipeline_ms": 84.62960000906605,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "015763.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.5692843794822693,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          19,
+          62,
+          152,
+          195
+        ],
+        "pipeline_ms": 82.73029999691062,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "015763.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5630034804344177,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          19,
+          62,
+          152,
+          195
+        ],
+        "pipeline_ms": 82.73819999885745,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "000541.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.0005772061413154006,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          21,
+          65,
+          146,
+          190
+        ],
+        "pipeline_ms": 90.32289999595378,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "000541.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.9170929789543152,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          22,
+          64,
+          146,
+          189
+        ],
+        "pipeline_ms": 83.28409999376163,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "000541.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.7492844462394714,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          22,
+          63,
+          147,
+          188
+        ],
+        "pipeline_ms": 84.22460001020227,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "168578.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.0007282419828698039,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          58,
+          145,
+          208
+        ],
+        "pipeline_ms": 84.4098999950802,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "168578.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.06290905177593231,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          58,
+          145,
+          207
+        ],
+        "pipeline_ms": 88.1058000086341,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "168578.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.4600415825843811,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          56,
+          145,
+          206
+        ],
+        "pipeline_ms": 86.11810000729747,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "110727.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.08935615420341492,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          8,
+          59,
+          149,
+          201
+        ],
+        "pipeline_ms": 84.9892000114778,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "110727.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.37089812755584717,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          9,
+          60,
+          149,
+          200
+        ],
+        "pipeline_ms": 82.20750000327826,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "110727.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.6212530136108398,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          11,
+          60,
+          149,
+          198
+        ],
+        "pipeline_ms": 84.44070001132786,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "045567.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.8876936435699463,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          30,
+          68,
+          151,
+          189
+        ],
+        "pipeline_ms": 84.46990000084043,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "045567.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.8986708521842957,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          30,
+          67,
+          151,
+          189
+        ],
+        "pipeline_ms": 87.36540000245441,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "045567.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.4872041940689087,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          30,
+          66,
+          152,
+          189
+        ],
+        "pipeline_ms": 87.23000000463799,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "050158.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.001387977390550077,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          36,
+          72,
+          159,
+          195
+        ],
+        "pipeline_ms": 86.16400000755675,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "050158.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.5052372813224792,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          35,
+          71,
+          160,
+          195
+        ],
+        "pipeline_ms": 86.24649999546818,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "050158.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.6491890549659729,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          32,
+          69,
+          158,
+          194
+        ],
+        "pipeline_ms": 89.1566999925999,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "039070.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.001153055694885552,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          23,
+          64,
+          160,
+          201
+        ],
+        "pipeline_ms": 86.71040000626817,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "039070.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.7970753312110901,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          23,
+          64,
+          159,
+          201
+        ],
+        "pipeline_ms": 86.66859999357257,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "039070.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.6294015049934387,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          24,
+          64,
+          159,
+          200
+        ],
+        "pipeline_ms": 86.47209999617189,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "094629.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 2.7642985514830798e-05,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          24,
+          65,
+          156,
+          197
+        ],
+        "pipeline_ms": 86.03849999781232,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "094629.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.02516883797943592,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          24,
+          64,
+          157,
+          197
+        ],
+        "pipeline_ms": 85.81229999253992,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "094629.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.4875031113624573,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          23,
+          63,
+          157,
+          197
+        ],
+        "pipeline_ms": 84.04069999232888,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "179569.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.009335366077721119,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          35,
+          68,
+          163,
+          196
+        ],
+        "pipeline_ms": 88.3410999958869,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "179569.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.9817279577255249,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          35,
+          68,
+          162,
+          196
+        ],
+        "pipeline_ms": 87.05859999463428,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "179569.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.6823902726173401,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          33,
+          64,
+          164,
+          196
+        ],
+        "pipeline_ms": 84.28830000048038,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "045222.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 4.735623952001333e-05,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          37,
+          68,
+          159,
+          190
+        ],
+        "pipeline_ms": 84.92459999979474,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "045222.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.41016408801078796,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          37,
+          66,
+          160,
+          190
+        ],
+        "pipeline_ms": 84.42339999601245,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "045222.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.47059616446495056,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          35,
+          64,
+          161,
+          189
+        ],
+        "pipeline_ms": 84.49170000676531,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "134019.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.0007273104856722057,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          20,
+          64,
+          150,
+          194
+        ],
+        "pipeline_ms": 84.5331000018632,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "134019.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.4658477008342743,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          21,
+          64,
+          150,
+          193
+        ],
+        "pipeline_ms": 85.52330000384245,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "134019.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.6689744591712952,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          19,
+          61,
+          151,
+          193
+        ],
+        "pipeline_ms": 86.40109999396373,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "084034.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.00029186689062044024,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          7,
+          66,
+          141,
+          200
+        ],
+        "pipeline_ms": 84.4509000016842,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "084034.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.9336044788360596,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          7,
+          65,
+          141,
+          199
+        ],
+        "pipeline_ms": 83.97680000052787,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "084034.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5875602960586548,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          8,
+          63,
+          141,
+          197
+        ],
+        "pipeline_ms": 84.69699999841396,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "139921.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.017926424741744995,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          59,
+          152,
+          212
+        ],
+        "pipeline_ms": 88.13960000406951,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "139921.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.6716861724853516,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          59,
+          152,
+          212
+        ],
+        "pipeline_ms": 86.69569999619853,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "139921.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5921870470046997,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          1,
+          58,
+          153,
+          210
+        ],
+        "pipeline_ms": 87.77050000207964,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "018786.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.025408633053302765,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          25,
+          66,
+          153,
+          194
+        ],
+        "pipeline_ms": 85.88119999330956,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "018786.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.7543156147003174,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          25,
+          66,
+          153,
+          193
+        ],
+        "pipeline_ms": 86.06640000652988,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "018786.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5047589540481567,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          26,
+          65,
+          152,
+          191
+        ],
+        "pipeline_ms": 85.2835999976378,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "118209.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.00010781365563161671,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          31,
+          67,
+          162,
+          198
+        ],
+        "pipeline_ms": 83.42490000359248,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "118209.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.06595102697610855,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          28,
+          62,
+          164,
+          198
+        ],
+        "pipeline_ms": 84.14819999597967,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "118209.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5142546892166138,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          26,
+          58,
+          166,
+          198
+        ],
+        "pipeline_ms": 88.07359999627806,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "183260.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 1.8350870959693566e-05,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          18,
+          65,
+          153,
+          200
+        ],
+        "pipeline_ms": 84.21570000064094,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "183260.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.7016399502754211,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          17,
+          64,
+          153,
+          199
+        ],
+        "pipeline_ms": 91.46969999710564,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "183260.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.6763119697570801,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          18,
+          63,
+          153,
+          199
+        ],
+        "pipeline_ms": 88.27100000053179,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "184108.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 4.494239328778349e-05,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          14,
+          64,
+          155,
+          205
+        ],
+        "pipeline_ms": 82.60159999190364,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "184108.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.12973520159721375,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          15,
+          64,
+          155,
+          205
+        ],
+        "pipeline_ms": 88.72050000354648,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "184108.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.6727859973907471,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          15,
+          61,
+          156,
+          203
+        ],
+        "pipeline_ms": 86.19619999080896,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "122227.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.003872194793075323,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          24,
+          68,
+          152,
+          196
+        ],
+        "pipeline_ms": 86.33580000605434,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "122227.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.21302933990955353,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          24,
+          68,
+          153,
+          196
+        ],
+        "pipeline_ms": 83.30790000036359,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "122227.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5414841771125793,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          26,
+          68,
+          152,
+          194
+        ],
+        "pipeline_ms": 89.05579999554902,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "108211.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.0002923930296674371,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          9,
+          70,
+          134,
+          195
+        ],
+        "pipeline_ms": 86.62960000219755,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "108211.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.018364865332841873,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          10,
+          70,
+          135,
+          195
+        ],
+        "pipeline_ms": 87.37720000499394,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "108211.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.529498815536499,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          9,
+          68,
+          135,
+          194
+        ],
+        "pipeline_ms": 89.58269999129698,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "167777.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.00035465520340949297,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          12,
+          61,
+          151,
+          201
+        ],
+        "pipeline_ms": 89.52660000068136,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "167777.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.21218514442443848,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          12,
+          60,
+          152,
+          201
+        ],
+        "pipeline_ms": 86.32650000799913,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "167777.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5282366871833801,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          13,
+          59,
+          153,
+          200
+        ],
+        "pipeline_ms": 94.27770000183955,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "061891.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.00025473014102317393,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          2,
+          59,
+          149,
+          206
+        ],
+        "pipeline_ms": 99.61560000374448,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "061891.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.5234864950180054,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          2,
+          58,
+          149,
+          205
+        ],
+        "pipeline_ms": 89.78270000079647,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "061891.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5317047238349915,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          5,
+          59,
+          149,
+          203
+        ],
+        "pipeline_ms": 93.52280000166502,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "183669.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.0024598867166787386,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          1,
+          64,
+          140,
+          203
+        ],
+        "pipeline_ms": 85.77109999896493,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "183669.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.2721593677997589,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          1,
+          60,
+          144,
+          203
+        ],
+        "pipeline_ms": 90.61460000521038,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "183669.jpg",
+      "radius": 2,
+      "result": {
+        "status": "insufficient",
+        "reason": "No face detected in image by MediaPipe FaceLandmarker",
+        "score": null,
+        "model": "DeepfakeBench Xception"
+      }
+    },
+    {
+      "file": "103373.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 5.7396893680561334e-05,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          29,
+          66,
+          159,
+          197
+        ],
+        "pipeline_ms": 90.0407000008272,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "103373.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.0176379531621933,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          29,
+          65,
+          160,
+          196
+        ],
+        "pipeline_ms": 85.66799999971408,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "103373.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5322412848472595,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          31,
+          66,
+          159,
+          194
+        ],
+        "pipeline_ms": 84.78570000443142,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "063486.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.004653108771890402,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          17,
+          66,
+          140,
+          189
+        ],
+        "pipeline_ms": 93.1845000013709,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "063486.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.13765548169612885,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          18,
+          66,
+          141,
+          188
+        ],
+        "pipeline_ms": 91.10999999393243,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "063486.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5966096520423889,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          20,
+          64,
+          142,
+          187
+        ],
+        "pipeline_ms": 87.36980000685435,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "147472.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 7.252847717609257e-05,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          26,
+          68,
+          148,
+          189
+        ],
+        "pipeline_ms": 88.34040000510868,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "147472.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.23913654685020447,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          25,
+          66,
+          149,
+          190
+        ],
+        "pipeline_ms": 90.99449998757336,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "147472.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.6020930409431458,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          25,
+          64,
+          151,
+          190
+        ],
+        "pipeline_ms": 84.35920000192709,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "077608.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.0022458063904196024,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          23,
+          61,
+          166,
+          204
+        ],
+        "pipeline_ms": 91.5757000038866,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "077608.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.4916932284832001,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          22,
+          60,
+          165,
+          204
+        ],
+        "pipeline_ms": 88.875299989013,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "077608.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5621523857116699,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          23,
+          61,
+          163,
+          202
+        ],
+        "pipeline_ms": 93.21920000365935,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "051831.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.0007263678126037121,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          60,
+          136,
+          203
+        ],
+        "pipeline_ms": 85.21340000152122,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "051831.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.9418733716011047,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          60,
+          135,
+          202
+        ],
+        "pipeline_ms": 89.50529999856371,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "051831.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5274078845977783,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          58,
+          137,
+          202
+        ],
+        "pipeline_ms": 95.4834000003757,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "180215.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 7.813279808033258e-06,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          15,
+          61,
+          158,
+          204
+        ],
+        "pipeline_ms": 87.9341999971075,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "180215.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.01987481862306595,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          15,
+          61,
+          158,
+          204
+        ],
+        "pipeline_ms": 94.26539999549277,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "180215.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5620325803756714,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          16,
+          62,
+          157,
+          202
+        ],
+        "pipeline_ms": 100.51689999818336,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "025911.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.001183612272143364,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          30,
+          69,
+          153,
+          192
+        ],
+        "pipeline_ms": 90.85070001310669,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "025911.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.4139970541000366,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          29,
+          66,
+          155,
+          192
+        ],
+        "pipeline_ms": 88.1334000005154,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "025911.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.6269761323928833,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          21,
+          57,
+          158,
+          193
+        ],
+        "pipeline_ms": 87.91419999033678,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "105189.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.00012507020437624305,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          61,
+          148,
+          214
+        ],
+        "pipeline_ms": 90.80910000193398,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "105189.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.044160790741443634,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          58,
+          152,
+          215
+        ],
+        "pipeline_ms": 92.15690000564791,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "105189.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.4943735599517822,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          55,
+          155,
+          213
+        ],
+        "pipeline_ms": 103.94689999520779,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "011888.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.030335931107401848,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          34,
+          66,
+          163,
+          195
+        ],
+        "pipeline_ms": 90.93469999788795,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "011888.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.9272234439849854,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          35,
+          66,
+          163,
+          195
+        ],
+        "pipeline_ms": 100.25099999620579,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "011888.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5968677997589111,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          33,
+          62,
+          165,
+          194
+        ],
+        "pipeline_ms": 92.78459999768529,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "072735.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.9251506924629211,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          28,
+          69,
+          150,
+          191
+        ],
+        "pipeline_ms": 93.09680000296794,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "072735.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.8828926086425781,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          28,
+          70,
+          150,
+          191
+        ],
+        "pipeline_ms": 98.15910000179429,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "072735.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.6263571381568909,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          26,
+          69,
+          147,
+          190
+        ],
+        "pipeline_ms": 96.17590000561904,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "178804.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.1521276980638504,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          26,
+          66,
+          160,
+          199
+        ],
+        "pipeline_ms": 103.32769999513403,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "178804.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.7862078547477722,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          26,
+          65,
+          161,
+          200
+        ],
+        "pipeline_ms": 99.92800001055002,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "178804.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.49009764194488525,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          25,
+          64,
+          159,
+          198
+        ],
+        "pipeline_ms": 93.97830000671092,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "016024.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 7.642574200872332e-05,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          22,
+          66,
+          161,
+          204
+        ],
+        "pipeline_ms": 88.39449999504723,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "016024.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.11831807345151901,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          22,
+          64,
+          162,
+          205
+        ],
+        "pipeline_ms": 86.85120000154711,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "016024.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5896601676940918,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          24,
+          64,
+          161,
+          202
+        ],
+        "pipeline_ms": 84.60800000466406,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "002798.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 4.303977402742021e-05,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          30,
+          58,
+          178,
+          207
+        ],
+        "pipeline_ms": 92.98439999110997,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "002798.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.22835664451122284,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          27,
+          53,
+          178,
+          206
+        ],
+        "pipeline_ms": 94.46540000499226,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "002798.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.8846375346183777,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          22,
+          48,
+          178,
+          206
+        ],
+        "pipeline_ms": 87.57299999706447,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "077608.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.0022458063904196024,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          23,
+          61,
+          166,
+          204
+        ],
+        "pipeline_ms": 90.31379999942146,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "077608.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.4916932284832001,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          22,
+          60,
+          165,
+          204
+        ],
+        "pipeline_ms": 91.76760000991635,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "077608.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5621523857116699,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          23,
+          61,
+          163,
+          202
+        ],
+        "pipeline_ms": 90.4002000024775,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "099762.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.16443322598934174,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          22,
+          70,
+          143,
+          192
+        ],
+        "pipeline_ms": 92.83599999616854,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "099762.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.6905577778816223,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          21,
+          69,
+          144,
+          192
+        ],
+        "pipeline_ms": 83.47649998904672,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "099762.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5339372158050537,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          21,
+          69,
+          142,
+          191
+        ],
+        "pipeline_ms": 101.86399999656714,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "054093.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 2.2631264073424973e-05,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          28,
+          58,
+          176,
+          207
+        ],
+        "pipeline_ms": 81.78290000068955,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "054093.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.13841386139392853,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          28,
+          59,
+          176,
+          206
+        ],
+        "pipeline_ms": 98.27600000426173,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "054093.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5562853217124939,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          27,
+          56,
+          176,
+          205
+        ],
+        "pipeline_ms": 94.3054000090342,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "064255.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.15842650830745697,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          60,
+          140,
+          199
+        ],
+        "pipeline_ms": 96.51790000498295,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "064255.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.8075196743011475,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          2,
+          61,
+          140,
+          199
+        ],
+        "pipeline_ms": 99.74119999969844,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "064255.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.6249251961708069,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          2,
+          60,
+          140,
+          198
+        ],
+        "pipeline_ms": 92.24930001073517,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "129908.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.0003788541944231838,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          36,
+          62,
+          178,
+          206
+        ],
+        "pipeline_ms": 93.35819999978412,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "129908.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.17671003937721252,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          35,
+          60,
+          178,
+          207
+        ],
+        "pipeline_ms": 98.89790001034271,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "129908.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.7761609554290771,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          32,
+          58,
+          178,
+          205
+        ],
+        "pipeline_ms": 88.52430000843015,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "084314.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.00011080055264756083,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          26,
+          71,
+          149,
+          194
+        ],
+        "pipeline_ms": 90.19299999636132,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "084314.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.39174237847328186,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          26,
+          70,
+          151,
+          195
+        ],
+        "pipeline_ms": 85.45779999985825,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "084314.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5521005988121033,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          25,
+          69,
+          149,
+          193
+        ],
+        "pipeline_ms": 97.4763999984134,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "161859.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 6.895606202306226e-05,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          25,
+          66,
+          152,
+          193
+        ],
+        "pipeline_ms": 93.1025000027148,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "161859.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.5654276013374329,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          24,
+          64,
+          154,
+          194
+        ],
+        "pipeline_ms": 95.53629999572877,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "161859.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.47815003991127014,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          20,
+          62,
+          153,
+          195
+        ],
+        "pipeline_ms": 91.98309999192134,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "079540.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 9.397028770763427e-05,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          18,
+          66,
+          154,
+          202
+        ],
+        "pipeline_ms": 89.50830000685528,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "079540.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.9849735498428345,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          18,
+          65,
+          154,
+          202
+        ],
+        "pipeline_ms": 93.9448999997694,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "079540.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.4934764504432678,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          19,
+          65,
+          154,
+          200
+        ],
+        "pipeline_ms": 96.93080000579357,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "012058.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.21969138085842133,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          27,
+          64,
+          153,
+          191
+        ],
+        "pipeline_ms": 93.07919999992009,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "012058.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.9990257024765015,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          25,
+          63,
+          154,
+          191
+        ],
+        "pipeline_ms": 93.3041999960551,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "012058.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.7613100409507751,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          25,
+          62,
+          153,
+          190
+        ],
+        "pipeline_ms": 94.31100000801962,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "011098.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 0.0027398059610277414,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          59,
+          146,
+          206
+        ],
+        "pipeline_ms": 88.39040000748355,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "011098.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.33256521821022034,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          0,
+          59,
+          147,
+          205
+        ],
+        "pipeline_ms": 87.24439999787137,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "011098.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5077251195907593,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          3,
+          59,
+          143,
+          199
+        ],
+        "pipeline_ms": 92.65470001264475,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "072859.jpg",
+      "radius": 0,
+      "result": {
+        "status": "measured",
+        "score": 4.887460818281397e-05,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          34,
+          68,
+          157,
+          192
+        ],
+        "pipeline_ms": 97.4045000039041,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "072859.jpg",
+      "radius": 1,
+      "result": {
+        "status": "measured",
+        "score": 0.6716727018356323,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          33,
+          66,
+          159,
+          192
+        ],
+        "pipeline_ms": 90.14119999483228,
+        "calibrated": false
+      }
+    },
+    {
+      "file": "072859.jpg",
+      "radius": 2,
+      "result": {
+        "status": "measured",
+        "score": 0.5054314136505127,
+        "model": "DeepfakeBench Xception",
+        "box": [
+          32,
+          64,
+          160,
+          192
+        ],
+        "pipeline_ms": 88.22089999739546,
+        "calibrated": false
+      }
+    }
+  ],
+  "live_promoted": false
+}

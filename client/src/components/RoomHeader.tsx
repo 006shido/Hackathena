@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Users, Copy, Check, Shield, Circle, Activity } from 'lucide-react';
+import { Activity,ArrowLeft,Check,Circle,Copy,Shield,Users } from 'lucide-react';
+import React,{ useEffect,useState } from 'react';
 import { UserRole } from '../types/auth';
 
 interface RoomHeaderProps {
@@ -18,7 +18,6 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
   roomId,
   role,
   participantCount,
-  connectionState,
   iceState,
   onExit,
   onToggleSecurityPanel,

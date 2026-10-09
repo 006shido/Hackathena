@@ -5,3 +5,14 @@ client/dist
 server/dist
 .git
 .DS_Store
+.venv
+.run-logs
+.env
+.env.*
+**/.env
+**/.env.*
+ml
+**/__pycache__
+**/*.log
+**/*.bak
+**/*.zip

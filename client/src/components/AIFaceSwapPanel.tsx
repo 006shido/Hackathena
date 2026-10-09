@@ -1,25 +1,25 @@
-import React, { useState, useRef, useEffect } from 'react';
 import {
-  User,
-  Upload,
-  RotateCcw,
-  Check,
-  AlertTriangle,
-  X,
-  ShieldCheck,
-  Cpu,
-  Eye,
-  Camera,
-  ShieldAlert,
-  Mic,
-  Sliders,
-  Flame,
-  Headphones,
-  ChevronDown,
-  ChevronUp,
+AlertTriangle,
+Camera,
+Check,
+ChevronDown,
+ChevronUp,
+Cpu,
+Eye,
+Flame,
+Headphones,
+Mic,
+RotateCcw,
+ShieldAlert,
+ShieldCheck,
+Sliders,
+Upload,
+User,
+X,
 } from 'lucide-react';
-import { FacePreset, FaceBlendConfig, DEFAULT_FACE_BLEND_CONFIG } from '../types/attack';
-import { GalleryFaceValidationResult, FaceSwapTelemetry } from '../attack/faceSwapEngine';
+import React,{ useEffect,useRef,useState } from 'react';
+import { FaceSwapTelemetry,GalleryFaceValidationResult } from '../attack/faceSwapEngine';
+import { DEFAULT_FACE_BLEND_CONFIG,FaceBlendConfig,FacePreset } from '../types/attack';
 
 interface AIFaceSwapPanelProps {
   faceSwapActive: boolean;
@@ -85,6 +85,7 @@ export const AIFaceSwapPanel: React.FC<AIFaceSwapPanelProps> = ({
   const previewVideoRef = useRef<HTMLVideoElement>(null);
 
   const activeConfig = blendConfig || DEFAULT_FACE_BLEND_CONFIG;
+  const neuralPreview = import.meta.env.VITE_ENABLE_NEURAL_VIDEO_PREVIEW === 'true';
 
   const applyBlendPreset = (preset: 'ultra' | 'natural' | 'studio' | 'contour') => {
     setActiveBlendPreset(preset);
@@ -143,7 +144,7 @@ export const AIFaceSwapPanel: React.FC<AIFaceSwapPanelProps> = ({
       previewVideoRef.current.srcObject = processedStream;
       previewVideoRef.current.play().catch(() => {});
     }
-  }, [processedStream, faceSwapActive]);
+  }, [processedStream, faceSwapActive, activeTab]);
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -344,7 +345,7 @@ export const AIFaceSwapPanel: React.FC<AIFaceSwapPanelProps> = ({
                   <p className="text-xs font-medium text-zinc-200 truncate">{selectedFaceName}</p>
                   <p className="text-[10px] text-emerald-400 font-mono mt-0.5 flex items-center gap-1">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    478 landmark mesh verified
+                    {telemetry?.modelLoaded ? 'Face processing ready' : 'Source selected'}
                   </p>
                 </div>
               </div>
@@ -413,7 +414,7 @@ export const AIFaceSwapPanel: React.FC<AIFaceSwapPanelProps> = ({
           </div>
 
           {/* Section 3: Face Blending Controls */}
-          <div className="p-3.5 rounded-xl bg-zinc-900/50 border border-zinc-800 space-y-2.5">
+          {!neuralPreview && <div className="p-3.5 rounded-xl bg-zinc-900/50 border border-zinc-800 space-y-2.5">
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-xs font-semibold text-zinc-200">Face Blending</h3>
@@ -587,6 +588,7 @@ export const AIFaceSwapPanel: React.FC<AIFaceSwapPanelProps> = ({
             )}
           </div>
 
+          }
           {/* Section 4: Master Action Trigger Button */}
           <div>
             {!faceSwapActive ? (
@@ -629,7 +631,7 @@ export const AIFaceSwapPanel: React.FC<AIFaceSwapPanelProps> = ({
                   ? 'text-sky-300 bg-sky-950/40 border-sky-800/50'
                   : 'text-zinc-400 bg-zinc-800 border-zinc-700/60'
               }`}>
-                {faceSwapActive ? 'Swapped Feed' : 'Clean Camera Feed'}
+                {faceSwapActive ? (neuralPreview ? telemetry?.blendMode || 'Starting preview' : 'Swapped Feed') : 'Clean Camera Feed'}
               </span>
             </div>
 
@@ -644,7 +646,7 @@ export const AIFaceSwapPanel: React.FC<AIFaceSwapPanelProps> = ({
               {faceSwapActive && (
                 <div className="absolute top-2 right-2 px-2 py-0.5 rounded bg-black/80 backdrop-blur-xs text-[9px] font-medium text-emerald-300 border border-emerald-500/30 flex items-center gap-1">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Modified Live</span>
+                  <span>{neuralPreview ? telemetry?.blendMode || 'Starting preview' : 'Modified Live'}</span>
                 </div>
               )}
             </div>
@@ -661,37 +663,37 @@ export const AIFaceSwapPanel: React.FC<AIFaceSwapPanelProps> = ({
               </div>
               <span className="text-[10px] font-mono flex items-center gap-1.5 text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-800/50">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                {telemetry?.fps ? `${telemetry.fps} FPS` : '56 FPS'}
+                {faceSwapActive && telemetry ? `${telemetry.fps.toFixed(1)} FPS` : 'Standby'}
               </span>
             </div>
 
             <div className="space-y-1 text-[11px]">
               <div className="flex items-center justify-between py-1 border-b border-zinc-800/60">
                 <span className="text-zinc-500">Pipeline</span>
-                <span className="text-zinc-200 font-mono">MediaPipe + WebGL</span>
+                <span className="text-zinc-200 font-mono">{neuralPreview ? 'Neural video preview' : 'MediaPipe + WebGL'}</span>
               </div>
               <div className="flex items-center justify-between py-1 border-b border-zinc-800/60">
                 <span className="text-zinc-500">Landmarks</span>
                 <span className="font-mono flex items-center gap-1 text-emerald-400">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  {telemetry?.landmarksDetected ? '478 points' : '478 points'}
+                  {faceSwapActive && telemetry?.landmarksDetected ? `${telemetry.landmarksCount} points` : 'No face detected'}
                 </span>
               </div>
               <div className="flex items-center justify-between py-1 border-b border-zinc-800/60">
                 <span className="text-zinc-500">Mesh Triangles</span>
-                <span className="text-zinc-300 font-mono">854 triangles</span>
+                <span className="text-zinc-300 font-mono">{neuralPreview ? 'Not used' : '854 triangles'}</span>
               </div>
               <div className="flex items-center justify-between py-1 border-b border-zinc-800/60">
                 <span className="text-zinc-500">Skin Matching</span>
-                <span className="text-sky-400 font-mono">Reinhard Adaptive</span>
+                <span className="text-sky-400 font-mono">{neuralPreview ? 'Model output' : telemetry?.skinToneMatched && faceSwapActive ? 'Reinhard Adaptive' : 'Standby'}</span>
               </div>
               <div className="flex items-center justify-between py-1 border-b border-zinc-800/60">
                 <span className="text-zinc-500">Lighting</span>
-                <span className="text-amber-300 font-mono">Ambient Transfer</span>
+                <span className="text-amber-300 font-mono">{neuralPreview ? 'Model output' : telemetry?.lightingAdapted && faceSwapActive ? 'Ambient Transfer' : 'Standby'}</span>
               </div>
               <div className="flex items-center justify-between py-1 border-b border-zinc-800/60">
                 <span className="text-zinc-500">Feathering</span>
-                <span className="text-violet-300 font-mono">{activeConfig.featherRadius}px Gaussian</span>
+                <span className="text-violet-300 font-mono">{neuralPreview ? 'Service face mask' : `${activeConfig.featherRadius}px Gaussian`}</span>
               </div>
               <div className="flex items-center justify-between py-1">
                 <span className="text-zinc-500">Boundary</span>

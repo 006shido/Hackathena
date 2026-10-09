@@ -15,12 +15,13 @@ export class VoiceTransformationPipeline {
   private active = false;
   private isMonitoring = false;
   private monitorVolume = 0.85;
-  private originalTrack: MediaStreamTrack | null = null;
   private outputStream: MediaStream | null = null;
   private preset: VoicePreset = 'robotic-vocoder';
+  private startupEpoch = 0;
 
   public async start(originalTrack: MediaStreamTrack, preset: VoicePreset = 'robotic-vocoder'): Promise<MediaStreamTrack> {
-    this.originalTrack = originalTrack;
+    this.stop();
+    const epoch = this.startupEpoch;
     this.preset = preset;
     this.active = true;
 
@@ -37,10 +38,12 @@ export class VoiceTransformationPipeline {
     if (this.audioCtx.state === 'suspended') {
       try {
         await this.audioCtx.resume();
-        console.log('[VoicePipeline] AudioContext resumed successfully in state:', this.audioCtx.state);
       } catch (err) {
         console.warn('[VoicePipeline] AudioContext resume error:', err);
       }
+    }
+    if (!this.active || epoch !== this.startupEpoch) {
+      throw new Error('Voice transformation startup was cancelled.');
     }
 
     // Auto-resume if browser suspends context (e.g., tab backgrounding or mobile policy)
@@ -80,6 +83,8 @@ export class VoiceTransformationPipeline {
   private buildAudioGraph() {
     if (!this.audioCtx || !this.sourceNode || !this.destinationNode) return;
 
+    // Preset changes must detach every anonymous branch from the input.
+    this.sourceNode.disconnect();
     this.cleanupNodes();
     const ctx = this.audioCtx;
 
@@ -267,6 +272,7 @@ export class VoiceTransformationPipeline {
   }
 
   public stop(): void {
+    this.startupEpoch++;
     this.active = false;
     this.cleanupNodes();
 
@@ -280,12 +286,13 @@ export class VoiceTransformationPipeline {
         try {
           track.enabled = false;
           track.stop();
-        } catch (e) {}
+        } catch {}
       });
       this.outputStream = null;
     }
 
     if (this.audioCtx && this.audioCtx.state !== 'closed') {
+      this.audioCtx.onstatechange = null;
       try {
         this.audioCtx.close();
       } catch {
@@ -293,7 +300,5 @@ export class VoiceTransformationPipeline {
       }
       this.audioCtx = null;
     }
-
-    this.originalTrack = null;
   }
 }

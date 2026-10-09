@@ -1,0 +1,31 @@
+[
+  {
+    "source": "186165.jpg",
+    "target": "070860.jpg",
+    "diagnostics": {
+      "face_detected": true,
+      "changed_pixels": 0,
+      "lowlight_retry": false,
+      "identity_accepted": false,
+      "source_similarity": 0.26086753606796265,
+      "target_similarity": 0.6836621761322021,
+      "reason": "Source identity gate rejected this frame.",
+      "pipeline_ms": 831.8702999968082,
+      "face_changed": false
+    }
+  },
+  {
+    "source": "197935.jpg",
+    "target": "098180.jpg",
+    "diagnostics": {
+      "face_detected": true,
+      "changed_pixels": 14055,
+      "lowlight_retry": false,
+      "identity_accepted": true,
+      "source_similarity": 0.6268768906593323,
+      "target_similarity": 0.174033522605896,
+      "pipeline_ms": 75.91239999601385,
+      "face_changed": true
+    }
+  }
+]

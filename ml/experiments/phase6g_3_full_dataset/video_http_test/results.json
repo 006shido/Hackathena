@@ -1,0 +1,19 @@
+{
+  "health": {
+    "status": "ok",
+    "model": "fullres",
+    "checkpoint": "best_model.pt",
+    "checkpoint_sha256": "156e922187b56c3d4fcddc8bec48bc5fd85813f78739a6801b09dcb4e3d5a4d9",
+    "correspondence": "legacy",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "ready": true
+  },
+  "frame_size": [
+    178,
+    218
+  ],
+  "pipeline_ms": 62.41,
+  "ownership_check": true,
+  "stale_timestamp_rejected": true
+}

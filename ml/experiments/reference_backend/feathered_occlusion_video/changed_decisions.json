@@ -1,0 +1,13 @@
+{
+  "newly_swapped_frames": [],
+  "newly_fallback_frames": [
+    150,
+    737
+  ],
+  "columns": [
+    "original",
+    "baseline output",
+    "candidate output"
+  ],
+  "scope": "Selected frames where swap/fallback decisions differ; encoded comparison videos, not a perceptual quality pass."
+}

@@ -1,0 +1,35 @@
+{
+  "correspondence": "robust",
+  "geometry_diagnostics": {
+    "rejected_triangle_fraction": 0.25717321997874604,
+    "unreliable_pixel_fraction": 0.06268310546875,
+    "flipped_triangles": 60
+  },
+  "source_path": "client/public/samples/celeba/197935.jpg",
+  "target_path": "client/public/samples/celeba/098180.jpg",
+  "output_paths": {
+    "composite": "ml\\experiments\\phase6g_3_full_dataset\\pilot_inference\\pair1_composite.png",
+    "swap": "ml\\experiments\\phase6g_3_full_dataset\\pilot_inference\\pair1_swap.png",
+    "mask": "ml\\experiments\\phase6g_3_full_dataset\\pilot_inference\\pair1_mask.png",
+    "aligned_source": "ml\\experiments\\phase6g_3_full_dataset\\pilot_inference\\pair1_aligned_source.png",
+    "grid": "ml\\experiments\\phase6g_3_full_dataset\\pilot_inference\\pair1_comparison_grid.png",
+    "diagnostic": "ml\\experiments\\phase6g_3_full_dataset\\pilot_inference\\pair1_diagnostic.json"
+  },
+  "metrics": {
+    "A_cosine_source_composite": 0.5691242218017578,
+    "B_cosine_target_composite": 0.09455767273902893,
+    "C_cosine_source_target": 0.15137310326099396,
+    "D_cosine_source_swap": 0.7008703351020813,
+    "A_minus_C_gain": 0.41775111854076385,
+    "D_minus_C_gain": 0.5494972318410873,
+    "mask_mean": 0.44767874923406864,
+    "face_redetected": true,
+    "landmark_error_px": 3.2105209827423096
+  },
+  "performance": {
+    "network_latency_ms": 15455.167055130005,
+    "total_pipeline_latency_ms": 16696.794509887695,
+    "device": "cuda",
+    "vram_alloc_mb": 999.73828125
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "fallback": true,
+  "transport": "http-fallback",
+  "initialReady": true,
+  "initialChanged": false,
+  "initialFPS": 10.410792521571732,
+  "afterSource": {
+    "ready": true,
+    "faceChanged": true,
+    "fps": 10.065969535881438,
+    "transport": "http-fallback",
+    "stableTrack": true
+  },
+  "originalPreserved": true,
+  "elapsedMs": 12452.70000000298
+}

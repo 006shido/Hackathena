@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Star, CheckCircle2, ArrowRight, X } from 'lucide-react';
+import { ArrowRight,CheckCircle2,Star,X } from 'lucide-react';
+import React,{ useState } from 'react';
 
 interface CallFeedbackModalProps {
   isOpen: boolean;

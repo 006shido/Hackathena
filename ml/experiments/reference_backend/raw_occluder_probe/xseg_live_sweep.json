@@ -1,0 +1,489 @@
+{
+  "scope": "Two annotated lossless frames only. Threshold sweep is exploratory, not held-out validation or video runtime promotion.",
+  "alignment": "saved live VIDEO landmarks with reproduced baseline scores",
+  "model_sha256": "c4d1498b8a03b5fe2a3a5d2ef2a0402ab03bd51edaf5b2d8d5fb764702a97dd3",
+  "model_url": "https://huggingface.co/facefusion/models-3.1.0/blob/main/xseg_1.onnx",
+  "license_metadata": "GPL-3.0 per FaceFusion model metadata",
+  "records": [
+    {
+      "name": "clear_frame0",
+      "threshold": 0.1,
+      "hard": false,
+      "inference_ms": 189.87279999419115,
+      "warm_inference_ms_median": 163.42699999950128,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786272287368774,
+          "target_similarity": 0.3429555594921112
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.5259448885917664,
+          "target_similarity": 0.4083516001701355
+        }
+      }
+    },
+    {
+      "name": "clear_frame0",
+      "threshold": 0.1,
+      "hard": true,
+      "inference_ms": 189.87279999419115,
+      "warm_inference_ms_median": 163.42699999950128,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786272287368774,
+          "target_similarity": 0.3429555594921112
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.5339317321777344,
+          "target_similarity": 0.3446366786956787
+        }
+      }
+    },
+    {
+      "name": "clear_frame0",
+      "threshold": 0.2,
+      "hard": false,
+      "inference_ms": 189.87279999419115,
+      "warm_inference_ms_median": 163.42699999950128,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786272287368774,
+          "target_similarity": 0.3429555594921112
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.5219494104385376,
+          "target_similarity": 0.4137495756149292
+        }
+      }
+    },
+    {
+      "name": "clear_frame0",
+      "threshold": 0.2,
+      "hard": true,
+      "inference_ms": 189.87279999419115,
+      "warm_inference_ms_median": 163.42699999950128,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786272287368774,
+          "target_similarity": 0.3429555594921112
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.5292472839355469,
+          "target_similarity": 0.35269695520401
+        }
+      }
+    },
+    {
+      "name": "clear_frame0",
+      "threshold": 0.3,
+      "hard": false,
+      "inference_ms": 189.87279999419115,
+      "warm_inference_ms_median": 163.42699999950128,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786272287368774,
+          "target_similarity": 0.3429555594921112
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.5166094303131104,
+          "target_similarity": 0.4211301803588867
+        }
+      }
+    },
+    {
+      "name": "clear_frame0",
+      "threshold": 0.3,
+      "hard": true,
+      "inference_ms": 189.87279999419115,
+      "warm_inference_ms_median": 163.42699999950128,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786272287368774,
+          "target_similarity": 0.3429555594921112
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.5373582243919373,
+          "target_similarity": 0.3591195344924927
+        }
+      }
+    },
+    {
+      "name": "clear_frame0",
+      "threshold": 0.4,
+      "hard": false,
+      "inference_ms": 189.87279999419115,
+      "warm_inference_ms_median": 163.42699999950128,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786272287368774,
+          "target_similarity": 0.3429555594921112
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.5085854530334473,
+          "target_similarity": 0.4294508695602417
+        }
+      }
+    },
+    {
+      "name": "clear_frame0",
+      "threshold": 0.4,
+      "hard": true,
+      "inference_ms": 189.87279999419115,
+      "warm_inference_ms_median": 163.42699999950128,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786272287368774,
+          "target_similarity": 0.3429555594921112
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.5333935618400574,
+          "target_similarity": 0.3717888593673706
+        }
+      }
+    },
+    {
+      "name": "clear_frame0",
+      "threshold": 0.5,
+      "hard": false,
+      "inference_ms": 189.87279999419115,
+      "warm_inference_ms_median": 163.42699999950128,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786272287368774,
+          "target_similarity": 0.3429555594921112
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.49762481451034546,
+          "target_similarity": 0.4380808174610138
+        }
+      }
+    },
+    {
+      "name": "clear_frame0",
+      "threshold": 0.5,
+      "hard": true,
+      "inference_ms": 189.87279999419115,
+      "warm_inference_ms_median": 163.42699999950128,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5786272287368774,
+          "target_similarity": 0.3429555594921112
+        },
+        "candidate": {
+          "identity_accepted": true,
+          "source_similarity": 0.5281144380569458,
+          "target_similarity": 0.38230884075164795
+        }
+      }
+    },
+    {
+      "name": "book_frame150",
+      "threshold": 0.1,
+      "hard": false,
+      "inference_ms": 151.94760000304086,
+      "warm_inference_ms_median": 157.27599999809172,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5273605585098267,
+          "target_similarity": 0.45701754093170166
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.43087145686149597,
+          "target_similarity": 0.644953727722168
+        }
+      },
+      "book_changes": {
+        "baseline": {
+          "mae": 0.578181673243254,
+          "fraction_over8": 0.02786081549683128
+        },
+        "candidate": {
+          "mae": 0.0,
+          "fraction_over8": 0.0
+        }
+      }
+    },
+    {
+      "name": "book_frame150",
+      "threshold": 0.1,
+      "hard": true,
+      "inference_ms": 151.94760000304086,
+      "warm_inference_ms_median": 157.27599999809172,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5273605585098267,
+          "target_similarity": 0.45701754093170166
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.4200783371925354,
+          "target_similarity": 0.5787385702133179
+        }
+      },
+      "book_changes": {
+        "baseline": {
+          "mae": 0.578181673243254,
+          "fraction_over8": 0.02786081549683128
+        },
+        "candidate": {
+          "mae": 0.0,
+          "fraction_over8": 0.0
+        }
+      }
+    },
+    {
+      "name": "book_frame150",
+      "threshold": 0.2,
+      "hard": false,
+      "inference_ms": 151.94760000304086,
+      "warm_inference_ms_median": 157.27599999809172,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5273605585098267,
+          "target_similarity": 0.45701754093170166
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.423768550157547,
+          "target_similarity": 0.6506725549697876
+        }
+      },
+      "book_changes": {
+        "baseline": {
+          "mae": 0.578181673243254,
+          "fraction_over8": 0.02786081549683128
+        },
+        "candidate": {
+          "mae": 0.0,
+          "fraction_over8": 0.0
+        }
+      }
+    },
+    {
+      "name": "book_frame150",
+      "threshold": 0.2,
+      "hard": true,
+      "inference_ms": 151.94760000304086,
+      "warm_inference_ms_median": 157.27599999809172,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5273605585098267,
+          "target_similarity": 0.45701754093170166
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.4343864917755127,
+          "target_similarity": 0.6023035645484924
+        }
+      },
+      "book_changes": {
+        "baseline": {
+          "mae": 0.578181673243254,
+          "fraction_over8": 0.02786081549683128
+        },
+        "candidate": {
+          "mae": 0.0,
+          "fraction_over8": 0.0
+        }
+      }
+    },
+    {
+      "name": "book_frame150",
+      "threshold": 0.3,
+      "hard": false,
+      "inference_ms": 151.94760000304086,
+      "warm_inference_ms_median": 157.27599999809172,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5273605585098267,
+          "target_similarity": 0.45701754093170166
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.41614097356796265,
+          "target_similarity": 0.652793288230896
+        }
+      },
+      "book_changes": {
+        "baseline": {
+          "mae": 0.578181673243254,
+          "fraction_over8": 0.02786081549683128
+        },
+        "candidate": {
+          "mae": 0.0,
+          "fraction_over8": 0.0
+        }
+      }
+    },
+    {
+      "name": "book_frame150",
+      "threshold": 0.3,
+      "hard": true,
+      "inference_ms": 151.94760000304086,
+      "warm_inference_ms_median": 157.27599999809172,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5273605585098267,
+          "target_similarity": 0.45701754093170166
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.43515267968177795,
+          "target_similarity": 0.6009629964828491
+        }
+      },
+      "book_changes": {
+        "baseline": {
+          "mae": 0.578181673243254,
+          "fraction_over8": 0.02786081549683128
+        },
+        "candidate": {
+          "mae": 0.0,
+          "fraction_over8": 0.0
+        }
+      }
+    },
+    {
+      "name": "book_frame150",
+      "threshold": 0.4,
+      "hard": false,
+      "inference_ms": 151.94760000304086,
+      "warm_inference_ms_median": 157.27599999809172,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5273605585098267,
+          "target_similarity": 0.45701754093170166
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.4070662260055542,
+          "target_similarity": 0.6542404294013977
+        }
+      },
+      "book_changes": {
+        "baseline": {
+          "mae": 0.578181673243254,
+          "fraction_over8": 0.02786081549683128
+        },
+        "candidate": {
+          "mae": 0.0,
+          "fraction_over8": 0.0
+        }
+      }
+    },
+    {
+      "name": "book_frame150",
+      "threshold": 0.4,
+      "hard": true,
+      "inference_ms": 151.94760000304086,
+      "warm_inference_ms_median": 157.27599999809172,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5273605585098267,
+          "target_similarity": 0.45701754093170166
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.43856436014175415,
+          "target_similarity": 0.6010952591896057
+        }
+      },
+      "book_changes": {
+        "baseline": {
+          "mae": 0.578181673243254,
+          "fraction_over8": 0.02786081549683128
+        },
+        "candidate": {
+          "mae": 0.0,
+          "fraction_over8": 0.0
+        }
+      }
+    },
+    {
+      "name": "book_frame150",
+      "threshold": 0.5,
+      "hard": false,
+      "inference_ms": 151.94760000304086,
+      "warm_inference_ms_median": 157.27599999809172,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5273605585098267,
+          "target_similarity": 0.45701754093170166
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.3973201513290405,
+          "target_similarity": 0.6563756465911865
+        }
+      },
+      "book_changes": {
+        "baseline": {
+          "mae": 0.578181673243254,
+          "fraction_over8": 0.02786081549683128
+        },
+        "candidate": {
+          "mae": 0.0,
+          "fraction_over8": 0.0
+        }
+      }
+    },
+    {
+      "name": "book_frame150",
+      "threshold": 0.5,
+      "hard": true,
+      "inference_ms": 151.94760000304086,
+      "warm_inference_ms_median": 157.27599999809172,
+      "identity": {
+        "baseline": {
+          "identity_accepted": true,
+          "source_similarity": 0.5273605585098267,
+          "target_similarity": 0.45701754093170166
+        },
+        "candidate": {
+          "identity_accepted": false,
+          "source_similarity": 0.4346999526023865,
+          "target_similarity": 0.6015799641609192
+        }
+      },
+      "book_changes": {
+        "baseline": {
+          "mae": 0.578181673243254,
+          "fraction_over8": 0.02786081549683128
+        },
+        "candidate": {
+          "mae": 0.0,
+          "fraction_over8": 0.0
+        }
+      }
+    }
+  ]
+}

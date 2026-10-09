@@ -9,7 +9,10 @@
     "dev:client": "npm run dev --prefix client",
     "install:all": "npm install && npm install --prefix server && npm install --prefix client",
     "build": "npm run build --prefix client && npm run build --prefix server",
-    "start": "npm start --prefix server"
+    "start": "npm start --prefix server",
+    "test": "npm test --prefix server",
+    "lint": "npm run lint --prefix client && node client/node_modules/oxlint/bin/oxlint server/src --deny-warnings",
+    "typecheck": "npm run typecheck --prefix client && npm run typecheck --prefix server"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
