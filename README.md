@@ -1,213 +1,121 @@
-# DeepTrace 🛡️ — Secure 1-to-1 Video Calling with Attack Simulation
+# DeepTrace — Phase 6G research platform
 
-**Complete research setup:** [GETTING_STARTED.md](GETTING_STARTED.md) covers frontend, backend, Phase 6G, live face swapping, and face/audio anomaly detection. Model downloads have separate [research terms](MODEL_NOTICES.md).
+DeepTrace includes a React frontend, Express/Socket.IO backend, GPU ML service, Phase 6G neural face-swap test panel, live face-swap research backend, and experimental face/audio anomaly detection.
 
-**DeepTrace** is a modern, browser-based, peer-to-peer 1-to-1 video calling application built for hackathon security demonstrations. It features role-based access control and an isolated **Attack Simulator** that enables authorized testers to inject simulated deepfake facial manipulations and synthetic voice transformations directly into outgoing WebRTC streams in real time.
+## Download
 
-The application architecture includes designated integration points for a future multi-modal AI deepfake detection pipeline (Voice + Face + Lip-Sync analysis).
+- **Source code:** [GitHub repository](https://github.com/006shido/Hackathena). Select **Code → Download ZIP**, then extract it; or clone using Git:
 
----
-
-## 🌟 Key Features
-
-- **Real Browser-to-Browser WebRTC**: Full peer-to-peer audio and video streaming using modern WebRTC (`RTCPeerConnection`, `RTCRtpSender.replaceTrack()`), STUN servers, and dynamic stream renegotiation.
-- **Strict Role-Based Security**:
-  - **`USER`**: Normal meeting participant. Can create/join calls, toggle camera/mic, share screen, and view the remote participant. Normal users **cannot** see or trigger any attack simulation controls.
-  - **`TESTER`**: Security evaluation persona. Granted access to the **Attack Simulator** panel to simulate adversarial deepfake attacks for testing security monitoring.
-- **Server-Side Enforcement**: Role validation is enforced on both HTTP sessions and WebSocket connections. Attack telemetry from unauthorized accounts is strictly rejected server-side.
-- **2-Participant Room Limit**: Rooms strictly enforce a maximum of 2 participants per room. Third parties attempting to enter receive `"This room is full."`.
-- **Pre-Call Audio & Video Check**: Live device preview allowing camera/mic verification and hardware toggling before entering active calls.
-- **Controlled Outgoing Media Attacks**:
-  - **Face Simulation**: Offscreen HTML5 Canvas pipeline rendering synthetic facial persona overlays, facial landmark tracking meshes, and neural boundary blending seamlessly converted to outgoing `MediaStreamTrack` via `canvas.captureStream(30)`.
-  - **Voice Transformation**: Web Audio API audio graph (ring modulation, formant frequency shifting, wave-shaper harmonic distortion) transforming microphone input into synthetic/robotic vocoder timbres sent across WebRTC.
-  - **Combined Attack**: Simultaneously triggers face swap and voice transformation with high-visibility audit telemetry.
-  - **Instant Reset**: Restores original camera and microphone media tracks instantly.
-- **Future DeepTrace Detection Interface**: Dedicated "DeepTrace Monitoring" panel illustrating where upcoming AI detection models (Face, Voice, Lip-Sync, and Risk Engine) will ingest media feeds.
-
----
-
-## 🏗️ Architecture
-
-```
-                    ┌─────────────────────────┐
-                    │ DeepTrace Server (5001) │
-                    │ - JWT Authentication    │
-                    │ - Room Manager (Max 2)  │
-                    │ - WebRTC Signaling (WS) │
-                    │ - Tester Role Auditing  │
-                    └───────────┬─────────────┘
-                                │
-               ┌────────────────┴────────────────┐
-               │ Signaling (SDP Offer/Answer/ICE)│
-               ▼                                 ▼
-    ┌───────────────────────┐         ┌───────────────────────┐
-    │  Browser Tab 1 (Host) │◄───────►│ Browser Tab 2 (Peer)  │
-    │  WebRTC Media Stream  │ Direct  │  WebRTC Media Stream  │
-    │  (Camera + Audio)     │ P2P     │  (Camera + Audio)     │
-    └───────────┬───────────┘         └───────────┬───────────┘
-                │                                 │
-    ┌───────────▼───────────┐         ┌───────────▼───────────┐
-    │ TESTER Attack Engine  │         │ DeepTrace Monitoring  │
-    │ - Canvas Face Swap    │         │ Placeholder (Planned) │
-    │ - WebAudio Vocoder    │         │ - Face Anomaly        │
-    │ - replaceTrack()      │         │ - Voice Anomaly       │
-    └───────────────────────┘         │ - Lip-Sync Anomaly    │
-                                      │ - Risk Engine         │
-                                      └───────────────────────┘
+```powershell
+git clone https://github.com/006shido/Hackathena.git
+cd Hackathena
 ```
 
----
+- **Model weights:** [research-v1.0.0 release](https://github.com/006shido/Hackathena/releases/tag/research-v1.0.0). The setup below downloads all seven required files automatically and verifies their SHA-256 checksums. Model downloads total approximately 1.7 GiB.
 
-## 🔑 Demo Credentials
+If you downloaded the source ZIP, open PowerShell inside the extracted folder containing `package.json` instead of running the clone commands.
 
-| Role | Username | Password | Capabilities |
-| :--- | :--- | :--- | :--- |
-| **USER** | `user` | `user123` | Normal 1-to-1 video calling. No attack controls. |
-| **TESTER** | `tester` | `tester123` | Video calling + In-Call **Attack Simulator** panel. |
+## Requirements
 
-*Tip: The login screen contains 1-click buttons to auto-populate either account instantly.*
+The tested full-stack setup uses:
 
----
+- Windows and PowerShell.
+- Python **3.12**, with the Windows `py` launcher.
+- Node.js **24** and npm, available on PATH.
+- An NVIDIA GPU and a driver supporting **CUDA 12.8**. The release was tested on an RTX 5060 Laptop GPU; other GPU configurations have not been validated.
+- Internet access for dependency and model downloads.
 
-## 🚀 Quick Start & Installation
+The full ML stack requires CUDA. Other operating systems and CPU-only execution are not validated. The Dockerfile covers the web application, not the GPU ML stack.
 
-### Prerequisites
-- **Node.js** (v18.0.0 or higher, tested on v24)
-- **npm** (v9.0.0 or higher)
+## Install once
 
-### 1. Install Dependencies
-Run the installation command from the repository root:
+Read [MODEL_NOTICES.md](MODEL_NOTICES.md). These model assets are for **noncommercial research**, with separate upstream terms.
 
-```bash
-npm run install:all
+From the repository root:
+
+```powershell
+./ml/scripts/Setup-Research.ps1 -AcceptResearchTerms
 ```
 
-Or install separately:
-```bash
-npm install
-npm install --prefix server
-npm install --prefix client
+Setup creates the Python environment, installs CUDA PyTorch and runtime dependencies, downloads and verifies models, installs frontend/backend dependencies, builds the application, and checks GPU availability. Keep PowerShell open until it completes.
+
+## Start the complete platform
+
+```powershell
+./ml/scripts/Start-ResearchPreview.ps1 -EnableMediaDetection -EnableWebRTCVideo
 ```
 
-### 2. Start the Application
-Run both the signaling server and the Vite React frontend concurrently with a single command:
+Wait for `Research preview ready`, then open:
 
-```bash
-npm run dev
+| Service | Address |
+|---|---|
+| Frontend | http://127.0.0.1:5173/ |
+| Phase 6G neural test | http://127.0.0.1:5173/?test=phase6g |
+| Backend and ML health proxy | http://127.0.0.1:5001/api/ml/health |
+| Private GPU ML health | http://127.0.0.1:8001/health |
+
+Keep the launcher running. Press **Ctrl+C** in that terminal to stop the services it started. For later sessions, run the start command again; setup is only needed once unless dependencies or release assets change.
+
+## Test Phase 6G with photos
+
+1. Open the Phase 6G neural test address above.
+2. Upload a source face photo and a target face photo you have permission to use.
+3. Run inference and inspect the result and measurements.
+
+The source supplies the identity to transfer; the target supplies the destination face/image. Phase 6G image inference uses the trained full-resolution checkpoint. Live video uses the configured research reference backend.
+
+The three CelebA preset pairs are optional. Their images are not included in the repository or release. Obtain them separately under the dataset's terms and place these files in `ml/data/celeba/img_align_celeba/`:
+
+```text
+004831.jpg  004865.jpg
+004931.jpg  004842.jpg
+004893.jpg  004925.jpg
 ```
 
-The services will start at:
-- **Signaling Server**: `http://localhost:5001`
-- **Frontend Client**: `http://localhost:5173`
+You do not need the full training dataset to upload your own photos or run ordinary inference.
 
----
+## Try live face swapping and anomaly detection
 
-## 🧪 Demonstration Walkthrough (Step-by-Step)
+1. Open the frontend in two separate browser profiles, so each has an independent login session.
+2. Select **Regular User Demo** in one profile and **Tester Attack Simulator** in the other.
+3. Create a room and use the same room code in the other profile.
+4. Allow camera/microphone access, check the device preview, and join the call.
+5. In the tester profile, open the **AI Face Swap & Attack Simulator** panel and choose a source face using its controls.
+6. In the receiving profile, open **Security Monitor & Visualizer** to inspect received-media analysis.
 
-To reproduce the exact hackathon presentation flow:
+The start flags enable face/audio detection and neural WebRTC processing. Model scores are experimental and are not proof that media is real or fake. Reported tester controls are separate from independent received-media measurements.
 
-1. **Step 1: Tester Login**
-   - Open your browser to `http://localhost:5173`.
-   - Click the **TESTER** demo account button (or type `tester` / `tester123`).
-   - Click **Login**. You will land on the **Tester Dashboard** showing the `TESTER MODE` security card.
+For calls between devices or networks, follow [EVENING_DEMO.md](ml/scripts/EVENING_DEMO.md). HTTPS and an appropriate TURN relay may be required. Keep the Python ML service private.
 
-2. **Step 2: Create Test Call**
-   - Click **Create Test Call**.
-   - Review your camera and microphone in the **Audio & Video Check** preview.
-   - Click **Join Call**.
-   - Note the generated Room ID displayed in the top header (e.g. `ABC-123`). Click the copy icon to copy it.
+## Verify the installation
 
-3. **Step 3: User Login (Second Window)**
-   - Open a second browser window (or Incognito tab) to `http://localhost:5173`.
-   - Click the **USER** demo account button (or type `user` / `user123`).
-   - Click **Login**. You will land on the **User Dashboard** with standard calling options.
-
-4. **Step 4: User Joins Call**
-   - Paste the Tester's Room ID into the **Join Call** input and click **Join Room**.
-   - Review device preview and click **Join Call**.
-
-5. **Step 5: Active WebRTC Communication**
-   - Both participants are now connected via WebRTC!
-   - Remote video and audio stream between the two tabs.
-   - Verify that the normal `user` does **NOT** see an Attack Simulator panel.
-
-6. **Step 6: Tester Activates Attack Simulation**
-   - On the **Tester's** screen, click **Attack Simulator** (or view the right drawer).
-   - Click **Face + Voice Attack** (or toggle individual effects).
-   - Tester sees: `SIMULATED DEEPFAKE ATTACK ACTIVE` with live watermark.
-   - Look at the **User's screen**:
-     - The user immediately sees the tester's face transformed with the synthetic persona avatar mask!
-     - The user hears the tester's voice transformed into a robotic synthetic vocoder!
-     - This stream modification is executed via `RTCRtpSender.replaceTrack()`.
-
-7. **Step 7: Reset & Restore**
-   - On the Tester's screen, click **Reset Attack**.
-   - Outgoing video and audio seamlessly revert back to the original camera and microphone feeds.
-
----
-
-## 🔒 Security Model & Validation
-
-DeepTrace enforces role separation across multiple layers:
-
-1. **Client-Side Rendering Guard**: Attack simulation components and control buttons are conditionally rendered only when `user.role === 'tester'`.
-2. **Session Verification**: The backend issues signed JWT tokens containing the authenticated user's role.
-3. **Socket Handshake Auth**: The Socket.IO signaling connection inspects and decodes the JWT token on connection.
-4. **Server-Side Event Filtering**: When an `attack-simulation-update` event is dispatched, the server checks `socket.data.user.role === 'tester'`. If a non-tester emits this event, it is immediately rejected with:
-   ```
-   Security Policy Violation: Only authenticated TESTER accounts are authorized to execute attack simulations.
-   ```
-5. **Strict Capacity Limit**: The signaling room manager limits rooms to exactly 2 participants. Additional connection attempts receive `"This room is full."`.
-
----
-
-## 🔮 Future DeepTrace Detection Architecture
-
-In Phase 2, the `SecurityPanel` will integrate with the DeepTrace real-time analysis pipeline:
-
-```
-WebRTC Media (Audio + Video)
-      │
-      ▼
-Audio & Video Frame Capture
-      │
-      ├───────────────────────────────┬───────────────────────────────┐
-      ▼                               ▼                               ▼
-Voice Analysis Engine           Face Analysis Engine            Lip-Sync Engine
-(Spectral flux, vocoder         (Biometric landmark jitter,     (Phoneme-viseme temporal
-harmonic artifact detection)    neural boundary blending)       audio-visual correlation)
-      │                               │                               │
-      └───────────────────────────────┼───────────────────────────────┘
-                                      ▼
-                             DeepTrace Risk Engine
-                        (Aggregated Confidence Score)
-                                      ▼
-                          DeepTrace Monitoring UI
-                       (Real-Time Risk Alerts & HUD)
+```powershell
+./.venv/Scripts/python.exe ml/scripts/download_models.py --verify-only
+npm run lint
+npm run typecheck
+npm test
+npm run build
 ```
 
-The placeholder `SecurityPanel` component is already integrated with incoming stream telemetry hooks to display real-time analysis once the detection model inference worker is attached.
+With the platform running and the six original CelebA preset images installed, run the exact three-pair neural integration suite:
 
----
-
-## 🛠️ Verification & Test Suite
-
-Run the automated integration test suite to verify authentication, role enforcement, room limits, and WebRTC signaling:
-
-```bash
-node test_runner.mjs
+```powershell
+npm run test:ml --prefix server
 ```
 
-**Verified Test Cases:**
-- ✓ Tester Login & Role Validation
-- ✓ User Login & Role Validation
-- ✓ Tester Socket.IO connection & Room Creation
-- ✓ User Socket.IO connection & Peer-to-Peer Joining
-- ✓ WebRTC SDP Offer & Answer Signaling Exchange
-- ✓ Tester Attack Simulation Activation (`combined` mode)
-- ✓ Server-Side Rejection of Unauthorized User Attack Simulations
-- ✓ Rejection of 3rd Participant with `"This room is full."`
-- ✓ Participant Disconnect & Room Cleanup
-# Research release setup
+See [RELEASE_VALIDATION.md](RELEASE_VALIDATION.md) for the checks performed and their limits.
 
-For the complete frontend/backend/Phase 6G/live face-swap/anomaly-detection stack, follow [GETTING_STARTED.md](GETTING_STARTED.md). Downloaded models have separate [research restrictions and notices](MODEL_NOTICES.md).
+## Troubleshooting
+
+- **Python or npm not found:** install the required versions and reopen PowerShell; check that `py -3.12 --version`, `node --version`, and `npm --version` work.
+- **CUDA unavailable:** check the NVIDIA driver and GPU support. Setup reports a failure rather than silently switching this full stack to CPU.
+- **Model missing or checksum mismatch:** run the downloader again. Existing files with mismatched checksums are left untouched; inspect them before replacing them with the matching release assets.
+- **Port already in use:** the launcher preserves existing services and stops startup. Use the existing running platform or stop the process you started on ports 5173, 5001, or 8001.
+- **Preset photos unavailable:** upload your own permitted photos or install the six separately obtained fixtures listed above.
+- **First inference is slow:** model loading and GPU warmup happen during startup; wait for the ready message.
+
+## Research scope and deployment
+
+GitHub hosts the code and downloads; users run this platform on their own compatible computer. Installed environments, datasets, training outputs, credentials, and model weights are excluded from ordinary Git commits. Runtime models are distributed separately through the release.
+
+Review [MODEL_NOTICES.md](MODEL_NOTICES.md) for model restrictions and attribution, [GETTING_STARTED.md](GETTING_STARTED.md) for additional setup notes, and [PRODUCTION_CLEANUP_REPORT.md](PRODUCTION_CLEANUP_REPORT.md) before considering an internet deployment. The demo's account management, persistence, public test endpoints, and experimental detector accuracy still require production review.
