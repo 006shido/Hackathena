@@ -3,6 +3,7 @@ param(
     [switch]$EnableTracking,
     [switch]$EnableMediaDetection,
     [switch]$EnableWebRTCVideo,
+    [ValidateSet('trained-model','research-reference')][string]$VideoBackend = 'trained-model',
     [switch]$ForwardedDemo,
     [switch]$SimpleDemoPasswords,
     [ValidateRange(1024,65535)][int]$AppPort = 5001,
@@ -20,6 +21,7 @@ $assets = @{
     'ml/models/weights/ms1mv2_iresnet50.pth' = '2B75B93C48B01C78A4263F7295AB2DBF84F85190C51BE45B92C4C0B0AEDCEAA3'
 }
 foreach ($entry in $assets.GetEnumerator()) {
+    if ($VideoBackend -eq 'trained-model' -and $entry.Key -like '*reference_backend/assets/*') { continue }
     $assetPath = Join-Path $researchRoot $entry.Key
     if ((Get-FileHash -LiteralPath $assetPath -Algorithm SHA256).Hash -ne $entry.Value) { throw "Asset verification failed: $($entry.Key)" }
 }
@@ -40,7 +42,7 @@ $configuration = @{
     PYTHONPATH = $(if ($EnableWebRTCVideo) { (Join-Path $researchRoot 'ml/runtime_webrtc') + ';' + (Join-Path $researchRoot '.venv/Lib/site-packages') } else { Join-Path $researchRoot '.venv/Lib/site-packages' })
     ML_ENABLE_WEBRTC_VIDEO = $(if ($EnableWebRTCVideo) { '1' } else { '0' })
     VITE_ENABLE_WEBRTC_VIDEO = $(if ($EnableWebRTCVideo) { 'true' } else { 'false' })
-    ML_ENABLE_VIDEO_PREVIEW = '1'; ML_VIDEO_BACKEND = 'research-reference'
+    ML_ENABLE_VIDEO_PREVIEW = '1'; ML_VIDEO_BACKEND = $VideoBackend
     ML_ENABLE_MEDIA_DETECTION = $(if ($EnableMediaDetection) { '1' } else { '0' })
     VITE_ENABLE_MEDIA_DETECTION = $(if ($EnableMediaDetection) { 'true' } else { 'false' })
     ML_VIDEO_TRACKING = $(if ($EnableTracking) { '1' } else { '0' })
@@ -104,7 +106,7 @@ try {
         try {
             $health = Invoke-RestMethod "http://127.0.0.1:$MlPort/health" -TimeoutSec 2
             $client = Invoke-WebRequest $previewUrl -TimeoutSec 2
-            if ($health.ready -and $health.video_backend -eq 'research-reference' -and $health.video_preview_enabled -and $client.StatusCode -eq 200) { $ready = $true; break }
+            if ($health.ready -and $health.video_backend -eq $VideoBackend -and $health.video_preview_enabled -and $client.StatusCode -eq 200) { $ready = $true; break }
         } catch { }
         Start-Sleep -Milliseconds 500
     }

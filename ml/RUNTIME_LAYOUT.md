@@ -11,7 +11,7 @@ The current launcher is `scripts/Start-ResearchPreview.ps1 -EnableMediaDetection
 - `training/face_preprocessing.py` and `training/robust_correspondence.py`: shared preprocessing/correspondence still used during inference despite their directory name.
 - `experiments/phase6g_1_fullres_skip/model_phase6g1.py`: architecture of the currently selected full-resolution model.
 - `experiments/phase6g_3_full_dataset/run/best_model.pt`: active Phase 6G checkpoint selected by the launcher.
-- `experiments/reference_backend/`: active research video backend and its assets.
+- `experiments/reference_backend/`: optional pretrained video backend and its assets, selected with `-VideoBackend research-reference`; the default live backend uses the Phase 6G checkpoint.
 - `detection/`: received-face/audio detector implementations and weights.
 - `runtime_webrtc/`: installed WebRTC runtime used by the launcher.
 - Retained CelebA images: UI test pairs and startup warmup inputs.

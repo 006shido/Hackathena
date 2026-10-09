@@ -115,10 +115,11 @@ async def lifespan(app: FastAPI):
             engine.infer(str(dummy_s), str(dummy_t), output_dir=td, pair_prefix="warmup")
         print(f"[Phase 6G API] Engine warmup complete in {time.time() - t_warmup:.2f}s.", flush=True)
 
+    # Preserve measured FP32 behavior regardless of which live backend is selected.
+    torch.backends.cuda.matmul.allow_tf32 = False
+    torch.backends.cudnn.allow_tf32 = False
     if os.environ.get('ML_ENABLE_VIDEO_PREVIEW')=='1' and os.environ.get('ML_VIDEO_BACKEND')=='research-reference':
         from ml.experiments.reference_backend.opencv_reference import OpenCVReference
-        torch.backends.cuda.matmul.allow_tf32=False
-        torch.backends.cudnn.allow_tf32=False
         print('[Video preview] Loading and warming the research backend before readiness...',flush=True)
         reference=OpenCVReference(gpu=True)
         reference.warmup()

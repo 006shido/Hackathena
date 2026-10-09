@@ -17,6 +17,8 @@ Upload two permitted face photos in the neural test panel. The three CelebA pres
 
 For a live call, log in as tester/user in separate browser profiles, join the same room, permit camera/microphone access, and select a source face in the tester's face panel. Independent face/audio analysis is displayed to the receiver when enabled. Scores are experimental and do not prove authenticity.
 
+Live swapping now uses your trained Phase 6G checkpoint by default (`video_backend: trained-model` in ML health). The separate pretrained InsightFace option remains available with `-VideoBackend research-reference`. See [live validation](PHASE6G_LIVE_VALIDATION.md) for measured performance and limitations.
+
 Verify models and application checks:
 
 ```powershell

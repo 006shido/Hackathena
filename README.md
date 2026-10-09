@@ -62,7 +62,7 @@ Keep the launcher running. Press **Ctrl+C** in that terminal to stop the service
 2. Upload a source face photo and a target face photo you have permission to use.
 3. Run inference and inspect the result and measurements.
 
-The source supplies the identity to transfer; the target supplies the destination face/image. Phase 6G image inference uses the trained full-resolution checkpoint. Live video uses the configured research reference backend.
+The source supplies the identity to transfer; the target supplies the destination face/image. Phase 6G image inference and live video both use the trained full-resolution checkpoint by default. The live pipeline caches source identity, processes each camera frame, and blends the generated face into that frame. To select the separate pretrained InsightFace backend, launch with `-VideoBackend research-reference`.
 
 The three CelebA preset pairs are optional. Their images are not included in the repository or release. Obtain them separately under the dataset's terms and place these files in `ml/data/celeba/img_align_celeba/`:
 

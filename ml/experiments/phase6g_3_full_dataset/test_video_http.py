@@ -13,8 +13,8 @@ def main():
     parser.add_argument('--backend',choices=['trained-model','research-reference'],default='trained-model')
     parser.add_argument('--output',type=Path,default=Path(__file__).parent/'video_http_test')
     args=parser.parse_args()
-    source=ROOT/'ml/data/celeba/img_align_celeba/197935.jpg'
-    target=ROOT/'ml/data/celeba/img_align_celeba/098180.jpg'
+    source=ROOT/'ml/data/celeba/img_align_celeba/004831.jpg'
+    target=ROOT/'ml/data/celeba/img_align_celeba/004865.jpg'
     health=requests.get(args.url+'/health',timeout=10)
     assert health.status_code==200
     assert health.json()['model']=='fullres'
